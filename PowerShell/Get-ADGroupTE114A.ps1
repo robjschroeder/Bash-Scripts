@@ -1,0 +1,1 @@
+﻿get-adgroup -Identity TE114A*
