@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mac_application>
+    <general>
+        <id>5</id>
+        <name>Memory Clean 2: Free Up Memory</name>
+        <version>0</version>
+        <is_free>true</is_free>
+        <bundle_id>com.fiplab.memoryclean2</bundle_id>
+        <url>https://itunes.apple.com/us/app/memory-clean-2-free-up-memory/id1114591412?mt=12</url>
+        <category>
+            <id>5</id>
+            <name>Utilities</name>
+        </category>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <deployment_type>Make Available in Self Service</deployment_type>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups></mobile_device_groups>
+        <computers></computers>
+        <computer_groups></computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+        </limitations>
+        <exclusions>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <computers></computers>
+            <computer_groups></computer_groups>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <install_button_text>Install</install_button_text>
+    </self_service>
+    <vpp_codes></vpp_codes>
+    <vpp>
+        <assign_vpp_device_based_licenses>true</assign_vpp_device_based_licenses>
+        <vpp_admin_account_id>1</vpp_admin_account_id>
+        <total_vpp_licenses>50</total_vpp_licenses>
+        <remaining_vpp_licenses>50</remaining_vpp_licenses>
+        <used_vpp_licenses>0</used_vpp_licenses>
+    </vpp>
+</mac_application>

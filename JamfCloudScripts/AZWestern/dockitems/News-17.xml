@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dock_item>
+    <id>17</id>
+    <name>News</name>
+    <type>App</type>
+    <path>file:///System/Applications/News.app/</path>
+    <contents>&lt;dict&gt;&lt;key&gt;GUID&lt;/key&gt;&lt;integer&gt;-91117049&lt;/integer&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;file:///System/Applications/News.app/&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;15&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;News&lt;/string&gt;&lt;/dict&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;/dict&gt;</contents>
+</dock_item>

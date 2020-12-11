@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<directory_binding>
+    <id>1</id>
+    <name>Directory Bind - ADROOT</name>
+    <priority>1</priority>
+    <domain>adroot.azwestern.edu</domain>
+    <username>Kinstallu-00</username>
+    <password_sha256 since="9.23">9513ab19a3d801ccc65b3261de79a32e03d5a12c61fa4d9733ffdcb19f2e9ea7</password_sha256>
+    <computer_ou>OU=MoveMe,OU=Robert,OU=Test,OU=TANS,OU=AWC,DC=adroot,DC=azwestern,DC=edu</computer_ou>
+    <type>Active Directory</type>
+    <active_directory>
+        <forest></forest>
+        <cache_last_user>false</cache_last_user>
+        <require_confirmation>false</require_confirmation>
+        <local_home>true</local_home>
+        <use_unc_path>true</use_unc_path>
+        <mount_style>smb</mount_style>
+        <default_shell>/bin/bash</default_shell>
+        <uid></uid>
+        <user_gid></user_gid>
+        <gid></gid>
+        <multiple_domains>true</multiple_domains>
+        <preferred_domain></preferred_domain>
+        <admin_groups></admin_groups>
+    </active_directory>
+</directory_binding>

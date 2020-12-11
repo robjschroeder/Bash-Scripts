@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<account>
+    <id>7</id>
+    <name>bjp</name>
+    <directory_user>true</directory_user>
+    <full_name>Brad J Pease</full_name>
+    <email>Brad.Pease@azwestern.edu</email>
+    <email_address>Brad.Pease@azwestern.edu</email_address>
+    <password_sha256 since="9.32">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</password_sha256>
+    <enabled>Enabled</enabled>
+    <ldap_server>
+        <id>1</id>
+        <name>ns-dc-fsmo-2016.adroot.azwestern.edu</name>
+    </ldap_server>
+    <access_level>Full Access</access_level>
+    <privilege_set>Custom</privilege_set>
+    <privileges>
+        <jss_objects></jss_objects>
+        <jss_settings></jss_settings>
+        <jss_actions></jss_actions>
+        <recon></recon>
+        <casper_admin></casper_admin>
+        <casper_remote>
+            <privilege>Use Casper Remote</privilege>
+            <privilege>Screen Share with Remote Computers</privilege>
+        </casper_remote>
+        <casper_imaging></casper_imaging>
+    </privileges>
+</account>
