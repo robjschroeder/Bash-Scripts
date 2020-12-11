@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>11</id>
+    <name>Umbrella Client Status</name>
+    <enabled>true</enabled>
+    <description></description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
+
+
+if [ -f "/Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist" ]; then
+
+
+ps auwwx | egrep "dnscrypt|RoamingClientMenubar|dns-updater" | grep -vq egrep;
+    if [[ 0 == $? ]]; then
+        echo "&lt;result&gt;Enabled&lt;/result&gt;"
+    else
+echo "&lt;result&gt;Disabled&lt;/result&gt;"
+ fi
+
+
+
+else
+echo "&lt;result&gt;Not Installed&lt;/result&gt;"
+fi</script>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

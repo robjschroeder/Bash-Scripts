@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>7</id>
+    <name>Active Network Interface</name>
+    <enabled>true</enabled>
+    <description></description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
+ref=$(/usr/bin/sw_vers -productVersion | awk '{print substr($1,4,2)}')
+case $ref in
+[0-4] ) ntwkset="/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Support/networksetup -listnetworkserviceorder"
+        ;;
+     *) ntwkset="networksetup -listnetworkserviceorder"
+        ;;
+esac
+
+ifconfigoutput='
+BEGIN            { print_it = 0 }
+/status: active/ { print_it = 1 }
+/^($|[^\t])/     { if(print_it) print buffer; buffer = $0; print_it = 0 }
+/^\t/            { buffer = buffer "\n" $0 }
+END              { if(print_it) print buffer }
+'
+
+ntwkint=($(ifconfig -u | awk "$ifconfigoutput" | awk '/flags/{print substr($1,1,3)}'))
+/bin/echo -n $"&lt;result&gt;"
+for x in "${ntwkint[@]}"
+do
+	echo `$ntwkset | grep "$x" | sed -e 's/[)(]//g;s/,//g;s/.*Port: //g;s/Device:\ //g'`
+done
+echo "&lt;/result&gt;"</script>
+    </input_type>
+    <input_type>
+        <type>script</type>
+        <platform>Windows</platform>
+        <scripting_language>VBScript</scripting_language>
+        <script>On Error Resume Next
+strComputer = "." 
+Set objWMIService = GetObject("winmgmts:\\" &amp; strComputer &amp; "\root\CIMV2") 
+Set colItems = objWMIService.ExecQuery("SELECT * FROM Win32_NetworkAdapterConfiguration",,48) 
+intmetric = 999    
+For Each objItem in colItems 
+    If objitem.ipenabled = True then
+    If objItem.IPConnectionMetric &lt; intmetric then
+    stractiveconnection = objItem.description
+    intmetric = objItem.IPConnectionMetric
+    End If
+    End If 
+Next
+WScript.Echo "&lt;result&gt;" &amp; stractiveconnection &amp; "&lt;/result&gt;"</script>
+    </input_type>
+    <inventory_display>General</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

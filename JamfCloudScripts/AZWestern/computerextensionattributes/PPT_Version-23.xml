@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>23</id>
+    <name>PPT_Version</name>
+    <enabled>true</enabled>
+    <description>Reports the installed version of Microsoft PowerPoint for Mac</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/sh
+if [ -d /Applications/Microsoft\ PowerPoint.app ]; then
+    AppVersion=`/usr/bin/defaults read /Applications/Microsoft\ PowerPoint.app/Contents/Info.plist CFBundleShortVersionString`
+    echo "&lt;result&gt;$AppVersion&lt;/result&gt;"
+else
+    echo "&lt;result&gt;Not installed&lt;/result&gt;"
+fi
+
+exit 0</script>
+    </input_type>
+    <inventory_display>General</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

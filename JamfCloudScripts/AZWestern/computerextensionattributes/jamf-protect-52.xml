@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>52</id>
+    <name>jamf-protect</name>
+    <enabled>true</enabled>
+    <description>Extension Attribute provided by JAMF Nation patch service</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
+##############################################################################
+# A script to collect the version of Jamf Protect installed.                 #
+# If Jamf Protect is not installed "Not Installed" will return back   	     #
+##############################################################################
+
+NOT_INSTALLED="Not Installed"
+RESULT=""
+
+if [ -a /Library/Application\ Support/JamfProtect/JamfProtect.app/Contents/Info.plist ]
+  then
+    RESULT=$( /usr/bin/defaults read /Library/Application\ Support/JamfProtect/JamfProtect.app/Contents/Info.plist CFBundleShortVersionString )
+else
+    RESULT="$NOT_INSTALLED"
+fi
+/bin/echo "&lt;result&gt;$RESULT&lt;/result&gt;"</script>
+    </input_type>
+    <inventory_display>General</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

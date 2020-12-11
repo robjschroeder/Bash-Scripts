@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>19</id>
+    <name>ARD Field 2</name>
+    <enabled>true</enabled>
+    <description>This attribute returns the ARD Computer Info field #2 from the Computer Information attributes in the Apple Remote Desktop settings of a machine.</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/sh
+if [ -f "/Library/Preferences/com.apple.RemoteDesktop.plist" ]; then
+echo "&lt;result&gt;`/usr/bin/defaults read /Library/Preferences/com.apple.RemoteDesktop Text2`&lt;/result&gt;"
+fi</script>
+    </input_type>
+    <inventory_display>General</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>56</id>
+    <name>Jamf Protect - Last Check-in</name>
+    <enabled>true</enabled>
+    <description>Displays the date and time of the last agent check-in for Jamf Protect</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/sh
+
+#Jamf Protect Location
+jamfProtectBinaryLocation="/usr/local/bin/protectctl"
+
+if [ -f "$jamfProtectBinaryLocation" ]; then
+    jamfProtectLastCheckin=$("$jamfProtectBinaryLocation" info | sed -n '4 p' |  awk -F 'Last Check-in:' '{print $2}' | xargs)
+else
+	jamfProtectLastCheckin="Does not exist"
+fi
+
+echo "jamfProtectLastCheckin"
+echo "&lt;result&gt;$jamfProtectLastCheckin&lt;/result&gt;"</script>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

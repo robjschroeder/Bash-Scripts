@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>53</id>
+    <name>Jamf Protect Installed</name>
+    <enabled>true</enabled>
+    <description>This Jamf Pro Extension Attribute checks to see if Jamf Protect is installed and executable.
+
+If Jamf Protect is installed:
+
+/Library/Application Support/JamfProtect/JamfProtect.app will be present.
+
+If Jamf Protect is not installed::
+
+/Library/Application Support/JamfProtect/JamfProtect.app will not be found.
+
+If Jamf Protect is installed, the following message is displayed:
+
+1
+
+Otherwise, the following result is returned:
+
+0</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/bash
+
+# Jamf Pro Extension Attribute which checks to see if Jamf Protect is installed and executable. 
+#
+# If Jamf Protect is installed:
+#
+# /Library/Application Support/JamfProtect/JamfProtect.app will be present.
+#
+# If Jamf Protect is not installed:
+#
+# /Library/Application Support/JamfProtect/JamfProtect.app will not be found
+#
+#
+# If Jamf Protect is installed, the following message is displayed:
+#
+# 1
+#
+# Otherwise, the following result is returned:
+#
+# 0
+
+JAMF_PROTECT="/Library/Application Support/JamfProtect/JamfProtect.app"
+
+if [[ -x "$JAMF_PROTECT" ]]; then
+	echo "&lt;result&gt;1&lt;/result&gt;"
+else
+	echo "&lt;result&gt;0&lt;/result&gt;"
+fi
+
+exit 0</script>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
