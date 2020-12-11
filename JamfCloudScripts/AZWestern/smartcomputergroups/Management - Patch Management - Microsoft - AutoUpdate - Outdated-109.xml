@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>109</id>
+    <name>Management - Patch Management - Microsoft - AutoUpdate - Outdated</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Patch Reporting: Microsoft AutoUpdate</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>4.28.20101102</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>5</size>
+        <computer>
+            <id>32</id>
+            <name>LR-080-302-LW</name>
+            <mac_address>7C:D1:C3:F2:FD:A9</mac_address>
+            <alt_mac_address>82:0D:69:38:4A:80</alt_mac_address>
+            <serial_number>C02J8BVXDRVC</serial_number>
+        </computer>
+        <computer>
+            <id>124</id>
+            <name>BA-HubTV-DM</name>
+            <mac_address>F0:18:98:E8:9C:00</mac_address>
+            <alt_mac_address>38:F9:D3:21:36:56</alt_mac_address>
+            <serial_number>C07Y707NJYVX</serial_number>
+        </computer>
+        <computer>
+            <id>178</id>
+            <name>AWCY21047</name>
+            <mac_address>78:7B:8A:B6:28:BC</mac_address>
+            <alt_mac_address>A8:BE:27:C0:A7:82</alt_mac_address>
+            <serial_number>C02VG0ATJ1GC</serial_number>
+        </computer>
+        <computer>
+            <id>179</id>
+            <name>AWCY21100</name>
+            <mac_address>78:7B:8A:B6:2B:AB</mac_address>
+            <alt_mac_address>A8:BE:27:C0:47:E8</alt_mac_address>
+            <serial_number>C02VG046J1GC</serial_number>
+        </computer>
+        <computer>
+            <id>181</id>
+            <name>AWCY21046</name>
+            <mac_address>78:7B:8A:B6:29:74</mac_address>
+            <alt_mac_address>A8:BE:27:C0:A7:9C</alt_mac_address>
+            <serial_number>C02VG09ZJ1GC</serial_number>
+        </computer>
+    </computers>
+</computer_group>

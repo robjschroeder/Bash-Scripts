@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>8</id>
+    <name>Management - Patch Management - Zoom - Cloud Meetings - Outdated</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Patch Reporting: zoom.us</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>5.4.1 (58698.1027)</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>7</size>
+        <computer>
+            <id>136</id>
+            <name>CIE-113-LM</name>
+            <mac_address>60:30:D4:6A:22:42</mac_address>
+            <alt_mac_address>9A:00:15:D7:E5:10</alt_mac_address>
+            <serial_number>FVFWWPNYJ1WK</serial_number>
+        </computer>
+        <computer>
+            <id>142</id>
+            <name>BA-TVTRUCK-DIR</name>
+            <mac_address>80:E6:50:20:01:3C</mac_address>
+            <alt_mac_address>82:0F:16:7B:3B:80</alt_mac_address>
+            <serial_number>C02N9CN7G3QH</serial_number>
+        </computer>
+        <computer>
+            <id>150</id>
+            <name>TE-114A-03-DM</name>
+            <mac_address>00:3E:E1:BF:4C:9D</mac_address>
+            <alt_mac_address>18:AF:61:B8:95:CA</alt_mac_address>
+            <serial_number>F5KMC06NF9VN</serial_number>
+        </computer>
+        <computer>
+            <id>158</id>
+            <name>PSI-106-LM</name>
+            <mac_address>9C:F3:87:BC:D6:AA</mac_address>
+            <alt_mac_address>82:0D:66:E6:80:00</alt_mac_address>
+            <serial_number>C02NP0PMG5RL</serial_number>
+        </computer>
+        <computer>
+            <id>159</id>
+            <name>LR-080-501-DM</name>
+            <mac_address>40:6C:8F:2B:4D:6D</mac_address>
+            <alt_mac_address>7C:C3:A1:B3:98:AD</alt_mac_address>
+            <serial_number>D25J31JVDHJW</serial_number>
+        </computer>
+        <computer>
+            <id>170</id>
+            <name>AWCC10300</name>
+            <mac_address>D0:81:7A:D9:6A:CD</mac_address>
+            <alt_mac_address>38:F9:D3:39:C7:10</alt_mac_address>
+            <serial_number>C02Y50XHHX8F</serial_number>
+        </computer>
+        <computer>
+            <id>181</id>
+            <name>AWCY21046</name>
+            <mac_address>78:7B:8A:B6:29:74</mac_address>
+            <alt_mac_address>A8:BE:27:C0:A7:9C</alt_mac_address>
+            <serial_number>C02VG09ZJ1GC</serial_number>
+        </computer>
+    </computers>
+</computer_group>
