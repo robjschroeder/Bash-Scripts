@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><extensionAttribute>
+<displayName>Get Timezone</displayName>
+<description/>
+<dataType>string</dataType>
+<scriptContentsMac>#!/bin/sh&#13;
+time=`systemsetup -gettimezone`&#13;
+timezone=`echo $time | cut -b 12-`&#13;
+echo "&lt;result&gt;$timezone&lt;/result&gt;"</scriptContentsMac>
+</extensionAttribute>
