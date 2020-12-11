@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>10</id>
+    <name>975Mono</name>
+    <category>Printers</category>
+    <uri>socket://10.217.1.9:8002/</uri>
+    <CUPS_name>_975Mono</CUPS_name>
+    <location></location>
+    <model>Presstek RIP</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

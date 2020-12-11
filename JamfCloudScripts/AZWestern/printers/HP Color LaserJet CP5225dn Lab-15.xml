@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>15</id>
+    <name>HP Color LaserJet CP5225dn Lab</name>
+    <category>Printers</category>
+    <uri>lpd://10.211.11.100/</uri>
+    <CUPS_name>_10_211_11_100_3</CUPS_name>
+    <location>HP Color LaserJet CP5225dn</location>
+    <model>HP Color LaserJet CP5220 Series with Duplexer</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>24</id>
+    <name>10.217.12.230 2</name>
+    <category>Printers</category>
+    <uri>lpd://10.217.12.230/</uri>
+    <CUPS_name>_10_217_12_230_2</CUPS_name>
+    <location>HP Color LaserJet CP5225dn</location>
+    <model>Generic PCL Laser Printer</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

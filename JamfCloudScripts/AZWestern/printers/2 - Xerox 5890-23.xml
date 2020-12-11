@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>23</id>
+    <name>2 - Xerox 5890</name>
+    <category>Printers</category>
+    <uri>dnssd://Xerox%20WorkCentre%205890%20(9C%3A93%3A4E%3A1C%3A0B%3AC2)._printer._tcp.local./</uri>
+    <CUPS_name>XRX9C934E1C0BC2_local_</CUPS_name>
+    <location></location>
+    <model>Xerox WorkCentre 5890, 3.64.0</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

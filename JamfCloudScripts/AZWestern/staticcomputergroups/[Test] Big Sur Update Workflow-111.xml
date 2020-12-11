@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>111</id>
+    <name>[Test] Big Sur Update Workflow</name>
+    <is_smart>false</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>0</size>
+    </criteria>
+    <computers>
+        <size>7</size>
+        <computer>
+            <id>32</id>
+            <name>LR-080-302-LW</name>
+            <mac_address>7C:D1:C3:F2:FD:A9</mac_address>
+            <alt_mac_address>82:0D:69:38:4A:80</alt_mac_address>
+            <serial_number>C02J8BVXDRVC</serial_number>
+        </computer>
+        <computer>
+            <id>153</id>
+            <name>LR-080-302-DM</name>
+            <mac_address>98:5A:EB:D8:44:29</mac_address>
+            <alt_mac_address>AC:29:3A:99:E2:45</alt_mac_address>
+            <serial_number>D25Q50EVF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>154</id>
+            <name>LR-080-101-DM</name>
+            <mac_address>F0:18:98:EB:10:9E</mac_address>
+            <alt_mac_address>38:F9:D3:19:B0:AB</alt_mac_address>
+            <serial_number>C07YV064JYVX</serial_number>
+        </computer>
+        <computer>
+            <id>155</id>
+            <name>LR-080-105-DM</name>
+            <mac_address>98:5A:EB:D5:E8:CC</mac_address>
+            <alt_mac_address>AC:29:3A:9C:79:13</alt_mac_address>
+            <serial_number>D25Q509CF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>204</id>
+            <name>AB-103A-DM</name>
+            <mac_address>F0:18:98:E9:08:9C</mac_address>
+            <alt_mac_address>F0:18:98:5D:55:03</alt_mac_address>
+            <serial_number>C07XKJ8VJYVW</serial_number>
+        </computer>
+        <computer>
+            <id>205</id>
+            <name>LR-080-301-DM</name>
+            <mac_address>78:7B:8A:CA:EC:7D</mac_address>
+            <alt_mac_address>24:F6:77:09:EC:D4</alt_mac_address>
+            <serial_number>C02W4095J1GP</serial_number>
+        </computer>
+        <computer>
+            <id>206</id>
+            <name>LR-080-302-DM (2)</name>
+            <mac_address>A8:60:B6:39:36:84</mac_address>
+            <alt_mac_address>98:9E:63:2B:BB:EC</alt_mac_address>
+            <serial_number>D25V706XJ1G5</serial_number>
+        </computer>
+    </computers>
+</computer_group>

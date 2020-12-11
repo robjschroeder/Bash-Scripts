@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>59</id>
+    <name>Test</name>
+    <is_smart>false</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>0</size>
+    </criteria>
+    <computers>
+        <size>1</size>
+        <computer>
+            <id>32</id>
+            <name>LR-080-302-LW</name>
+            <mac_address>7C:D1:C3:F2:FD:A9</mac_address>
+            <alt_mac_address>82:0D:69:38:4A:80</alt_mac_address>
+            <serial_number>C02J8BVXDRVC</serial_number>
+        </computer>
+    </computers>
+</computer_group>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>25</id>
+    <name>TE114D CM2320nf</name>
+    <category>Printers</category>
+    <uri>lpd://10.217.11.211/</uri>
+    <CUPS_name>_10_217_11_211</CUPS_name>
+    <location>TE-114D</location>
+    <model>HP Color LaserJet CM2320 MFP Series</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

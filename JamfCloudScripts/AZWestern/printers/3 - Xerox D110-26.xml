@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>26</id>
+    <name>3 - Xerox D110</name>
+    <category>Printers</category>
+    <uri>dnssd://D110%20Copier-Printer%20(b4%3A07%3A9b)._printer._tcp.local./</uri>
+    <CUPS_name>FXb4079b_local_</CUPS_name>
+    <location></location>
+    <model>Xerox D110 Copier-Printer, 3.64.0</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

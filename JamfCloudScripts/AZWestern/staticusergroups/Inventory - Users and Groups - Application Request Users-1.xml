@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user_group>
+    <id>1</id>
+    <name>Inventory - Users and Groups - Application Request Users</name>
+    <is_smart>false</is_smart>
+    <is_notify_on_change>false</is_notify_on_change>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>0</size>
+    </criteria>
+    <users>
+        <size>6</size>
+        <user>
+            <id>1</id>
+            <username>rjs41</username>
+            <full_name>Robert J Schroeder</full_name>
+            <phone_number>(928) 317-5880</phone_number>
+            <email_address>Robert.Schroeder@azwestern.edu</email_address>
+        </user>
+        <user>
+            <id>3</id>
+            <username>pdb5</username>
+            <full_name>Patrick D Brown</full_name>
+            <phone_number>(928) 314-9539</phone_number>
+            <email_address>Patrick.Brown@azwestern.edu</email_address>
+        </user>
+        <user>
+            <id>5</id>
+            <username>tn32</username>
+            <full_name>Terry Jr Nichols</full_name>
+            <phone_number>(928) 317-5896</phone_number>
+            <email_address>Terry.Nichols@azwestern.edu</email_address>
+        </user>
+        <user>
+            <id>7</id>
+            <username>sc247</username>
+            <full_name>Saul Cruz</full_name>
+            <phone_number>(928)317-5899</phone_number>
+            <email_address>Saul.Cruz@azwestern.edu</email_address>
+        </user>
+        <user>
+            <id>42</id>
+            <username>jam239</username>
+            <full_name>Joshua A Madden</full_name>
+            <phone_number>(928) 344-7572</phone_number>
+            <email_address>Joshua.Madden@azwestern.edu</email_address>
+        </user>
+        <user>
+            <id>47</id>
+            <username>bms1</username>
+            <full_name>Brandon M Smith</full_name>
+            <phone_number>(928) 317-5887</phone_number>
+            <email_address>Brandon.Smith@azwestern.edu</email_address>
+        </user>
+    </users>
+</user_group>

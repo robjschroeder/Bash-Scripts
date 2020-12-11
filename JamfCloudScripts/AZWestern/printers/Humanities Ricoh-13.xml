@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>13</id>
+    <name>Humanities Ricoh</name>
+    <category>Printers</category>
+    <uri>ipp://10.210.1.24/ipp/print</uri>
+    <CUPS_name>Humanities_Ricoh</CUPS_name>
+    <location>LR-68</location>
+    <model>RICOH Aficio MP C3500 PS</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>

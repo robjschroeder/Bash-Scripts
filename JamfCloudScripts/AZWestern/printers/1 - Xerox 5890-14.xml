@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<printer>
+    <id>14</id>
+    <name>1 - Xerox 5890</name>
+    <category>Printers</category>
+    <uri>dnssd://Xerox%20WorkCentre%205890%20(9C%3A93%3A4E%3A1B%3AFB%3A7A)._ipp._tcp.local./?uuid=be34d358-4857-11e5-ab33-9c934e1</uri>
+    <CUPS_name>_1___Xerox_5890</CUPS_name>
+    <location>machine location not set</location>
+    <model>Xerox WorkCentre 5890-AirPrint</model>
+    <shared>false</shared>
+    <info></info>
+    <notes></notes>
+    <make_default>false</make_default>
+    <use_generic>true</use_generic>
+    <ppd></ppd>
+    <ppd_contents></ppd_contents>
+    <ppd_path>/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Resources/Generic.ppd</ppd_path>
+    <os_requirements></os_requirements>
+</printer>
