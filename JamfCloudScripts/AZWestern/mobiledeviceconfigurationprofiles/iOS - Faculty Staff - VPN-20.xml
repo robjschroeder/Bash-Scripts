@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>20</id>
+        <name>iOS - Faculty Staff - VPN</name>
+        <description>Add VPN configuration</description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>5</id>
+            <name>Utilities</name>
+        </category>
+        <uuid>0323B735-B93E-4078-9889-5B3F87AF0738</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;0323B735-B93E-4078-9889-5B3F87AF0738&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;0323B735-B93E-4078-9889-5B3F87AF0738&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - Faculty Staff - VPN&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;9D867EA6-FF6A-45CA-8350-8C5AC9EB5A0B&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.vpn.managed&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;9D867EA6-FF6A-45CA-8350-8C5AC9EB5A0B&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.vpn.managed&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;IPSec&lt;/key&gt;&lt;dict&gt;&lt;key&gt;RemoteAddress&lt;/key&gt;&lt;string&gt;204.229.220.3&lt;/string&gt;&lt;key&gt;SharedSecret&lt;/key&gt;&lt;data&gt;YXdjfm5hdQ==&lt;/data&gt;&lt;key&gt;LocalIdentifierType&lt;/key&gt;&lt;string&gt;KeyID&lt;/string&gt;&lt;key&gt;XAuthEnabled&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;XAuthPassword&lt;/key&gt;&lt;string/&gt;&lt;key&gt;AuthenticationMethod&lt;/key&gt;&lt;string&gt;SharedSecret&lt;/string&gt;&lt;key&gt;LocalIdentifier&lt;/key&gt;&lt;string&gt;awcvpn&lt;/string&gt;&lt;key&gt;PromptForVPNPIN&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;key&gt;IPv4&lt;/key&gt;&lt;dict&gt;&lt;key&gt;OverridePrimary&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;Proxies&lt;/key&gt;&lt;dict/&gt;&lt;key&gt;UserDefinedName&lt;/key&gt;&lt;string&gt;VPN Connection&lt;/string&gt;&lt;key&gt;VPNType&lt;/key&gt;&lt;string&gt;IPSec&lt;/string&gt;&lt;key&gt;OnDemandUserOverrideDisabled&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups>
+            <mobile_device_group>
+                <id>21</id>
+                <name>Faculty Staff - Faculty Staff iOS</name>
+            </mobile_device_group>
+        </mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>5</id>
+                <name>Utilities</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

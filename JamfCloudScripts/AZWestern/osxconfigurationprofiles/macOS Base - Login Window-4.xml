@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>4</id>
+        <name>macOS Base - Login Window</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>6</id>
+            <name>macOS - Base OS Configuration</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>674D18E9-800D-4C0E-9AEF-AF78F3848DC9</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;674D18E9-800D-4C0E-9AEF-AF78F3848DC9&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;674D18E9-800D-4C0E-9AEF-AF78F3848DC9&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS Base - Login Window&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;353B8406-2491-46D0-B794-836CCBCDCB8A&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.MCX&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;DISA&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;353B8406-2491-46D0-B794-836CCBCDCB8A&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;MCX&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;DisableGuestAccount&lt;/key&gt;&lt;true/&gt;&lt;key&gt;EnableGuestAccount&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;2804710D-C187-4416-B12D-A6A873860E52&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.screensaver&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;DISA&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;2804710D-C187-4416-B12D-A6A873860E52&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window:  Screen Saver Preferences&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;loginWindowIdleTime&lt;/key&gt;&lt;integer&gt;900&lt;/integer&gt;&lt;key&gt;idleTime&lt;/key&gt;&lt;integer&gt;900&lt;/integer&gt;&lt;key&gt;loginWindowModulePath&lt;/key&gt;&lt;string&gt;/System/Library/Screen Savers/Flurry.saver&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;35A98296-26C9-4322-9A54-ADC3C8E6FE58&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.loginwindow&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;DISA&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;35A98296-26C9-4322-9A54-ADC3C8E6FE58&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LoginwindowText&lt;/key&gt;&lt;string&gt;Welcome to Arizona Western College&lt;/string&gt;&lt;key&gt;SHOWFULLNAME&lt;/key&gt;&lt;true/&gt;&lt;key&gt;HideLocalUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HideMobileAccounts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;IncludeNetworkUser&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HideAdminUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;SHOWOTHERUSERS_MANAGED&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ShutDownDisabled&lt;/key&gt;&lt;false/&gt;&lt;key&gt;UseComputerNameForComputerRecordName&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableExternalAccounts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableConsoleAccess&lt;/key&gt;&lt;false/&gt;&lt;key&gt;com.apple.login.mcx.DisableAutoLoginClient&lt;/key&gt;&lt;true/&gt;&lt;key&gt;AdminMayDisableMCX&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LocalUserLoginEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LocalUsersHaveWorkgroups&lt;/key&gt;&lt;false/&gt;&lt;key&gt;FlattenUserWorkgroups&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CombineUserWorkgroups&lt;/key&gt;&lt;true/&gt;&lt;key&gt;AlwaysShowWorkgroupDialog&lt;/key&gt;&lt;false/&gt;&lt;key&gt;RetriesUntilHint&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;key&gt;AllowList&lt;/key&gt;&lt;array/&gt;&lt;key&gt;DenyList&lt;/key&gt;&lt;array/&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;A31F2E7E-C7D1-4F2D-A379-4F9543A0E366&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.SetupAssistant.managed&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;DISA&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;A31F2E7E-C7D1-4F2D-A379-4F9543A0E366&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window: Setup Assistant&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;SkipCloudSetup&lt;/key&gt;&lt;true/&gt;&lt;key&gt;SkipSiriSetup&lt;/key&gt;&lt;true/&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;1FD0ECAE-33AE-4924-81F3-A0EF7CF6D91A&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;.GlobalPreferences&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;1FD0ECAE-33AE-4924-81F3-A0EF7CF6D91A&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window:  Global Preferences&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;MultipleSessionEnabled&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;BF24C90F-00E2-471B-9C4D-AF7397FD4D7B&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.mcxloginscripts&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;BF24C90F-00E2-471B-9C4D-AF7397FD4D7B&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window:  Scripts&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;skipLoginHook&lt;/key&gt;&lt;false/&gt;&lt;key&gt;skipLogoutHook&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>1</id>
+                <name>All Managed Clients</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers>
+                <computer>
+                    <id>169</id>
+                    <name>AB-104-DM</name>
+                    <udid>F78E5CB5-BDC9-5CBF-B835-68A454017330</udid>
+                </computer>
+            </computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups>
+                <computer_group>
+                    <id>38</id>
+                    <name>Classroom - Classroom macOS</name>
+                </computer_group>
+                <computer_group>
+                    <id>41</id>
+                    <name>Digital Signage - Digital Signage macOS</name>
+                </computer_group>
+                <computer_group>
+                    <id>34</id>
+                    <name>Inventory - User and Location - Classroom - TE114D</name>
+                </computer_group>
+                <computer_group>
+                    <id>52</id>
+                    <name>Inventory - User and Location - Faculty Staff - TV Services - Studio</name>
+                </computer_group>
+            </computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>[New] - macOS Base - Login Window</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>6</id>
+                <name>macOS - Base OS Configuration</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

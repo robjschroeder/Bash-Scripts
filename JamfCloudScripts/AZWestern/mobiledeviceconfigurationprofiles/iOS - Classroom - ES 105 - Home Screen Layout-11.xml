@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>11</id>
+        <name>iOS - Classroom - ES 105 - Home Screen Layout</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>13</id>
+            <name>Classroom Policies</name>
+        </category>
+        <uuid>D0D32240-07F3-4ACF-80EF-CC8C463DF274</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;D0D32240-07F3-4ACF-80EF-CC8C463DF274&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;D0D32240-07F3-4ACF-80EF-CC8C463DF274&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - Classroom - ES 105 - Home Screen Layout&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;B007E706-5033-4F36-BD75-7C17BF958EC1&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.homescreenlayout&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;B007E706-5033-4F36-BD75-7C17BF958EC1&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.homescreenlayout&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;Dock&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobilesafari&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Safari&lt;/string&gt;&lt;/dict&gt;&lt;/array&gt;&lt;key&gt;Pages&lt;/key&gt;&lt;array&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.adobe.Adobe-Reader&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Adobe Acrobat Reader - View, Annotate &amp;amp; Share PDFs&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.dictionary.dictionaryipad&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Dictionary.com Dictionary &amp;amp; Thesaurus for iPad&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.iMovie&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;iMovie&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.google.ios.youtube&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;YouTube&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.panareadigital.NearpodTeacher&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Nearpod&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.blackboard.grader&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;BB Grader&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.blackboard.student&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Blackboard&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.trile.turboscanocrfree&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Doc Scanner&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Other&lt;/string&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Folder&lt;/string&gt;&lt;key&gt;Pages&lt;/key&gt;&lt;array&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.gamecenter&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Game Center&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobilecal&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Calendar&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobileslideshow&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Photos&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.camera&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Camera&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.MobileAddressBook&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Contacts&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobiletimer&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Clock&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Maps&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Maps&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.videos&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Videos&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobilenotes&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Notes&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.reminders&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Reminders&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Photo-Booth&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Photo Booth&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.news&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;News&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.AppStore&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;App Store&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.iBooks&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;iBooks&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Preferences&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Settings&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.tips&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Tips&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobilemail&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Mail&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Music&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Music&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobileme.fmip1&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Find My iPhone&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Home&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Home&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobileme.fmf1&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Find Friends&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Keynote&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Keynote&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Numbers&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Numbers&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Pages&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Pages&lt;/string&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups>
+            <mobile_device_group>
+                <id>18</id>
+                <name>Classroom - ES - 105</name>
+            </mobile_device_group>
+        </mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>13</id>
+                <name>Classroom Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

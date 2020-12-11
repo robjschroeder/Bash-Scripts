@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>63</id>
+        <name>macOS - Applications - Jamf - Connect 2.0 - Configuration</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>9</id>
+            <name>jamf</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>735FD15F-8010-458D-87BE-14E965B4FCCF</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;735FD15F-8010-458D-87BE-14E965B4FCCF&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;735FD15F-8010-458D-87BE-14E965B4FCCF&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Applications - Jamf - Connect 2.0 - Configuration&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;84587AB3-3C5E-44E9-B1F8-B323CF1A517F&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;84587AB3-3C5E-44E9-B1F8-B323CF1A517F&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.jamf.connect&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;HiddenMenuItems&lt;/key&gt;&lt;array/&gt;&lt;key&gt;CustomMenuItems&lt;/key&gt;&lt;dict&gt;&lt;key&gt;About&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Actions&lt;/key&gt;&lt;string/&gt;&lt;key&gt;ChangePassword&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Connect&lt;/key&gt;&lt;string/&gt;&lt;key&gt;GetHelp&lt;/key&gt;&lt;string/&gt;&lt;key&gt;GetSoftware&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Home&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Preferences&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Quit&lt;/key&gt;&lt;string/&gt;&lt;key&gt;ResetPassword&lt;/key&gt;&lt;string/&gt;&lt;key&gt;Shares&lt;/key&gt;&lt;string/&gt;&lt;/dict&gt;&lt;key&gt;Keychain&lt;/key&gt;&lt;dict&gt;&lt;key&gt;InternetItems&lt;/key&gt;&lt;dict/&gt;&lt;key&gt;PasswordItems&lt;/key&gt;&lt;dict/&gt;&lt;/dict&gt;&lt;key&gt;PasswordPolicies&lt;/key&gt;&lt;dict&gt;&lt;key&gt;ExpirationCountdownStartDay&lt;/key&gt;&lt;integer&gt;30&lt;/integer&gt;&lt;key&gt;ExpirationNotificationStartDay&lt;/key&gt;&lt;integer&gt;14&lt;/integer&gt;&lt;key&gt;NetworkCheck&lt;/key&gt;&lt;integer&gt;15&lt;/integer&gt;&lt;key&gt;SyncPasswordsMessage&lt;/key&gt;&lt;string&gt;Your local and network passwords do not match. Enter your current local password to sync it with your network password.&lt;/string&gt;&lt;/dict&gt;&lt;key&gt;UserHelp&lt;/key&gt;&lt;dict&gt;&lt;key&gt;HelpOptions&lt;/key&gt;&lt;string&gt;https://www.azwestern.edu/&lt;/string&gt;&lt;key&gt;HelpType&lt;/key&gt;&lt;string&gt;URL&lt;/string&gt;&lt;key&gt;SoftwarePath&lt;/key&gt;&lt;string/&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;FCFB39D8-0ECF-4C56-9BAE-553568DB64C2&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;FCFB39D8-0ECF-4C56-9BAE-553568DB64C2&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.jamf.connect.login&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;AllowNetworkSelection&lt;/key&gt;&lt;true/&gt;&lt;key&gt;BackgroundImage&lt;/key&gt;&lt;string&gt;/Library/Desktop Pictures/AWC-Pictures/FS-Login.jpg&lt;/string&gt;&lt;key&gt;CreateAdminUser&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CreateSyncPasswords&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CreateVerifyPasswords&lt;/key&gt;&lt;true/&gt;&lt;key&gt;DemobilizeUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DenyLocal&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableFDE&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableFDERecoveryKey&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HelpURL&lt;/key&gt;&lt;string&gt;https://www.azwestern.edu/support&lt;/string&gt;&lt;key&gt;LocalFallback&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LoginLogo&lt;/key&gt;&lt;string&gt;/Library/Desktop Pictures/AWC-Pictures/android-chrome-1024x1024.png&lt;/string&gt;&lt;key&gt;LoginScreen&lt;/key&gt;&lt;false/&gt;&lt;key&gt;OIDCClientID&lt;/key&gt;&lt;string&gt;2595c9b7-08e7-4de2-a924-3f93297cd7fc&lt;/string&gt;&lt;key&gt;OIDCNewPassword&lt;/key&gt;&lt;false/&gt;&lt;key&gt;OIDCProvider&lt;/key&gt;&lt;string&gt;Azure&lt;/string&gt;&lt;key&gt;OIDCROPGID&lt;/key&gt;&lt;string&gt;2595c9b7-08e7-4de2-a924-3f93297cd7fc&lt;/string&gt;&lt;key&gt;OIDCRedirectURI&lt;/key&gt;&lt;string&gt;https://127.0.0.1/jamfconnect&lt;/string&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers>
+            <computer>
+                <id>64</id>
+                <name>DS-121-DM</name>
+                <udid>1D86F3E1-C13F-51C8-8473-FDF18E29B464</udid>
+            </computer>
+            <computer>
+                <id>154</id>
+                <name>LR-080-101-DM</name>
+                <udid>97A496BA-02FE-5F94-8132-3AE7B51E65A8</udid>
+            </computer>
+            <computer>
+                <id>175</id>
+                <name>MU-115-DM</name>
+                <udid>EB050C94-FE33-5E9D-A2E8-40BEAEA3A562</udid>
+            </computer>
+            <computer>
+                <id>211</id>
+                <name>AWC27104-Test</name>
+                <udid>116E2651-472C-53CD-BA42-26B267A002C2</udid>
+            </computer>
+        </computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>89</id>
+                <name>Inventory - Applications - Jamf Connect</name>
+            </computer_group>
+            <computer_group>
+                <id>49</id>
+                <name>Inventory - User and Location - Classroom - LR095</name>
+            </computer_group>
+            <computer_group>
+                <id>50</id>
+                <name>Inventory - User and Location - Classroom - SC106</name>
+            </computer_group>
+            <computer_group>
+                <id>34</id>
+                <name>Inventory - User and Location - Classroom - TE114D</name>
+            </computer_group>
+            <computer_group>
+                <id>57</id>
+                <name>Inventory - User and Location - Faculty Staff - DEPNotify Testing</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>Jamf Connect Test</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>9</id>
+                <name>jamf</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

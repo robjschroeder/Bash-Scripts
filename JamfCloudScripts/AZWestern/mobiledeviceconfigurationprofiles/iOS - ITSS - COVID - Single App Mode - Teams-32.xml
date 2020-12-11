@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>32</id>
+        <name>iOS - ITSS - COVID - Single App Mode - Teams</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>10</id>
+            <name>Faculty and Staff Policies</name>
+        </category>
+        <uuid>E707DA0B-C55C-47C4-8A87-56C56C61DFF1</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;E707DA0B-C55C-47C4-8A87-56C56C61DFF1&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;E707DA0B-C55C-47C4-8A87-56C56C61DFF1&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - ITSS - COVID - Single App Mode - Teams&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Restrictions Profile for the iOS 12 STIG V1R2.  Allows unrestricted use of Touch ID and Face ID. Assumes AO has approved unrestricted use of unmanaged apps. Created 4 September 2018.&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;HasRemovalPasscode&lt;/key&gt;&lt;false/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;674B99E9-A2DF-41B2-BF8B-3B254A83BF4F&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.app.lock&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;674B99E9-A2DF-41B2-BF8B-3B254A83BF4F&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.app.lock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;App&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Identifier&lt;/key&gt;&lt;string&gt;com.microsoft.skype.teams&lt;/string&gt;&lt;key&gt;Options&lt;/key&gt;&lt;dict&gt;&lt;key&gt;DisableDeviceRotation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableVolumeButtons&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableVoiceControl&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableAutoLock&lt;/key&gt;&lt;true/&gt;&lt;key&gt;EnableSpeakSelection&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableRingerSwitch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableInvertColors&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableMonoAudio&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableAssistiveTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableZoom&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableVoiceOver&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableSleepWakeButton&lt;/key&gt;&lt;false/&gt;&lt;key&gt;VoiceControl&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;key&gt;UserEnabledOptions&lt;/key&gt;&lt;dict&gt;&lt;key&gt;VoiceOver&lt;/key&gt;&lt;false/&gt;&lt;key&gt;InvertColors&lt;/key&gt;&lt;false/&gt;&lt;key&gt;Zoom&lt;/key&gt;&lt;false/&gt;&lt;key&gt;AssistiveTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;VoiceControl&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups></mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>10</id>
+                <name>Faculty and Staff Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>13</id>
+        <name>iOS - Classroom - ES 105 - Restrictions</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>13</id>
+            <name>Classroom Policies</name>
+        </category>
+        <uuid>0FC1C418-9709-471A-845D-C3CF23BCD0D1</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;0FC1C418-9709-471A-845D-C3CF23BCD0D1&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;0FC1C418-9709-471A-845D-C3CF23BCD0D1&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - Classroom - ES 105 - Restrictions&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.applicationaccess&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;F59D0C8B-88F4-4606-AB90-FE1D4EA61EDF&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.applicationaccess&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;F59D0C8B-88F4-4606-AB90-FE1D4EA61EDF&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;allowAccountModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowActivityContinuation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAirDrop&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAirPlayIncomingRequests&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAirPrint&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAppCellularDataModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAppInstallation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAppRemoval&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAssistant&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAutoCorrection&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowBluetoothModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowBookstore&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowBookstoreErotica&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCamera&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowChat&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCloudBackup&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCloudDocumentSync&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCloudKeychainSync&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCloudPhotoLibrary&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowDefinitionLookup&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowDeviceNameModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowDiagnosticSubmission&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowDictation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowESIMModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEnablingRestrictions&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEnterpriseAppTrust&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowEnterpriseBookBackup&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEnterpriseBookMetadataSync&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEraseContentAndSettings&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowExplicitContent&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowFindMyFriendsModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowFingerprintForUnlock&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowGameCenter&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowGlobalBackgroundFetchWhenRoaming&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowHostPairing&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowInAppPurchases&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowKeyboardShortcuts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowLockScreenControlCenter&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowLockScreenNotificationsView&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowLockScreenTodayView&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowManagedAppsCloudSync&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowManagedToWriteUnmanagedContacts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowMusicService&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowNews&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowNotificationsModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowOTAPKIUpdates&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowOpenFromManagedToUnmanaged&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowOpenFromUnmanagedToManaged&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPairedWatch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPassbookWhileLocked&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPasscodeModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPasswordAutoFill&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPasswordProximityRequests&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPasswordSharing&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPersonalHotspotModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPhotoStream&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPodcasts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPredictiveKeyboard&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowProximitySetupToNewDevice&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowRadioService&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowRemoteAppPairing&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowRemoteScreenObservation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSafari&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowScreenShot&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSharedStream&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowSiriServerLogging&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowSpellCheck&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSpotlightInternetResults&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSystemAppRemoval&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUIAppInstallation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowUIConfigurationProfileInstallation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowUSBRestrictedMode&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUnmanagedToReadManagedContacts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowUntrustedTLSPrompt&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowVPNCreation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowVideoConferencing&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowVoiceDialing&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowWallpaperModification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowiTunes&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceAirDropUnmanaged&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceAirPlayIncomingRequestsPairingPassword&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceAirPlayOutgoingRequestsPairingPassword&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceAssistantProfanityFilter&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAuthenticationBeforeAutoFill&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomAutomaticallyJoinClasses&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomRequestPermissionToLeaveClasses&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomUnpromptedAppAndDeviceLock&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomUnpromptedScreenObservation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceDelayedSoftwareUpdates&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceEncryptedBackup&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceITunesStorePasswordEntry&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceLimitAdTracking&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceUnpromptedManagedClassroomScreenObservation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceWatchWristDetection&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceWiFiWhitelisting&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ratingApps&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;ratingMovies&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;ratingRegion&lt;/key&gt;&lt;string&gt;us&lt;/string&gt;&lt;key&gt;ratingTVShows&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;safariAcceptCookies&lt;/key&gt;&lt;real&gt;2.0&lt;/real&gt;&lt;key&gt;safariAllowAutoFill&lt;/key&gt;&lt;false/&gt;&lt;key&gt;safariAllowJavaScript&lt;/key&gt;&lt;true/&gt;&lt;key&gt;safariAllowPopups&lt;/key&gt;&lt;true/&gt;&lt;key&gt;safariForceFraudWarning&lt;/key&gt;&lt;false/&gt;&lt;key&gt;blacklistedAppBundleIDs&lt;/key&gt;&lt;array&gt;&lt;string&gt;com.apple.mobileme.fmf1&lt;/string&gt;&lt;string&gt;com.apple.tips&lt;/string&gt;&lt;string&gt;com.apple.Photo-Booth&lt;/string&gt;&lt;string&gt;com.apple.mobileme.fmip1&lt;/string&gt;&lt;string&gt;com.apple.Home&lt;/string&gt;&lt;string&gt;com.apple.MobileAddressBook&lt;/string&gt;&lt;string&gt;com.apple.videos&lt;/string&gt;&lt;string&gt;com.apple.reminders&lt;/string&gt;&lt;string&gt;com.apple.iBooks&lt;/string&gt;&lt;string&gt;com.apple.mobilemail&lt;/string&gt;&lt;string&gt;com.apple.Music&lt;/string&gt;&lt;string&gt;com.apple.Maps&lt;/string&gt;&lt;string&gt;com.apple.mobilecal&lt;/string&gt;&lt;string&gt;com.apple.mobiletimer&lt;/string&gt;&lt;string&gt;com.apple.tv&lt;/string&gt;&lt;/array&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowKeyboardActivityContinuation&lt;/key&gt;&lt;true/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups>
+            <mobile_device_group>
+                <id>18</id>
+                <name>Classroom - ES - 105</name>
+            </mobile_device_group>
+        </mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>13</id>
+                <name>Classroom Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

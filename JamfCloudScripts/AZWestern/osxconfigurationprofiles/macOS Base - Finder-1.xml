@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>1</id>
+        <name>macOS Base - Finder</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>6</id>
+            <name>macOS - Base OS Configuration</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>15FBFB84-08C7-445B-86E1-0ECDFDE4D7E3</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;15FBFB84-08C7-445B-86E1-0ECDFDE4D7E3&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;15FBFB84-08C7-445B-86E1-0ECDFDE4D7E3&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS Base - Finder&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;16AA0267-5C33-41D0-B578-4396AEDEC4D5&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.finder&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;16AA0267-5C33-41D0-B578-4396AEDEC4D5&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Media Access:  Finder Settings&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;InterfaceLevel&lt;/key&gt;&lt;string&gt;Full&lt;/string&gt;&lt;key&gt;ShowHardDrivesOnDesktop&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ShowExternalHardDrivesOnDesktop&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ShowRemovableMediaOnDesktop&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ShowMountedServersOnDesktop&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ProhibitConnectTo&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ProhibitEject&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ProhibitGoToFolder&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ProhibitBurn&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;593016CE-5FC7-4624-9EE5-46C6126E6352&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.loginwindow&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;593016CE-5FC7-4624-9EE5-46C6126E6352&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Login Window&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;RestartDisabledWhileLoggedIn&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ShutDownDisabledWhileLoggedIn&lt;/key&gt;&lt;false/&gt;&lt;key&gt;SHOWFULLNAME&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HideLocalUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HideMobileAccounts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;IncludeNetworkUser&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HideAdminUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;SHOWOTHERUSERS_MANAGED&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ShutDownDisabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;UseComputerNameForComputerRecordName&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableExternalAccounts&lt;/key&gt;&lt;true/&gt;&lt;key&gt;DisableConsoleAccess&lt;/key&gt;&lt;false/&gt;&lt;key&gt;AdminMayDisableMCX&lt;/key&gt;&lt;false/&gt;&lt;key&gt;LocalUserLoginEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LocalUsersHaveWorkgroups&lt;/key&gt;&lt;false/&gt;&lt;key&gt;FlattenUserWorkgroups&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CombineUserWorkgroups&lt;/key&gt;&lt;true/&gt;&lt;key&gt;AlwaysShowWorkgroupDialog&lt;/key&gt;&lt;false/&gt;&lt;key&gt;RetriesUntilHint&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;key&gt;AllowList&lt;/key&gt;&lt;array/&gt;&lt;key&gt;DenyList&lt;/key&gt;&lt;array/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>1</id>
+                <name>All Managed Clients</name>
+            </computer_group>
+            <computer_group>
+                <id>41</id>
+                <name>Digital Signage - Digital Signage macOS</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>[New] - macOS Base - Finder</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>6</id>
+                <name>macOS - Base OS Configuration</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

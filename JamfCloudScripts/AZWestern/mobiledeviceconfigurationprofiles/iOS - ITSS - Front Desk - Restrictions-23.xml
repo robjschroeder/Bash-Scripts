@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>23</id>
+        <name>iOS - ITSS - Front Desk - Restrictions</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>10</id>
+            <name>Faculty and Staff Policies</name>
+        </category>
+        <uuid>C5C3A661-7805-4F6F-8A82-D6C82CA99D4C</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;C5C3A661-7805-4F6F-8A82-D6C82CA99D4C&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;C5C3A661-7805-4F6F-8A82-D6C82CA99D4C&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - ITSS - Front Desk - Restrictions&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Restrictions Profile for the iOS 12 STIG V1R2.  Allows unrestricted use of Touch ID and Face ID. Assumes AO has approved unrestricted use of unmanaged apps. Created 4 September 2018.&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;HasRemovalPasscode&lt;/key&gt;&lt;false/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Configures restrictions&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Restrictions&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;B5AC354A-260A-469C-8D9A-58FA269BD6C1&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.applicationaccess&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;B5AC354A-260A-469C-8D9A-58FA269BD6C1&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;allowAccountModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowActivityContinuation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAddingGameCenterFriends&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAirDrop&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAirPlayIncomingRequests&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAirPrint&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAirPrintCredentialsStorage&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAirPrintiBeaconDiscovery&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAppCellularDataModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAppInstallation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAppRemoval&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAssistant&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAssistantUserGeneratedContent&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAssistantWhileLocked&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowAutoCorrection&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowAutomaticAppDownloads&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowBluetoothModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowBookstore&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowBookstoreErotica&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowCamera&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowCellularPlanModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowChat&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowCloudBackup&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowCloudDocumentSync&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowCloudKeychainSync&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowCloudPhotoLibrary&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowDefinitionLookup&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowDeviceNameModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowDiagnosticSubmission&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowDictation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowESIMModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowEnablingRestrictions&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowEnterpriseAppTrust&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEnterpriseBookBackup&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowEnterpriseBookMetadataSync&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowEraseContentAndSettings&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowExplicitContent&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowFindMyFriendsModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowFingerprintForUnlock&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowFingerprintModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowGameCenter&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowGlobalBackgroundFetchWhenRoaming&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowHostPairing&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowInAppPurchases&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowKeyboardShortcuts&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowLockScreenControlCenter&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowLockScreenNotificationsView&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowLockScreenTodayView&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowManagedAppsCloudSync&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowManagedToWriteUnmanagedContacts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowMultiplayerGaming&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowMusicService&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowNews&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowNotificationsModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowOTAPKIUpdates&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowOpenFromManagedToUnmanaged&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowOpenFromUnmanagedToManaged&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowPairedWatch&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPassbookWhileLocked&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPasscodeModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPasswordAutoFill&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPasswordProximityRequests&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPasswordSharing&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPersonalHotspotModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPhotoStream&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPodcasts&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowPredictiveKeyboard&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowProximitySetupToNewDevice&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowRadioService&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowRemoteAppPairing&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowRemoteScreenObservation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSafari&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowScreenShot&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSharedStream&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSiriServerLogging&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSpellCheck&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSpotlightInternetResults&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowSystemAppRemoval&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUIAppInstallation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUIConfigurationProfileInstallation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUSBRestrictedMode&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowUnmanagedToReadManagedContacts&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowUntrustedTLSPrompt&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowVPNCreation&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowVideoConferencing&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowVoiceDialing&lt;/key&gt;&lt;false/&gt;&lt;key&gt;allowWallpaperModification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;allowiTunes&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAirDropUnmanaged&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAirPlayIncomingRequestsPairingPassword&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAirPlayOutgoingRequestsPairingPassword&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAirPrintTrustedTLSRequirement&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceAssistantProfanityFilter&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceAuthenticationBeforeAutoFill&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceClassroomAutomaticallyJoinClasses&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomRequestPermissionToLeaveClasses&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomUnpromptedAppAndDeviceLock&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceClassroomUnpromptedScreenObservation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceEncryptedBackup&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceITunesStorePasswordEntry&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceLimitAdTracking&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceUnpromptedManagedClassroomScreenObservation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;forceWatchWristDetection&lt;/key&gt;&lt;true/&gt;&lt;key&gt;forceWiFiWhitelisting&lt;/key&gt;&lt;false/&gt;&lt;key&gt;ratingApps&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;ratingMovies&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;ratingRegion&lt;/key&gt;&lt;string&gt;us&lt;/string&gt;&lt;key&gt;ratingTVShows&lt;/key&gt;&lt;integer&gt;1000&lt;/integer&gt;&lt;key&gt;safariAcceptCookies&lt;/key&gt;&lt;real&gt;2.0&lt;/real&gt;&lt;key&gt;safariAllowAutoFill&lt;/key&gt;&lt;false/&gt;&lt;key&gt;safariAllowJavaScript&lt;/key&gt;&lt;true/&gt;&lt;key&gt;safariAllowPopups&lt;/key&gt;&lt;false/&gt;&lt;key&gt;safariForceFraudWarning&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups>
+            <mobile_device_group>
+                <id>25</id>
+                <name>Faculty Staff - Service Desk - Kiosks</name>
+            </mobile_device_group>
+        </mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices>
+                <mobile_device>
+                    <id>169</id>
+                    <name>Service Desk Kiosk - DMPNN3ARFK10</name>
+                    <udid>652a1563dfc18afa0d5d1055bd6c75ffae0ed348</udid>
+                    <wifi_mac_address>C8:85:50:1E:FE:BA</wifi_mac_address>
+                </mobile_device>
+                <mobile_device>
+                    <id>175</id>
+                    <name>Service Desk Kiosk - DMPZ2030JF8J</name>
+                    <udid>77d10c1918bf0cb15e4131e7292486f637a0a30a</udid>
+                    <wifi_mac_address>14:95:CE:79:27:5F</wifi_mac_address>
+                </mobile_device>
+                <mobile_device>
+                    <id>185</id>
+                    <name>Service Desk Kiosk - DMPNN4BPFK10</name>
+                    <udid>87e6ae18a684ff1f4b603f95a3185611f91a880a</udid>
+                    <wifi_mac_address>C8:85:50:1E:D9:6E</wifi_mac_address>
+                </mobile_device>
+            </mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups>
+                <mobile_device_group>
+                    <id>22</id>
+                    <name>Faculty Staff - ITSS</name>
+                </mobile_device_group>
+            </mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>10</id>
+                <name>Faculty and Staff Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>21</id>
+        <name>iOS - Classroom - PSI - Home Screen Layout</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>13</id>
+            <name>Classroom Policies</name>
+        </category>
+        <uuid>E3D78B65-D481-4D26-BF69-CF16BB5BE823</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;E3D78B65-D481-4D26-BF69-CF16BB5BE823&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;E3D78B65-D481-4D26-BF69-CF16BB5BE823&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - Classroom - PSI - Home Screen Layout&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;0ADE4526-FB17-414E-8E1A-0C1FD54075F4&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.homescreenlayout&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;0ADE4526-FB17-414E-8E1A-0C1FD54075F4&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.homescreenlayout&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;Dock&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.camera&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Camera&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobileslideshow&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Photos&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.mobilesafari&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Safari&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.apple.Preferences&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Settings&lt;/string&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;Type&lt;/key&gt;&lt;string&gt;Application&lt;/string&gt;&lt;key&gt;BundleID&lt;/key&gt;&lt;string&gt;com.swivl.capture&lt;/string&gt;&lt;key&gt;DisplayName&lt;/key&gt;&lt;string&gt;Swivl&lt;/string&gt;&lt;/dict&gt;&lt;/array&gt;&lt;key&gt;Pages&lt;/key&gt;&lt;array&gt;&lt;array/&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices></mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups>
+            <mobile_device_group>
+                <id>20</id>
+                <name>Classroom - PSI -</name>
+            </mobile_device_group>
+        </mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>13</id>
+                <name>Classroom Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

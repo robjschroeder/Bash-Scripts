@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>62</id>
+        <name>macOS - Applications - Jamf - Connect - License File</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>9</id>
+            <name>jamf</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>51099FCC-0A53-4D33-8C76-339B0161D23E</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;51099FCC-0A53-4D33-8C76-339B0161D23E&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;51099FCC-0A53-4D33-8C76-339B0161D23E&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Applications - Jamf - Connect - License File&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Jamf Connect License&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;com.jamf.connect.login&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Jamf&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;2EEEC998-677F-442C-9CC5-0391A6B5B4D5&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.jamf.connect.login&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;LicenseFile&lt;/key&gt;&lt;data&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+RGF0ZUlzc3VlZDwva2V5PgoJPHN0cmluZz4yMDIwLTEwLTE1IDA4OjA4OjIzIC0wNTAwPC9zdHJpbmc+Cgk8a2V5PkVkaXRpb248L2tleT4KCTxzdHJpbmc+KyBPa3RhPC9zdHJpbmc+Cgk8a2V5PkVtYWlsPC9rZXk+Cgk8c3RyaW5nPmFkcmlhbmEucGVyZXpAYXp3ZXN0ZXJuLmVkdTwvc3RyaW5nPgoJPGtleT5FeHBpcmF0aW9uRGF0ZTwva2V5PgoJPHN0cmluZz4yMDIxLTEyLTE2IDAwOjAwOjAwIC0wNjAwPC9zdHJpbmc+Cgk8a2V5PkxpY2Vuc2VLZXk8L2tleT4KCTxzdHJpbmc+OTBkODU5MDQtNzJkOC00ZDExLWE4YjEtZWYzMDhlMWM4NDQ1PC9zdHJpbmc+Cgk8a2V5Pk1ham9yVmVyc2lvbjwva2V5PgoJPGludGVnZXI+MTwvaW50ZWdlcj4KCTxrZXk+TmFtZTwva2V5PgoJPHN0cmluZz5Bcml6b25hIFdlc3Rlcm4gQ29sbGVnZTwvc3RyaW5nPgoJPGtleT5OdW1iZXJPZkNsaWVudHM8L2tleT4KCTxpbnRlZ2VyPjE0NTwvaW50ZWdlcj4KCTxrZXk+UHJvZHVjdDwva2V5PgoJPHN0cmluZz5Ob01BRCBMb2dpbjwvc3RyaW5nPgoJPGtleT5TaWduYXR1cmU8L2tleT4KCTxkYXRhPgoJQXJwTlp2YndmTmwwTy9BWVBMR1pqS1I2RUo0a3A5WkM1eDNDa1E3cW1MT1pYQnFmckhjTVdSWDVIZHpGL2l3MXlHN24KCURnYWtrQ2w5ekFEeUNxMVpBemlwSnRFYURuL0hSSW1CdG1DOVJ2UnpNZFJmdGg0d3dSRnBZTkNlYkJzQUUyVzBqN1RrCgkzVjdZZUFZZWJVaTZwenBWM3NwbkZQc3ZuVnhkRXUvQUFIMD0KCTwvZGF0YT4KPC9kaWN0Pgo8L3BsaXN0Pgo=&lt;/data&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Jamf Connect License&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;com.jamf.connect.sync&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Jamf&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;E2DB4568-8FC5-4F9B-9CFA-2CAE23750CB7&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.jamf.connect&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;LicenseFile&lt;/key&gt;&lt;data&gt;PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBwbGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFREcy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8ZGljdD4KCTxrZXk+RGF0ZUlzc3VlZDwva2V5PgoJPHN0cmluZz4yMDIwLTEwLTE1IDA4OjA4OjA0IC0wNTAwPC9zdHJpbmc+Cgk8a2V5PkVkaXRpb248L2tleT4KCTxzdHJpbmc+UHJvPC9zdHJpbmc+Cgk8a2V5PkVtYWlsPC9rZXk+Cgk8c3RyaW5nPmFkcmlhbmEucGVyZXpAYXp3ZXN0ZXJuLmVkdTwvc3RyaW5nPgoJPGtleT5FeHBpcmF0aW9uRGF0ZTwva2V5PgoJPHN0cmluZz4yMDIxLTEyLTE2IDAwOjAwOjAwIC0wNjAwPC9zdHJpbmc+Cgk8a2V5PkxpY2Vuc2VLZXk8L2tleT4KCTxzdHJpbmc+MmU2NjRjMmMtMTljNS00MThkLWE3YzUtYTY4YjMzMGEyZTZhPC9zdHJpbmc+Cgk8a2V5Pk1ham9yVmVyc2lvbjwva2V5PgoJPGludGVnZXI+MTwvaW50ZWdlcj4KCTxrZXk+TmFtZTwva2V5PgoJPHN0cmluZz5Bcml6b25hIFdlc3Rlcm4gQ29sbGVnZTwvc3RyaW5nPgoJPGtleT5OdW1iZXJPZkNsaWVudHM8L2tleT4KCTxpbnRlZ2VyPjE0NTwvaW50ZWdlcj4KCTxrZXk+UHJvZHVjdDwva2V5PgoJPHN0cmluZz5Ob01BRDwvc3RyaW5nPgoJPGtleT5TaWduYXR1cmU8L2tleT4KCTxkYXRhPgoJenFtcWY2eDNCa3A3WTdiZ0xUcG5OSGlBVjJEak9rMTNVOUI2ODllUlJlazFkZXJjdU1mSFIzVjZFT05qcmFLaDdlNjkKCUxldk9aRDB0U25LUlpzZDBnRTJ3OGp6VVEzODdNcUt3UGVYT0lBWXFQZUFidHpJUE1xVWsrWnRVOXBnVFpDQjhLS1B4Cgl3WE1BWDg3QWtxaURPeVIySFJTTFZvcDVPVGJoT0J3NDFrbz0KCTwvZGF0YT4KPC9kaWN0Pgo8L3BsaXN0Pgo=&lt;/data&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers>
+            <computer>
+                <id>64</id>
+                <name>DS-121-DM</name>
+                <udid>1D86F3E1-C13F-51C8-8473-FDF18E29B464</udid>
+            </computer>
+            <computer>
+                <id>154</id>
+                <name>LR-080-101-DM</name>
+                <udid>97A496BA-02FE-5F94-8132-3AE7B51E65A8</udid>
+            </computer>
+            <computer>
+                <id>175</id>
+                <name>MU-115-DM</name>
+                <udid>EB050C94-FE33-5E9D-A2E8-40BEAEA3A562</udid>
+            </computer>
+            <computer>
+                <id>211</id>
+                <name>AWC27104-Test</name>
+                <udid>116E2651-472C-53CD-BA42-26B267A002C2</udid>
+            </computer>
+        </computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>89</id>
+                <name>Inventory - Applications - Jamf Connect</name>
+            </computer_group>
+            <computer_group>
+                <id>49</id>
+                <name>Inventory - User and Location - Classroom - LR095</name>
+            </computer_group>
+            <computer_group>
+                <id>50</id>
+                <name>Inventory - User and Location - Classroom - SC106</name>
+            </computer_group>
+            <computer_group>
+                <id>34</id>
+                <name>Inventory - User and Location - Classroom - TE114D</name>
+            </computer_group>
+            <computer_group>
+                <id>57</id>
+                <name>Inventory - User and Location - Faculty Staff - DEPNotify Testing</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>Jamf Connect License Key</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>9</id>
+                <name>jamf</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

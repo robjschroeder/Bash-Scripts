@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>34</id>
+        <name>macOS - Classroom - TE114D - Energy Saver</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>13</id>
+            <name>Classroom Policies</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>6016DD73-87E2-4E79-A38C-2CA205F7CACD</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;6016DD73-87E2-4E79-A38C-2CA205F7CACD&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;6016DD73-87E2-4E79-A38C-2CA205F7CACD&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Classroom - TE114D - Energy Saver&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;13F2C95E-4274-4F15-B9FA-C84387385CAF&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.MCX&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;13F2C95E-4274-4F15-B9FA-C84387385CAF&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;MCX&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;com.apple.EnergySaver.desktop.ACPower-ProfileNumber&lt;/key&gt;&lt;integer&gt;-1&lt;/integer&gt;&lt;key&gt;com.apple.EnergySaver.portable.ACPower-ProfileNumber&lt;/key&gt;&lt;integer&gt;-1&lt;/integer&gt;&lt;key&gt;com.apple.EnergySaver.portable.BatteryPower-ProfileNumber&lt;/key&gt;&lt;integer&gt;-1&lt;/integer&gt;&lt;key&gt;com.apple.EnergySaver.desktop.ACPower&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Wake On LAN&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Disk Sleep Timer-boolean&lt;/key&gt;&lt;false/&gt;&lt;key&gt;Automatic Restart On Power Loss&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Display Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;key&gt;Sleep On Power Button&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;System Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;com.apple.EnergySaver.portable.ACPower&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Wake On LAN&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Reduce Processor Speed&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;Disk Sleep Timer-boolean&lt;/key&gt;&lt;false/&gt;&lt;key&gt;Dynamic Power Step&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Automatic Restart On Power Loss&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Display Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;key&gt;Sleep On Power Button&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;System Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;com.apple.EnergySaver.portable.BatteryPower&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Wake On LAN&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Reduce Processor Speed&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;Disk Sleep Timer-boolean&lt;/key&gt;&lt;false/&gt;&lt;key&gt;Dynamic Power Step&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Automatic Restart On Power Loss&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;Display Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;key&gt;Sleep On Power Button&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;System Sleep Timer&lt;/key&gt;&lt;integer&gt;180&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;com.apple.EnergySaver.desktop.Schedule&lt;/key&gt;&lt;dict&gt;&lt;key&gt;RepeatingPowerOn&lt;/key&gt;&lt;dict&gt;&lt;key&gt;weekdays&lt;/key&gt;&lt;integer&gt;127&lt;/integer&gt;&lt;key&gt;eventtype&lt;/key&gt;&lt;string&gt;wakepoweron&lt;/string&gt;&lt;key&gt;time&lt;/key&gt;&lt;integer&gt;390&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>34</id>
+                <name>Inventory - User and Location - Classroom - TE114D</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>macOS - Classroom - TE114D - Energy Saver</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>13</id>
+                <name>Classroom Policies</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

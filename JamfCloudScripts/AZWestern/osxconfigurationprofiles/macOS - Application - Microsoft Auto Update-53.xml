@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>53</id>
+        <name>macOS - Application - Microsoft Auto Update</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>8</id>
+            <name>macOS</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>C9F8F7A7-E1AD-4ACB-9B5D-5D33CF088CC7</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;C9F8F7A7-E1AD-4ACB-9B5D-5D33CF088CC7&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;C9F8F7A7-E1AD-4ACB-9B5D-5D33CF088CC7&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Application - Microsoft Auto Update&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;15FD08B6-67C3-4314-A0D4-635D008A0FB1&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;15FD08B6-67C3-4314-A0D4-635D008A0FB1&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.microsoft.autoupdate2&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;AcknowledgedDataCollectionPolicy&lt;/key&gt;&lt;string&gt;RequiredDataOnly&lt;/string&gt;&lt;key&gt;ChannelName&lt;/key&gt;&lt;string&gt;Production&lt;/string&gt;&lt;key&gt;DisableInsiderCheckbox&lt;/key&gt;&lt;true/&gt;&lt;key&gt;EnableCheckForUpdatesButton&lt;/key&gt;&lt;true/&gt;&lt;key&gt;ExtendedLogging&lt;/key&gt;&lt;true/&gt;&lt;key&gt;HowToCheck&lt;/key&gt;&lt;string&gt;AutomaticDownload&lt;/string&gt;&lt;key&gt;StartDaemonOnAppLaunch&lt;/key&gt;&lt;true/&gt;&lt;key&gt;UpdateCheckFrequency&lt;/key&gt;&lt;integer&gt;720&lt;/integer&gt;&lt;key&gt;UpdateDeadline.DaysBeforeForcedQuit&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;key&gt;Applications&lt;/key&gt;&lt;dict&gt;&lt;key&gt;/Applications/Company Portal.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;IMCP01&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Defender ATP.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;WDAV00&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Edge.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;EDGE01&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Excel.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;XCEL2019&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft OneNote.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;ONMC2019&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Outlook.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;OPIM2019&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft PowerPoint.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;PPT32019&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Remote Desktop.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;MSRD10&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Teams.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;TEAM01&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Microsoft Word.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;MSWD2019&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/OneDrive.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;ONDR18&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Applications/Skype for Business.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;MSFB16&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;/Library/Application Support/Microsoft/MAU2.0/Microsoft AutoUpdate.app&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Application ID&lt;/key&gt;&lt;string&gt;MSau04&lt;/string&gt;&lt;key&gt;LCID&lt;/key&gt;&lt;integer&gt;1033&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>76</id>
+                <name>Inventory - Applications - Microsoft - Auto Update</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>macOS - Application - Microsoft Auto Update</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>8</id>
+                <name>macOS</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

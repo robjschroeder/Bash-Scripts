@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>17</id>
+        <name>macOS - Digital Signage - Dock</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>54</id>
+            <name>Digital Signage Policies</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>9F52B311-0094-4912-B5E6-7D35ADCD6CEC</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;9F52B311-0094-4912-B5E6-7D35ADCD6CEC&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;9F52B311-0094-4912-B5E6-7D35ADCD6CEC&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Digital Signage - Dock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;C8165CD4-1097-474C-9AC4-0D34F9D9918C&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.dock&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;dockmaster.dock-digitalsignage&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Dock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;tilesize&lt;/key&gt;&lt;integer&gt;48&lt;/integer&gt;&lt;key&gt;magnification&lt;/key&gt;&lt;false/&gt;&lt;key&gt;largesize&lt;/key&gt;&lt;integer&gt;128&lt;/integer&gt;&lt;key&gt;orientation&lt;/key&gt;&lt;string&gt;bottom&lt;/string&gt;&lt;key&gt;mineffect&lt;/key&gt;&lt;string&gt;genie&lt;/string&gt;&lt;key&gt;minimize-to-application&lt;/key&gt;&lt;false/&gt;&lt;key&gt;launchanim&lt;/key&gt;&lt;true/&gt;&lt;key&gt;autohide&lt;/key&gt;&lt;false/&gt;&lt;key&gt;show-process-indicators&lt;/key&gt;&lt;true/&gt;&lt;key&gt;contents-immutable&lt;/key&gt;&lt;true/&gt;&lt;key&gt;static-only&lt;/key&gt;&lt;true/&gt;&lt;key&gt;launchanim-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;magnify-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;magsize-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;mineffect-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;minimize-to-application-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;position-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;show-process-indicators-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;size-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;static-apps&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;ZoomPresence&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/ZoomPresence.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;key&gt;static-others&lt;/key&gt;&lt;array/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>41</id>
+                <name>Digital Signage - Digital Signage macOS</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>Dock - Digital Signage</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>54</id>
+                <name>Digital Signage Policies</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

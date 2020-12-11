@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration_profile>
+    <general>
+        <id>27</id>
+        <name>iOS - ITSS - Front Desk - Single App Mode - AWC Kiosk</name>
+        <description></description>
+        <level>System</level>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>10</id>
+            <name>Faculty and Staff Policies</name>
+        </category>
+        <uuid>6D3C56B6-AC7B-4303-87B8-C4666C8F585D</uuid>
+        <deployment_method>Install Automatically</deployment_method>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <redeploy_days_before_certificate_expires>0</redeploy_days_before_certificate_expires>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;6D3C56B6-AC7B-4303-87B8-C4666C8F585D&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;6D3C56B6-AC7B-4303-87B8-C4666C8F585D&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;iOS - ITSS - Front Desk - Single App Mode - AWC Kiosk&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Restrictions Profile for the iOS 12 STIG V1R2.  Allows unrestricted use of Touch ID and Face ID. Assumes AO has approved unrestricted use of unmanaged apps. Created 4 September 2018.&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;HasRemovalPasscode&lt;/key&gt;&lt;false/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;CD1EDA96-AEDA-4DEE-83C8-D845A3E1E6AD&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.app.lock&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;CD1EDA96-AEDA-4DEE-83C8-D845A3E1E6AD&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;com.apple.app.lock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;App&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Identifier&lt;/key&gt;&lt;string&gt;edu.azwestern.AWCKiosk&lt;/string&gt;&lt;key&gt;Options&lt;/key&gt;&lt;dict&gt;&lt;key&gt;DisableDeviceRotation&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableVolumeButtons&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableVoiceControl&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableAutoLock&lt;/key&gt;&lt;true/&gt;&lt;key&gt;EnableSpeakSelection&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableRingerSwitch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableInvertColors&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableMonoAudio&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableAssistiveTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableZoom&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableVoiceOver&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DisableSleepWakeButton&lt;/key&gt;&lt;false/&gt;&lt;key&gt;VoiceControl&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;key&gt;UserEnabledOptions&lt;/key&gt;&lt;dict&gt;&lt;key&gt;VoiceOver&lt;/key&gt;&lt;false/&gt;&lt;key&gt;InvertColors&lt;/key&gt;&lt;false/&gt;&lt;key&gt;Zoom&lt;/key&gt;&lt;false/&gt;&lt;key&gt;AssistiveTouch&lt;/key&gt;&lt;false/&gt;&lt;key&gt;VoiceControl&lt;/key&gt;&lt;false/&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_mobile_devices>false</all_mobile_devices>
+        <all_jss_users>false</all_jss_users>
+        <mobile_devices>
+            <mobile_device>
+                <id>62</id>
+                <name>Service Desk Kiosk - F9FTNGCTGHKJ</name>
+                <udid>66a589336fe438d7a78c53a2079bf8bee3efee8f</udid>
+                <wifi_mac_address>E8:B2:AC:94:5E:53</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>169</id>
+                <name>Service Desk Kiosk - DMPNN3ARFK10</name>
+                <udid>652a1563dfc18afa0d5d1055bd6c75ffae0ed348</udid>
+                <wifi_mac_address>C8:85:50:1E:FE:BA</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>172</id>
+                <name>Service Desk Kiosk - DMPNN41JFK10</name>
+                <udid>10be71ed6a5bc57b465a55429384888adcb2322f</udid>
+                <wifi_mac_address>C8:85:50:23:62:62</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>173</id>
+                <name>Service Desk Kiosk - DMPNN1BEFK10</name>
+                <udid>b3334bb27a102c3d2425055093e8c4874253320b</udid>
+                <wifi_mac_address>C8:85:50:1E:18:72</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>175</id>
+                <name>Service Desk Kiosk - DMPZ2030JF8J</name>
+                <udid>77d10c1918bf0cb15e4131e7292486f637a0a30a</udid>
+                <wifi_mac_address>14:95:CE:79:27:5F</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>176</id>
+                <name>Service Desk Kiosk - DMPYX6KLJF8J</name>
+                <udid>00b4968f26ac93c7f07e1a844dcc7a8f5750bd1c</udid>
+                <wifi_mac_address>14:95:CE:77:5F:60</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>177</id>
+                <name>Service Desk Kiosk - DMPZ2LV9JF8J</name>
+                <udid>3ccb557b592abd70fd161e320b8766e1d66d47ef</udid>
+                <wifi_mac_address>14:95:CE:79:46:66</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>185</id>
+                <name>Service Desk Kiosk - DMPNN4BPFK10</name>
+                <udid>87e6ae18a684ff1f4b603f95a3185611f91a880a</udid>
+                <wifi_mac_address>C8:85:50:1E:D9:6E</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>186</id>
+                <name>Service Desk Kiosk - DMPNN3PLFK10</name>
+                <udid>98a6f4b702f260ae4e68bb304345537f98e60dd8</udid>
+                <wifi_mac_address>C8:85:50:1D:F8:A0</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>188</id>
+                <name>Service Desk Kiosk - DMPNN27SFK10</name>
+                <udid>90b2feb4418d46ec898f3c513ef5b87137fc209b</udid>
+                <wifi_mac_address>C8:85:50:1E:35:E8</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>199</id>
+                <name>Service Desk Kiosk - DMPZ8M6NJF8J</name>
+                <udid>a43faec2e9c75f3b07279c3a9c8b0a3988b910f5</udid>
+                <wifi_mac_address>14:95:CE:E2:30:6B</wifi_mac_address>
+            </mobile_device>
+            <mobile_device>
+                <id>200</id>
+                <name>Service Desk Kiosk - DMPZ8M5XJF8J</name>
+                <udid>f59a773e8dc678b1ea6e5b2364acc0f43e268460</udid>
+                <wifi_mac_address>14:95:CE:E2:91:22</wifi_mac_address>
+            </mobile_device>
+        </mobile_devices>
+        <buildings></buildings>
+        <departments></departments>
+        <mobile_device_groups></mobile_device_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <mobile_devices></mobile_devices>
+            <buildings></buildings>
+            <departments></departments>
+            <mobile_device_groups></mobile_device_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_description></self_service_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>10</id>
+                <name>Faculty and Staff Policies</name>
+            </category>
+        </self_service_categories>
+    </self_service>
+</configuration_profile>

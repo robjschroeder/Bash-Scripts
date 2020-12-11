@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>22</id>
+        <name>macOS - Digital Signage - Bluetooth</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>54</id>
+            <name>Digital Signage Policies</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>440BB280-80FA-43F6-8DD0-C5101C6496A3</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;440BB280-80FA-43F6-8DD0-C5101C6496A3&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;440BB280-80FA-43F6-8DD0-C5101C6496A3&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Digital Signage - Bluetooth&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;CB854C5B-6FE1-449D-8EE9-486F546BFD28&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;CB854C5B-6FE1-449D-8EE9-486F546BFD28&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.apple.Bluetooth&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;BluetoothAccStatus&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BluetoothAutoSeekKeyboard&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BluetoothAutoSeekPointingDevice&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BluetoothVersionNumber&lt;/key&gt;&lt;integer&gt;6&lt;/integer&gt;&lt;key&gt;ControllerPowerState&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;D2D MAC Address&lt;/key&gt;&lt;data&gt;AgA9N+ci&lt;/data&gt;&lt;key&gt;PrefKeyLoggingEnabled&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BluetoothStats&lt;/key&gt;&lt;dict&gt;&lt;key&gt;ClassicConnectionTimeout&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;CommandTimeouts&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;CoreDump&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;HardReset&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;HardwareError&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;LongRangeDisconnects&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;LowEnergy3ETimeout&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;LowEnergyConnectionTimeout&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;MediumRangeDisconnects&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;NearRangeDisconnects&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;SlowEnqueueData&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;SlowEnqueueDataTimeMicroseconds&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;USBPipeStall&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;kLowEnergyMICError&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;key&gt;PersistentPorts&lt;/key&gt;&lt;dict&gt;&lt;key&gt;incoming port - Bluetooth-Incoming-Port&lt;/key&gt;&lt;dict&gt;&lt;key&gt;BTAuthenticationRequired&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BTEncryptionType&lt;/key&gt;&lt;false/&gt;&lt;key&gt;BTName&lt;/key&gt;&lt;string&gt;incoming port - Bluetooth-Incoming-Port&lt;/string&gt;&lt;key&gt;BTPSM&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;key&gt;BTRFCOMMChannel&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;key&gt;BTSerialConnectionType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;key&gt;BTTTYName&lt;/key&gt;&lt;string&gt;Bluetooth-Incoming-Port&lt;/string&gt;&lt;key&gt;HiddenPort&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;IOTTYBaseName&lt;/key&gt;&lt;string&gt;Bluetooth-Incoming-Port&lt;/string&gt;&lt;key&gt;P49SerialPort&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;key&gt;PersistentPortsServices&lt;/key&gt;&lt;dict&gt;&lt;key&gt;incoming port - Bluetooth-Incoming-Port&lt;/key&gt;&lt;dict&gt;&lt;key&gt;0000 - ServiceRecordHandle*&lt;/key&gt;&lt;integer&gt;65540&lt;/integer&gt;&lt;key&gt;0100 - ServiceName*&lt;/key&gt;&lt;string&gt;Bluetooth-Incoming-Port&lt;/string&gt;&lt;key&gt;0001 - ServiceClassIDList&lt;/key&gt;&lt;array&gt;&lt;data&gt;EQE=&lt;/data&gt;&lt;/array&gt;&lt;key&gt;0004 - ProtocolDescriptorList&lt;/key&gt;&lt;array&gt;&lt;array&gt;&lt;data&gt;AQA=&lt;/data&gt;&lt;/array&gt;&lt;array&gt;&lt;data&gt;AAM=&lt;/data&gt;&lt;dict&gt;&lt;key&gt;DataElementSize&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementType&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementValue&lt;/key&gt;&lt;integer&gt;3&lt;/integer&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/array&gt;&lt;key&gt;0005 - BrowseGroupList*&lt;/key&gt;&lt;array&gt;&lt;data&gt;EAI=&lt;/data&gt;&lt;/array&gt;&lt;key&gt;0006 - LanguageBaseAttributeIDList*&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;DataElementSize&lt;/key&gt;&lt;integer&gt;2&lt;/integer&gt;&lt;key&gt;DataElementType&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementValue&lt;/key&gt;&lt;integer&gt;25966&lt;/integer&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;DataElementSize&lt;/key&gt;&lt;integer&gt;2&lt;/integer&gt;&lt;key&gt;DataElementType&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementValue&lt;/key&gt;&lt;integer&gt;106&lt;/integer&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;DataElementSize&lt;/key&gt;&lt;integer&gt;2&lt;/integer&gt;&lt;key&gt;DataElementType&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementValue&lt;/key&gt;&lt;integer&gt;256&lt;/integer&gt;&lt;/dict&gt;&lt;/array&gt;&lt;key&gt;0009 - BluetoothProfileDescriptorList&lt;/key&gt;&lt;array&gt;&lt;array&gt;&lt;data&gt;EQE=&lt;/data&gt;&lt;dict&gt;&lt;key&gt;DataElementSize&lt;/key&gt;&lt;integer&gt;2&lt;/integer&gt;&lt;key&gt;DataElementType&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;DataElementValue&lt;/key&gt;&lt;integer&gt;256&lt;/integer&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups></computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups>
+                <computer_group>
+                    <id>45</id>
+                    <name>Inventory - User and Location - Classroom - BA202</name>
+                </computer_group>
+            </computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>[New] - macOS Base - Login Window</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>54</id>
+                <name>Digital Signage Policies</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

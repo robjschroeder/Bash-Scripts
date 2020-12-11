@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>52</id>
+        <name>macOS - Applications - Jamf - Connect - Configuration</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>9</id>
+            <name>jamf</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>B80F7911-8117-41BE-82CD-F57900912C44</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;B80F7911-8117-41BE-82CD-F57900912C44&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;B80F7911-8117-41BE-82CD-F57900912C44&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Applications - Jamf - Connect - Configuration&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Custom&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;FC19E953-062D-46AA-9AD4-A12F6190FF02&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.ManagedClient.preferences&lt;/string&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;FC19E953-062D-46AA-9AD4-A12F6190FF02&lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;dict&gt;&lt;key&gt;com.jamf.connect.login&lt;/key&gt;&lt;dict&gt;&lt;key&gt;Forced&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_preference_settings&lt;/key&gt;&lt;dict&gt;&lt;key&gt;AllowNetworkSelection&lt;/key&gt;&lt;true/&gt;&lt;key&gt;BackgroundImage&lt;/key&gt;&lt;string&gt;/Library/Desktop Pictures/AWC-Pictures/FS-Login.jpg&lt;/string&gt;&lt;key&gt;CreateAdminUser&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CreateSyncPasswords&lt;/key&gt;&lt;false/&gt;&lt;key&gt;CreateVerifyPasswords&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DemobilizeUsers&lt;/key&gt;&lt;false/&gt;&lt;key&gt;DenyLocal&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableFDE&lt;/key&gt;&lt;false/&gt;&lt;key&gt;EnableFDERecoveryKey&lt;/key&gt;&lt;false/&gt;&lt;key&gt;HelpURL&lt;/key&gt;&lt;string&gt;https://www.azwestern.edu/support&lt;/string&gt;&lt;key&gt;LocalFallback&lt;/key&gt;&lt;true/&gt;&lt;key&gt;LoginLogo&lt;/key&gt;&lt;string&gt;/Library/Desktop Pictures/AWC-Pictures/android-chrome-1024x1024.png&lt;/string&gt;&lt;key&gt;LoginScreen&lt;/key&gt;&lt;false/&gt;&lt;key&gt;OIDCClientID&lt;/key&gt;&lt;string&gt;2595c9b7-08e7-4de2-a924-3f93297cd7fc&lt;/string&gt;&lt;key&gt;OIDCNewPassword&lt;/key&gt;&lt;false/&gt;&lt;key&gt;OIDCProvider&lt;/key&gt;&lt;string&gt;Azure&lt;/string&gt;&lt;key&gt;OIDCROPGID&lt;/key&gt;&lt;string&gt;2595c9b7-08e7-4de2-a924-3f93297cd7fc&lt;/string&gt;&lt;key&gt;OIDCRedirectURI&lt;/key&gt;&lt;string&gt;https://127.0.0.1/jamfconnect&lt;/string&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>57</id>
+                <name>Inventory - User and Location - Faculty Staff - DEPNotify Testing</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers>
+                <computer>
+                    <id>154</id>
+                    <name>LR-080-101-DM</name>
+                    <udid>97A496BA-02FE-5F94-8132-3AE7B51E65A8</udid>
+                </computer>
+            </computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>Jamf Connect Test</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>9</id>
+                <name>jamf</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>

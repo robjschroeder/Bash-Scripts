@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<os_x_configuration_profile>
+    <general>
+        <id>56</id>
+        <name>macOS - Classroom - AB103 - Dock</name>
+        <description></description>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+        <category>
+            <id>13</id>
+            <name>Classroom Policies</name>
+        </category>
+        <distribution_method>Install Automatically</distribution_method>
+        <user_removable>false</user_removable>
+        <level>computer</level>
+        <uuid>99D9BDD1-7E45-43E2-A342-A3F312252BB3</uuid>
+        <redeploy_on_update>Newly Assigned</redeploy_on_update>
+        <payloads>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1"&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;99D9BDD1-7E45-43E2-A342-A3F312252BB3&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;Configuration&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;99D9BDD1-7E45-43E2-A342-A3F312252BB3&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;macOS - Classroom - AB103 - Dock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string&gt;Classroom AB 103 custom dock. &lt;/string&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadRemovalDisallowed&lt;/key&gt;&lt;true/&gt;&lt;key&gt;PayloadScope&lt;/key&gt;&lt;string&gt;System&lt;/string&gt;&lt;key&gt;PayloadContent&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;PayloadUUID&lt;/key&gt;&lt;string&gt;750F636E-2EB2-46D7-8F8E-823010ED3AAC&lt;/string&gt;&lt;key&gt;PayloadType&lt;/key&gt;&lt;string&gt;com.apple.dock&lt;/string&gt;&lt;key&gt;PayloadOrganization&lt;/key&gt;&lt;string&gt;Arizona Western College&lt;/string&gt;&lt;key&gt;PayloadIdentifier&lt;/key&gt;&lt;string&gt;dockmaster.ab-103-dock&lt;/string&gt;&lt;key&gt;PayloadDisplayName&lt;/key&gt;&lt;string&gt;Dock&lt;/string&gt;&lt;key&gt;PayloadDescription&lt;/key&gt;&lt;string/&gt;&lt;key&gt;PayloadVersion&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;PayloadEnabled&lt;/key&gt;&lt;true/&gt;&lt;key&gt;tilesize&lt;/key&gt;&lt;integer&gt;48&lt;/integer&gt;&lt;key&gt;magnification&lt;/key&gt;&lt;true/&gt;&lt;key&gt;largesize&lt;/key&gt;&lt;integer&gt;96&lt;/integer&gt;&lt;key&gt;orientation&lt;/key&gt;&lt;string&gt;bottom&lt;/string&gt;&lt;key&gt;mineffect&lt;/key&gt;&lt;string&gt;genie&lt;/string&gt;&lt;key&gt;minimize-to-application&lt;/key&gt;&lt;false/&gt;&lt;key&gt;launchanim&lt;/key&gt;&lt;true/&gt;&lt;key&gt;autohide&lt;/key&gt;&lt;false/&gt;&lt;key&gt;show-process-indicators&lt;/key&gt;&lt;true/&gt;&lt;key&gt;contents-immutable&lt;/key&gt;&lt;true/&gt;&lt;key&gt;static-only&lt;/key&gt;&lt;true/&gt;&lt;key&gt;launchanim-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;magnify-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;magsize-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;mineffect-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;minimize-to-application-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;position-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;show-process-indicators-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;size-immutable&lt;/key&gt;&lt;false/&gt;&lt;key&gt;static-apps&lt;/key&gt;&lt;array&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Safari&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Safari.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Firefox&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Firefox.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Microsoft Word&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Microsoft Word.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Microsoft Excel&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Microsoft Excel.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Microsoft PowerPoint&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Microsoft PowerPoint.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Adobe Illustrator&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Adobe Illustrator 2020/Adobe Illustrator.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;dict&gt;&lt;key&gt;mcx_typehint&lt;/key&gt;&lt;integer&gt;1&lt;/integer&gt;&lt;key&gt;tile-type&lt;/key&gt;&lt;string&gt;file-tile&lt;/string&gt;&lt;key&gt;tile-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;file-label&lt;/key&gt;&lt;string&gt;Adobe Photoshop 2020&lt;/string&gt;&lt;key&gt;file-data&lt;/key&gt;&lt;dict&gt;&lt;key&gt;_CFURLString&lt;/key&gt;&lt;string&gt;/Applications/Adobe Photoshop 2020/Adobe Photoshop 2020.app&lt;/string&gt;&lt;key&gt;_CFURLStringType&lt;/key&gt;&lt;integer&gt;0&lt;/integer&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/dict&gt;&lt;/array&gt;&lt;key&gt;static-others&lt;/key&gt;&lt;array/&gt;&lt;/dict&gt;&lt;/array&gt;&lt;/dict&gt;&lt;/plist&gt;</payloads>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <all_jss_users>false</all_jss_users>
+        <computers></computers>
+        <buildings></buildings>
+        <departments></departments>
+        <computer_groups>
+            <computer_group>
+                <id>71</id>
+                <name>Inventory - User and Location - Classroom - AB103</name>
+            </computer_group>
+        </computer_groups>
+        <jss_users></jss_users>
+        <jss_user_groups></jss_user_groups>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <buildings></buildings>
+            <departments></departments>
+            <computer_groups></computer_groups>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+            <jss_users></jss_users>
+            <jss_user_groups></jss_user_groups>
+        </exclusions>
+    </scope>
+    <self_service>
+        <self_service_display_name>macOS - Classroom - AB103 - Dock</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <self_service_description></self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <security>
+            <removal_disallowed>Never</removal_disallowed>
+        </security>
+        <self_service_icon></self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>13</id>
+                <name>Classroom Policies</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject></notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+</os_x_configuration_profile>
