@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<advanced_computer_search>
+    <id>2</id>
+    <name>OS Install Date Greater than 365 Days</name>
+    <view_as>Standard Web Page</view_as>
+    <sort_1></sort_1>
+    <sort_2></sort_2>
+    <sort_3></sort_3>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>OS Install Date</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>more than x days ago</search_type>
+            <value>365</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <display_fields>
+        <size>16</size>
+        <display_field>
+            <name>Last Check-in</name>
+        </display_field>
+        <display_field>
+            <name>Room</name>
+        </display_field>
+        <display_field>
+            <name>Serial Number</name>
+        </display_field>
+        <display_field>
+            <name>Building</name>
+        </display_field>
+        <display_field>
+            <name>Email Address</name>
+        </display_field>
+        <display_field>
+            <name>IP Address</name>
+        </display_field>
+        <display_field>
+            <name>LatestOSSupported</name>
+        </display_field>
+        <display_field>
+            <name>Computer Name</name>
+        </display_field>
+        <display_field>
+            <name>Asset Tag</name>
+        </display_field>
+        <display_field>
+            <name>Model Identifier</name>
+        </display_field>
+        <display_field>
+            <name>Operating System Version</name>
+        </display_field>
+        <display_field>
+            <name>Last Inventory Update</name>
+        </display_field>
+        <display_field>
+            <name>Computer Azure Active Directory ID</name>
+        </display_field>
+        <display_field>
+            <name>Username</name>
+        </display_field>
+        <display_field>
+            <name>FileVault 2 Status</name>
+        </display_field>
+        <display_field>
+            <name>Last Reported IP Address</name>
+        </display_field>
+    </display_fields>
+    <computers>
+        <size>5</size>
+        <computer>
+            <name>TE-114-102-DM</name>
+            <udid>EA0DB1FD-ACA7-590F-AA35-F72364A5C8EE</udid>
+            <OS_Install_Date>2019-06-18 18:20:44+00</OS_Install_Date>
+            <id>27</id>
+            <Computer_Name>TE-114-102-DM</Computer_Name>
+            <Last_Check_in>2020-11-23 23:55:22</Last_Check_in>
+            <Room>114</Room>
+            <Serial_Number>C02TL2SBJ1GG</Serial_Number>
+            <Building>TE</Building>
+            <Email_Address>Craig.Fry@azwestern.edu</Email_Address>
+            <IP_Address>204.229.220.1</IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac18,3</Model_Identifier>
+            <Operating_System_Version>10.14.6</Operating_System_Version>
+            <Last_Inventory_Update>2020-11-24 00:00:20</Last_Inventory_Update>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Username>csf6</Username>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Last_Reported_IP_Address>10.217.10.205</Last_Reported_IP_Address>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-249-DM</name>
+            <udid>79DD4615-3D57-589C-B113-4C77EADF1BCF</udid>
+            <OS_Install_Date>2019-08-19 19:43:47+00</OS_Install_Date>
+            <id>132</id>
+            <Computer_Name>LR-249-DM</Computer_Name>
+            <Last_Check_in>2020-12-11 22:55:11</Last_Check_in>
+            <Room>249</Room>
+            <Serial_Number>C02KPCN8DNCR</Serial_Number>
+            <Building>LR</Building>
+            <Email_Address>Elizabeth.Decock@azwestern.edu</Email_Address>
+            <IP_Address>204.229.220.1</IP_Address>
+            <LatestOSSupported>Catalina</LatestOSSupported>
+            <Asset_Tag>27555</Asset_Tag>
+            <Model_Identifier>iMac13,1</Model_Identifier>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Last_Inventory_Update>2020-12-11 16:34:33</Last_Inventory_Update>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Username>ead53</Username>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Last_Reported_IP_Address>10.210.10.195</Last_Reported_IP_Address>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>CIE-OA-DM</name>
+            <udid>9ED78F7C-1811-50FD-8D55-B9E914AB74D1</udid>
+            <OS_Install_Date>2019-08-27 16:29:54+00</OS_Install_Date>
+            <id>137</id>
+            <Computer_Name>CIE-OA-DM</Computer_Name>
+            <Last_Check_in>2020-11-23 22:11:20</Last_Check_in>
+            <Room>Horse shoe</Room>
+            <Serial_Number>C07Y706WJYVX</Serial_Number>
+            <Building>CTE</Building>
+            <Email_Address></Email_Address>
+            <IP_Address>204.229.220.1</IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Asset_Tag>10538</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Last_Inventory_Update>2020-11-23 22:11:31</Last_Inventory_Update>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Username></Username>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Last_Reported_IP_Address>10.207.11.12</Last_Reported_IP_Address>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>PSI-106-DM</name>
+            <udid>BF0DFE80-5825-5F7C-99D1-C78A8D421D81</udid>
+            <OS_Install_Date>2019-02-19 09:26:56-08</OS_Install_Date>
+            <id>138</id>
+            <Computer_Name>PSI-106-DM</Computer_Name>
+            <Last_Check_in>2020-11-12 19:43:28</Last_Check_in>
+            <Room>106</Room>
+            <Serial_Number>C02Y50C8J1G9</Serial_Number>
+            <Building>PSI</Building>
+            <Email_Address>Timothy.Smith@azwestern.edu</Email_Address>
+            <IP_Address>204.229.220.1</IP_Address>
+            <LatestOSSupported>Catalina</LatestOSSupported>
+            <Asset_Tag>Y21236</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Last_Inventory_Update>2020-11-09 22:29:55</Last_Inventory_Update>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Username>tcs2</Username>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Last_Reported_IP_Address>10.252.11.8</Last_Reported_IP_Address>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-103-DM</name>
+            <udid>19BEFEE7-B131-57E8-A9C5-4B66D2C5F83C</udid>
+            <OS_Install_Date>2019-12-03 06:56:39-07</OS_Install_Date>
+            <id>147</id>
+            <Computer_Name>BA-103-DM</Computer_Name>
+            <Last_Check_in>2020-11-23 23:37:19</Last_Check_in>
+            <Room>103</Room>
+            <Serial_Number>C02NLS3AF8J2</Serial_Number>
+            <Building>BA</Building>
+            <Email_Address>Lance.Westmoreland@azwestern.edu</Email_Address>
+            <IP_Address>204.229.220.1</IP_Address>
+            <LatestOSSupported>Catalina</LatestOSSupported>
+            <Asset_Tag>AWCY20256</Asset_Tag>
+            <Model_Identifier>iMac14,1</Model_Identifier>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Last_Inventory_Update>2020-11-23 23:40:04</Last_Inventory_Update>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Username>lkw7</Username>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Last_Reported_IP_Address>10.208.10.177</Last_Reported_IP_Address>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+    </computers>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+</advanced_computer_search>

@@ -1,0 +1,1795 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<advanced_computer_search>
+    <id>3</id>
+    <name>Latest OS Not Supported</name>
+    <view_as>Standard Web Page</view_as>
+    <sort_1></sort_1>
+    <sort_2></sort_2>
+    <sort_3></sort_3>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>LatestOSSupported</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is not</search_type>
+            <value>Catalina</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <display_fields>
+        <size>16</size>
+        <display_field>
+            <name>IP Address</name>
+        </display_field>
+        <display_field>
+            <name>Username</name>
+        </display_field>
+        <display_field>
+            <name>Operating System Version</name>
+        </display_field>
+        <display_field>
+            <name>Email Address</name>
+        </display_field>
+        <display_field>
+            <name>Last Inventory Update</name>
+        </display_field>
+        <display_field>
+            <name>Room</name>
+        </display_field>
+        <display_field>
+            <name>Last Reported IP Address</name>
+        </display_field>
+        <display_field>
+            <name>LatestOSSupported</name>
+        </display_field>
+        <display_field>
+            <name>Computer Name</name>
+        </display_field>
+        <display_field>
+            <name>Building</name>
+        </display_field>
+        <display_field>
+            <name>Asset Tag</name>
+        </display_field>
+        <display_field>
+            <name>Model Identifier</name>
+        </display_field>
+        <display_field>
+            <name>Serial Number</name>
+        </display_field>
+        <display_field>
+            <name>Computer Azure Active Directory ID</name>
+        </display_field>
+        <display_field>
+            <name>Last Check-in</name>
+        </display_field>
+        <display_field>
+            <name>FileVault 2 Status</name>
+        </display_field>
+    </display_fields>
+    <computers>
+        <size>78</size>
+        <computer>
+            <name>PLC-124-DM</name>
+            <udid>7E683835-BF5C-51E0-801E-B3F910E08057</udid>
+            <id>10</id>
+            <Computer_Name>PLC-124-DM</Computer_Name>
+            <IP_Address>72.47.61.170</IP_Address>
+            <Username>ms2</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Melody.Villaneda@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 14:53:42</Last_Inventory_Update>
+            <Room>124</Room>
+            <Last_Reported_IP_Address>10.235.0.104</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>PLC</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,2</Model_Identifier>
+            <Serial_Number>C02YM1JBJWF2</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 19:07:46</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114-102-DM</name>
+            <udid>EA0DB1FD-ACA7-590F-AA35-F72364A5C8EE</udid>
+            <id>27</id>
+            <Computer_Name>TE-114-102-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>csf6</Username>
+            <Operating_System_Version>10.14.6</Operating_System_Version>
+            <Email_Address>Craig.Fry@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-24 00:00:20</Last_Inventory_Update>
+            <Room>114</Room>
+            <Last_Reported_IP_Address>10.217.10.205</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac18,3</Model_Identifier>
+            <Serial_Number>C02TL2SBJ1GG</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 23:55:22</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AS-125-DM</name>
+            <udid>DB9261A1-0634-5891-8948-2D5DF76CE7A4</udid>
+            <id>35</id>
+            <Computer_Name>AS-125-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>kdt3</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Kara.Tucker@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:50</Last_Inventory_Update>
+            <Room>125</Room>
+            <Last_Reported_IP_Address>10.208.14.21</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>AS</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>C02Y50C7J1G9</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-30 16:32:20</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>PSI-DSign01-DM</name>
+            <udid>EB2283AF-B927-50BB-A4F9-28734C0AE505</udid>
+            <id>36</id>
+            <Computer_Name>PSI-DSign01-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-08 13:50:06</Last_Inventory_Update>
+            <Room>Lobby</Room>
+            <Last_Reported_IP_Address>10.252.11.35</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>PSI</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKLLVJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-08 13:49:44</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>3C-DSign05-DM</name>
+            <udid>7390FF4A-53EC-5452-ABD7-83F506B3D347</udid>
+            <id>40</id>
+            <Computer_Name>3C-DSign05-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 16:52:04</Last_Inventory_Update>
+            <Room>Foundation</Room>
+            <Last_Reported_IP_Address>10.207.10.179</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>3C</Building>
+            <Asset_Tag>10518</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKLBUJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:46:28</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>3C-DSign06-DM</name>
+            <udid>66814E15-ACA3-527C-8E7E-7FB7AB60539A</udid>
+            <id>41</id>
+            <Computer_Name>3C-DSign06-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-06 12:34:16</Last_Inventory_Update>
+            <Room>Transfer Services</Room>
+            <Last_Reported_IP_Address>10.208.12.48</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>3C</Building>
+            <Asset_Tag>10526</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKJ1QJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-06 12:33:57</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>EB-DSign01-DM</name>
+            <udid>CE2DC67A-BBB5-5603-8123-560EBE46BA11</udid>
+            <id>43</id>
+            <Computer_Name>EB-DSign01-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-06 12:15:43</Last_Inventory_Update>
+            <Room>Lobby</Room>
+            <Last_Reported_IP_Address>10.213.10.73</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>EB</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKKEYJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-06 12:15:24</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>SC-DSign02-DM</name>
+            <udid>8F7C4060-E338-535D-A0A5-A36D9520FE73</udid>
+            <id>45</id>
+            <Computer_Name>SC-DSign02-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-06 13:11:00</Last_Inventory_Update>
+            <Room>Lobby</Room>
+            <Last_Reported_IP_Address>10.223.10.250</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>SC</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKHQ4JYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-06 13:10:41</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>3C-DSign07-DM</name>
+            <udid>B1A26F8F-C5DD-53AF-8393-C44C77C4D8C4</udid>
+            <id>46</id>
+            <Computer_Name>3C-DSign07-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 13:50:07</Last_Inventory_Update>
+            <Room>Service Desk</Room>
+            <Last_Reported_IP_Address>10.208.13.222</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>3C</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKLAKJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 13:49:46</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>3C-DSign03-DM</name>
+            <udid>3C867DFD-2585-534F-A3D7-EDB7215B89CA</udid>
+            <id>47</id>
+            <Computer_Name>3C-DSign03-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.14.0</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2019-07-22 20:26:43</Last_Inventory_Update>
+            <Room></Room>
+            <Last_Reported_IP_Address>10.211.14.118</Last_Reported_IP_Address>
+            <LatestOSSupported>Mojave</LatestOSSupported>
+            <Building></Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKHW9JYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2019-07-22 20:53:37</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>SC-DSign01-DM</name>
+            <udid>B7887527-4F9E-5831-AE36-F13408297F26</udid>
+            <id>48</id>
+            <Computer_Name>SC-DSign01-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-06 12:32:54</Last_Inventory_Update>
+            <Room>Lobby</Room>
+            <Last_Reported_IP_Address>10.223.11.209</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>SC</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XK7F2JYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-06 15:51:27</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>EB-DSign02-DM</name>
+            <udid>CF91F862-56EF-5974-9080-9070602D47FD</udid>
+            <id>49</id>
+            <Computer_Name>EB-DSign02-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 15:11:05</Last_Inventory_Update>
+            <Room>Lobby</Room>
+            <Last_Reported_IP_Address>10.213.11.73</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>EB</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKL0CJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 15:10:47</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-202-102-DM</name>
+            <udid>88392775-80CF-5C49-BFE6-3111E524844B</udid>
+            <id>58</id>
+            <Computer_Name>BA-202-102-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:26</Last_Inventory_Update>
+            <Room>202</Room>
+            <Last_Reported_IP_Address>10.208.13.129</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ083JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-30 20:58:15</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-202-106-DM</name>
+            <udid>E96CE176-529B-505E-9179-1BA814A36A13</udid>
+            <id>59</id>
+            <Computer_Name>BA-202-106-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:11</Last_Inventory_Update>
+            <Room>202</Room>
+            <Last_Reported_IP_Address>10.208.12.34</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ088JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:06:48</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-202-103-DM</name>
+            <udid>C0731B49-263D-549C-9786-D953607C9656</udid>
+            <id>60</id>
+            <Computer_Name>BA-202-103-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-07 23:00:43</Last_Inventory_Update>
+            <Room>202</Room>
+            <Last_Reported_IP_Address>10.208.11.33</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ086JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-08 00:02:49</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-202-101-DM</name>
+            <udid>D05DE018-DA0F-5A1C-B605-29035DA8B3D3</udid>
+            <id>61</id>
+            <Computer_Name>BA-202-101-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:34</Last_Inventory_Update>
+            <Room>202</Room>
+            <Last_Reported_IP_Address>10.208.14.214</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ087JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:07:10</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-202-105-DM</name>
+            <udid>44A1B618-F3EE-556E-8349-831A9861992F</udid>
+            <id>63</id>
+            <Computer_Name>BA-202-105-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>11.0.1</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-07 00:08:47</Last_Inventory_Update>
+            <Room>202</Room>
+            <Last_Reported_IP_Address>10.208.14.151</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ084JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-07 23:28:16</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-101-DM</name>
+            <udid>4D62A4BB-AF78-5FB4-9A0B-80D82E16641D</udid>
+            <id>65</id>
+            <Computer_Name>TE-114D-101-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:33</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.78</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10555</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20QDJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:07:15</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-102-DM</name>
+            <udid>CA66A23C-E14E-5869-83D7-95E2135A94A9</udid>
+            <id>66</id>
+            <Computer_Name>TE-114D-102-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-08 13:49:12</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.77</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10568</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20BSJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-08 23:45:26</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-103-DM</name>
+            <udid>6F1721BA-EF29-5C6F-942C-432E7ACE74C4</udid>
+            <id>67</id>
+            <Computer_Name>TE-114D-103-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 14:07:43</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.76</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10565</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q9JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 16:25:08</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-202-DM</name>
+            <udid>56AD29D5-FF67-57DC-A375-84FF42464C71</udid>
+            <id>68</id>
+            <Computer_Name>TE-114D-202-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 15:38:13</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.24</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10567</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20C6JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 16:27:20</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-405-DM</name>
+            <udid>8E8A726E-89DB-58A3-8FC5-74B653DB22FE</udid>
+            <id>69</id>
+            <Computer_Name>TE-114D-405-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-09 13:48:48</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.12.77</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10570</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ08CJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 13:48:17</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-302-DM</name>
+            <udid>B9E1E86D-994A-5F28-99B2-AC76BFA7A69B</udid>
+            <id>70</id>
+            <Computer_Name>TE-114D-302-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:46</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.73</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>TE</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20BPJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-03 17:39:48</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-104-DM</name>
+            <udid>CC3222BE-981D-5BB2-8542-A7418353BB0C</udid>
+            <id>71</id>
+            <Computer_Name>TE-114D-104-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:07:48</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.83</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10564</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20QCJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-25 23:10:50</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-105-DM</name>
+            <udid>28D9BDC0-C2E3-53D5-8498-46EFDC6C1BF6</udid>
+            <id>73</id>
+            <Computer_Name>TE-114D-105-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 13:46:09</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.12.73</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10556</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20N3JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 13:45:38</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-401-DM</name>
+            <udid>A4B96061-230C-535E-A482-A0ED81B7A00C</udid>
+            <id>74</id>
+            <Computer_Name>TE-114D-401-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:06</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.74</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10563</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02YQ08DJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:07:47</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-304-DM</name>
+            <udid>24F4E19A-0236-5EAD-A347-33A4260C3481</udid>
+            <id>75</id>
+            <Computer_Name>TE-114D-304-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 22:53:14</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.78</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10561</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20A3JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:52:20</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-402-DM</name>
+            <udid>80061102-1A9E-5AC5-9676-629BD6A770C6</udid>
+            <id>76</id>
+            <Computer_Name>TE-114D-402-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:30</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.72</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10562</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q7JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:07:53</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-403-DM</name>
+            <udid>6DDAA889-EE5B-529C-8AE3-B3CB995B93EF</udid>
+            <id>77</id>
+            <Computer_Name>TE-114D-403-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:34</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.73</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10559</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q1JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:07:56</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-INST-DM</name>
+            <udid>755FC6FD-9F6F-5027-BD35-58832844875D</udid>
+            <id>78</id>
+            <Computer_Name>TE-114D-INST-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 15:47:07</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.71</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10566</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20PZJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 16:21:26</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-301-DM</name>
+            <udid>87A59F0E-A5EE-514C-8990-4C1FA9786A8C</udid>
+            <id>79</id>
+            <Computer_Name>TE-114D-301-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:48</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.31</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>TE</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20PXJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:08:09</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-204-DM (2)</name>
+            <udid>5A73DDAF-1B25-586B-98C5-22B60DA1CFF7</udid>
+            <id>80</id>
+            <Computer_Name>TE-114D-204-DM (2)</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-27 15:45:52</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.70</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10557</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20QGJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 22:04:22</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-306-DM</name>
+            <udid>9E08A2D6-3EFB-566A-A8AF-AF0E6A4118C7</udid>
+            <id>82</id>
+            <Computer_Name>TE-114D-306-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:08:59</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.12.67</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10603</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20PWJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-03 17:53:56</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-303-DM</name>
+            <udid>8BAE2142-1CC4-52B5-B792-95CB9521DF91</udid>
+            <id>84</id>
+            <Computer_Name>TE-114D-303-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 17:48:07</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.225</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10604</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20PYJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:45:43</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-201-DM</name>
+            <udid>5002C942-9C13-585C-A250-C23EAF39CBCA</udid>
+            <id>86</id>
+            <Computer_Name>TE-114D-201-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:09:30</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.12.87</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10608</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20QFJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:08:43</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-SCAN-DM</name>
+            <udid>D478F59B-4FD3-5DBE-A085-9EC0073BF92F</udid>
+            <id>88</id>
+            <Computer_Name>TE-114D-SCAN-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 22:54:34</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.12.243</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10601</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q8JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:52:54</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-206-DM</name>
+            <udid>9A355147-CFCA-5655-B13A-04EC3B498C62</udid>
+            <id>89</id>
+            <Computer_Name>TE-114D-206-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-09 13:46:36</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.11.44</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10606</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q6JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 13:46:07</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-203-DM</name>
+            <udid>A346A67F-17E5-52C3-92A9-AB943345655C</udid>
+            <id>90</id>
+            <Computer_Name>TE-114D-203-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-11 22:04:26</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.63</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10605</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20Q5JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:42:29</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-121-DM</name>
+            <udid>8705B312-0D98-57D1-A72D-8B6D0355B092</udid>
+            <id>99</id>
+            <Computer_Name>BA-121-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>dcb10</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>David.Burris@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:09:43</Last_Inventory_Update>
+            <Room>121</Room>
+            <Last_Reported_IP_Address>10.208.14.78</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>10533</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07YG1EZJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:09:15</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>MU-103-403-DM</name>
+            <udid>32BD1F19-0857-5BE2-BA37-FCA1C8BCED22</udid>
+            <id>112</id>
+            <Computer_Name>MU-103-403-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-03 05:03:43</Last_Inventory_Update>
+            <Room>103</Room>
+            <Last_Reported_IP_Address>10.223.11.84</Last_Reported_IP_Address>
+            <LatestOSSupported>Model No Longer Supported</LatestOSSupported>
+            <Building>MU</Building>
+            <Asset_Tag>Y20533</Asset_Tag>
+            <Model_Identifier>iMac14,2</Model_Identifier>
+            <Serial_Number>D25Q506TF8J9</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-03 04:58:37</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-AWCTV-DM</name>
+            <udid>24A394C3-FA9B-5DCA-BD6A-CC1B26C3C515</udid>
+            <id>123</id>
+            <Computer_Name>BA-AWCTV-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-02 07:04:40</Last_Inventory_Update>
+            <Room>TV Studio</Room>
+            <Last_Reported_IP_Address>10.208.14.49</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>10531</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07YH02SJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-02 20:47:33</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AB-101-DM</name>
+            <udid>6B3539E0-1D0F-5C5C-9DB0-3A5415E8806A</udid>
+            <id>125</id>
+            <Computer_Name>AB-101-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>bjp</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Brad.Pease@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 19:33:31</Last_Inventory_Update>
+            <Room>101</Room>
+            <Last_Reported_IP_Address>10.215.11.5</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur / Insufficient Storage</LatestOSSupported>
+            <Building>AB</Building>
+            <Asset_Tag>10877</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z50H3JV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:45:52</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114A-02-LM</name>
+            <udid>176F93E6-763E-5EA9-B4C0-0136BF481400</udid>
+            <id>126</id>
+            <Computer_Name>TE-114A-02-LM</Computer_Name>
+            <IP_Address>70.93.4.27</IP_Address>
+            <Username>slm5</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Leah.McKeogh@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 23:15:51</Last_Inventory_Update>
+            <Room>114A</Room>
+            <Last_Reported_IP_Address>192.168.1.122</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>MacBookAir8,2</Model_Identifier>
+            <Serial_Number>FVFZ50RFLYWN</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 23:40:11</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>CDLL-104-DM</name>
+            <udid>6ECBE1E8-C5A7-5F6E-8F9C-10C9AB0FEB3C</udid>
+            <id>129</id>
+            <Computer_Name>CDLL-104-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>mdk6</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Michelle.Keeling@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:11:24</Last_Inventory_Update>
+            <Room>104</Room>
+            <Last_Reported_IP_Address>10.221.10.14</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>CD</Building>
+            <Asset_Tag>10536</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07Y54KMJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:11:00</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>OffSite-01-DSB7</name>
+            <udid>CD12CF22-EE9A-564B-A4C8-D38C1F5AF87D</udid>
+            <id>131</id>
+            <Computer_Name>OffSite-01-DSB7</Computer_Name>
+            <IP_Address>68.227.12.131</IP_Address>
+            <Username>dsb7</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Damien.Bates@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 15:06:25</Last_Inventory_Update>
+            <Room>Home</Room>
+            <Last_Reported_IP_Address>192.168.1.198</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>OffSite</Building>
+            <Asset_Tag>Y21077</Asset_Tag>
+            <Model_Identifier>iMac18,3</Model_Identifier>
+            <Serial_Number>C02V52LGJ1GP</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:44:44</Last_Check_in>
+            <FileVault_2_Status>Boot Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-083-DM</name>
+            <udid>4406C1D8-FF92-52B9-BE5C-CC15893B23F3</udid>
+            <id>133</id>
+            <Computer_Name>LR-083-DM</Computer_Name>
+            <IP_Address>76.178.61.249</IP_Address>
+            <Username>bms1</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Brandon.Smith@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-08 14:41:45</Last_Inventory_Update>
+            <Room>083</Room>
+            <Last_Reported_IP_Address>192.168.1.41</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>Y21041</Asset_Tag>
+            <Model_Identifier>iMac18,3</Model_Identifier>
+            <Serial_Number>D25WJ0B1J1GP</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 14:12:42</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114A-02-DM</name>
+            <udid>A897B3D2-77D7-547D-9796-84069251B6E0</udid>
+            <id>134</id>
+            <Computer_Name>TE-114A-02-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>slm5</Username>
+            <Operating_System_Version>11.0.1</Operating_System_Version>
+            <Email_Address>Leah.McKeogh@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 15:07:23</Last_Inventory_Update>
+            <Room>114A</Room>
+            <Last_Reported_IP_Address>10.217.12.125</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>C10298</Asset_Tag>
+            <Model_Identifier>iMacPro1,1</Model_Identifier>
+            <Serial_Number>C02Y50ZBHX8F</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 18:03:06</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114A-05-DM</name>
+            <udid>872B558A-75CE-557B-BF5D-81B704DBA8C1</udid>
+            <id>135</id>
+            <Computer_Name>TE-114A-05-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>kls28</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Kelly.Skaggs@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 16:08:37</Last_Inventory_Update>
+            <Room>114A</Room>
+            <Last_Reported_IP_Address>10.217.12.34</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>C10299</Asset_Tag>
+            <Model_Identifier>iMacPro1,1</Model_Identifier>
+            <Serial_Number>C02Y50ZEHX8F</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 00:04:15</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>CIE-OA-DM</name>
+            <udid>9ED78F7C-1811-50FD-8D55-B9E914AB74D1</udid>
+            <id>137</id>
+            <Computer_Name>CIE-OA-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:11:31</Last_Inventory_Update>
+            <Room>Horse shoe</Room>
+            <Last_Reported_IP_Address>10.207.11.12</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>CTE</Building>
+            <Asset_Tag>10538</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07Y706WJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:11:20</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-edTV-DM</name>
+            <udid>158F022C-DB96-591B-9AD6-BF54988FB821</udid>
+            <id>139</id>
+            <Computer_Name>BA-edTV-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-02 07:17:53</Last_Inventory_Update>
+            <Room>TV Studio</Room>
+            <Last_Reported_IP_Address>10.208.13.251</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>10534</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07Y81XWJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-02 20:55:24</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-TVTRUCK-GPX</name>
+            <udid>422E28CE-08C6-50E8-ADE4-0B3B2D973BEA</udid>
+            <id>141</id>
+            <Computer_Name>BA-TVTRUCK-GPX</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-30 17:52:18</Last_Inventory_Update>
+            <Room>TV Truck</Room>
+            <Last_Reported_IP_Address>192.168.117.5</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur / Insufficient Storage</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>Y20222</Asset_Tag>
+            <Model_Identifier>MacBookPro11,1</Model_Identifier>
+            <Serial_Number>C02N9CMUG3QH</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-30 19:03:51</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-TVTRUCK-DIR</name>
+            <udid>B35A7910-EDF2-5B5F-BDF4-CD6A16CC2B53</udid>
+            <id>142</id>
+            <Computer_Name>BA-TVTRUCK-DIR</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-10-15 20:39:32</Last_Inventory_Update>
+            <Room>TV Truck</Room>
+            <Last_Reported_IP_Address>10.208.12.182</Last_Reported_IP_Address>
+            <LatestOSSupported>Insufficient Resources</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>Y20221</Asset_Tag>
+            <Model_Identifier>MacBookPro11,1</Model_Identifier>
+            <Serial_Number>C02N9CN7G3QH</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-10-15 20:44:35</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T3-110-01-DM</name>
+            <udid>795FC2EB-9F41-5AA9-8746-9D6C89DB4219</udid>
+            <id>143</id>
+            <Computer_Name>T3-110-01-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>mc23</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Marco.Castillo@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-03 18:47:43</Last_Inventory_Update>
+            <Room>110</Room>
+            <Last_Reported_IP_Address>10.217.10.47</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10552</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20WSJV3X</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-03 18:47:24</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T3-110-02-DM</name>
+            <udid>D100FA4D-A29A-55C4-9134-ABC33D8BF3C7</udid>
+            <id>144</id>
+            <Computer_Name>T3-110-02-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>TinoTest</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-07 23:01:28</Last_Inventory_Update>
+            <Room>110</Room>
+            <Last_Reported_IP_Address>10.217.12.22</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10550</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20SJJV3X</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-08 00:01:48</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T3-110-06-DM</name>
+            <udid>5F5760C1-3655-5153-933C-5BC188540209</udid>
+            <id>145</id>
+            <Computer_Name>T3-110-06-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>mgc</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Michael.Cannon@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 16:57:51</Last_Inventory_Update>
+            <Room>110</Room>
+            <Last_Reported_IP_Address>10.217.10.6</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10554</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20SNJV3X</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 23:02:39</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T3-110-04-DM</name>
+            <udid>98BA2E11-50FD-5132-ABB5-3D7D9C3D882D</udid>
+            <id>146</id>
+            <Computer_Name>T3-110-04-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>vva9</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Vanessa.Alcazar@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:12:25</Last_Inventory_Update>
+            <Room>110</Room>
+            <Last_Reported_IP_Address>10.217.12.53</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10553</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20SLJV3X</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:12:14</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T3-110-05-DM</name>
+            <udid>61687F15-6DF0-50F6-9AF9-AD17ABD49BCF</udid>
+            <id>148</id>
+            <Computer_Name>T3-110-05-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>smr23</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Scott.Rico@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 19:31:12</Last_Inventory_Update>
+            <Room>110</Room>
+            <Last_Reported_IP_Address>10.217.10.91</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10551</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z20SMJV3X</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 22:10:28</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>CD-103-01-DM</name>
+            <udid>483052DA-102E-58A8-BA4B-446892A48044</udid>
+            <id>152</id>
+            <Computer_Name>CD-103-01-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>elr</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>liz.renaud@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-07 16:39:45</Last_Inventory_Update>
+            <Room>103</Room>
+            <Last_Reported_IP_Address>10.221.10.94</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>CD</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac17,1</Model_Identifier>
+            <Serial_Number>D25T70VKGQ17</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-07 19:58:09</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-080-101-DM</name>
+            <udid>97A496BA-02FE-5F94-8132-3AE7B51E65A8</udid>
+            <id>154</id>
+            <Computer_Name>LR-080-101-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>Marybel.Garcia@azwestern.edu</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Marybel.Garcia@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-11-24 18:57:08</Last_Inventory_Update>
+            <Room>080</Room>
+            <Last_Reported_IP_Address>10.211.12.121</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>10532</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07YV064JYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-24 19:13:32</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>T2-108-DM</name>
+            <udid>CE818E56-D244-5048-BF43-0EB98F52E954</udid>
+            <id>156</id>
+            <Computer_Name>T2-108-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>nna</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Noberto.Alvarado@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 15:00:27</Last_Inventory_Update>
+            <Room>108</Room>
+            <Last_Reported_IP_Address>10.216.11.25</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>awcy20929</Asset_Tag>
+            <Model_Identifier>iMac17,1</Model_Identifier>
+            <Serial_Number>D25SY0C3GQ17</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 19:04:22</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AC-123-DM</name>
+            <udid>2D092D47-568D-5491-BF2B-6C0EA2B08470</udid>
+            <id>157</id>
+            <Computer_Name>AC-123-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>jlm</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Jana.Moore@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 18:31:33</Last_Inventory_Update>
+            <Room>123</Room>
+            <Last_Reported_IP_Address>10.203.10.254</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>AC</Building>
+            <Asset_Tag>AWCY20813</Asset_Tag>
+            <Model_Identifier>iMac17,1</Model_Identifier>
+            <Serial_Number>D25T70VLGQ17</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 18:58:02</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-080-501-DM</name>
+            <udid>8DB20A61-3A02-5BCF-A42E-63E9E75905B0</udid>
+            <id>159</id>
+            <Computer_Name>LR-080-501-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>cr269</Username>
+            <Operating_System_Version>10.13.6</Operating_System_Version>
+            <Email_Address>Cindy.Romero@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-01-06 06:44:06</Last_Inventory_Update>
+            <Room>080</Room>
+            <Last_Reported_IP_Address>10.211.14.245</Last_Reported_IP_Address>
+            <LatestOSSupported>High Sierra</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac12,2</Model_Identifier>
+            <Serial_Number>D25J31JVDHJW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-01-06 06:44:05</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>FS-WebServices</name>
+            <udid>400FC4D1-7029-57D9-8121-5DD312CCB84D</udid>
+            <id>162</id>
+            <Computer_Name>FS-WebServices</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 22:13:35</Last_Inventory_Update>
+            <Room>083</Room>
+            <Last_Reported_IP_Address>10.210.10.250</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>10539</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07Y54A5JYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:13:23</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>GY-111-DM</name>
+            <udid>4B3E0E52-A4A8-5CDB-B141-AE4A8BF9D197</udid>
+            <id>164</id>
+            <Computer_Name>GY-111-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-02 17:36:27</Last_Inventory_Update>
+            <Room>111</Room>
+            <Last_Reported_IP_Address>10.220.11.52</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>GY</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>iMac16,2</Model_Identifier>
+            <Serial_Number>C02SX831GG77</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-02 20:43:48</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AWCY20300</name>
+            <udid>35B1335B-9511-5B31-83A8-CB2445987521</udid>
+            <id>176</id>
+            <Computer_Name>AWCY20300</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 23:52:47</Last_Inventory_Update>
+            <Room>247</Room>
+            <Last_Reported_IP_Address>10.208.11.246</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>Y20300</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>C02VG04BJ1GC</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 23:51:03</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AWCY21099</name>
+            <udid>593C17A2-CC06-5F73-9654-CDE5220728D5</udid>
+            <id>177</id>
+            <Computer_Name>AWCY21099</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-25 01:08:28</Last_Inventory_Update>
+            <Room>247</Room>
+            <Last_Reported_IP_Address>10.208.11.80</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>Y21099</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>C02VG047J1GC</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-25 01:08:28</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>BA-247-02-MD</name>
+            <udid>D59FCD9C-B0DD-5A04-8878-54F8E473636E</udid>
+            <id>180</id>
+            <Computer_Name>BA-247-02-MD</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-09 17:52:19</Last_Inventory_Update>
+            <Room>247</Room>
+            <Last_Reported_IP_Address>10.208.10.4</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>Y21045</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>C02VG049J1GC</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 22:10:47</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AWCY20023</name>
+            <udid>95C30681-D18B-5E05-908B-C63895F29CF1</udid>
+            <id>182</id>
+            <Computer_Name>AWCY20023</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>tjm</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Travis.Mitchell@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 18:00:16</Last_Inventory_Update>
+            <Room>116</Room>
+            <Last_Reported_IP_Address>10.203.10.198</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>AC</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>MacPro6,1</Model_Identifier>
+            <Serial_Number>F5KMK1KTF694</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 17:58:16</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-081-LM</name>
+            <udid>B47638AD-72EB-5DE4-9193-53228CFBA0DB</udid>
+            <id>188</id>
+            <Computer_Name>LR-081-LM</Computer_Name>
+            <IP_Address>72.134.11.102</IP_Address>
+            <Username>rjs41</Username>
+            <Operating_System_Version>11.0.1</Operating_System_Version>
+            <Email_Address>Robert.Schroeder@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 16:40:02</Last_Inventory_Update>
+            <Room>081</Room>
+            <Last_Reported_IP_Address>192.168.1.12</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur / Insufficient Storage</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>Y00000</Asset_Tag>
+            <Model_Identifier>MacBookPro15,1</Model_Identifier>
+            <Serial_Number>C02YW0NXLVDQ</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:41:57</Last_Check_in>
+            <FileVault_2_Status>Boot Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>MacBook Pro</name>
+            <udid>8F8B7675-9D34-5629-8E92-7C01DDF39F84</udid>
+            <id>189</id>
+            <Computer_Name>MacBook Pro</Computer_Name>
+            <IP_Address>98.145.195.163</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Vanessa.Castillo@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-11 18:49:00</Last_Inventory_Update>
+            <Room>SBDC</Room>
+            <Last_Reported_IP_Address>192.168.1.12</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>DWTN</Building>
+            <Asset_Tag></Asset_Tag>
+            <Model_Identifier>MacBookPro16,1</Model_Identifier>
+            <Serial_Number>C02DC34HMD6R</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 19:59:07</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>Jamf’s iMac</name>
+            <udid>5A963C00-466B-55FB-BE06-BD38ACF90A4B</udid>
+            <id>191</id>
+            <Computer_Name>Jamf’s iMac</Computer_Name>
+            <IP_Address>108.178.145.114</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>11.0.1</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-10 23:23:05</Last_Inventory_Update>
+            <Room>065</Room>
+            <Last_Reported_IP_Address>10.232.20.223</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>SLTI</Building>
+            <Asset_Tag>x10264</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>C02VW0MRJ1G9</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-11 22:45:24</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>TE-114D-406-DM</name>
+            <udid>AC1700C4-B317-50C4-AE45-C063217F47BB</udid>
+            <id>196</id>
+            <Computer_Name>TE-114D-406-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-09 23:26:48</Last_Inventory_Update>
+            <Room>114D</Room>
+            <Last_Reported_IP_Address>10.217.10.254</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>TE</Building>
+            <Asset_Tag>10602</Asset_Tag>
+            <Model_Identifier>iMac19,1</Model_Identifier>
+            <Serial_Number>C02Z301FJV3Y</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 23:25:06</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AB-103A-DM</name>
+            <udid>114F70F0-D580-511C-91A5-1CDB868ECE13</udid>
+            <id>204</id>
+            <Computer_Name>AB-103A-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>William.Blomquist@azwestern.edu</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>William.Blomquist@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-10 19:23:42</Last_Inventory_Update>
+            <Room>104</Room>
+            <Last_Reported_IP_Address>10.215.11.54</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>BA</Building>
+            <Asset_Tag>10532</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKJ8VJYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-10 19:28:01</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-080-301-DM</name>
+            <udid>2B00FD24-FB02-5411-894D-4BF21BE70DFE</udid>
+            <id>205</id>
+            <Computer_Name>LR-080-301-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>Joshua.Madden@azwestern.edu</Username>
+            <Operating_System_Version>10.16.0</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-23 21:05:11</Last_Inventory_Update>
+            <Room>080</Room>
+            <Last_Reported_IP_Address>10.210.10.96</Last_Reported_IP_Address>
+            <LatestOSSupported>Model or Current OS Not Supported</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>X10621</Asset_Tag>
+            <Model_Identifier>iMac18,3</Model_Identifier>
+            <Serial_Number>C02W4095J1GP</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-23 22:45:06</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>LR-080-302-DM (2)</name>
+            <udid>62156E6A-828E-5B45-B3F4-B1B29C638DEC</udid>
+            <id>206</id>
+            <Computer_Name>LR-080-302-DM (2)</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>Viviana.Avila@azwestern.edu</Username>
+            <Operating_System_Version>10.16.0</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-25 21:14:34</Last_Inventory_Update>
+            <Room>080</Room>
+            <Last_Reported_IP_Address>10.210.10.143</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>Y20825</Asset_Tag>
+            <Model_Identifier>iMac18,2</Model_Identifier>
+            <Serial_Number>D25V706XJ1G5</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-25 23:33:26</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>CDLL-103-02-LM</name>
+            <udid>8107E35E-D70F-5A8F-80B2-45D270F74AAD</udid>
+            <id>208</id>
+            <Computer_Name>CDLL-103-02-LM</Computer_Name>
+            <IP_Address>70.93.56.81</IP_Address>
+            <Username>Gloria.Renteria@azwestern.edu</Username>
+            <Operating_System_Version>10.15.7</Operating_System_Version>
+            <Email_Address>Gloria.Renteria@azwestern.edu</Email_Address>
+            <Last_Inventory_Update>2020-12-05 17:03:13</Last_Inventory_Update>
+            <Room>103</Room>
+            <Last_Reported_IP_Address>192.168.1.55</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>CD</Building>
+            <Asset_Tag>X10683</Asset_Tag>
+            <Model_Identifier>MacBookAir7,2</Model_Identifier>
+            <Serial_Number>FVFWV38EJ1WV</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-06 16:47:46</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>AB-103-INST1-DM</name>
+            <udid>DEFC4924-BDF8-5241-9F75-499CCB3BB352</udid>
+            <id>209</id>
+            <Computer_Name>AB-103-INST1-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username></Username>
+            <Operating_System_Version>10.14.6</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-11-26 22:24:53</Last_Inventory_Update>
+            <Room>103</Room>
+            <Last_Reported_IP_Address>10.215.11.55</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>AB</Building>
+            <Asset_Tag>10530</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07YG1JBJYVX</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-11-27 17:05:55</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+        <computer>
+            <name>lr-080-010-DM</name>
+            <udid>8614377B-8B9E-57E2-AEA4-A7F5C46C6D22</udid>
+            <id>210</id>
+            <Computer_Name>lr-080-010-DM</Computer_Name>
+            <IP_Address>204.229.220.1</IP_Address>
+            <Username>Bryan.King@azwestern.edu</Username>
+            <Operating_System_Version>11.0.1</Operating_System_Version>
+            <Email_Address></Email_Address>
+            <Last_Inventory_Update>2020-12-09 18:16:38</Last_Inventory_Update>
+            <Room>080</Room>
+            <Last_Reported_IP_Address>10.211.14.37</Last_Reported_IP_Address>
+            <LatestOSSupported>Big Sur</LatestOSSupported>
+            <Building>LR</Building>
+            <Asset_Tag>10521</Asset_Tag>
+            <Model_Identifier>Macmini8,1</Model_Identifier>
+            <Serial_Number>C07XKKZ0JYVW</Serial_Number>
+            <Computer_Azure_Active_Directory_ID>Not present</Computer_Azure_Active_Directory_ID>
+            <Last_Check_in>2020-12-09 18:16:15</Last_Check_in>
+            <FileVault_2_Status>No Partitions Encrypted</FileVault_2_Status>
+            <Computer_Azure_Active_Directory_ID></Computer_Azure_Active_Directory_ID>
+        </computer>
+    </computers>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+</advanced_computer_search>
