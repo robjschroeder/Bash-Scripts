@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>4</id>
+    <name>Inventory - Applications - Google - Chrome - Not Installed</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Application Title</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is not</search_type>
+            <value>Google Chrome.app</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>10</size>
+        <computer>
+            <id>40</id>
+            <name>3C-DSign05-DM</name>
+            <mac_address>F0:18:98:E8:CE:6E</mac_address>
+            <alt_mac_address>F0:18:98:82:ED:9E</alt_mac_address>
+            <serial_number>C07XKLBUJYVW</serial_number>
+        </computer>
+        <computer>
+            <id>80</id>
+            <name>TE-114D-204-DM (2)</name>
+            <mac_address>80:4A:14:5B:D2:10</mac_address>
+            <alt_mac_address>A4:83:E7:4D:B4:A1</alt_mac_address>
+            <serial_number>C02Z20QGJV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>81</id>
+            <name>TE-114D-204-DM</name>
+            <mac_address>80:4A:14:5B:D2:3E</mac_address>
+            <alt_mac_address>A4:83:E7:4D:B6:0A</alt_mac_address>
+            <serial_number>C02Z20Q0JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>119</id>
+            <name>iMac</name>
+            <mac_address>AC:87:A3:09:19:5F</mac_address>
+            <alt_mac_address>88:63:DF:C6:C1:77</alt_mac_address>
+            <serial_number>C02NLS0SF8J2</serial_number>
+        </computer>
+        <computer>
+            <id>128</id>
+            <name>AS-121-DM</name>
+            <mac_address>0C:4D:E9:9B:A1:2C</mac_address>
+            <alt_mac_address>88:63:DF:91:F2:3B</alt_mac_address>
+            <serial_number>C02MQ13NF8J2</serial_number>
+        </computer>
+        <computer>
+            <id>142</id>
+            <name>BA-TVTRUCK-DIR</name>
+            <mac_address>80:E6:50:20:01:3C</mac_address>
+            <alt_mac_address>82:0F:16:7B:3B:80</alt_mac_address>
+            <serial_number>C02N9CN7G3QH</serial_number>
+        </computer>
+        <computer>
+            <id>152</id>
+            <name>CD-103-01-DM</name>
+            <mac_address>A8:60:B6:20:25:BF</mac_address>
+            <alt_mac_address>28:F0:76:76:B9:2A</alt_mac_address>
+            <serial_number>D25T70VKGQ17</serial_number>
+        </computer>
+        <computer>
+            <id>171</id>
+            <name>awcy21049</name>
+            <mac_address>78:7B:8A:BF:32:EE</mac_address>
+            <alt_mac_address>98:9E:63:44:03:58</alt_mac_address>
+            <serial_number>C02V5476J1GG</serial_number>
+        </computer>
+        <computer>
+            <id>195</id>
+            <name>iMac test</name>
+            <mac_address>00:0C:29:A7:C8:4D</mac_address>
+            <alt_mac_address></alt_mac_address>
+            <serial_number>C02KPBSRDNCR</serial_number>
+        </computer>
+        <computer>
+            <id>207</id>
+            <name>iMac</name>
+            <mac_address>78:7B:8A:C6:2A:61</mac_address>
+            <alt_mac_address>24:F6:77:02:BF:04</alt_mac_address>
+            <serial_number>C02VW0MQJ1G9</serial_number>
+        </computer>
+    </computers>
+</computer_group>

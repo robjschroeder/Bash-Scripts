@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>80</id>
+    <name>Inventory - Applications - Respondus - LockDown Browser</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Application Title</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>LockDown Browser.app</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>2</size>
+        <computer>
+            <id>128</id>
+            <name>AS-121-DM</name>
+            <mac_address>0C:4D:E9:9B:A1:2C</mac_address>
+            <alt_mac_address>88:63:DF:91:F2:3B</alt_mac_address>
+            <serial_number>C02MQ13NF8J2</serial_number>
+        </computer>
+        <computer>
+            <id>175</id>
+            <name>MU-115-DM</name>
+            <mac_address>10:DD:B1:C6:00:C0</mac_address>
+            <alt_mac_address>8C:2D:AA:59:8C:81</alt_mac_address>
+            <serial_number>D25KN07ZDNML</serial_number>
+        </computer>
+    </computers>
+</computer_group>

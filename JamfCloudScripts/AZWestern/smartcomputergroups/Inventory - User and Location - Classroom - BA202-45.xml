@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>45</id>
+    <name>Inventory - User and Location - Classroom - BA202</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Enrollment Method: PreStage enrollment</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>macOS Enrollment - Classroom - BA202</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>6</size>
+        <computer>
+            <id>58</id>
+            <name>BA-202-102-DM</name>
+            <mac_address>38:F9:D3:12:70:4B</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C5:3A</alt_mac_address>
+            <serial_number>C02YQ083JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>59</id>
+            <name>BA-202-106-DM</name>
+            <mac_address>38:F9:D3:12:70:22</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C3:D7</alt_mac_address>
+            <serial_number>C02YQ088JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>60</id>
+            <name>BA-202-103-DM</name>
+            <mac_address>38:F9:D3:12:70:13</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C3:5F</alt_mac_address>
+            <serial_number>C02YQ086JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>61</id>
+            <name>BA-202-101-DM</name>
+            <mac_address>38:F9:D3:12:6F:FC</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C2:90</alt_mac_address>
+            <serial_number>C02YQ087JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>63</id>
+            <name>BA-202-105-DM</name>
+            <mac_address>38:F9:D3:12:70:06</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C2:F1</alt_mac_address>
+            <serial_number>C02YQ084JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>165</id>
+            <name>BA-124-102-DM</name>
+            <mac_address>38:F9:D3:12:70:79</mac_address>
+            <alt_mac_address>38:F9:D3:E5:C6:96</alt_mac_address>
+            <serial_number>C02YQ085JV3Y</serial_number>
+        </computer>
+    </computers>
+</computer_group>

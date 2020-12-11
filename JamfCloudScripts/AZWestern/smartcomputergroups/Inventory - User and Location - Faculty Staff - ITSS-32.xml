@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>32</id>
+    <name>Inventory - User and Location - Faculty Staff - ITSS</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>7</size>
+        <criterion>
+            <name>Position</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>like</search_type>
+            <value>Service Desk Technician</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>1</priority>
+            <and_or>or</and_or>
+            <search_type>like</search_type>
+            <value>Tech Support Svcs Specialist</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>2</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Instructional Computing Technician I</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>3</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Network Administrator 1</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>4</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Academic and Administrative Technology Coordinator</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>5</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Service Desk Team Leader</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Enrollment Method: PreStage enrollment</name>
+            <priority>6</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>macOS - Faculty Staff - ITSS</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>5</size>
+        <computer>
+            <id>32</id>
+            <name>LR-080-302-LW</name>
+            <mac_address>7C:D1:C3:F2:FD:A9</mac_address>
+            <alt_mac_address>82:0D:69:38:4A:80</alt_mac_address>
+            <serial_number>C02J8BVXDRVC</serial_number>
+        </computer>
+        <computer>
+            <id>153</id>
+            <name>LR-080-302-DM</name>
+            <mac_address>98:5A:EB:D8:44:29</mac_address>
+            <alt_mac_address>AC:29:3A:99:E2:45</alt_mac_address>
+            <serial_number>D25Q50EVF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>159</id>
+            <name>LR-080-501-DM</name>
+            <mac_address>40:6C:8F:2B:4D:6D</mac_address>
+            <alt_mac_address>7C:C3:A1:B3:98:AD</alt_mac_address>
+            <serial_number>D25J31JVDHJW</serial_number>
+        </computer>
+        <computer>
+            <id>172</id>
+            <name>awc27103</name>
+            <mac_address>A8:20:66:53:72:9D</mac_address>
+            <alt_mac_address>8C:2D:AA:3C:DB:2F</alt_mac_address>
+            <serial_number>D25K40HTDNML</serial_number>
+        </computer>
+        <computer>
+            <id>188</id>
+            <name>LR-081-LM</name>
+            <mac_address>A4:83:E7:21:23:BD</mac_address>
+            <alt_mac_address>82:47:CE:C2:5C:01</alt_mac_address>
+            <serial_number>C02YW0NXLVDQ</serial_number>
+        </computer>
+    </computers>
+</computer_group>

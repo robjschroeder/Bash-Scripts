@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>93</id>
+    <name>Inventory - OS - OS Install Date - More than 365 Days</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>OS Install Date</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>more than x days ago</search_type>
+            <value>365</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>5</size>
+        <computer>
+            <id>27</id>
+            <name>TE-114-102-DM</name>
+            <mac_address>A8:60:B6:35:4C:5E</mac_address>
+            <alt_mac_address>98:9E:63:2F:5F:64</alt_mac_address>
+            <serial_number>C02TL2SBJ1GG</serial_number>
+        </computer>
+        <computer>
+            <id>132</id>
+            <name>LR-249-DM</name>
+            <mac_address>10:DD:B1:D4:78:7F</mac_address>
+            <alt_mac_address>EC:35:86:50:7D:0A</alt_mac_address>
+            <serial_number>C02KPCN8DNCR</serial_number>
+        </computer>
+        <computer>
+            <id>137</id>
+            <name>CIE-OA-DM</name>
+            <mac_address>F0:18:98:EC:29:E0</mac_address>
+            <alt_mac_address>38:F9:D3:21:31:B7</alt_mac_address>
+            <serial_number>C07Y706WJYVX</serial_number>
+        </computer>
+        <computer>
+            <id>138</id>
+            <name>PSI-106-DM</name>
+            <mac_address>38:F9:D3:04:2B:41</mac_address>
+            <alt_mac_address>EC:2C:E2:7B:03:FC</alt_mac_address>
+            <serial_number>C02Y50C8J1G9</serial_number>
+        </computer>
+        <computer>
+            <id>147</id>
+            <name>BA-103-DM</name>
+            <mac_address>AC:87:A3:09:22:65</mac_address>
+            <alt_mac_address>88:63:DF:C6:C1:63</alt_mac_address>
+            <serial_number>C02NLS3AF8J2</serial_number>
+        </computer>
+    </computers>
+</computer_group>

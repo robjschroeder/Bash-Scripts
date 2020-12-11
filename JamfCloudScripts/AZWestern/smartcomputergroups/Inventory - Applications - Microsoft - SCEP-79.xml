@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>79</id>
+    <name>Inventory - Applications - Microsoft - SCEP</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Application Title</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>System Center Endpoint Protection.app</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>5</size>
+        <computer>
+            <id>133</id>
+            <name>LR-083-DM</name>
+            <mac_address>78:7B:8A:D1:F4:33</mac_address>
+            <alt_mac_address>24:F6:77:09:D4:D0</alt_mac_address>
+            <serial_number>D25WJ0B1J1GP</serial_number>
+        </computer>
+        <computer>
+            <id>159</id>
+            <name>LR-080-501-DM</name>
+            <mac_address>40:6C:8F:2B:4D:6D</mac_address>
+            <alt_mac_address>7C:C3:A1:B3:98:AD</alt_mac_address>
+            <serial_number>D25J31JVDHJW</serial_number>
+        </computer>
+        <computer>
+            <id>172</id>
+            <name>awc27103</name>
+            <mac_address>A8:20:66:53:72:9D</mac_address>
+            <alt_mac_address>8C:2D:AA:3C:DB:2F</alt_mac_address>
+            <serial_number>D25K40HTDNML</serial_number>
+        </computer>
+        <computer>
+            <id>176</id>
+            <name>AWCY20300</name>
+            <mac_address>78:7B:8A:B5:B2:7E</mac_address>
+            <alt_mac_address>A8:BE:27:C0:B2:8C</alt_mac_address>
+            <serial_number>C02VG04BJ1GC</serial_number>
+        </computer>
+        <computer>
+            <id>181</id>
+            <name>AWCY21046</name>
+            <mac_address>78:7B:8A:B6:29:74</mac_address>
+            <alt_mac_address>A8:BE:27:C0:A7:9C</alt_mac_address>
+            <serial_number>C02VG09ZJ1GC</serial_number>
+        </computer>
+    </computers>
+</computer_group>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>99</id>
+    <name>Inventory - OS - macOS 10.16 Big Sur - NOT Compatible</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Model Identifier</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>does not match regex</search_type>
+            <value>(MacBookAir([6-9]|[1-9][0-9])|MacBookPro(1[1-9]|[2-9][0-9])|MacPro([6-9]|[1-9][0-9])|iMacPro[0-9]*|iMac(1[4-9]|[2-9][0-9])|MacBook([8-9]|[1-9][0-9])|Macmini([7-9]|[1-9][0-9])),.*</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>8</size>
+        <computer>
+            <id>32</id>
+            <name>LR-080-302-LW</name>
+            <mac_address>7C:D1:C3:F2:FD:A9</mac_address>
+            <alt_mac_address>82:0D:69:38:4A:80</alt_mac_address>
+            <serial_number>C02J8BVXDRVC</serial_number>
+        </computer>
+        <computer>
+            <id>132</id>
+            <name>LR-249-DM</name>
+            <mac_address>10:DD:B1:D4:78:7F</mac_address>
+            <alt_mac_address>EC:35:86:50:7D:0A</alt_mac_address>
+            <serial_number>C02KPCN8DNCR</serial_number>
+        </computer>
+        <computer>
+            <id>159</id>
+            <name>LR-080-501-DM</name>
+            <mac_address>40:6C:8F:2B:4D:6D</mac_address>
+            <alt_mac_address>7C:C3:A1:B3:98:AD</alt_mac_address>
+            <serial_number>D25J31JVDHJW</serial_number>
+        </computer>
+        <computer>
+            <id>172</id>
+            <name>awc27103</name>
+            <mac_address>A8:20:66:53:72:9D</mac_address>
+            <alt_mac_address>8C:2D:AA:3C:DB:2F</alt_mac_address>
+            <serial_number>D25K40HTDNML</serial_number>
+        </computer>
+        <computer>
+            <id>175</id>
+            <name>MU-115-DM</name>
+            <mac_address>10:DD:B1:C6:00:C0</mac_address>
+            <alt_mac_address>8C:2D:AA:59:8C:81</alt_mac_address>
+            <serial_number>D25KN07ZDNML</serial_number>
+        </computer>
+        <computer>
+            <id>190</id>
+            <name>MU-108-01-DM</name>
+            <mac_address>A8:20:66:53:79:F7</mac_address>
+            <alt_mac_address>8C:2D:AA:3C:DB:21</alt_mac_address>
+            <serial_number>D25K40HFDNML</serial_number>
+        </computer>
+        <computer>
+            <id>195</id>
+            <name>iMac test</name>
+            <mac_address>00:0C:29:A7:C8:4D</mac_address>
+            <alt_mac_address></alt_mac_address>
+            <serial_number>C02KPBSRDNCR</serial_number>
+        </computer>
+        <computer>
+            <id>211</id>
+            <name>AWC27104-Test</name>
+            <mac_address>A8:20:66:53:7C:2E</mac_address>
+            <alt_mac_address>8C:2D:AA:3A:99:9F</alt_mac_address>
+            <serial_number>D25K40DNDNML</serial_number>
+        </computer>
+    </computers>
+</computer_group>

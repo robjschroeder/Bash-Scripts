@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>43</id>
+    <name>Inventory - User and Location - Faculty Staff - Communications and Marketing - College Publications</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>4</size>
+        <criterion>
+            <name>Position</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>Creative Designer</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>1</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Creative Director</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>2</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Graphic Designer</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Position</name>
+            <priority>3</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Senior Graphic Designer</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>5</size>
+        <computer>
+            <id>126</id>
+            <name>TE-114A-02-LM</name>
+            <mac_address>A4:83:E7:70:01:B3</mac_address>
+            <alt_mac_address>82:97:EE:82:90:01</alt_mac_address>
+            <serial_number>FVFZ50RFLYWN</serial_number>
+        </computer>
+        <computer>
+            <id>134</id>
+            <name>TE-114A-02-DM</name>
+            <mac_address>D0:81:7A:D6:8E:E0</mac_address>
+            <alt_mac_address>38:F9:D3:39:C7:38</alt_mac_address>
+            <serial_number>C02Y50ZBHX8F</serial_number>
+        </computer>
+        <computer>
+            <id>135</id>
+            <name>TE-114A-05-DM</name>
+            <mac_address>D0:81:7A:D9:6E:93</mac_address>
+            <alt_mac_address>38:F9:D3:39:C7:8A</alt_mac_address>
+            <serial_number>C02Y50ZEHX8F</serial_number>
+        </computer>
+        <computer>
+            <id>150</id>
+            <name>TE-114A-03-DM</name>
+            <mac_address>00:3E:E1:BF:4C:9D</mac_address>
+            <alt_mac_address>18:AF:61:B8:95:CA</alt_mac_address>
+            <serial_number>F5KMC06NF9VN</serial_number>
+        </computer>
+        <computer>
+            <id>170</id>
+            <name>AWCC10300</name>
+            <mac_address>D0:81:7A:D9:6A:CD</mac_address>
+            <alt_mac_address>38:F9:D3:39:C7:10</alt_mac_address>
+            <serial_number>C02Y50XHHX8F</serial_number>
+        </computer>
+    </computers>
+</computer_group>

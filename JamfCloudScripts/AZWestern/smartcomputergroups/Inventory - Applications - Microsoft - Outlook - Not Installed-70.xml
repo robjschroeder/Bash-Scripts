@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>70</id>
+    <name>Inventory - Applications - Microsoft - Outlook - Not Installed</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Application Title</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is not</search_type>
+            <value>Microsoft Outlook.app</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>9</size>
+        <computer>
+            <id>40</id>
+            <name>3C-DSign05-DM</name>
+            <mac_address>F0:18:98:E8:CE:6E</mac_address>
+            <alt_mac_address>F0:18:98:82:ED:9E</alt_mac_address>
+            <serial_number>C07XKLBUJYVW</serial_number>
+        </computer>
+        <computer>
+            <id>80</id>
+            <name>TE-114D-204-DM (2)</name>
+            <mac_address>80:4A:14:5B:D2:10</mac_address>
+            <alt_mac_address>A4:83:E7:4D:B4:A1</alt_mac_address>
+            <serial_number>C02Z20QGJV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>81</id>
+            <name>TE-114D-204-DM</name>
+            <mac_address>80:4A:14:5B:D2:3E</mac_address>
+            <alt_mac_address>A4:83:E7:4D:B6:0A</alt_mac_address>
+            <serial_number>C02Z20Q0JV3Y</serial_number>
+        </computer>
+        <computer>
+            <id>119</id>
+            <name>iMac</name>
+            <mac_address>AC:87:A3:09:19:5F</mac_address>
+            <alt_mac_address>88:63:DF:C6:C1:77</alt_mac_address>
+            <serial_number>C02NLS0SF8J2</serial_number>
+        </computer>
+        <computer>
+            <id>195</id>
+            <name>iMac test</name>
+            <mac_address>00:0C:29:A7:C8:4D</mac_address>
+            <alt_mac_address></alt_mac_address>
+            <serial_number>C02KPBSRDNCR</serial_number>
+        </computer>
+        <computer>
+            <id>198</id>
+            <name>LR-095-105-DM</name>
+            <mac_address>98:5A:EB:D6:C7:C6</mac_address>
+            <alt_mac_address>AC:29:3A:9C:81:CF</alt_mac_address>
+            <serial_number>D25Q508QF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>199</id>
+            <name>LR-095-104-DM</name>
+            <mac_address>98:5A:EB:D8:3E:17</mac_address>
+            <alt_mac_address>AC:29:3A:9A:14:E7</alt_mac_address>
+            <serial_number>D25Q50GUF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>200</id>
+            <name>LR-095-101-DM</name>
+            <mac_address>98:5A:EB:D6:C6:92</mac_address>
+            <alt_mac_address>AC:29:3A:9C:6B:8B</alt_mac_address>
+            <serial_number>D25Q508KF8J9</serial_number>
+        </computer>
+        <computer>
+            <id>207</id>
+            <name>iMac</name>
+            <mac_address>78:7B:8A:C6:2A:61</mac_address>
+            <alt_mac_address>24:F6:77:02:BF:04</alt_mac_address>
+            <serial_number>C02VW0MQJ1G9</serial_number>
+        </computer>
+    </computers>
+</computer_group>

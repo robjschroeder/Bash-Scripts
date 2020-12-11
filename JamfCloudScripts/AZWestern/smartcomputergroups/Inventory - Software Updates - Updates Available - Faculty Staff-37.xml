@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>37</id>
+    <name>Inventory - Software Updates - Updates Available - Faculty Staff</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>2</size>
+        <criterion>
+            <name>Number of Available Updates</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>more than</search_type>
+            <value>0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Computer Group</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>member of</search_type>
+            <value>Faculty Staff - Faculty Staff macOS</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>7</size>
+        <computer>
+            <id>18</id>
+            <name>CIE-124REC-LM</name>
+            <mac_address>38:F9:D3:D0:59:42</mac_address>
+            <alt_mac_address>FA:00:80:49:54:01</alt_mac_address>
+            <serial_number>C02YQ147LVCF</serial_number>
+        </computer>
+        <computer>
+            <id>27</id>
+            <name>TE-114-102-DM</name>
+            <mac_address>A8:60:B6:35:4C:5E</mac_address>
+            <alt_mac_address>98:9E:63:2F:5F:64</alt_mac_address>
+            <serial_number>C02TL2SBJ1GG</serial_number>
+        </computer>
+        <computer>
+            <id>99</id>
+            <name>BA-121-DM</name>
+            <mac_address>F0:18:98:EA:74:AA</mac_address>
+            <alt_mac_address>38:F9:D3:21:B0:3C</alt_mac_address>
+            <serial_number>C07YG1EZJYVX</serial_number>
+        </computer>
+        <computer>
+            <id>129</id>
+            <name>CDLL-104-DM</name>
+            <mac_address>F0:18:98:EA:1E:A8</mac_address>
+            <alt_mac_address>38:F9:D3:1F:FE:04</alt_mac_address>
+            <serial_number>C07Y54KMJYVX</serial_number>
+        </computer>
+        <computer>
+            <id>143</id>
+            <name>T3-110-01-DM</name>
+            <mac_address>80:4A:14:5B:FB:F2</mac_address>
+            <alt_mac_address>A4:83:E7:47:60:D6</alt_mac_address>
+            <serial_number>C02Z20WSJV3X</serial_number>
+        </computer>
+        <computer>
+            <id>146</id>
+            <name>T3-110-04-DM</name>
+            <mac_address>80:4A:14:5C:33:8A</mac_address>
+            <alt_mac_address>A4:83:E7:5B:D5:48</alt_mac_address>
+            <serial_number>C02Z20SLJV3X</serial_number>
+        </computer>
+        <computer>
+            <id>181</id>
+            <name>AWCY21046</name>
+            <mac_address>78:7B:8A:B6:29:74</mac_address>
+            <alt_mac_address>A8:BE:27:C0:A7:9C</alt_mac_address>
+            <serial_number>C02VG09ZJ1GC</serial_number>
+        </computer>
+    </computers>
+</computer_group>

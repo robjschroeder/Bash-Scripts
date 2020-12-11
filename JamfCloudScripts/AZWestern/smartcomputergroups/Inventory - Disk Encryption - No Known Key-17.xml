@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_group>
+    <id>17</id>
+    <name>Inventory - Disk Encryption - No Known Key</name>
+    <is_smart>true</is_smart>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <criteria>
+        <size>3</size>
+        <criterion>
+            <name>FileVault 2 Status</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>Boot Partitions Encrypted</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>FileVault 2 Individual Key Validation</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>Unknown</value>
+            <opening_paren>true</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>FileVault 2 Individual Key Validation</name>
+            <priority>2</priority>
+            <and_or>or</and_or>
+            <search_type>is</search_type>
+            <value>Invalid</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>true</closing_paren>
+        </criterion>
+    </criteria>
+    <computers>
+        <size>2</size>
+        <computer>
+            <id>131</id>
+            <name>OffSite-01-DSB7</name>
+            <mac_address>78:7B:8A:AC:19:64</mac_address>
+            <alt_mac_address>98:9E:63:45:93:1E</alt_mac_address>
+            <serial_number>C02V52LGJ1GP</serial_number>
+        </computer>
+        <computer>
+            <id>188</id>
+            <name>LR-081-LM</name>
+            <mac_address>A4:83:E7:21:23:BD</mac_address>
+            <alt_mac_address>82:47:CE:C2:5C:01</alt_mac_address>
+            <serial_number>C02YW0NXLVDQ</serial_number>
+        </computer>
+    </computers>
+</computer_group>
