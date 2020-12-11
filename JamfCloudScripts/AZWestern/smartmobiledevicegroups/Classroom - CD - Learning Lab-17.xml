@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>17</id>
+    <name>Classroom - CD - Learning Lab</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Enrollment Method: PreStage enrollment</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>iOS Enrollment - CD LL Class</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>6</size>
+        <mobile_device>
+            <id>206</id>
+            <name>CD LL - F9FVR6JVGHKJ</name>
+            <mac_address>34:7C:25:20:5E:4F</mac_address>
+            <udid>6a58e4a0a67da16b0d165f5db88997c24111b12f</udid>
+            <wifi_mac_address>34:7C:25:20:5E:4F</wifi_mac_address>
+            <serial_number>F9FVR6JVGHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>207</id>
+            <name>Nmjnjhjuihgogogij</name>
+            <mac_address>34:7C:25:1A:30:A9</mac_address>
+            <udid>f2aa9ec95dd1bcd07fcab3852551175c055a2605</udid>
+            <wifi_mac_address>34:7C:25:1A:30:A9</wifi_mac_address>
+            <serial_number>F9FVR46HGHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>208</id>
+            <name>CD LL - F9FVR4P0GHKJ</name>
+            <mac_address>34:7C:25:1A:F6:C6</mac_address>
+            <udid>9bce87966ce47db4d39b28d6e169399b47786542</udid>
+            <wifi_mac_address>34:7C:25:1A:F6:C6</wifi_mac_address>
+            <serial_number>F9FVR4P0GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>209</id>
+            <name>CD LL - F9FWFT20GHKJ</name>
+            <mac_address>34:7C:25:45:75:E0</mac_address>
+            <udid>5c5933f7924a4501880c560b6155ad66285b42b5</udid>
+            <wifi_mac_address>34:7C:25:45:75:E0</wifi_mac_address>
+            <serial_number>F9FWFT20GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>210</id>
+            <name>CD LL - F9FVR6L3GHKJ</name>
+            <mac_address>34:7C:25:20:5E:4C</mac_address>
+            <udid>1e5f23208b951fd69060faf23077cce99d084a6e</udid>
+            <wifi_mac_address>34:7C:25:20:5E:4C</wifi_mac_address>
+            <serial_number>F9FVR6L3GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>211</id>
+            <name>CD LL - F9FVR297GHKJ</name>
+            <mac_address>34:7C:25:20:28:70</mac_address>
+            <udid>d80a458b4cf53767cbd875bcbe2d48e7d169c501</udid>
+            <wifi_mac_address>34:7C:25:20:28:70</wifi_mac_address>
+            <serial_number>F9FVR297GHKJ</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

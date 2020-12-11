@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>37</id>
+    <name>macOS - Applications - Zoom and Plugin - Update</name>
+    <category>Social Networking</category>
+    <filename>macOS - Applications - Zoom and Plugin - Update</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+function ConfigureZoom () {
+
+    echo "`date` Adding preferences for all users"
+
+    #Preferences - UPDATE WITH YOUR OWN
+    #defaults write /Library/Preferences/us.zoom.config.plist ZAutoJoinVoip -string YES
+    defaults write /Library/Preferences/us.zoom.config.plist ZAutoSSOLogin -string YES
+    defaults write /Library/Preferences/us.zoom.config.plist ZSSOHost -string azwestern.zoom.us
+    defaults write /Library/Preferences/us.zoom.config.plist nogoogle  -string 1
+    defaults write /Library/Preferences/us.zoom.config.plist nofacebook -string 1
+    echo "`date` All preferences are now added"
+    echo "`date` Installation is now complete"
+    echo "`date` ========== Installation Ended =========="
+
+}
+
+function RemoveZoom () {
+
+    # Remove and all related files if Zoom if installed
+    echo "`date` Removing Zoom"
+    if [[ -d '/Applications/zoom.us.app' ]]; then
+        until [[ ! -d '/Applications/zoom.us.app' ]]; do
+            rm -rf /Applications/zoom.us.app
+        done
+        echo "`date` Zoom was removed"
+        echo "`date` Beginning installation of Zoom"
+        InstallZoom
+    fi
+
+}
+
+function InstallZoom () {
+
+    # download and install the latest version
+    until [[ -d '/Applications/zoom.us.app' ]]; do
+        if [[ -e /tmp/ZoomInstallerIT.pkg ]]; then
+            rm -rf /tmp/ZoomInstallerIT.pkg
+        fi
+        if [[ -d /tmp/_MACOSX ]]; then
+            rm -rf /tmp/__MACOSX/
+        fi
+        if [[ -d /tmp/Zoom.app ]]; then
+            rm -rf /tmp/Zoom.app
+        fi
+        echo "`date` Downloading Zoom"
+        curl -L -o /tmp/ZoomInstallerIT.pkg "https://zoom.us/client/latest/ZoomInstallerIT.pkg" &gt;/dev/null 2&gt;&amp;1
+        echo "`date` Zoom Download complete"
+
+        echo "`date` Downloading Zoom Outlook Plugin"
+        curl -L -o /tmp/ZoomMacOutlookPlugin.pkg "https://zoom.us/client/latest/ZoomMacOutlookPlugin.pkg" &gt;/dev/null 2&gt;&amp;1
+        echo "`date` Zoom Outlook plugin download complete"
+        cd /tmp/
+        echo "`date` Installing Zoom"
+        installer -pkg /tmp/ZoomInstallerIT.pkg -target /
+        echo "`date` Installing Zoom Outlook Plugin"
+        installer -pkg /tmp/ZoomMacOutlookPlugin.pkg -target /
+        echo "`date` Editing permissions"
+        chown -R root:wheel /Applications/zoom.us.app
+        chmod -R 755 /Applications/zoom.us.app
+        cd ~
+        echo "`date` Removing temporary files"
+        rm -rf /tmp/ZoomInstallerIT.pkg &amp;&amp; rm -rf /tmp/ZoomMacOutlookPlugin.pkg &amp;&amp; rm -rf /tmp/__MACOSX &amp;&amp; rm -rf /tmp/zoom.us.app
+        echo "`date` configuring Zoom"
+        ConfigureZoom
+    done
+    echo "``date`` Zoom Installed"
+
+}
+
+
+function DetectZoom () {
+
+    # Check to see whether Zoom is installed or not, if yes, remove it, then install latest, if no, then install latest.
+    pgrep zoom &gt;/dev/null
+    if [[ $? = 0 ]]; then
+        pkill zoom
+    fi
+    echo "`date` ========== Installation Started =========="
+    echo "`date` Detecting if Zoom is installed or not"
+    if [[ -d '/Applications/zoom.us.app' ]]; then
+        echo "`date` Zoom was detected, will remove"
+        RemoveZoom
+    else
+        echo "`date` Zoom was not detected, will install"
+        InstallZoom
+    fi
+
+}
+
+function LogZoom () {
+
+    # Setup log files if logs do not exists, create it, otherwise start logging
+    LogFile="/Library/Logs/Zoom_install.log"
+    if [[ ! -e $LogFile ]]; then
+        touch $LogFile &amp;&amp; exec &gt;&gt; $LogFile
+        echo "`date` ========== Log File Created =========="
+    else
+        exec &gt;&gt; $LogFile
+    fi
+
+}
+
+LogZoom
+DetectZoom
+
+exit 0</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCmZ1bmN0aW9uIENvbmZpZ3VyZVpvb20gKCkgewoKICAgIGVjaG8gImBkYXRlYCBBZGRpbmcgcHJlZmVyZW5jZXMgZm9yIGFsbCB1c2VycyIKCiAgICAjUHJlZmVyZW5jZXMgLSBVUERBVEUgV0lUSCBZT1VSIE9XTgogICAgI2RlZmF1bHRzIHdyaXRlIC9MaWJyYXJ5L1ByZWZlcmVuY2VzL3VzLnpvb20uY29uZmlnLnBsaXN0IFpBdXRvSm9pblZvaXAgLXN0cmluZyBZRVMKICAgIGRlZmF1bHRzIHdyaXRlIC9MaWJyYXJ5L1ByZWZlcmVuY2VzL3VzLnpvb20uY29uZmlnLnBsaXN0IFpBdXRvU1NPTG9naW4gLXN0cmluZyBZRVMKICAgIGRlZmF1bHRzIHdyaXRlIC9MaWJyYXJ5L1ByZWZlcmVuY2VzL3VzLnpvb20uY29uZmlnLnBsaXN0IFpTU09Ib3N0IC1zdHJpbmcgYXp3ZXN0ZXJuLnpvb20udXMKICAgIGRlZmF1bHRzIHdyaXRlIC9MaWJyYXJ5L1ByZWZlcmVuY2VzL3VzLnpvb20uY29uZmlnLnBsaXN0IG5vZ29vZ2xlICAtc3RyaW5nIDEKICAgIGRlZmF1bHRzIHdyaXRlIC9MaWJyYXJ5L1ByZWZlcmVuY2VzL3VzLnpvb20uY29uZmlnLnBsaXN0IG5vZmFjZWJvb2sgLXN0cmluZyAxCiAgICBlY2hvICJgZGF0ZWAgQWxsIHByZWZlcmVuY2VzIGFyZSBub3cgYWRkZWQiCiAgICBlY2hvICJgZGF0ZWAgSW5zdGFsbGF0aW9uIGlzIG5vdyBjb21wbGV0ZSIKICAgIGVjaG8gImBkYXRlYCA9PT09PT09PT09IEluc3RhbGxhdGlvbiBFbmRlZCA9PT09PT09PT09IgoKfQoKZnVuY3Rpb24gUmVtb3ZlWm9vbSAoKSB7CgogICAgIyBSZW1vdmUgYW5kIGFsbCByZWxhdGVkIGZpbGVzIGlmIFpvb20gaWYgaW5zdGFsbGVkCiAgICBlY2hvICJgZGF0ZWAgUmVtb3ZpbmcgWm9vbSIKICAgIGlmIFtbIC1kICcvQXBwbGljYXRpb25zL3pvb20udXMuYXBwJyBdXTsgdGhlbgogICAgICAgIHVudGlsIFtbICEgLWQgJy9BcHBsaWNhdGlvbnMvem9vbS51cy5hcHAnIF1dOyBkbwogICAgICAgICAgICBybSAtcmYgL0FwcGxpY2F0aW9ucy96b29tLnVzLmFwcAogICAgICAgIGRvbmUKICAgICAgICBlY2hvICJgZGF0ZWAgWm9vbSB3YXMgcmVtb3ZlZCIKICAgICAgICBlY2hvICJgZGF0ZWAgQmVnaW5uaW5nIGluc3RhbGxhdGlvbiBvZiBab29tIgogICAgICAgIEluc3RhbGxab29tCiAgICBmaQoKfQoKZnVuY3Rpb24gSW5zdGFsbFpvb20gKCkgewoKICAgICMgZG93bmxvYWQgYW5kIGluc3RhbGwgdGhlIGxhdGVzdCB2ZXJzaW9uCiAgICB1bnRpbCBbWyAtZCAnL0FwcGxpY2F0aW9ucy96b29tLnVzLmFwcCcgXV07IGRvCiAgICAgICAgaWYgW1sgLWUgL3RtcC9ab29tSW5zdGFsbGVySVQucGtnIF1dOyB0aGVuCiAgICAgICAgICAgIHJtIC1yZiAvdG1wL1pvb21JbnN0YWxsZXJJVC5wa2cKICAgICAgICBmaQogICAgICAgIGlmIFtbIC1kIC90bXAvX01BQ09TWCBdXTsgdGhlbgogICAgICAgICAgICBybSAtcmYgL3RtcC9fX01BQ09TWC8KICAgICAgICBmaQogICAgICAgIGlmIFtbIC1kIC90bXAvWm9vbS5hcHAgXV07IHRoZW4KICAgICAgICAgICAgcm0gLXJmIC90bXAvWm9vbS5hcHAKICAgICAgICBmaQogICAgICAgIGVjaG8gImBkYXRlYCBEb3dubG9hZGluZyBab29tIgogICAgICAgIGN1cmwgLUwgLW8gL3RtcC9ab29tSW5zdGFsbGVySVQucGtnICJodHRwczovL3pvb20udXMvY2xpZW50L2xhdGVzdC9ab29tSW5zdGFsbGVySVQucGtnIiA+L2Rldi9udWxsIDI+JjEKICAgICAgICBlY2hvICJgZGF0ZWAgWm9vbSBEb3dubG9hZCBjb21wbGV0ZSIKCiAgICAgICAgZWNobyAiYGRhdGVgIERvd25sb2FkaW5nIFpvb20gT3V0bG9vayBQbHVnaW4iCiAgICAgICAgY3VybCAtTCAtbyAvdG1wL1pvb21NYWNPdXRsb29rUGx1Z2luLnBrZyAiaHR0cHM6Ly96b29tLnVzL2NsaWVudC9sYXRlc3QvWm9vbU1hY091dGxvb2tQbHVnaW4ucGtnIiA+L2Rldi9udWxsIDI+JjEKICAgICAgICBlY2hvICJgZGF0ZWAgWm9vbSBPdXRsb29rIHBsdWdpbiBkb3dubG9hZCBjb21wbGV0ZSIKICAgICAgICBjZCAvdG1wLwogICAgICAgIGVjaG8gImBkYXRlYCBJbnN0YWxsaW5nIFpvb20iCiAgICAgICAgaW5zdGFsbGVyIC1wa2cgL3RtcC9ab29tSW5zdGFsbGVySVQucGtnIC10YXJnZXQgLwogICAgICAgIGVjaG8gImBkYXRlYCBJbnN0YWxsaW5nIFpvb20gT3V0bG9vayBQbHVnaW4iCiAgICAgICAgaW5zdGFsbGVyIC1wa2cgL3RtcC9ab29tTWFjT3V0bG9va1BsdWdpbi5wa2cgLXRhcmdldCAvCiAgICAgICAgZWNobyAiYGRhdGVgIEVkaXRpbmcgcGVybWlzc2lvbnMiCiAgICAgICAgY2hvd24gLVIgcm9vdDp3aGVlbCAvQXBwbGljYXRpb25zL3pvb20udXMuYXBwCiAgICAgICAgY2htb2QgLVIgNzU1IC9BcHBsaWNhdGlvbnMvem9vbS51cy5hcHAKICAgICAgICBjZCB+CiAgICAgICAgZWNobyAiYGRhdGVgIFJlbW92aW5nIHRlbXBvcmFyeSBmaWxlcyIKICAgICAgICBybSAtcmYgL3RtcC9ab29tSW5zdGFsbGVySVQucGtnICYmIHJtIC1yZiAvdG1wL1pvb21NYWNPdXRsb29rUGx1Z2luLnBrZyAmJiBybSAtcmYgL3RtcC9fX01BQ09TWCAmJiBybSAtcmYgL3RtcC96b29tLnVzLmFwcAogICAgICAgIGVjaG8gImBkYXRlYCBjb25maWd1cmluZyBab29tIgogICAgICAgIENvbmZpZ3VyZVpvb20KICAgIGRvbmUKICAgIGVjaG8gImBgZGF0ZWBgIFpvb20gSW5zdGFsbGVkIgoKfQoKCmZ1bmN0aW9uIERldGVjdFpvb20gKCkgewoKICAgICMgQ2hlY2sgdG8gc2VlIHdoZXRoZXIgWm9vbSBpcyBpbnN0YWxsZWQgb3Igbm90LCBpZiB5ZXMsIHJlbW92ZSBpdCwgdGhlbiBpbnN0YWxsIGxhdGVzdCwgaWYgbm8sIHRoZW4gaW5zdGFsbCBsYXRlc3QuCiAgICBwZ3JlcCB6b29tID4vZGV2L251bGwKICAgIGlmIFtbICQ/ID0gMCBdXTsgdGhlbgogICAgICAgIHBraWxsIHpvb20KICAgIGZpCiAgICBlY2hvICJgZGF0ZWAgPT09PT09PT09PSBJbnN0YWxsYXRpb24gU3RhcnRlZCA9PT09PT09PT09IgogICAgZWNobyAiYGRhdGVgIERldGVjdGluZyBpZiBab29tIGlzIGluc3RhbGxlZCBvciBub3QiCiAgICBpZiBbWyAtZCAnL0FwcGxpY2F0aW9ucy96b29tLnVzLmFwcCcgXV07IHRoZW4KICAgICAgICBlY2hvICJgZGF0ZWAgWm9vbSB3YXMgZGV0ZWN0ZWQsIHdpbGwgcmVtb3ZlIgogICAgICAgIFJlbW92ZVpvb20KICAgIGVsc2UKICAgICAgICBlY2hvICJgZGF0ZWAgWm9vbSB3YXMgbm90IGRldGVjdGVkLCB3aWxsIGluc3RhbGwiCiAgICAgICAgSW5zdGFsbFpvb20KICAgIGZpCgp9CgpmdW5jdGlvbiBMb2dab29tICgpIHsKCiAgICAjIFNldHVwIGxvZyBmaWxlcyBpZiBsb2dzIGRvIG5vdCBleGlzdHMsIGNyZWF0ZSBpdCwgb3RoZXJ3aXNlIHN0YXJ0IGxvZ2dpbmcKICAgIExvZ0ZpbGU9Ii9MaWJyYXJ5L0xvZ3MvWm9vbV9pbnN0YWxsLmxvZyIKICAgIGlmIFtbICEgLWUgJExvZ0ZpbGUgXV07IHRoZW4KICAgICAgICB0b3VjaCAkTG9nRmlsZSAmJiBleGVjID4+ICRMb2dGaWxlCiAgICAgICAgZWNobyAiYGRhdGVgID09PT09PT09PT0gTG9nIEZpbGUgQ3JlYXRlZCA9PT09PT09PT09IgogICAgZWxzZQogICAgICAgIGV4ZWMgPj4gJExvZ0ZpbGUKICAgIGZpCgp9CgpMb2dab29tCkRldGVjdFpvb20KCmV4aXQgMA==</script_contents_encoded>
+</script>

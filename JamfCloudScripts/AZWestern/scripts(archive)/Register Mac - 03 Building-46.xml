@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>46</id>
+    <name>Register Mac - 03 Building</name>
+    <category>No category assigned</category>
+    <filename>Register Mac - 03 Building</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+user_entry=""
+
+validateResponce() {
+    case "$user_entry" in
+        "noinput" ) echo "empty input" &amp; askInput ;;
+        "cancelled" ) echo "time out/cancelled" &amp; exit 1 ;;
+        * ) echo "$user_entry"  ;;
+    esac
+}
+
+askInput() {
+user_entry=$(osascript &lt;&lt;EOF
+use AppleScript version "2.4" -- Yosemite (10.10) or later
+use scripting additions
+set theTextReturned to "nil"
+tell application "System Events"
+activate
+try
+set theResponse to display dialog "Enter the building in which you are in" with title "Building" default answer ""
+set theTextReturned to the text returned of theResponse
+end try
+if theTextReturned is "nil" then
+return "cancelled"
+else if theTextReturned is "" then
+return "noinput"
+else
+return theTextReturned
+end if
+end tell
+EOF
+)
+validateResponce "$user_entry"
+}
+
+askInput "$userName"
+
+
+/usr/local/bin/jamf recon -building $user_entry
+
+exit 0
+
+
+done</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCnVzZXJfZW50cnk9IiIKCnZhbGlkYXRlUmVzcG9uY2UoKSB7CiAgICBjYXNlICIkdXNlcl9lbnRyeSIgaW4KICAgICAgICAibm9pbnB1dCIgKSBlY2hvICJlbXB0eSBpbnB1dCIgJiBhc2tJbnB1dCA7OwogICAgICAgICJjYW5jZWxsZWQiICkgZWNobyAidGltZSBvdXQvY2FuY2VsbGVkIiAmIGV4aXQgMSA7OwogICAgICAgICogKSBlY2hvICIkdXNlcl9lbnRyeSIgIDs7CiAgICBlc2FjCn0KCmFza0lucHV0KCkgewp1c2VyX2VudHJ5PSQob3Nhc2NyaXB0IDw8RU9GCnVzZSBBcHBsZVNjcmlwdCB2ZXJzaW9uICIyLjQiIC0tIFlvc2VtaXRlICgxMC4xMCkgb3IgbGF0ZXIKdXNlIHNjcmlwdGluZyBhZGRpdGlvbnMKc2V0IHRoZVRleHRSZXR1cm5lZCB0byAibmlsIgp0ZWxsIGFwcGxpY2F0aW9uICJTeXN0ZW0gRXZlbnRzIgphY3RpdmF0ZQp0cnkKc2V0IHRoZVJlc3BvbnNlIHRvIGRpc3BsYXkgZGlhbG9nICJFbnRlciB0aGUgYnVpbGRpbmcgaW4gd2hpY2ggeW91IGFyZSBpbiIgd2l0aCB0aXRsZSAiQnVpbGRpbmciIGRlZmF1bHQgYW5zd2VyICIiCnNldCB0aGVUZXh0UmV0dXJuZWQgdG8gdGhlIHRleHQgcmV0dXJuZWQgb2YgdGhlUmVzcG9uc2UKZW5kIHRyeQppZiB0aGVUZXh0UmV0dXJuZWQgaXMgIm5pbCIgdGhlbgpyZXR1cm4gImNhbmNlbGxlZCIKZWxzZSBpZiB0aGVUZXh0UmV0dXJuZWQgaXMgIiIgdGhlbgpyZXR1cm4gIm5vaW5wdXQiCmVsc2UKcmV0dXJuIHRoZVRleHRSZXR1cm5lZAplbmQgaWYKZW5kIHRlbGwKRU9GCikKdmFsaWRhdGVSZXNwb25jZSAiJHVzZXJfZW50cnkiCn0KCmFza0lucHV0ICIkdXNlck5hbWUiCgoKL3Vzci9sb2NhbC9iaW4vamFtZiByZWNvbiAtYnVpbGRpbmcgJHVzZXJfZW50cnkKCmV4aXQgMAoKCmRvbmU=</script_contents_encoded>
+</script>

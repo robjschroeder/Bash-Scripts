@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>9</id>
+    <name>Applications - VMWare Fusion 10 - License</name>
+    <category>Utilities</category>
+    <filename>Applications - VMWare Fusion 10 - License</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+export serial=H162L-0Z343-H8JCP-08A80-847KJ
+/Applications/VMware\ Fusion.app/Contents/Library/Initialize\ VMware\ Fusion.tool set "" "" ${serial}</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpleHBvcnQgc2VyaWFsPUgxNjJMLTBaMzQzLUg4SkNQLTA4QTgwLTg0N0tKCi9BcHBsaWNhdGlvbnMvVk13YXJlXCBGdXNpb24uYXBwL0NvbnRlbnRzL0xpYnJhcnkvSW5pdGlhbGl6ZVwgVk13YXJlXCBGdXNpb24udG9vbCBzZXQgIiIgIiIgJHtzZXJpYWx9</script_contents_encoded>
+</script>

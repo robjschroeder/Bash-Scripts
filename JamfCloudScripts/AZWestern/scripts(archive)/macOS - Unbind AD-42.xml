@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>42</id>
+    <name>macOS - Unbind AD</name>
+    <category>No category assigned</category>
+    <filename>macOS - Unbind AD</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>dsconfigad -force -remove -u johndoe -p nopasswordhere</script_contents>
+    <script_contents_encoded>ZHNjb25maWdhZCAtZm9yY2UgLXJlbW92ZSAtdSBqb2huZG9lIC1wIG5vcGFzc3dvcmRoZXJl</script_contents_encoded>
+</script>

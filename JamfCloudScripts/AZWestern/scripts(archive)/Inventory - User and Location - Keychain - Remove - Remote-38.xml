@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>38</id>
+    <name>Inventory - User and Location - Keychain - Remove - Remote</name>
+    <category>Utilities</category>
+    <filename>Inventory - User and Location - Keychain - Remove - Remote</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters>
+        <parameter4>NetID</parameter4>
+    </parameters>
+    <os_requirements></os_requirements>
+    <script_contents>user=$4
+
+rm -f -r "/Users/$user/Library/Keychains/"*
+shutdown -r now
+exit</script_contents>
+    <script_contents_encoded>dXNlcj0kNAoKcm0gLWYgLXIgIi9Vc2Vycy8kdXNlci9MaWJyYXJ5L0tleWNoYWlucy8iKgpzaHV0ZG93biAtciBub3cKZXhpdA==</script_contents_encoded>
+</script>

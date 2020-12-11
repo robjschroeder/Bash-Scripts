@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>33</id>
+    <name>Applications - ARDAgent - Disable</name>
+    <category>Utilities</category>
+    <filename>Applications - ARDAgent - Disable</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -deactivate</script_contents>
+    <script_contents_encoded>L1N5c3RlbS9MaWJyYXJ5L0NvcmVTZXJ2aWNlcy9SZW1vdGVNYW5hZ2VtZW50L0FSREFnZW50LmFwcC9Db250ZW50cy9SZXNvdXJjZXMva2lja3N0YXJ0IC1kZWFjdGl2YXRl</script_contents_encoded>
+</script>

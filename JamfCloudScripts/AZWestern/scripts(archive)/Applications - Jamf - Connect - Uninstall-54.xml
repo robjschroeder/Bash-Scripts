@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>54</id>
+    <name>Applications - Jamf - Connect - Uninstall</name>
+    <category>jamf</category>
+    <filename>Applications - Jamf - Connect - Uninstall</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents># !/bin/bash
+
+
+# This script is intended to disable and remove all Jamf Connect v1 &amp; v2 components.
+# Configuration Profiles will only be removed if they contain com.jamf.connect; If that portion of the script fails, please remove  manually.
+
+#Validated macOS 10.12 - macOS 11 (Big Sur)
+
+# Variables
+
+SyncLA='/Library/LaunchAgents/com.jamf.connect.sync.plist'
+VerifyLA='/Library/LaunchAgents/com.jamf.connect.verify.plist'
+Connect2LA='/Library/LaunchAgents/com.jamf.connect.plist'
+
+ConnectApp='/Applications/Jamf Connect.app/'
+SyncApp='/Applications/Jamf Connect Sync.app/'
+VerifyApp='/Applications/Jamf Connect Verify.app/'
+ConfigApp='/Applications/Jamf Connect Configuration.app/'
+
+EvaluationAssets='/Users/Shared/JamfConnectEvaluationAssets/'
+ChromeExtensions='/Library/Google/Chrome/NativeMessagingHosts/'
+
+# Find if there's a console user or not. Blank return if not.
+
+consoleuser=$( scutil &lt;&lt;&lt; "show State:/Users/ConsoleUser" | awk '/Name :/ &amp;&amp; ! /loginwindow/ { print $3 }' )
+
+# get the UID for the user
+
+uid=$(/usr/bin/id -u "$consoleuser")
+/bin/echo ''''
+/bin/echo 'Console user is '"$consoleuser"', UID: '"$uid"''
+
+
+# disable and remove LaunchD components
+
+if [ -f "$SyncLA" ]; then
+	/bin/echo ''''
+    /bin/echo "Jamf Connect Sync Launch Agent is present. Unloading &amp; removing.."
+    /bin/launchctl bootout gui/"$uid" "$SyncLA"
+    /bin/rm -rf "$SyncLA"
+        else 
+    /bin/echo "Jamf Connect Sync launch agent not installed"
+fi
+
+if [ -f "$VerifyLA" ]; then
+	/bin/echo ''''
+    /bin/echo "Jamf Connect Verify Launch Agent is present. Unloading &amp; removing.."
+    /bin/launchctl bootout gui/"$uid" "$VerifyLA"
+    /bin/rm -rf "$VerifyLA"
+        else 
+    /bin/echo "Jamf Connect Verify launch agent not installed"
+fi
+
+if [ -f "$Connect2LA" ]; then
+	/bin/echo ''''
+    /bin/echo "Jamf Connect 2 Launch Agent is present. Unloading &amp; removing.."
+    /bin/launchctl bootout gui/"$uid" "$Connect2LA"
+    /bin/rm -rf "$Connect2LA"
+        else 
+    /bin/echo "Jamf Connect 2 launch agent not installed"
+fi
+
+/bin/echo ''''
+
+/bin/echo "Jamf Connect LaunchAgents removed"
+
+
+# Reset the macOS authentication database to default
+
+if [ -f "/usr/local/bin/authchanger" ]; 
+    then
+        /usr/local/bin/authchanger -reset
+        /bin/echo ''''
+        /bin/echo "Default macOS loginwindow has been restored"
+        /bin/echo ''''
+        /bin/rm /usr/local/bin/authchanger
+        /bin/rm /usr/local/lib/pam/pam_saml.so.2
+        /bin/rm -r /Library/Security/SecurityAgentPlugins/JamfConnectLogin.bundle
+        /bin/echo "Jamf Connect Login components have been removed"
+        /bin/echo ''''
+    else 
+        /bin/echo "Jamf Connect Login not installed; can't delete"
+fi
+
+# Remove Jamf Connect Applications
+
+if [ -d "$SyncApp" ]; then
+    /bin/rm -rf "$SyncApp"
+    else 
+    /bin/echo "Jamf Connect Sync is not installed; can't delete"
+fi
+
+if [ -d "$VerifyApp" ]; then
+    /bin/rm -rf "$VerifyApp"
+        else 
+    /bin/echo "Jamf Connect Verify is not installed; can't delete"
+fi
+
+if [ -d "$ConfigApp" ]; then
+    /bin/rm -rf "$ConfigApp"
+        else 
+    /bin/echo "Jamf Connect Configuration is not installed; can't delete"
+fi
+
+if [ -d "$ConnectApp" ]; then
+    /bin/rm -rf "$ConnectApp"
+        else 
+    /bin/echo "Jamf Connect 2 is not installed; can't delete"
+fi
+
+/bin/echo 'Jamf Connect Applications have been removed'
+/bin/echo ''''
+
+# Remove Jamf Connect Evaluation Assets
+
+if [ -d "$EvaluationAssets" ]; 
+    then
+        /bin/rm -rf "$EvaluationAssets"
+        /bin/echo "Jamf Connect Assets have been removed"
+        /bin/echo ''''
+    else 
+        /bin/echo "Jamf Connect Assets not installed; can't delete"
+fi
+
+# Remove Jamf Connect Chrome Extensions
+
+if [ -d "$ChromeExtensions" ]; 
+    then
+        /bin/rm -rf "$ChromeExtensions"
+        /bin/echo "Jamf Connect Chrome extensions have been removed"
+        /bin/echo ''''
+    else 
+        /bin/echo "Jamf Connect Chrome extensions not installed; can't delete"
+fi
+
+
+# Remove Jamf Connect Evaluation Profiles
+
+profilesArray=()
+for i in $(profiles list | grep -i com.jamf.connect | awk '{ print $4 }'); do
+    profilesArray+=("$i")
+done
+counter=0
+for i in "${profilesArray[@]}"; do
+    let "counter=counter+1"
+done
+if [ $counter == 0 ]; then
+    echo "There were 0 Jamf Connect Profiles found. Continuing..."
+else
+    echo "There were $counter Jamf Connect Profiles found.  Removing..."
+fi
+for i in "${profilesArray[@]}"; do
+    echo "Removing the profile $i..."
+    /usr/bin/profiles -R -p "$i"
+done
+
+/bin/echo ''''
+/bin/echo "$counter Jamf Connect Profiles have been removed."
+/bin/echo ''''
+
+/bin/echo "All Jamf Connect components have been removed."
+/bin/echo ''''
+
+
+exit</script_contents>
+    <script_contents_encoded>IyAhL2Jpbi9iYXNoCgoKIyBUaGlzIHNjcmlwdCBpcyBpbnRlbmRlZCB0byBkaXNhYmxlIGFuZCByZW1vdmUgYWxsIEphbWYgQ29ubmVjdCB2MSAmIHYyIGNvbXBvbmVudHMuCiMgQ29uZmlndXJhdGlvbiBQcm9maWxlcyB3aWxsIG9ubHkgYmUgcmVtb3ZlZCBpZiB0aGV5IGNvbnRhaW4gY29tLmphbWYuY29ubmVjdDsgSWYgdGhhdCBwb3J0aW9uIG9mIHRoZSBzY3JpcHQgZmFpbHMsIHBsZWFzZSByZW1vdmUgIG1hbnVhbGx5LgoKI1ZhbGlkYXRlZCBtYWNPUyAxMC4xMiAtIG1hY09TIDExIChCaWcgU3VyKQoKIyBWYXJpYWJsZXMKClN5bmNMQT0nL0xpYnJhcnkvTGF1bmNoQWdlbnRzL2NvbS5qYW1mLmNvbm5lY3Quc3luYy5wbGlzdCcKVmVyaWZ5TEE9Jy9MaWJyYXJ5L0xhdW5jaEFnZW50cy9jb20uamFtZi5jb25uZWN0LnZlcmlmeS5wbGlzdCcKQ29ubmVjdDJMQT0nL0xpYnJhcnkvTGF1bmNoQWdlbnRzL2NvbS5qYW1mLmNvbm5lY3QucGxpc3QnCgpDb25uZWN0QXBwPScvQXBwbGljYXRpb25zL0phbWYgQ29ubmVjdC5hcHAvJwpTeW5jQXBwPScvQXBwbGljYXRpb25zL0phbWYgQ29ubmVjdCBTeW5jLmFwcC8nClZlcmlmeUFwcD0nL0FwcGxpY2F0aW9ucy9KYW1mIENvbm5lY3QgVmVyaWZ5LmFwcC8nCkNvbmZpZ0FwcD0nL0FwcGxpY2F0aW9ucy9KYW1mIENvbm5lY3QgQ29uZmlndXJhdGlvbi5hcHAvJwoKRXZhbHVhdGlvbkFzc2V0cz0nL1VzZXJzL1NoYXJlZC9KYW1mQ29ubmVjdEV2YWx1YXRpb25Bc3NldHMvJwpDaHJvbWVFeHRlbnNpb25zPScvTGlicmFyeS9Hb29nbGUvQ2hyb21lL05hdGl2ZU1lc3NhZ2luZ0hvc3RzLycKCiMgRmluZCBpZiB0aGVyZSdzIGEgY29uc29sZSB1c2VyIG9yIG5vdC4gQmxhbmsgcmV0dXJuIGlmIG5vdC4KCmNvbnNvbGV1c2VyPSQoIHNjdXRpbCA8PDwgInNob3cgU3RhdGU6L1VzZXJzL0NvbnNvbGVVc2VyIiB8IGF3ayAnL05hbWUgOi8gJiYgISAvbG9naW53aW5kb3cvIHsgcHJpbnQgJDMgfScgKQoKIyBnZXQgdGhlIFVJRCBmb3IgdGhlIHVzZXIKCnVpZD0kKC91c3IvYmluL2lkIC11ICIkY29uc29sZXVzZXIiKQovYmluL2VjaG8gJycnJwovYmluL2VjaG8gJ0NvbnNvbGUgdXNlciBpcyAnIiRjb25zb2xldXNlciInLCBVSUQ6ICciJHVpZCInJwoKCiMgZGlzYWJsZSBhbmQgcmVtb3ZlIExhdW5jaEQgY29tcG9uZW50cwoKaWYgWyAtZiAiJFN5bmNMQSIgXTsgdGhlbgoJL2Jpbi9lY2hvICcnJycKICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IFN5bmMgTGF1bmNoIEFnZW50IGlzIHByZXNlbnQuIFVubG9hZGluZyAmIHJlbW92aW5nLi4iCiAgICAvYmluL2xhdW5jaGN0bCBib290b3V0IGd1aS8iJHVpZCIgIiRTeW5jTEEiCiAgICAvYmluL3JtIC1yZiAiJFN5bmNMQSIKICAgICAgICBlbHNlIAogICAgL2Jpbi9lY2hvICJKYW1mIENvbm5lY3QgU3luYyBsYXVuY2ggYWdlbnQgbm90IGluc3RhbGxlZCIKZmkKCmlmIFsgLWYgIiRWZXJpZnlMQSIgXTsgdGhlbgoJL2Jpbi9lY2hvICcnJycKICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IFZlcmlmeSBMYXVuY2ggQWdlbnQgaXMgcHJlc2VudC4gVW5sb2FkaW5nICYgcmVtb3ZpbmcuLiIKICAgIC9iaW4vbGF1bmNoY3RsIGJvb3RvdXQgZ3VpLyIkdWlkIiAiJFZlcmlmeUxBIgogICAgL2Jpbi9ybSAtcmYgIiRWZXJpZnlMQSIKICAgICAgICBlbHNlIAogICAgL2Jpbi9lY2hvICJKYW1mIENvbm5lY3QgVmVyaWZ5IGxhdW5jaCBhZ2VudCBub3QgaW5zdGFsbGVkIgpmaQoKaWYgWyAtZiAiJENvbm5lY3QyTEEiIF07IHRoZW4KCS9iaW4vZWNobyAnJycnCiAgICAvYmluL2VjaG8gIkphbWYgQ29ubmVjdCAyIExhdW5jaCBBZ2VudCBpcyBwcmVzZW50LiBVbmxvYWRpbmcgJiByZW1vdmluZy4uIgogICAgL2Jpbi9sYXVuY2hjdGwgYm9vdG91dCBndWkvIiR1aWQiICIkQ29ubmVjdDJMQSIKICAgIC9iaW4vcm0gLXJmICIkQ29ubmVjdDJMQSIKICAgICAgICBlbHNlIAogICAgL2Jpbi9lY2hvICJKYW1mIENvbm5lY3QgMiBsYXVuY2ggYWdlbnQgbm90IGluc3RhbGxlZCIKZmkKCi9iaW4vZWNobyAnJycnCgovYmluL2VjaG8gIkphbWYgQ29ubmVjdCBMYXVuY2hBZ2VudHMgcmVtb3ZlZCIKCgojIFJlc2V0IHRoZSBtYWNPUyBhdXRoZW50aWNhdGlvbiBkYXRhYmFzZSB0byBkZWZhdWx0CgppZiBbIC1mICIvdXNyL2xvY2FsL2Jpbi9hdXRoY2hhbmdlciIgXTsgCiAgICB0aGVuCiAgICAgICAgL3Vzci9sb2NhbC9iaW4vYXV0aGNoYW5nZXIgLXJlc2V0CiAgICAgICAgL2Jpbi9lY2hvICcnJycKICAgICAgICAvYmluL2VjaG8gIkRlZmF1bHQgbWFjT1MgbG9naW53aW5kb3cgaGFzIGJlZW4gcmVzdG9yZWQiCiAgICAgICAgL2Jpbi9lY2hvICcnJycKICAgICAgICAvYmluL3JtIC91c3IvbG9jYWwvYmluL2F1dGhjaGFuZ2VyCiAgICAgICAgL2Jpbi9ybSAvdXNyL2xvY2FsL2xpYi9wYW0vcGFtX3NhbWwuc28uMgogICAgICAgIC9iaW4vcm0gLXIgL0xpYnJhcnkvU2VjdXJpdHkvU2VjdXJpdHlBZ2VudFBsdWdpbnMvSmFtZkNvbm5lY3RMb2dpbi5idW5kbGUKICAgICAgICAvYmluL2VjaG8gIkphbWYgQ29ubmVjdCBMb2dpbiBjb21wb25lbnRzIGhhdmUgYmVlbiByZW1vdmVkIgogICAgICAgIC9iaW4vZWNobyAnJycnCiAgICBlbHNlIAogICAgICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IExvZ2luIG5vdCBpbnN0YWxsZWQ7IGNhbid0IGRlbGV0ZSIKZmkKCiMgUmVtb3ZlIEphbWYgQ29ubmVjdCBBcHBsaWNhdGlvbnMKCmlmIFsgLWQgIiRTeW5jQXBwIiBdOyB0aGVuCiAgICAvYmluL3JtIC1yZiAiJFN5bmNBcHAiCiAgICBlbHNlIAogICAgL2Jpbi9lY2hvICJKYW1mIENvbm5lY3QgU3luYyBpcyBub3QgaW5zdGFsbGVkOyBjYW4ndCBkZWxldGUiCmZpCgppZiBbIC1kICIkVmVyaWZ5QXBwIiBdOyB0aGVuCiAgICAvYmluL3JtIC1yZiAiJFZlcmlmeUFwcCIKICAgICAgICBlbHNlIAogICAgL2Jpbi9lY2hvICJKYW1mIENvbm5lY3QgVmVyaWZ5IGlzIG5vdCBpbnN0YWxsZWQ7IGNhbid0IGRlbGV0ZSIKZmkKCmlmIFsgLWQgIiRDb25maWdBcHAiIF07IHRoZW4KICAgIC9iaW4vcm0gLXJmICIkQ29uZmlnQXBwIgogICAgICAgIGVsc2UgCiAgICAvYmluL2VjaG8gIkphbWYgQ29ubmVjdCBDb25maWd1cmF0aW9uIGlzIG5vdCBpbnN0YWxsZWQ7IGNhbid0IGRlbGV0ZSIKZmkKCmlmIFsgLWQgIiRDb25uZWN0QXBwIiBdOyB0aGVuCiAgICAvYmluL3JtIC1yZiAiJENvbm5lY3RBcHAiCiAgICAgICAgZWxzZSAKICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IDIgaXMgbm90IGluc3RhbGxlZDsgY2FuJ3QgZGVsZXRlIgpmaQoKL2Jpbi9lY2hvICdKYW1mIENvbm5lY3QgQXBwbGljYXRpb25zIGhhdmUgYmVlbiByZW1vdmVkJwovYmluL2VjaG8gJycnJwoKIyBSZW1vdmUgSmFtZiBDb25uZWN0IEV2YWx1YXRpb24gQXNzZXRzCgppZiBbIC1kICIkRXZhbHVhdGlvbkFzc2V0cyIgXTsgCiAgICB0aGVuCiAgICAgICAgL2Jpbi9ybSAtcmYgIiRFdmFsdWF0aW9uQXNzZXRzIgogICAgICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IEFzc2V0cyBoYXZlIGJlZW4gcmVtb3ZlZCIKICAgICAgICAvYmluL2VjaG8gJycnJwogICAgZWxzZSAKICAgICAgICAvYmluL2VjaG8gIkphbWYgQ29ubmVjdCBBc3NldHMgbm90IGluc3RhbGxlZDsgY2FuJ3QgZGVsZXRlIgpmaQoKIyBSZW1vdmUgSmFtZiBDb25uZWN0IENocm9tZSBFeHRlbnNpb25zCgppZiBbIC1kICIkQ2hyb21lRXh0ZW5zaW9ucyIgXTsgCiAgICB0aGVuCiAgICAgICAgL2Jpbi9ybSAtcmYgIiRDaHJvbWVFeHRlbnNpb25zIgogICAgICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IENocm9tZSBleHRlbnNpb25zIGhhdmUgYmVlbiByZW1vdmVkIgogICAgICAgIC9iaW4vZWNobyAnJycnCiAgICBlbHNlIAogICAgICAgIC9iaW4vZWNobyAiSmFtZiBDb25uZWN0IENocm9tZSBleHRlbnNpb25zIG5vdCBpbnN0YWxsZWQ7IGNhbid0IGRlbGV0ZSIKZmkKCgojIFJlbW92ZSBKYW1mIENvbm5lY3QgRXZhbHVhdGlvbiBQcm9maWxlcwoKcHJvZmlsZXNBcnJheT0oKQpmb3IgaSBpbiAkKHByb2ZpbGVzIGxpc3QgfCBncmVwIC1pIGNvbS5qYW1mLmNvbm5lY3QgfCBhd2sgJ3sgcHJpbnQgJDQgfScpOyBkbwogICAgcHJvZmlsZXNBcnJheSs9KCIkaSIpCmRvbmUKY291bnRlcj0wCmZvciBpIGluICIke3Byb2ZpbGVzQXJyYXlbQF19IjsgZG8KICAgIGxldCAiY291bnRlcj1jb3VudGVyKzEiCmRvbmUKaWYgWyAkY291bnRlciA9PSAwIF07IHRoZW4KICAgIGVjaG8gIlRoZXJlIHdlcmUgMCBKYW1mIENvbm5lY3QgUHJvZmlsZXMgZm91bmQuIENvbnRpbnVpbmcuLi4iCmVsc2UKICAgIGVjaG8gIlRoZXJlIHdlcmUgJGNvdW50ZXIgSmFtZiBDb25uZWN0IFByb2ZpbGVzIGZvdW5kLiAgUmVtb3ZpbmcuLi4iCmZpCmZvciBpIGluICIke3Byb2ZpbGVzQXJyYXlbQF19IjsgZG8KICAgIGVjaG8gIlJlbW92aW5nIHRoZSBwcm9maWxlICRpLi4uIgogICAgL3Vzci9iaW4vcHJvZmlsZXMgLVIgLXAgIiRpIgpkb25lCgovYmluL2VjaG8gJycnJwovYmluL2VjaG8gIiRjb3VudGVyIEphbWYgQ29ubmVjdCBQcm9maWxlcyBoYXZlIGJlZW4gcmVtb3ZlZC4iCi9iaW4vZWNobyAnJycnCgovYmluL2VjaG8gIkFsbCBKYW1mIENvbm5lY3QgY29tcG9uZW50cyBoYXZlIGJlZW4gcmVtb3ZlZC4iCi9iaW4vZWNobyAnJycnCgoKZXhpdA==</script_contents_encoded>
+</script>

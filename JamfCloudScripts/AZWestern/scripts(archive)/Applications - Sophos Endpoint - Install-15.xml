@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>15</id>
+    <name>Applications - Sophos Endpoint - Install</name>
+    <category>Utilities</category>
+    <filename>Applications - Sophos Endpoint - Install</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+####################################################################################################
+#
+# Sophos Endpoint Installation
+#
+####################################################################################################
+#
+# DESCRIPTION
+#
+# Installs Sophos Endpoint
+#
+####################################################################################################
+# 
+#
+# Sophos Endpoint Installation Script
+
+# Changing permissions on the Sophos Installer
+sudo chmod a+x /private/tmp/SophosInstall/Sophos\ Installer.app/Contents/MacOS/Sophos\ Installer
+sudo chmod a+x /private/tmp/SophosInstall/Sophos\ Installer.app/Contents/MacOS/tools/com.sophos.bootstrap.helper
+
+# Run the installer
+/private/tmp/SophosInstall/Sophos\ Installer.app/Contents/MacOS/Sophos\ Installer --install
+
+####################################################################################################</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIyBTb3Bob3MgRW5kcG9pbnQgSW5zdGFsbGF0aW9uCiMKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojCiMgREVTQ1JJUFRJT04KIwojIEluc3RhbGxzIFNvcGhvcyBFbmRwb2ludAojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyAKIwojIFNvcGhvcyBFbmRwb2ludCBJbnN0YWxsYXRpb24gU2NyaXB0CgojIENoYW5naW5nIHBlcm1pc3Npb25zIG9uIHRoZSBTb3Bob3MgSW5zdGFsbGVyCnN1ZG8gY2htb2QgYSt4IC9wcml2YXRlL3RtcC9Tb3Bob3NJbnN0YWxsL1NvcGhvc1wgSW5zdGFsbGVyLmFwcC9Db250ZW50cy9NYWNPUy9Tb3Bob3NcIEluc3RhbGxlcgpzdWRvIGNobW9kIGEreCAvcHJpdmF0ZS90bXAvU29waG9zSW5zdGFsbC9Tb3Bob3NcIEluc3RhbGxlci5hcHAvQ29udGVudHMvTWFjT1MvdG9vbHMvY29tLnNvcGhvcy5ib290c3RyYXAuaGVscGVyCgojIFJ1biB0aGUgaW5zdGFsbGVyCi9wcml2YXRlL3RtcC9Tb3Bob3NJbnN0YWxsL1NvcGhvc1wgSW5zdGFsbGVyLmFwcC9Db250ZW50cy9NYWNPUy9Tb3Bob3NcIEluc3RhbGxlciAtLWluc3RhbGwKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyM=</script_contents_encoded>
+</script>

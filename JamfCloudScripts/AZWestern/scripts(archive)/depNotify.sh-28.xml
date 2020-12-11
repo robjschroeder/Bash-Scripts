@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>28</id>
+    <name>depNotify.sh</name>
+    <category>OSX Configurations</category>
+    <filename>depNotify.sh</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+# Version 2.0.1
+
+#########################################################################################
+# License information
+#########################################################################################
+# Copyright 2018 Jamf Professional Services
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy of this
+# software and associated documentation files (the "Software"), to deal in the Software
+# without restriction, including without limitation the rights to use, copy, modify, merge,
+# publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons
+# to whom the Software is furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all copies or
+# substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+# PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+# FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+# OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+# DEALINGS IN THE SOFTWARE.
+
+#########################################################################################
+# General Information
+#########################################################################################
+# This script is designed to make implementation of DEPNotify very easy with limited
+# scripting knowledge. The section below has variables that may be modified to customize
+# the end user experience. DO NOT modify things in or below the CORE LOGIC area unless
+# major testing and validation is performed.
+
+# More information at: https://github.com/jamfprofessionalservices/DEP-Notify
+
+#########################################################################################
+# Testing Mode
+#########################################################################################
+# Testing flag will enable the following things to change:
+# Auto removal of BOM files to reduce errors
+# Sleep commands instead of policies or other changes being called
+# Quit Key set to command + control + x
+  TESTING_MODE=false # Set variable to true or false
+
+#########################################################################################
+# General Appearance
+#########################################################################################
+# Flag the app to open fullscreen or as a window
+  FULLSCREEN=true # Set variable to true or false
+
+# Banner image can be 600px wide by 100px high. Images will be scaled to fit
+# If this variable is left blank, the generic image will appear. If using custom Self
+# Service branding, please see the Customized Self Service Branding area below
+  BANNER_IMAGE_PATH="/Applications/Self Service.app/Contents/Resources/AppIcon.icns"
+
+# Main heading that will be displayed under the image
+# If this variable is left blank, the generic banner will appear
+  BANNER_TITLE="Welcome to Arizona Western College"
+
+# Paragraph text that will display under the main heading. For a new line, use \n
+# If this variable is left blank, the generic message will appear. Leave single
+# quotes below as double quotes will break the new lines.
+  MAIN_TEXT='Thanks for choosing a Mac at AWC! We want you to have a few applications and settings configured before you get started with your new Mac. This process should take 10 to 20 minutes to complete. \n \n If you need additional software or help, please visit the Self Service app in your Applications folder or call the AWC Service Desk at 928.317.5880.'
+
+# Initial Start Status text that shows as things are firing up
+  INITAL_START_STATUS="Initial Configuration Starting..."
+
+# Text that will display in the progress bar
+  INSTALL_COMPLETE_TEXT="Configuration Complete!"
+
+# Complete messaging to the end user can ether be a button at the bottom of the
+# app with a modification to the main window text or a dropdown alert box. Default
+# value set to false and will use buttons instead of dropdown messages.
+  COMPLETE_METHOD_DROPDOWN_ALERT=false # Set variable to true or false
+
+# Script designed to automatically logout user to start FileVault process if
+# deferred enablement is detected. Text displayed if deferred status is on.
+  # Option for dropdown alert box
+    FV_ALERT_TEXT="Your Mac must logout to start the encryption process. You will be asked to enter your password and click OK or Continue a few times. Your Mac will be usable while encryption takes place."
+  # Options if not using dropdown alert box
+    FV_COMPLETE_MAIN_TEXT='Your Mac must logout to start the encryption process. You will be asked to enter your password and click OK or Continue a few times. Your Mac will be usable while encryption takes place.'
+    FV_COMPLETE_BUTTON_TEXT="Logout"
+
+# Text that will display inside the alert once policies have finished
+  # Option for dropdown alert box
+    COMPLETE_ALERT_TEXT="Your Mac is now finished with initial setup and configuration. Press Quit to get started!"
+  # Options if not using dropdown alert box
+    COMPLETE_MAIN_TEXT='Your Mac is now finished with initial setup and configuration.'
+    COMPLETE_BUTTON_TEXT="Get Started!"
+
+#########################################################################################
+# Plist Configuration
+#########################################################################################
+# The menu.depnotify.plist contains more and more things that configure the DEPNotify app
+# You may want to save the file for purposes like verifying EULA acceptance or validating
+# other options.
+
+# Plist Save Location
+  # This wrapper allows variables that are created later to be used but also allow for
+  # configuration of where the plist is stored
+    INFO_PLIST_WRAPPER (){
+      DEP_NOTIFY_USER_INPUT_PLIST="/Users/$CURRENT_USER/Library/Preferences/menu.nomad.DEPNotifyUserInput.plist"
+    }
+
+# Status Text Alignment
+  # The status text under the progress bar can be configured to be left, right, or center
+    STATUS_TEXT_ALIGN="center"
+
+# Help Button Configuration
+  # The help button was changed to a popup. Button will appear if title is populated.
+    HELP_BUBBLE_TITLE="Need Help?"
+    HELP_BUBBLE_BODY="This tool at Arizona Western College is designed to help with new employee onboarding. If you have issues, please give us a call at 928-317-5892"
+
+#########################################################################################
+# Error Screen Text
+#########################################################################################
+# If testing mode is false and configuration files are present, this text will appear to
+# the end user and asking them to contact IT. Limited window options here as the
+# assumption is that they need to call IT. No continue or exit buttons will show for
+# DEP Notify window and it will not show in fullscreen. IT staff will need to use Terminal
+# or Activity Monitor to kill DEP Notify.
+
+# Main heading that will be displayed under the image
+  ERROR_BANNER_TITLE="Uh oh, Something Needs Fixing!"
+
+# Paragraph text that will display under the main heading. For a new line, use \n
+# If this variable is left blank, the generic message will appear. Leave single
+# quotes below as double quotes will break the new lines.
+  ERROR_MAIN_TEXT='We are sorry that you are experiencing this inconvenience with your new Mac. However, we have the nerds to get you back up and running in no time! \n \n Please contact the Service Desk right away and we will take a look at your computer ASAP. \n \n Phone: 928.317.5892'
+
+# Error status message that is displayed under the progress bar
+  ERROR_STATUS="Setup Failed"
+  
+#########################################################################################
+# Trigger to be used to call the policy
+#########################################################################################
+# Policies can be called be either a custom trigger or by policy id.
+# Select either event, to call the policy by the custom trigger,
+# or id to call the policy by id.
+TRIGGER="event"
+
+
+#########################################################################################
+# Policy Variable to Modify
+#########################################################################################
+# The policy array must be formatted "Progress Bar text,customTrigger". These will be
+# run in order as they appear below.
+  POLICY_ARRAY=(
+    "Installing Background Images,dep-backgroundPKG"
+    "Installing Google Chrome,dep-chromeInstall"
+    "Installing Mozilla Firefox,dep-firefoxInstall"
+    "Installing Java Runtime Environment,dep-javaInstall"
+    "Installing Microsoft Silverlight,dep-silverlightInstall"
+    "Installing Microsoft Office 2019,dep-office2019Install"
+    "Installing JamfConnect,jamfConnectInstall"
+    "Installing Jamf Protect,dep-jamfProtectInstall"
+    "Preparing for the next login,uninstall-depnotify-installers"
+  )
+
+#########################################################################################
+# Caffeinate / No Sleep Configuration
+#########################################################################################
+# Flag script to keep the computer from sleeping. BE VERY CAREFUL WITH THIS FLAG!
+# This flag could expose your data to risk by leaving an unlocked computer wide open.
+# Only recommended if you are using fullscreen mode and have a logout taking place at
+# the end of configuration (like for FileVault). Some folks may use this in workflows
+# where IT staff are the primary people setting up the device. The device will be
+# allowed to sleep again once the DEPNotify app is quit as caffeinate is looking
+# at DEPNotify's process ID.
+  NO_SLEEP=false
+
+#########################################################################################
+# Customized Self Service Branding
+#########################################################################################
+# Flag for using the custom branding icon from Self Service and Jamf Pro
+# This will override the banner image specified above. If you have changed the
+# name of Self Service, make sure to modify the Self Service name below.
+# Please note, custom branding is downloaded from Jamf Pro after Self Service has opened
+# at least one time. The script is designed to wait until the files have been downloaded.
+# This could take a few minutes depending on server and network resources.
+  SELF_SERVICE_CUSTOM_BRANDING=false # Set variable to true or false
+
+# If using a name other than Self Service with Custom branding. Change the
+# name with the SELF_SERVICE_APP_NAME variable below. Keep .app on the end
+  SELF_SERVICE_APP_NAME="Self Service.app"
+
+#########################################################################################
+# EULA Variables to Modify
+#########################################################################################
+# EULA configuration
+  EULA_ENABLED=false # Set variable to true or false
+
+  # EULA status bar text
+    EULA_STATUS="Waiting on completion of EULA acceptance"
+
+  # EULA button text on the main screen
+    EULA_BUTTON="Read and Agree to EULA"
+
+  # EULA Screen Title
+    EULA_MAIN_TITLE="Organization End User License Agreement"
+
+  # EULA Subtitle
+    EULA_SUBTITLE="Please agree to the following terms and conditions to start configuration of this Mac"
+
+  # Path to the EULA file you would like the user to read and agree to. It is
+  # best to package this up with Composer or another tool and deliver it to a
+  # shared area like /Users/Shared/
+    EULA_FILE_PATH="/Users/Shared/eula.txt"
+
+#########################################################################################
+# Registration Variables to Modify
+#########################################################################################
+# Registration window configuration
+  REGISTRATION_ENABLED=true # Set variable to true or false
+
+  # Registration window title
+    REGISTRATION_TITLE="Register Mac at Arizona Western College"
+
+  # Registration status bar text
+    REGISTRATION_STATUS="Waiting on completion of computer registration"
+
+  # Registration window submit or finish button text
+    REGISTRATION_BUTTON="Register Your Mac"
+
+  # The text and pick list sections below will write the following lines out for
+  # end users. Use the variables below to configure what the sentence says
+  # Ex: Setting Computer Name to macBook0132
+    REGISTRATION_BEGIN_WORD="Setting"
+    REGISTRATION_MIDDLE_WORD="to"
+
+  # Registration window can have up to two text fields. Leaving the text display
+  # variable empty will hide the input box. Display text is to the side of the
+  # input and placeholder text is the gray text inside the input box.
+  # Registration window can have up to four dropdown / pick list inputs. Leaving
+  # the pick display variable empty will hide the dropdown / pick list.
+
+  # First Text Field
+  #######################################################################################
+    # Text Field Label
+      REG_TEXT_LABEL_1="Computer Name"
+
+    # Place Holder Text
+      REG_TEXT_LABEL_1_PLACEHOLDER="macBook0123"
+
+    # Optional flag for making the field an optional input for end user
+      REG_TEXT_LABEL_1_OPTIONAL="false" # Set variable to true or false
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_TEXT_LABEL_1_HELP_TITLE="Computer Name Field"
+      REG_TEXT_LABEL_1_HELP_TEXT="This field is sets the name of your new Mac to what is in the Computer Name box. This is important for inventory purposes."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_TEXT_LABEL_1_LOGIC (){
+        REG_TEXT_LABEL_1_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_TEXT_LABEL_1")
+        if [ "$REG_TEXT_LABEL_1_OPTIONAL" = true ] &amp;&amp; [ "$REG_TEXT_LABEL_1_VALUE" = "" ]; then
+          echo "Status: $REG_TEXT_LABEL_1 was left empty. Skipping..." &gt;&gt; "$DEP_NOTIFY_LOG"
+          echo "$(date "+%a %h %d %H:%M:%S"): $REG_TEXT_LABEL_1 was set to optional and was left empty. Skipping..." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+          sleep 5
+        else
+          echo "Status: $REGISTRATION_BEGIN_WORD $REG_TEXT_LABEL_1 $REGISTRATION_MIDDLE_WORD $REG_TEXT_LABEL_1_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+          if [ "$TESTING_MODE" = true ]; then
+            sleep 10
+          else
+            "$JAMF_BINARY" setComputerName -name "$REG_TEXT_LABEL_1_VALUE"
+            sleep 5
+          fi
+        fi
+      }
+
+  # Second Text Field
+  #######################################################################################
+    # Text Field Label
+      REG_TEXT_LABEL_2="Asset Tag"
+
+    # Place Holder Text
+      REG_TEXT_LABEL_2_PLACEHOLDER="81926392"
+
+    # Optional flag for making the field an optional input for end user
+      REG_TEXT_LABEL_2_OPTIONAL="true" # Set variable to true or false
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_TEXT_LABEL_2_HELP_TITLE="Asset Tag Field"
+      REG_TEXT_LABEL_2_HELP_TEXT="This field is used to give an updated asset tag to our asset management system. If you do not know your asset tag number, please skip this field."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_TEXT_LABEL_2_LOGIC (){
+        REG_TEXT_LABEL_2_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_TEXT_LABEL_2")
+        if [ "$REG_TEXT_LABEL_2_OPTIONAL" = true ] &amp;&amp; [ "$REG_TEXT_LABEL_2_VALUE" = "" ]; then
+          echo "Status: $REG_TEXT_LABEL_2 was left empty. Skipping..." &gt;&gt; "$DEP_NOTIFY_LOG"
+          echo "$(date "+%a %h %d %H:%M:%S"): $REG_TEXT_LABEL_2 was set to optional and was left empty. Skipping..." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+          sleep 5
+        else
+          echo "Status: $REGISTRATION_BEGIN_WORD $REG_TEXT_LABEL_2 $REGISTRATION_MIDDLE_WORD $REG_TEXT_LABEL_2_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+          if [ "$TESTING_MODE" = true ]; then
+             sleep 10
+          else
+            "$JAMF_BINARY" recon -assetTag "$REG_TEXT_LABEL_2_VALUE"
+          fi
+        fi
+      }
+
+  # Popup 1
+  #######################################################################################
+    # Label for the popup
+      REG_POPUP_LABEL_1="Building"
+
+    # Array of options for the user to select
+      REG_POPUP_LABEL_1_OPTIONS=(
+        "3C"
+        "AB"
+        "AC"
+        "AF"
+        "LR"
+      )
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_POPUP_LABEL_1_HELP_TITLE="Building Dropdown Field"
+      REG_POPUP_LABEL_1_HELP_TEXT="Please choose the appropriate building for where you normally work. This is important for inventory purposes."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_POPUP_LABEL_1_LOGIC (){
+        REG_POPUP_LABEL_1_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_POPUP_LABEL_1")
+        echo "Status: $REGISTRATION_BEGIN_WORD $REG_POPUP_LABEL_1 $REGISTRATION_MIDDLE_WORD $REG_POPUP_LABEL_1_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+        if [ "$TESTING_MODE" = true ]; then
+           sleep 10
+        else
+          "$JAMF_BINARY" recon -building "$REG_POPUP_LABEL_1_VALUE"
+        fi
+      }
+
+  # Popup 2
+  #######################################################################################
+    # Label for the popup
+      REG_POPUP_LABEL_2="Department"
+
+    # Array of options for the user to select
+      REG_POPUP_LABEL_2_OPTIONS=(
+        "Academic Services"
+        "Admissions"
+        "Service Desk"
+        "Science"
+      )
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_POPUP_LABEL_2_HELP_TITLE="Department Dropdown Field"
+      REG_POPUP_LABEL_2_HELP_TEXT="Please choose the appropriate department for where you normally work. This is important for inventory purposes."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_POPUP_LABEL_2_LOGIC (){
+        REG_POPUP_LABEL_2_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_POPUP_LABEL_2")
+        echo "Status: $REGISTRATION_BEGIN_WORD $REG_POPUP_LABEL_2 $REGISTRATION_MIDDLE_WORD $REG_POPUP_LABEL_2_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+        if [ "$TESTING_MODE" = true ]; then
+           sleep 10
+        else
+          "$JAMF_BINARY" recon -department "$REG_POPUP_LABEL_2_VALUE"
+        fi
+      }
+
+  # Popup 3 - Code is here but currently unused
+  #######################################################################################
+    # Label for the popup
+      REG_POPUP_LABEL_3=""
+
+    # Array of options for the user to select
+      REG_POPUP_LABEL_3_OPTIONS=(
+        "Option 1"
+        "Option 2"
+        "Option 3"
+      )
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_POPUP_LABEL_3_HELP_TITLE="Dropdown 3 Field"
+      REG_POPUP_LABEL_3_HELP_TEXT="This dropdown is currently not in use. All code is here ready for you to use. It can also be hidden by removing the contents of the REG_POPUP_LABEL_3 variable."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_POPUP_LABEL_3_LOGIC (){
+        REG_POPUP_LABEL_3_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_POPUP_LABEL_3")
+        echo "Status: $REGISTRATION_BEGIN_WORD $REG_POPUP_LABEL_3 $REGISTRATION_MIDDLE_WORD $REG_POPUP_LABEL_3_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+        if [ "$TESTING_MODE" = true ]; then
+          sleep 10
+        else
+          sleep 10
+        fi
+      }
+
+  # Popup 4 - Code is here but currently unused
+  #######################################################################################
+    # Label for the popup
+      REG_POPUP_LABEL_4=""
+
+    # Array of options for the user to select
+      REG_POPUP_LABEL_4_OPTIONS=(
+        "Option 1"
+        "Option 2"
+        "Option 3"
+      )
+
+    # Help Bubble for Input. If title left blank, this will not appear
+      REG_POPUP_LABEL_4_HELP_TITLE="Dropdown 4 Field"
+      REG_POPUP_LABEL_4_HELP_TEXT="This dropdown is currently not in use. All code is here ready for you to use. It can also be hidden by removing the contents of the REG_POPUP_LABEL_4 variable."
+
+    # Logic below was put in this section rather than in core code as folks may
+    # want to change what the field does. This is a function that gets called
+    # when needed later on. BE VERY CAREFUL IN CHANGING THE FUNCTION!
+      REG_POPUP_LABEL_4_LOGIC (){
+        REG_POPUP_LABEL_4_VALUE=$(defaults read "$DEP_NOTIFY_USER_INPUT_PLIST" "$REG_POPUP_LABEL_4")
+        echo "Status: $REGISTRATION_BEGIN_WORD $REG_POPUP_LABEL_4 $REGISTRATION_MIDDLE_WORD $REG_POPUP_LABEL_4_VALUE" &gt;&gt; "$DEP_NOTIFY_LOG"
+        if [ "$TESTING_MODE" = true ]; then
+          sleep 10
+        else
+          sleep 10
+        fi
+      }
+
+#########################################################################################
+#########################################################################################
+# Core Script Logic - Don't Change Without Major Testing
+#########################################################################################
+#########################################################################################
+
+# Variables for File Paths
+  JAMF_BINARY="/usr/local/bin/jamf"
+  FDE_SETUP_BINARY="/usr/bin/fdesetup"
+  DEP_NOTIFY_APP="/Applications/Utilities/DEPNotify.app"
+  DEP_NOTIFY_LOG="/var/tmp/depnotify.log"
+  DEP_NOTIFY_DEBUG="/var/tmp/depnotifyDebug.log"
+  DEP_NOTIFY_DONE="/var/tmp/com.depnotify.provisioning.done"
+
+# Pulling from Policy parameters to allow true/false flags to be set. More info
+# can be found on https://www.jamf.com/jamf-nation/articles/146/script-parameters
+# These will override what is specified in the script above.
+  # Testing Mode
+    if [ "$4" != "" ]; then TESTING_MODE="$4"; fi
+  # Fullscreen Mode
+    if [ "$5" != "" ]; then FULLSCREEN="$5"; fi
+  # No Sleep / Caffeinate Mode
+    if [ "$6" != "" ]; then NO_SLEEP="$6"; fi
+  # Self Service Custom Branding
+    if [ "$7" != "" ]; then SELF_SERVICE_CUSTOM_BRANDING="$7"; fi
+  # Complete method dropdown or main screen
+    if [ "$8" != "" ]; then COMPLETE_METHOD_DROPDOWN_ALERT="$8"; fi
+  # EULA Mode
+    if [ "$9" != "" ]; then EULA_ENABLED="$9"; fi
+  # Registration Mode
+    if [ "${10}" != "" ]; then REGISTRATION_ENABLED="${10}"; fi
+
+# Standard Testing Mode Enhancements
+  if [ "$TESTING_MODE" = true ]; then
+    # Removing old config file if present (Testing Mode Only)
+      if [ -f "$DEP_NOTIFY_LOG" ]; then rm "$DEP_NOTIFY_LOG"; fi
+      if [ -f "$DEP_NOTIFY_DONE" ]; then rm "$DEP_NOTIFY_DONE"; fi
+      if [ -f "$DEP_NOTIFY_DEBUG" ]; then rm "$DEP_NOTIFY_DEBUG"; fi
+    # Setting Quit Key set to command + control + x (Testing Mode Only)
+      echo "Command: QuitKey: x" &gt;&gt; "$DEP_NOTIFY_LOG"
+  fi
+
+# Validating true/false flags
+  if [ "$TESTING_MODE" != true ] &amp;&amp; [ "$TESTING_MODE" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Testing configuration not set properly. Currently set to $TESTING_MODE. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$FULLSCREEN" != true ] &amp;&amp; [ "$FULLSCREEN" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Fullscreen configuration not set properly. Currently set to $FULLSCREEN. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$NO_SLEEP" != true ] &amp;&amp; [ "$NO_SLEEP" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Sleep configuration not set properly. Currently set to $NO_SLEEP. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$SELF_SERVICE_CUSTOM_BRANDING" != true ] &amp;&amp; [ "$SELF_SERVICE_CUSTOM_BRANDING" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Self Service Custom Branding configuration not set properly. Currently set to $SELF_SERVICE_CUSTOM_BRANDING. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$COMPLETE_METHOD_DROPDOWN_ALERT" != true ] &amp;&amp; [ "$COMPLETE_METHOD_DROPDOWN_ALERT" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Completion alert method not set properly. Currently set to $COMPLETE_METHOD_DROPDOWN_ALERT. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$EULA_ENABLED" != true ] &amp;&amp; [ "$EULA_ENABLED" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): EULA configuration not set properly. Currently set to $EULA_ENABLED. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+  if [ "$REGISTRATION_ENABLED" != true ] &amp;&amp; [ "$REGISTRATION_ENABLED" != false ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Registration configuration not set properly. Currently set to $REGISTRATION_ENABLED. Please update to true or false." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    exit 1
+  fi
+
+# Run DEP Notify will run after Apple Setup Assistant
+  SETUP_ASSISTANT_PROCESS=$(pgrep -l "Setup Assistant")
+  until [ "$SETUP_ASSISTANT_PROCESS" = "" ]; do
+    echo "$(date "+%a %h %d %H:%M:%S"): Setup Assistant Still Running. PID $SETUP_ASSISTANT_PROCESS." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    sleep 1
+    SETUP_ASSISTANT_PROCESS=$(pgrep -l "Setup Assistant")
+  done
+
+# Checking to see if the Finder is running now before continuing. This can help
+# in scenarios where an end user is not configuring the device.
+  FINDER_PROCESS=$(pgrep -l "Finder")
+  until [ "$FINDER_PROCESS" != "" ]; do
+    echo "$(date "+%a %h %d %H:%M:%S"): Finder process not found. Assuming device is at login screen." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    sleep 1
+    FINDER_PROCESS=$(pgrep -l "Finder")
+  done
+
+# After the Apple Setup completed. Now safe to grab the current user.
+  CURRENT_USER=$(/usr/bin/python -c 'from SystemConfiguration import SCDynamicStoreCopyConsoleUser; import sys; username = (SCDynamicStoreCopyConsoleUser(None, None, None) or [None])[0]; username = [username,""][username in [u"loginwindow", None, u""]]; sys.stdout.write(username + "\n");')
+  echo "$(date "+%a %h %d %H:%M:%S"): Current user set to $CURRENT_USER." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+
+# Adding Check and Warning if Testing Mode is off and BOM files exist
+  if [[ ( -f "$DEP_NOTIFY_LOG" || -f "$DEP_NOTIFY_DONE" ) &amp;&amp; "$TESTING_MODE" = false ]]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): TESTING_MODE set to false but config files were found in /var/tmp. Letting user know and exiting." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    mv "$DEP_NOTIFY_LOG" "/var/tmp/depnotify_old.log"
+    echo "Command: MainTitle: $ERROR_BANNER_TITLE" &gt;&gt; "$DEP_NOTIFY_LOG"
+    echo "Command: MainText: $ERROR_MAIN_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+    echo "Status: $ERROR_STATUS" &gt;&gt; "$DEP_NOTIFY_LOG"
+    sudo -u "$CURRENT_USER" open -a "$DEP_NOTIFY_APP" --args -path "$DEP_NOTIFY_LOG"
+    sleep 5
+    exit 1
+  fi
+
+# If SELF_SERVICE_CUSTOM_BRANDING is set to true. Loading the updated icon
+  if [ "$SELF_SERVICE_CUSTOM_BRANDING" = true ]; then
+    open -a "/Applications/$SELF_SERVICE_APP_NAME" --hide
+
+  # Loop waiting on the branding image to properly show in the users library
+  CUSTOM_BRANDING_PNG="/Users/$CURRENT_USER/Library/Application Support/com.jamfsoftware.selfservice.mac/Documents/Images/brandingimage.png"
+    until [ -f "$CUSTOM_BRANDING_PNG" ]; do
+      echo "$(date "+%a %h %d %H:%M:%S"): Waiting for branding image from Jamf Pro." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+       sleep 1
+    done
+
+  # Setting Banner Image for DEP Notify to Self Service Custom Branding
+    BANNER_IMAGE_PATH="$CUSTOM_BRANDING_PNG"
+
+  # Closing Self Service
+    SELF_SERVICE_PID=$(pgrep -l "$(echo "$SELF_SERVICE_APP_NAME" | cut -d "." -f1)" | cut -d " " -f1)
+    echo "$(date "+%a %h %d %H:%M:%S"): Self Service custom branding icon has been loaded. Killing Self Service PID $SELF_SERVICE_PID." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    kill "$SELF_SERVICE_PID"
+  fi
+
+# Setting custom image if specified
+  if [ "$BANNER_IMAGE_PATH" != "" ]; then  echo "Command: Image: $BANNER_IMAGE_PATH" &gt;&gt; "$DEP_NOTIFY_LOG"; fi
+
+# Setting custom title if specified
+  if [ "$BANNER_TITLE" != "" ]; then echo "Command: MainTitle: $BANNER_TITLE" &gt;&gt; "$DEP_NOTIFY_LOG"; fi
+
+# Setting custom main text if specified
+  if [ "$MAIN_TEXT" != "" ]; then echo "Command: MainText: $MAIN_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"; fi
+
+# General Plist Configuration
+  # Calling function to set the INFO_PLIST_PATH
+    INFO_PLIST_WRAPPER
+
+  # The plist information below
+    DEP_NOTIFY_CONFIG_PLIST="/Users/$CURRENT_USER/Library/Preferences/menu.nomad.DEPNotify.plist"
+
+  # If testing mode is on, this will remove some old configuration files
+    if [ "$TESTING_MODE" = true ] &amp;&amp; [ -f "$DEP_NOTIFY_CONFIG_PLIST" ]; then rm "$DEP_NOTIFY_CONFIG_PLIST"; fi
+    if [ "$TESTING_MODE" = true ] &amp;&amp; [ -f "$DEP_NOTIFY_USER_INPUT_PLIST" ]; then rm "$DEP_NOTIFY_USER_INPUT_PLIST"; fi
+
+  # Setting default path to the plist which stores all the user completed info
+    defaults write "$DEP_NOTIFY_CONFIG_PLIST" pathToPlistFile "$DEP_NOTIFY_USER_INPUT_PLIST"
+
+  # Setting status text alignment
+    defaults write "$DEP_NOTIFY_CONFIG_PLIST" statusTextAlignment "$STATUS_TEXT_ALIGN"
+
+  # Setting help button
+    if [ "$HELP_BUBBLE_TITLE" != "" ]; then
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" helpBubble -array-add "$HELP_BUBBLE_TITLE"
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" helpBubble -array-add "$HELP_BUBBLE_BODY"
+    fi
+
+# EULA Configuration
+  if [ "$EULA_ENABLED" =  true ]; then
+    DEP_NOTIFY_EULA_DONE="/var/tmp/com.depnotify.agreement.done"
+
+    # If testing mode is on, this will remove EULA specific configuration files
+      if [ "$TESTING_MODE" = true ] &amp;&amp; [ -f "$DEP_NOTIFY_EULA_DONE" ]; then rm "$DEP_NOTIFY_EULA_DONE"; fi
+
+    # Writing title, subtitle, and EULA txt location to plist
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" EULAMainTitle "$EULA_MAIN_TITLE"
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" EULASubTitle "$EULA_SUBTITLE"
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" pathToEULA "$EULA_FILE_PATH"
+
+    # Setting ownership of EULA file
+      chown "$CURRENT_USER:staff" "$EULA_FILE_PATH"
+      chmod 444 "$EULA_FILE_PATH"
+  fi
+
+# Registration Plist Configuration
+  if [ "$REGISTRATION_ENABLED" = true ]; then
+    DEP_NOTIFY_REGISTER_DONE="/var/tmp/com.depnotify.registration.done"
+
+    # If testing mode is on, this will remove registration specific configuration files
+      if [ "$TESTING_MODE" = true ] &amp;&amp; [ -f "$DEP_NOTIFY_REGISTER_DONE" ]; then rm "$DEP_NOTIFY_REGISTER_DONE"; fi
+
+    # Main Window Text Configuration
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" registrationMainTitle "$REGISTRATION_TITLE"
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" registrationButtonLabel "$REGISTRATION_BUTTON"
+      defaults write "$DEP_NOTIFY_CONFIG_PLIST" registrationPicturePath "$BANNER_IMAGE_PATH"
+
+    # First Text Box Configuration
+      if [ "$REG_TEXT_LABEL_1" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField1Label "$REG_TEXT_LABEL_1"
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField1Placeholder "$REG_TEXT_LABEL_1_PLACEHOLDER"
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField1IsOptional "$REG_TEXT_LABEL_1_OPTIONAL"
+        # Code for showing the help box if configured
+          if [ "$REG_TEXT_LABEL_1_HELP_TITLE" != "" ]; then
+              defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField1Bubble -array-add "$REG_TEXT_LABEL_1_HELP_TITLE"
+              defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField1Bubble -array-add "$REG_TEXT_LABEL_1_HELP_TEXT"
+          fi
+      fi
+
+    # Second Text Box Configuration
+      if [ "$REG_TEXT_LABEL_2" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField2Label "$REG_TEXT_LABEL_2"
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField2Placeholder "$REG_TEXT_LABEL_2_PLACEHOLDER"
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField2IsOptional "$REG_TEXT_LABEL_2_OPTIONAL"
+        # Code for showing the help box if configured
+          if [ "$REG_TEXT_LABEL_2_HELP_TITLE" != "" ]; then
+              defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField2Bubble -array-add "$REG_TEXT_LABEL_2_HELP_TITLE"
+              defaults write "$DEP_NOTIFY_CONFIG_PLIST" textField2Bubble -array-add "$REG_TEXT_LABEL_2_HELP_TEXT"
+          fi
+      fi
+
+    # Popup 1
+      if [ "$REG_POPUP_LABEL_1" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton1Label "$REG_POPUP_LABEL_1"
+        # Code for showing the help box if configured
+          if [ "$REG_POPUP_LABEL_1_HELP_TITLE" != "" ]; then
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu1Bubble -array-add "$REG_POPUP_LABEL_1_HELP_TITLE"
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu1Bubble -array-add "$REG_POPUP_LABEL_1_HELP_TEXT"
+          fi
+        # Code for adding the items from the array above into the plist
+          for REG_POPUP_LABEL_1_OPTION in "${REG_POPUP_LABEL_1_OPTIONS[@]}"; do
+             defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton1Content -array-add "$REG_POPUP_LABEL_1_OPTION"
+          done
+      fi
+
+    # Popup 2
+      if [ "$REG_POPUP_LABEL_2" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton2Label "$REG_POPUP_LABEL_2"
+        # Code for showing the help box if configured
+          if [ "$REG_POPUP_LABEL_2_HELP_TITLE" != "" ]; then
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu2Bubble -array-add "$REG_POPUP_LABEL_2_HELP_TITLE"
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu2Bubble -array-add "$REG_POPUP_LABEL_2_HELP_TEXT"
+          fi
+        # Code for adding the items from the array above into the plist
+          for REG_POPUP_LABEL_2_OPTION in "${REG_POPUP_LABEL_2_OPTIONS[@]}"; do
+             defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton2Content -array-add "$REG_POPUP_LABEL_2_OPTION"
+          done
+      fi
+
+    # Popup 3
+      if [ "$REG_POPUP_LABEL_3" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton3Label "$REG_POPUP_LABEL_3"
+        # Code for showing the help box if configured
+          if [ "$REG_POPUP_LABEL_3_HELP_TITLE" != "" ]; then
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu3Bubble -array-add "$REG_POPUP_LABEL_3_HELP_TITLE"
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu3Bubble -array-add "$REG_POPUP_LABEL_3_HELP_TEXT"
+          fi
+        # Code for adding the items from the array above into the plist
+          for REG_POPUP_LABEL_3_OPTION in "${REG_POPUP_LABEL_3_OPTIONS[@]}"; do
+             defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton3Content -array-add "$REG_POPUP_LABEL_3_OPTION"
+          done
+      fi
+
+    # Popup 4
+      if [ "$REG_POPUP_LABEL_4" != "" ]; then
+        defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton4Label "$REG_POPUP_LABEL_4"
+        # Code for showing the help box if configured
+          if [ "$REG_POPUP_LABEL_4_HELP_TITLE" != "" ]; then
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu4Bubble -array-add "$REG_POPUP_LABEL_4_HELP_TITLE"
+            defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupMenu4Bubble -array-add "$REG_POPUP_LABEL_4_HELP_TEXT"
+          fi
+        # Code for adding the items from the array above into the plist
+          for REG_POPUP_LABEL_4_OPTION in "${REG_POPUP_LABEL_4_OPTIONS[@]}"; do
+             defaults write "$DEP_NOTIFY_CONFIG_PLIST" popupButton4Content -array-add "$REG_POPUP_LABEL_4_OPTION"
+          done
+      fi
+  fi
+
+# Changing Ownership of the plist file
+  chown "$CURRENT_USER":staff "$DEP_NOTIFY_CONFIG_PLIST"
+  chmod 600 "$DEP_NOTIFY_CONFIG_PLIST"
+
+# Opening the app after initial configuration
+  if [ "$FULLSCREEN" = true ]; then
+    sudo -u "$CURRENT_USER" open -a "$DEP_NOTIFY_APP" --args -path "$DEP_NOTIFY_LOG" -fullScreen
+  elif [ "$FULLSCREEN" = false ]; then
+    sudo -u "$CURRENT_USER" open -a "$DEP_NOTIFY_APP" --args -path "$DEP_NOTIFY_LOG"
+  fi
+
+# Grabbing the DEP Notify Process ID for use later
+  DEP_NOTIFY_PROCESS=$(pgrep -l "DEPNotify" | cut -d " " -f1)
+  until [ "$DEP_NOTIFY_PROCESS" != "" ]; do
+    echo "$(date "+%a %h %d %H:%M:%S"): Waiting for DEPNotify to start to gather the process ID." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    sleep 1
+    DEP_NOTIFY_PROCESS=$(pgrep -l "DEPNotify" | cut -d " " -f1)
+  done
+
+# Using Caffeinate binary to keep the computer awake if enabled
+  if [ "$NO_SLEEP" = true ]; then
+    echo "$(date "+%a %h %d %H:%M:%S"): Caffeinating DEP Notify process. Process ID: $DEP_NOTIFY_PROCESS" &gt;&gt; "$DEP_NOTIFY_DEBUG"
+    caffeinate -disu -w "$DEP_NOTIFY_PROCESS"&amp;
+  fi
+
+# Adding an alert prompt to let admins know that the script is in testing mode
+  if [ "$TESTING_MODE" = true ]; then
+    echo "Command: Alert: DEP Notify is in TESTING_MODE. Script will not run Policies or other commands that make change to this computer."  &gt;&gt; "$DEP_NOTIFY_LOG"
+  fi
+
+# Adding nice text and a brief pause for prettiness
+  echo "Status: $INITAL_START_STATUS" &gt;&gt; "$DEP_NOTIFY_LOG"
+  sleep 5
+
+# Setting the status bar
+  # Counter is for making the determinate look nice. Starts at one and adds
+  # more based on EULA, register, or other options.
+    ADDITIONAL_OPTIONS_COUNTER=1
+    if [ "$EULA_ENABLED" = true ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+    if [ "$REGISTRATION_ENABLED" = true ]; then ((ADDITIONAL_OPTIONS_COUNTER++))
+      if [ "$REG_TEXT_LABEL_1" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+      if [ "$REG_TEXT_LABEL_2" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+      if [ "$REG_POPUP_LABEL_1" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+      if [ "$REG_POPUP_LABEL_2" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+      if [ "$REG_POPUP_LABEL_3" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+      if [ "$REG_POPUP_LABEL_4" != "" ]; then ((ADDITIONAL_OPTIONS_COUNTER++)); fi
+    fi
+
+  # Checking policy array and adding the count from the additional options above.
+    ARRAY_LENGTH="$((${#POLICY_ARRAY[@]}+ADDITIONAL_OPTIONS_COUNTER))"
+    echo "Command: Determinate: $ARRAY_LENGTH" &gt;&gt; "$DEP_NOTIFY_LOG"
+
+# EULA Window Display Logic
+  if [ "$EULA_ENABLED" = true ]; then
+    echo "Status: $EULA_STATUS" &gt;&gt; "$DEP_NOTIFY_LOG"
+    echo "Command: ContinueButtonEULA: $EULA_BUTTON" &gt;&gt; "$DEP_NOTIFY_LOG"
+    while [ ! -f "$DEP_NOTIFY_EULA_DONE" ]; do
+      echo "$(date "+%a %h %d %H:%M:%S"): Waiting for user to accept EULA." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+      sleep 1
+    done
+  fi
+
+# Registration Window Display Logic
+  if [ "$REGISTRATION_ENABLED" = true ]; then
+    echo "Status: $REGISTRATION_STATUS" &gt;&gt; "$DEP_NOTIFY_LOG"
+    echo "Command: ContinueButtonRegister: $REGISTRATION_BUTTON" &gt;&gt; "$DEP_NOTIFY_LOG"
+    while [ ! -f "$DEP_NOTIFY_REGISTER_DONE" ]; do
+      echo "$(date "+%a %h %d %H:%M:%S"): Waiting for user to complete registration." &gt;&gt; "$DEP_NOTIFY_DEBUG"
+      sleep 1
+    done
+    # Running Logic For Each Registration Box
+      if [ "$REG_TEXT_LABEL_1" != "" ]; then REG_TEXT_LABEL_1_LOGIC; fi
+      if [ "$REG_TEXT_LABEL_2" != "" ]; then REG_TEXT_LABEL_2_LOGIC; fi
+      if [ "$REG_POPUP_LABEL_1" != "" ]; then REG_POPUP_LABEL_1_LOGIC; fi
+      if [ "$REG_POPUP_LABEL_2" != "" ]; then REG_POPUP_LABEL_2_LOGIC; fi
+      if [ "$REG_POPUP_LABEL_3" != "" ]; then REG_POPUP_LABEL_3_LOGIC; fi
+      if [ "$REG_POPUP_LABEL_4" != "" ]; then REG_POPUP_LABEL_4_LOGIC; fi
+  fi
+
+# Loop to run policies
+  for POLICY in "${POLICY_ARRAY[@]}"; do
+    echo "Status: $(echo "$POLICY" | cut -d ',' -f1)" &gt;&gt; "$DEP_NOTIFY_LOG"
+    if [ "$TESTING_MODE" = true ]; then
+      sleep 10
+    elif [ "$TESTING_MODE" = false ]; then
+      "$JAMF_BINARY" policy "-$TRIGGER" "$(echo "$POLICY" | cut -d ',' -f2)"
+    fi
+  done
+
+# Nice completion text
+  echo "Status: $INSTALL_COMPLETE_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+
+# Check to see if FileVault Deferred enablement is active
+  FV_DEFERRED_STATUS=$($FDE_SETUP_BINARY status | grep "Deferred" | cut -d ' ' -f6)
+
+  # Logic to log user out if FileVault is detected. Otherwise, app will close.
+    if [ "$FV_DEFERRED_STATUS" = "active" ] &amp;&amp; [ "$TESTING_MODE" = true ]; then
+      if [ "$COMPLETE_METHOD_DROPDOWN_ALERT" = true ]; then
+        echo "Command: Quit: This is typically where your FV_LOGOUT_TEXT would be displayed. However, TESTING_MODE is set to true and FileVault deferred status is on." &gt;&gt; "$DEP_NOTIFY_LOG"
+      else
+        echo "Command: MainText: TESTING_MODE is set to true and FileVault deferred status is on. Button effect is quit instead of logout. \n \n $FV_COMPLETE_MAIN_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+        echo "Command: ContinueButton: Test $FV_COMPLETE_BUTTON_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+      fi
+    elif [ "$FV_DEFERRED_STATUS" = "active" ] &amp;&amp; [ "$TESTING_MODE" = false ]; then
+      if [ "$COMPLETE_METHOD_DROPDOWN_ALERT" = true ]; then
+        echo "Command: Logout: $FV_ALERT_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+      else
+        echo "Command: MainText: $FV_COMPLETE_MAIN_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+        echo "Command: ContinueButtonLogout: $FV_COMPLETE_BUTTON_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+      fi
+    else
+      if [ "$COMPLETE_METHOD_DROPDOWN_ALERT" = true ]; then
+        echo "Command: Quit: $COMPLETE_ALERT_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+      else
+        echo "Command: MainText: $COMPLETE_MAIN_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+        echo "Command: ContinueButton: $COMPLETE_BUTTON_TEXT" &gt;&gt; "$DEP_NOTIFY_LOG"
+      fi
+    fi
+
+exit 0</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKIyBWZXJzaW9uIDIuMC4xCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIExpY2Vuc2UgaW5mb3JtYXRpb24KIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBDb3B5cmlnaHQgMjAxOCBKYW1mIFByb2Zlc3Npb25hbCBTZXJ2aWNlcwoKIyBQZXJtaXNzaW9uIGlzIGhlcmVieSBncmFudGVkLCBmcmVlIG9mIGNoYXJnZSwgdG8gYW55IHBlcnNvbiBvYnRhaW5pbmcgYSBjb3B5IG9mIHRoaXMKIyBzb2Z0d2FyZSBhbmQgYXNzb2NpYXRlZCBkb2N1bWVudGF0aW9uIGZpbGVzICh0aGUgIlNvZnR3YXJlIiksIHRvIGRlYWwgaW4gdGhlIFNvZnR3YXJlCiMgd2l0aG91dCByZXN0cmljdGlvbiwgaW5jbHVkaW5nIHdpdGhvdXQgbGltaXRhdGlvbiB0aGUgcmlnaHRzIHRvIHVzZSwgY29weSwgbW9kaWZ5LCBtZXJnZSwKIyBwdWJsaXNoLCBkaXN0cmlidXRlLCBzdWJsaWNlbnNlLCBhbmQvb3Igc2VsbCBjb3BpZXMgb2YgdGhlIFNvZnR3YXJlLCBhbmQgdG8gcGVybWl0IHBlcnNvbnMKIyB0byB3aG9tIHRoZSBTb2Z0d2FyZSBpcyBmdXJuaXNoZWQgdG8gZG8gc28sIHN1YmplY3QgdG8gdGhlIGZvbGxvd2luZyBjb25kaXRpb25zOgoKIyBUaGUgYWJvdmUgY29weXJpZ2h0IG5vdGljZSBhbmQgdGhpcyBwZXJtaXNzaW9uIG5vdGljZSBzaGFsbCBiZSBpbmNsdWRlZCBpbiBhbGwgY29waWVzIG9yCiMgc3Vic3RhbnRpYWwgcG9ydGlvbnMgb2YgdGhlIFNvZnR3YXJlLgoKIyBUSEUgU09GVFdBUkUgSVMgUFJPVklERUQgIkFTIElTIiwgV0lUSE9VVCBXQVJSQU5UWSBPRiBBTlkgS0lORCwgRVhQUkVTUyBPUiBJTVBMSUVELAojIElOQ0xVRElORyBCVVQgTk9UIExJTUlURUQgVE8gVEhFIFdBUlJBTlRJRVMgT0YgTUVSQ0hBTlRBQklMSVRZLCBGSVRORVNTIEZPUiBBIFBBUlRJQ1VMQVIKIyBQVVJQT1NFIEFORCBOT05JTkZSSU5HRU1FTlQuIElOIE5PIEVWRU5UIFNIQUxMIFRIRSBBVVRIT1JTIE9SIENPUFlSSUdIVCBIT0xERVJTIEJFIExJQUJMRQojIEZPUiBBTlkgQ0xBSU0sIERBTUFHRVMgT1IgT1RIRVIgTElBQklMSVRZLCBXSEVUSEVSIElOIEFOIEFDVElPTiBPRiBDT05UUkFDVCwgVE9SVCBPUgojIE9USEVSV0lTRSwgQVJJU0lORyBGUk9NLCBPVVQgT0YgT1IgSU4gQ09OTkVDVElPTiBXSVRIIFRIRSBTT0ZUV0FSRSBPUiBUSEUgVVNFIE9SIE9USEVSCiMgREVBTElOR1MgSU4gVEhFIFNPRlRXQVJFLgoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBHZW5lcmFsIEluZm9ybWF0aW9uCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgVGhpcyBzY3JpcHQgaXMgZGVzaWduZWQgdG8gbWFrZSBpbXBsZW1lbnRhdGlvbiBvZiBERVBOb3RpZnkgdmVyeSBlYXN5IHdpdGggbGltaXRlZAojIHNjcmlwdGluZyBrbm93bGVkZ2UuIFRoZSBzZWN0aW9uIGJlbG93IGhhcyB2YXJpYWJsZXMgdGhhdCBtYXkgYmUgbW9kaWZpZWQgdG8gY3VzdG9taXplCiMgdGhlIGVuZCB1c2VyIGV4cGVyaWVuY2UuIERPIE5PVCBtb2RpZnkgdGhpbmdzIGluIG9yIGJlbG93IHRoZSBDT1JFIExPR0lDIGFyZWEgdW5sZXNzCiMgbWFqb3IgdGVzdGluZyBhbmQgdmFsaWRhdGlvbiBpcyBwZXJmb3JtZWQuCgojIE1vcmUgaW5mb3JtYXRpb24gYXQ6IGh0dHBzOi8vZ2l0aHViLmNvbS9qYW1mcHJvZmVzc2lvbmFsc2VydmljZXMvREVQLU5vdGlmeQoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBUZXN0aW5nIE1vZGUKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBUZXN0aW5nIGZsYWcgd2lsbCBlbmFibGUgdGhlIGZvbGxvd2luZyB0aGluZ3MgdG8gY2hhbmdlOgojIEF1dG8gcmVtb3ZhbCBvZiBCT00gZmlsZXMgdG8gcmVkdWNlIGVycm9ycwojIFNsZWVwIGNvbW1hbmRzIGluc3RlYWQgb2YgcG9saWNpZXMgb3Igb3RoZXIgY2hhbmdlcyBiZWluZyBjYWxsZWQKIyBRdWl0IEtleSBzZXQgdG8gY29tbWFuZCArIGNvbnRyb2wgKyB4CiAgVEVTVElOR19NT0RFPWZhbHNlICMgU2V0IHZhcmlhYmxlIHRvIHRydWUgb3IgZmFsc2UKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgR2VuZXJhbCBBcHBlYXJhbmNlCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgRmxhZyB0aGUgYXBwIHRvIG9wZW4gZnVsbHNjcmVlbiBvciBhcyBhIHdpbmRvdwogIEZVTExTQ1JFRU49dHJ1ZSAjIFNldCB2YXJpYWJsZSB0byB0cnVlIG9yIGZhbHNlCgojIEJhbm5lciBpbWFnZSBjYW4gYmUgNjAwcHggd2lkZSBieSAxMDBweCBoaWdoLiBJbWFnZXMgd2lsbCBiZSBzY2FsZWQgdG8gZml0CiMgSWYgdGhpcyB2YXJpYWJsZSBpcyBsZWZ0IGJsYW5rLCB0aGUgZ2VuZXJpYyBpbWFnZSB3aWxsIGFwcGVhci4gSWYgdXNpbmcgY3VzdG9tIFNlbGYKIyBTZXJ2aWNlIGJyYW5kaW5nLCBwbGVhc2Ugc2VlIHRoZSBDdXN0b21pemVkIFNlbGYgU2VydmljZSBCcmFuZGluZyBhcmVhIGJlbG93CiAgQkFOTkVSX0lNQUdFX1BBVEg9Ii9BcHBsaWNhdGlvbnMvU2VsZiBTZXJ2aWNlLmFwcC9Db250ZW50cy9SZXNvdXJjZXMvQXBwSWNvbi5pY25zIgoKIyBNYWluIGhlYWRpbmcgdGhhdCB3aWxsIGJlIGRpc3BsYXllZCB1bmRlciB0aGUgaW1hZ2UKIyBJZiB0aGlzIHZhcmlhYmxlIGlzIGxlZnQgYmxhbmssIHRoZSBnZW5lcmljIGJhbm5lciB3aWxsIGFwcGVhcgogIEJBTk5FUl9USVRMRT0iV2VsY29tZSB0byBBcml6b25hIFdlc3Rlcm4gQ29sbGVnZSIKCiMgUGFyYWdyYXBoIHRleHQgdGhhdCB3aWxsIGRpc3BsYXkgdW5kZXIgdGhlIG1haW4gaGVhZGluZy4gRm9yIGEgbmV3IGxpbmUsIHVzZSBcbgojIElmIHRoaXMgdmFyaWFibGUgaXMgbGVmdCBibGFuaywgdGhlIGdlbmVyaWMgbWVzc2FnZSB3aWxsIGFwcGVhci4gTGVhdmUgc2luZ2xlCiMgcXVvdGVzIGJlbG93IGFzIGRvdWJsZSBxdW90ZXMgd2lsbCBicmVhayB0aGUgbmV3IGxpbmVzLgogIE1BSU5fVEVYVD0nVGhhbmtzIGZvciBjaG9vc2luZyBhIE1hYyBhdCBBV0MhIFdlIHdhbnQgeW91IHRvIGhhdmUgYSBmZXcgYXBwbGljYXRpb25zIGFuZCBzZXR0aW5ncyBjb25maWd1cmVkIGJlZm9yZSB5b3UgZ2V0IHN0YXJ0ZWQgd2l0aCB5b3VyIG5ldyBNYWMuIFRoaXMgcHJvY2VzcyBzaG91bGQgdGFrZSAxMCB0byAyMCBtaW51dGVzIHRvIGNvbXBsZXRlLiBcbiBcbiBJZiB5b3UgbmVlZCBhZGRpdGlvbmFsIHNvZnR3YXJlIG9yIGhlbHAsIHBsZWFzZSB2aXNpdCB0aGUgU2VsZiBTZXJ2aWNlIGFwcCBpbiB5b3VyIEFwcGxpY2F0aW9ucyBmb2xkZXIgb3IgY2FsbCB0aGUgQVdDIFNlcnZpY2UgRGVzayBhdCA5MjguMzE3LjU4ODAuJwoKIyBJbml0aWFsIFN0YXJ0IFN0YXR1cyB0ZXh0IHRoYXQgc2hvd3MgYXMgdGhpbmdzIGFyZSBmaXJpbmcgdXAKICBJTklUQUxfU1RBUlRfU1RBVFVTPSJJbml0aWFsIENvbmZpZ3VyYXRpb24gU3RhcnRpbmcuLi4iCgojIFRleHQgdGhhdCB3aWxsIGRpc3BsYXkgaW4gdGhlIHByb2dyZXNzIGJhcgogIElOU1RBTExfQ09NUExFVEVfVEVYVD0iQ29uZmlndXJhdGlvbiBDb21wbGV0ZSEiCgojIENvbXBsZXRlIG1lc3NhZ2luZyB0byB0aGUgZW5kIHVzZXIgY2FuIGV0aGVyIGJlIGEgYnV0dG9uIGF0IHRoZSBib3R0b20gb2YgdGhlCiMgYXBwIHdpdGggYSBtb2RpZmljYXRpb24gdG8gdGhlIG1haW4gd2luZG93IHRleHQgb3IgYSBkcm9wZG93biBhbGVydCBib3guIERlZmF1bHQKIyB2YWx1ZSBzZXQgdG8gZmFsc2UgYW5kIHdpbGwgdXNlIGJ1dHRvbnMgaW5zdGVhZCBvZiBkcm9wZG93biBtZXNzYWdlcy4KICBDT01QTEVURV9NRVRIT0RfRFJPUERPV05fQUxFUlQ9ZmFsc2UgIyBTZXQgdmFyaWFibGUgdG8gdHJ1ZSBvciBmYWxzZQoKIyBTY3JpcHQgZGVzaWduZWQgdG8gYXV0b21hdGljYWxseSBsb2dvdXQgdXNlciB0byBzdGFydCBGaWxlVmF1bHQgcHJvY2VzcyBpZgojIGRlZmVycmVkIGVuYWJsZW1lbnQgaXMgZGV0ZWN0ZWQuIFRleHQgZGlzcGxheWVkIGlmIGRlZmVycmVkIHN0YXR1cyBpcyBvbi4KICAjIE9wdGlvbiBmb3IgZHJvcGRvd24gYWxlcnQgYm94CiAgICBGVl9BTEVSVF9URVhUPSJZb3VyIE1hYyBtdXN0IGxvZ291dCB0byBzdGFydCB0aGUgZW5jcnlwdGlvbiBwcm9jZXNzLiBZb3Ugd2lsbCBiZSBhc2tlZCB0byBlbnRlciB5b3VyIHBhc3N3b3JkIGFuZCBjbGljayBPSyBvciBDb250aW51ZSBhIGZldyB0aW1lcy4gWW91ciBNYWMgd2lsbCBiZSB1c2FibGUgd2hpbGUgZW5jcnlwdGlvbiB0YWtlcyBwbGFjZS4iCiAgIyBPcHRpb25zIGlmIG5vdCB1c2luZyBkcm9wZG93biBhbGVydCBib3gKICAgIEZWX0NPTVBMRVRFX01BSU5fVEVYVD0nWW91ciBNYWMgbXVzdCBsb2dvdXQgdG8gc3RhcnQgdGhlIGVuY3J5cHRpb24gcHJvY2Vzcy4gWW91IHdpbGwgYmUgYXNrZWQgdG8gZW50ZXIgeW91ciBwYXNzd29yZCBhbmQgY2xpY2sgT0sgb3IgQ29udGludWUgYSBmZXcgdGltZXMuIFlvdXIgTWFjIHdpbGwgYmUgdXNhYmxlIHdoaWxlIGVuY3J5cHRpb24gdGFrZXMgcGxhY2UuJwogICAgRlZfQ09NUExFVEVfQlVUVE9OX1RFWFQ9IkxvZ291dCIKCiMgVGV4dCB0aGF0IHdpbGwgZGlzcGxheSBpbnNpZGUgdGhlIGFsZXJ0IG9uY2UgcG9saWNpZXMgaGF2ZSBmaW5pc2hlZAogICMgT3B0aW9uIGZvciBkcm9wZG93biBhbGVydCBib3gKICAgIENPTVBMRVRFX0FMRVJUX1RFWFQ9IllvdXIgTWFjIGlzIG5vdyBmaW5pc2hlZCB3aXRoIGluaXRpYWwgc2V0dXAgYW5kIGNvbmZpZ3VyYXRpb24uIFByZXNzIFF1aXQgdG8gZ2V0IHN0YXJ0ZWQhIgogICMgT3B0aW9ucyBpZiBub3QgdXNpbmcgZHJvcGRvd24gYWxlcnQgYm94CiAgICBDT01QTEVURV9NQUlOX1RFWFQ9J1lvdXIgTWFjIGlzIG5vdyBmaW5pc2hlZCB3aXRoIGluaXRpYWwgc2V0dXAgYW5kIGNvbmZpZ3VyYXRpb24uJwogICAgQ09NUExFVEVfQlVUVE9OX1RFWFQ9IkdldCBTdGFydGVkISIKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgUGxpc3QgQ29uZmlndXJhdGlvbgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIFRoZSBtZW51LmRlcG5vdGlmeS5wbGlzdCBjb250YWlucyBtb3JlIGFuZCBtb3JlIHRoaW5ncyB0aGF0IGNvbmZpZ3VyZSB0aGUgREVQTm90aWZ5IGFwcAojIFlvdSBtYXkgd2FudCB0byBzYXZlIHRoZSBmaWxlIGZvciBwdXJwb3NlcyBsaWtlIHZlcmlmeWluZyBFVUxBIGFjY2VwdGFuY2Ugb3IgdmFsaWRhdGluZwojIG90aGVyIG9wdGlvbnMuCgojIFBsaXN0IFNhdmUgTG9jYXRpb24KICAjIFRoaXMgd3JhcHBlciBhbGxvd3MgdmFyaWFibGVzIHRoYXQgYXJlIGNyZWF0ZWQgbGF0ZXIgdG8gYmUgdXNlZCBidXQgYWxzbyBhbGxvdyBmb3IKICAjIGNvbmZpZ3VyYXRpb24gb2Ygd2hlcmUgdGhlIHBsaXN0IGlzIHN0b3JlZAogICAgSU5GT19QTElTVF9XUkFQUEVSICgpewogICAgICBERVBfTk9USUZZX1VTRVJfSU5QVVRfUExJU1Q9Ii9Vc2Vycy8kQ1VSUkVOVF9VU0VSL0xpYnJhcnkvUHJlZmVyZW5jZXMvbWVudS5ub21hZC5ERVBOb3RpZnlVc2VySW5wdXQucGxpc3QiCiAgICB9CgojIFN0YXR1cyBUZXh0IEFsaWdubWVudAogICMgVGhlIHN0YXR1cyB0ZXh0IHVuZGVyIHRoZSBwcm9ncmVzcyBiYXIgY2FuIGJlIGNvbmZpZ3VyZWQgdG8gYmUgbGVmdCwgcmlnaHQsIG9yIGNlbnRlcgogICAgU1RBVFVTX1RFWFRfQUxJR049ImNlbnRlciIKCiMgSGVscCBCdXR0b24gQ29uZmlndXJhdGlvbgogICMgVGhlIGhlbHAgYnV0dG9uIHdhcyBjaGFuZ2VkIHRvIGEgcG9wdXAuIEJ1dHRvbiB3aWxsIGFwcGVhciBpZiB0aXRsZSBpcyBwb3B1bGF0ZWQuCiAgICBIRUxQX0JVQkJMRV9USVRMRT0iTmVlZCBIZWxwPyIKICAgIEhFTFBfQlVCQkxFX0JPRFk9IlRoaXMgdG9vbCBhdCBBcml6b25hIFdlc3Rlcm4gQ29sbGVnZSBpcyBkZXNpZ25lZCB0byBoZWxwIHdpdGggbmV3IGVtcGxveWVlIG9uYm9hcmRpbmcuIElmIHlvdSBoYXZlIGlzc3VlcywgcGxlYXNlIGdpdmUgdXMgYSBjYWxsIGF0IDkyOC0zMTctNTg5MiIKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgRXJyb3IgU2NyZWVuIFRleHQKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBJZiB0ZXN0aW5nIG1vZGUgaXMgZmFsc2UgYW5kIGNvbmZpZ3VyYXRpb24gZmlsZXMgYXJlIHByZXNlbnQsIHRoaXMgdGV4dCB3aWxsIGFwcGVhciB0bwojIHRoZSBlbmQgdXNlciBhbmQgYXNraW5nIHRoZW0gdG8gY29udGFjdCBJVC4gTGltaXRlZCB3aW5kb3cgb3B0aW9ucyBoZXJlIGFzIHRoZQojIGFzc3VtcHRpb24gaXMgdGhhdCB0aGV5IG5lZWQgdG8gY2FsbCBJVC4gTm8gY29udGludWUgb3IgZXhpdCBidXR0b25zIHdpbGwgc2hvdyBmb3IKIyBERVAgTm90aWZ5IHdpbmRvdyBhbmQgaXQgd2lsbCBub3Qgc2hvdyBpbiBmdWxsc2NyZWVuLiBJVCBzdGFmZiB3aWxsIG5lZWQgdG8gdXNlIFRlcm1pbmFsCiMgb3IgQWN0aXZpdHkgTW9uaXRvciB0byBraWxsIERFUCBOb3RpZnkuCgojIE1haW4gaGVhZGluZyB0aGF0IHdpbGwgYmUgZGlzcGxheWVkIHVuZGVyIHRoZSBpbWFnZQogIEVSUk9SX0JBTk5FUl9USVRMRT0iVWggb2gsIFNvbWV0aGluZyBOZWVkcyBGaXhpbmchIgoKIyBQYXJhZ3JhcGggdGV4dCB0aGF0IHdpbGwgZGlzcGxheSB1bmRlciB0aGUgbWFpbiBoZWFkaW5nLiBGb3IgYSBuZXcgbGluZSwgdXNlIFxuCiMgSWYgdGhpcyB2YXJpYWJsZSBpcyBsZWZ0IGJsYW5rLCB0aGUgZ2VuZXJpYyBtZXNzYWdlIHdpbGwgYXBwZWFyLiBMZWF2ZSBzaW5nbGUKIyBxdW90ZXMgYmVsb3cgYXMgZG91YmxlIHF1b3RlcyB3aWxsIGJyZWFrIHRoZSBuZXcgbGluZXMuCiAgRVJST1JfTUFJTl9URVhUPSdXZSBhcmUgc29ycnkgdGhhdCB5b3UgYXJlIGV4cGVyaWVuY2luZyB0aGlzIGluY29udmVuaWVuY2Ugd2l0aCB5b3VyIG5ldyBNYWMuIEhvd2V2ZXIsIHdlIGhhdmUgdGhlIG5lcmRzIHRvIGdldCB5b3UgYmFjayB1cCBhbmQgcnVubmluZyBpbiBubyB0aW1lISBcbiBcbiBQbGVhc2UgY29udGFjdCB0aGUgU2VydmljZSBEZXNrIHJpZ2h0IGF3YXkgYW5kIHdlIHdpbGwgdGFrZSBhIGxvb2sgYXQgeW91ciBjb21wdXRlciBBU0FQLiBcbiBcbiBQaG9uZTogOTI4LjMxNy41ODkyJwoKIyBFcnJvciBzdGF0dXMgbWVzc2FnZSB0aGF0IGlzIGRpc3BsYXllZCB1bmRlciB0aGUgcHJvZ3Jlc3MgYmFyCiAgRVJST1JfU1RBVFVTPSJTZXR1cCBGYWlsZWQiCiAgCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgVHJpZ2dlciB0byBiZSB1c2VkIHRvIGNhbGwgdGhlIHBvbGljeQojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIFBvbGljaWVzIGNhbiBiZSBjYWxsZWQgYmUgZWl0aGVyIGEgY3VzdG9tIHRyaWdnZXIgb3IgYnkgcG9saWN5IGlkLgojIFNlbGVjdCBlaXRoZXIgZXZlbnQsIHRvIGNhbGwgdGhlIHBvbGljeSBieSB0aGUgY3VzdG9tIHRyaWdnZXIsCiMgb3IgaWQgdG8gY2FsbCB0aGUgcG9saWN5IGJ5IGlkLgpUUklHR0VSPSJldmVudCIKCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIFBvbGljeSBWYXJpYWJsZSB0byBNb2RpZnkKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBUaGUgcG9saWN5IGFycmF5IG11c3QgYmUgZm9ybWF0dGVkICJQcm9ncmVzcyBCYXIgdGV4dCxjdXN0b21UcmlnZ2VyIi4gVGhlc2Ugd2lsbCBiZQojIHJ1biBpbiBvcmRlciBhcyB0aGV5IGFwcGVhciBiZWxvdy4KICBQT0xJQ1lfQVJSQVk9KAogICAgIkluc3RhbGxpbmcgQmFja2dyb3VuZCBJbWFnZXMsZGVwLWJhY2tncm91bmRQS0ciCiAgICAiSW5zdGFsbGluZyBHb29nbGUgQ2hyb21lLGRlcC1jaHJvbWVJbnN0YWxsIgogICAgIkluc3RhbGxpbmcgTW96aWxsYSBGaXJlZm94LGRlcC1maXJlZm94SW5zdGFsbCIKICAgICJJbnN0YWxsaW5nIEphdmEgUnVudGltZSBFbnZpcm9ubWVudCxkZXAtamF2YUluc3RhbGwiCiAgICAiSW5zdGFsbGluZyBNaWNyb3NvZnQgU2lsdmVybGlnaHQsZGVwLXNpbHZlcmxpZ2h0SW5zdGFsbCIKICAgICJJbnN0YWxsaW5nIE1pY3Jvc29mdCBPZmZpY2UgMjAxOSxkZXAtb2ZmaWNlMjAxOUluc3RhbGwiCiAgICAiSW5zdGFsbGluZyBKYW1mQ29ubmVjdCxqYW1mQ29ubmVjdEluc3RhbGwiCiAgICAiSW5zdGFsbGluZyBKYW1mIFByb3RlY3QsZGVwLWphbWZQcm90ZWN0SW5zdGFsbCIKICAgICJQcmVwYXJpbmcgZm9yIHRoZSBuZXh0IGxvZ2luLHVuaW5zdGFsbC1kZXBub3RpZnktaW5zdGFsbGVycyIKICApCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIENhZmZlaW5hdGUgLyBObyBTbGVlcCBDb25maWd1cmF0aW9uCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgRmxhZyBzY3JpcHQgdG8ga2VlcCB0aGUgY29tcHV0ZXIgZnJvbSBzbGVlcGluZy4gQkUgVkVSWSBDQVJFRlVMIFdJVEggVEhJUyBGTEFHIQojIFRoaXMgZmxhZyBjb3VsZCBleHBvc2UgeW91ciBkYXRhIHRvIHJpc2sgYnkgbGVhdmluZyBhbiB1bmxvY2tlZCBjb21wdXRlciB3aWRlIG9wZW4uCiMgT25seSByZWNvbW1lbmRlZCBpZiB5b3UgYXJlIHVzaW5nIGZ1bGxzY3JlZW4gbW9kZSBhbmQgaGF2ZSBhIGxvZ291dCB0YWtpbmcgcGxhY2UgYXQKIyB0aGUgZW5kIG9mIGNvbmZpZ3VyYXRpb24gKGxpa2UgZm9yIEZpbGVWYXVsdCkuIFNvbWUgZm9sa3MgbWF5IHVzZSB0aGlzIGluIHdvcmtmbG93cwojIHdoZXJlIElUIHN0YWZmIGFyZSB0aGUgcHJpbWFyeSBwZW9wbGUgc2V0dGluZyB1cCB0aGUgZGV2aWNlLiBUaGUgZGV2aWNlIHdpbGwgYmUKIyBhbGxvd2VkIHRvIHNsZWVwIGFnYWluIG9uY2UgdGhlIERFUE5vdGlmeSBhcHAgaXMgcXVpdCBhcyBjYWZmZWluYXRlIGlzIGxvb2tpbmcKIyBhdCBERVBOb3RpZnkncyBwcm9jZXNzIElELgogIE5PX1NMRUVQPWZhbHNlCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIEN1c3RvbWl6ZWQgU2VsZiBTZXJ2aWNlIEJyYW5kaW5nCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgRmxhZyBmb3IgdXNpbmcgdGhlIGN1c3RvbSBicmFuZGluZyBpY29uIGZyb20gU2VsZiBTZXJ2aWNlIGFuZCBKYW1mIFBybwojIFRoaXMgd2lsbCBvdmVycmlkZSB0aGUgYmFubmVyIGltYWdlIHNwZWNpZmllZCBhYm92ZS4gSWYgeW91IGhhdmUgY2hhbmdlZCB0aGUKIyBuYW1lIG9mIFNlbGYgU2VydmljZSwgbWFrZSBzdXJlIHRvIG1vZGlmeSB0aGUgU2VsZiBTZXJ2aWNlIG5hbWUgYmVsb3cuCiMgUGxlYXNlIG5vdGUsIGN1c3RvbSBicmFuZGluZyBpcyBkb3dubG9hZGVkIGZyb20gSmFtZiBQcm8gYWZ0ZXIgU2VsZiBTZXJ2aWNlIGhhcyBvcGVuZWQKIyBhdCBsZWFzdCBvbmUgdGltZS4gVGhlIHNjcmlwdCBpcyBkZXNpZ25lZCB0byB3YWl0IHVudGlsIHRoZSBmaWxlcyBoYXZlIGJlZW4gZG93bmxvYWRlZC4KIyBUaGlzIGNvdWxkIHRha2UgYSBmZXcgbWludXRlcyBkZXBlbmRpbmcgb24gc2VydmVyIGFuZCBuZXR3b3JrIHJlc291cmNlcy4KICBTRUxGX1NFUlZJQ0VfQ1VTVE9NX0JSQU5ESU5HPWZhbHNlICMgU2V0IHZhcmlhYmxlIHRvIHRydWUgb3IgZmFsc2UKCiMgSWYgdXNpbmcgYSBuYW1lIG90aGVyIHRoYW4gU2VsZiBTZXJ2aWNlIHdpdGggQ3VzdG9tIGJyYW5kaW5nLiBDaGFuZ2UgdGhlCiMgbmFtZSB3aXRoIHRoZSBTRUxGX1NFUlZJQ0VfQVBQX05BTUUgdmFyaWFibGUgYmVsb3cuIEtlZXAgLmFwcCBvbiB0aGUgZW5kCiAgU0VMRl9TRVJWSUNFX0FQUF9OQU1FPSJTZWxmIFNlcnZpY2UuYXBwIgoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBFVUxBIFZhcmlhYmxlcyB0byBNb2RpZnkKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBFVUxBIGNvbmZpZ3VyYXRpb24KICBFVUxBX0VOQUJMRUQ9ZmFsc2UgIyBTZXQgdmFyaWFibGUgdG8gdHJ1ZSBvciBmYWxzZQoKICAjIEVVTEEgc3RhdHVzIGJhciB0ZXh0CiAgICBFVUxBX1NUQVRVUz0iV2FpdGluZyBvbiBjb21wbGV0aW9uIG9mIEVVTEEgYWNjZXB0YW5jZSIKCiAgIyBFVUxBIGJ1dHRvbiB0ZXh0IG9uIHRoZSBtYWluIHNjcmVlbgogICAgRVVMQV9CVVRUT049IlJlYWQgYW5kIEFncmVlIHRvIEVVTEEiCgogICMgRVVMQSBTY3JlZW4gVGl0bGUKICAgIEVVTEFfTUFJTl9USVRMRT0iT3JnYW5pemF0aW9uIEVuZCBVc2VyIExpY2Vuc2UgQWdyZWVtZW50IgoKICAjIEVVTEEgU3VidGl0bGUKICAgIEVVTEFfU1VCVElUTEU9IlBsZWFzZSBhZ3JlZSB0byB0aGUgZm9sbG93aW5nIHRlcm1zIGFuZCBjb25kaXRpb25zIHRvIHN0YXJ0IGNvbmZpZ3VyYXRpb24gb2YgdGhpcyBNYWMiCgogICMgUGF0aCB0byB0aGUgRVVMQSBmaWxlIHlvdSB3b3VsZCBsaWtlIHRoZSB1c2VyIHRvIHJlYWQgYW5kIGFncmVlIHRvLiBJdCBpcwogICMgYmVzdCB0byBwYWNrYWdlIHRoaXMgdXAgd2l0aCBDb21wb3NlciBvciBhbm90aGVyIHRvb2wgYW5kIGRlbGl2ZXIgaXQgdG8gYQogICMgc2hhcmVkIGFyZWEgbGlrZSAvVXNlcnMvU2hhcmVkLwogICAgRVVMQV9GSUxFX1BBVEg9Ii9Vc2Vycy9TaGFyZWQvZXVsYS50eHQiCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojIFJlZ2lzdHJhdGlvbiBWYXJpYWJsZXMgdG8gTW9kaWZ5CiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMgUmVnaXN0cmF0aW9uIHdpbmRvdyBjb25maWd1cmF0aW9uCiAgUkVHSVNUUkFUSU9OX0VOQUJMRUQ9dHJ1ZSAjIFNldCB2YXJpYWJsZSB0byB0cnVlIG9yIGZhbHNlCgogICMgUmVnaXN0cmF0aW9uIHdpbmRvdyB0aXRsZQogICAgUkVHSVNUUkFUSU9OX1RJVExFPSJSZWdpc3RlciBNYWMgYXQgQXJpem9uYSBXZXN0ZXJuIENvbGxlZ2UiCgogICMgUmVnaXN0cmF0aW9uIHN0YXR1cyBiYXIgdGV4dAogICAgUkVHSVNUUkFUSU9OX1NUQVRVUz0iV2FpdGluZyBvbiBjb21wbGV0aW9uIG9mIGNvbXB1dGVyIHJlZ2lzdHJhdGlvbiIKCiAgIyBSZWdpc3RyYXRpb24gd2luZG93IHN1Ym1pdCBvciBmaW5pc2ggYnV0dG9uIHRleHQKICAgIFJFR0lTVFJBVElPTl9CVVRUT049IlJlZ2lzdGVyIFlvdXIgTWFjIgoKICAjIFRoZSB0ZXh0IGFuZCBwaWNrIGxpc3Qgc2VjdGlvbnMgYmVsb3cgd2lsbCB3cml0ZSB0aGUgZm9sbG93aW5nIGxpbmVzIG91dCBmb3IKICAjIGVuZCB1c2Vycy4gVXNlIHRoZSB2YXJpYWJsZXMgYmVsb3cgdG8gY29uZmlndXJlIHdoYXQgdGhlIHNlbnRlbmNlIHNheXMKICAjIEV4OiBTZXR0aW5nIENvbXB1dGVyIE5hbWUgdG8gbWFjQm9vazAxMzIKICAgIFJFR0lTVFJBVElPTl9CRUdJTl9XT1JEPSJTZXR0aW5nIgogICAgUkVHSVNUUkFUSU9OX01JRERMRV9XT1JEPSJ0byIKCiAgIyBSZWdpc3RyYXRpb24gd2luZG93IGNhbiBoYXZlIHVwIHRvIHR3byB0ZXh0IGZpZWxkcy4gTGVhdmluZyB0aGUgdGV4dCBkaXNwbGF5CiAgIyB2YXJpYWJsZSBlbXB0eSB3aWxsIGhpZGUgdGhlIGlucHV0IGJveC4gRGlzcGxheSB0ZXh0IGlzIHRvIHRoZSBzaWRlIG9mIHRoZQogICMgaW5wdXQgYW5kIHBsYWNlaG9sZGVyIHRleHQgaXMgdGhlIGdyYXkgdGV4dCBpbnNpZGUgdGhlIGlucHV0IGJveC4KICAjIFJlZ2lzdHJhdGlvbiB3aW5kb3cgY2FuIGhhdmUgdXAgdG8gZm91ciBkcm9wZG93biAvIHBpY2sgbGlzdCBpbnB1dHMuIExlYXZpbmcKICAjIHRoZSBwaWNrIGRpc3BsYXkgdmFyaWFibGUgZW1wdHkgd2lsbCBoaWRlIHRoZSBkcm9wZG93biAvIHBpY2sgbGlzdC4KCiAgIyBGaXJzdCBUZXh0IEZpZWxkCiAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiAgICAjIFRleHQgRmllbGQgTGFiZWwKICAgICAgUkVHX1RFWFRfTEFCRUxfMT0iQ29tcHV0ZXIgTmFtZSIKCiAgICAjIFBsYWNlIEhvbGRlciBUZXh0CiAgICAgIFJFR19URVhUX0xBQkVMXzFfUExBQ0VIT0xERVI9Im1hY0Jvb2swMTIzIgoKICAgICMgT3B0aW9uYWwgZmxhZyBmb3IgbWFraW5nIHRoZSBmaWVsZCBhbiBvcHRpb25hbCBpbnB1dCBmb3IgZW5kIHVzZXIKICAgICAgUkVHX1RFWFRfTEFCRUxfMV9PUFRJT05BTD0iZmFsc2UiICMgU2V0IHZhcmlhYmxlIHRvIHRydWUgb3IgZmFsc2UKCiAgICAjIEhlbHAgQnViYmxlIGZvciBJbnB1dC4gSWYgdGl0bGUgbGVmdCBibGFuaywgdGhpcyB3aWxsIG5vdCBhcHBlYXIKICAgICAgUkVHX1RFWFRfTEFCRUxfMV9IRUxQX1RJVExFPSJDb21wdXRlciBOYW1lIEZpZWxkIgogICAgICBSRUdfVEVYVF9MQUJFTF8xX0hFTFBfVEVYVD0iVGhpcyBmaWVsZCBpcyBzZXRzIHRoZSBuYW1lIG9mIHlvdXIgbmV3IE1hYyB0byB3aGF0IGlzIGluIHRoZSBDb21wdXRlciBOYW1lIGJveC4gVGhpcyBpcyBpbXBvcnRhbnQgZm9yIGludmVudG9yeSBwdXJwb3Nlcy4iCgogICAgIyBMb2dpYyBiZWxvdyB3YXMgcHV0IGluIHRoaXMgc2VjdGlvbiByYXRoZXIgdGhhbiBpbiBjb3JlIGNvZGUgYXMgZm9sa3MgbWF5CiAgICAjIHdhbnQgdG8gY2hhbmdlIHdoYXQgdGhlIGZpZWxkIGRvZXMuIFRoaXMgaXMgYSBmdW5jdGlvbiB0aGF0IGdldHMgY2FsbGVkCiAgICAjIHdoZW4gbmVlZGVkIGxhdGVyIG9uLiBCRSBWRVJZIENBUkVGVUwgSU4gQ0hBTkdJTkcgVEhFIEZVTkNUSU9OIQogICAgICBSRUdfVEVYVF9MQUJFTF8xX0xPR0lDICgpewogICAgICAgIFJFR19URVhUX0xBQkVMXzFfVkFMVUU9JChkZWZhdWx0cyByZWFkICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIiAiJFJFR19URVhUX0xBQkVMXzEiKQogICAgICAgIGlmIFsgIiRSRUdfVEVYVF9MQUJFTF8xX09QVElPTkFMIiA9IHRydWUgXSAmJiBbICIkUkVHX1RFWFRfTEFCRUxfMV9WQUxVRSIgPSAiIiBdOyB0aGVuCiAgICAgICAgICBlY2hvICJTdGF0dXM6ICRSRUdfVEVYVF9MQUJFTF8xIHdhcyBsZWZ0IGVtcHR5LiBTa2lwcGluZy4uLiIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6ICRSRUdfVEVYVF9MQUJFTF8xIHdhcyBzZXQgdG8gb3B0aW9uYWwgYW5kIHdhcyBsZWZ0IGVtcHR5LiBTa2lwcGluZy4uLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgICAgICAgc2xlZXAgNQogICAgICAgIGVsc2UKICAgICAgICAgIGVjaG8gIlN0YXR1czogJFJFR0lTVFJBVElPTl9CRUdJTl9XT1JEICRSRUdfVEVYVF9MQUJFTF8xICRSRUdJU1RSQVRJT05fTUlERExFX1dPUkQgJFJFR19URVhUX0xBQkVMXzFfVkFMVUUiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgICAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXTsgdGhlbgogICAgICAgICAgICBzbGVlcCAxMAogICAgICAgICAgZWxzZQogICAgICAgICAgICAiJEpBTUZfQklOQVJZIiBzZXRDb21wdXRlck5hbWUgLW5hbWUgIiRSRUdfVEVYVF9MQUJFTF8xX1ZBTFVFIgogICAgICAgICAgICBzbGVlcCA1CiAgICAgICAgICBmaQogICAgICAgIGZpCiAgICAgIH0KCiAgIyBTZWNvbmQgVGV4dCBGaWVsZAogICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwogICAgIyBUZXh0IEZpZWxkIExhYmVsCiAgICAgIFJFR19URVhUX0xBQkVMXzI9IkFzc2V0IFRhZyIKCiAgICAjIFBsYWNlIEhvbGRlciBUZXh0CiAgICAgIFJFR19URVhUX0xBQkVMXzJfUExBQ0VIT0xERVI9IjgxOTI2MzkyIgoKICAgICMgT3B0aW9uYWwgZmxhZyBmb3IgbWFraW5nIHRoZSBmaWVsZCBhbiBvcHRpb25hbCBpbnB1dCBmb3IgZW5kIHVzZXIKICAgICAgUkVHX1RFWFRfTEFCRUxfMl9PUFRJT05BTD0idHJ1ZSIgIyBTZXQgdmFyaWFibGUgdG8gdHJ1ZSBvciBmYWxzZQoKICAgICMgSGVscCBCdWJibGUgZm9yIElucHV0LiBJZiB0aXRsZSBsZWZ0IGJsYW5rLCB0aGlzIHdpbGwgbm90IGFwcGVhcgogICAgICBSRUdfVEVYVF9MQUJFTF8yX0hFTFBfVElUTEU9IkFzc2V0IFRhZyBGaWVsZCIKICAgICAgUkVHX1RFWFRfTEFCRUxfMl9IRUxQX1RFWFQ9IlRoaXMgZmllbGQgaXMgdXNlZCB0byBnaXZlIGFuIHVwZGF0ZWQgYXNzZXQgdGFnIHRvIG91ciBhc3NldCBtYW5hZ2VtZW50IHN5c3RlbS4gSWYgeW91IGRvIG5vdCBrbm93IHlvdXIgYXNzZXQgdGFnIG51bWJlciwgcGxlYXNlIHNraXAgdGhpcyBmaWVsZC4iCgogICAgIyBMb2dpYyBiZWxvdyB3YXMgcHV0IGluIHRoaXMgc2VjdGlvbiByYXRoZXIgdGhhbiBpbiBjb3JlIGNvZGUgYXMgZm9sa3MgbWF5CiAgICAjIHdhbnQgdG8gY2hhbmdlIHdoYXQgdGhlIGZpZWxkIGRvZXMuIFRoaXMgaXMgYSBmdW5jdGlvbiB0aGF0IGdldHMgY2FsbGVkCiAgICAjIHdoZW4gbmVlZGVkIGxhdGVyIG9uLiBCRSBWRVJZIENBUkVGVUwgSU4gQ0hBTkdJTkcgVEhFIEZVTkNUSU9OIQogICAgICBSRUdfVEVYVF9MQUJFTF8yX0xPR0lDICgpewogICAgICAgIFJFR19URVhUX0xBQkVMXzJfVkFMVUU9JChkZWZhdWx0cyByZWFkICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIiAiJFJFR19URVhUX0xBQkVMXzIiKQogICAgICAgIGlmIFsgIiRSRUdfVEVYVF9MQUJFTF8yX09QVElPTkFMIiA9IHRydWUgXSAmJiBbICIkUkVHX1RFWFRfTEFCRUxfMl9WQUxVRSIgPSAiIiBdOyB0aGVuCiAgICAgICAgICBlY2hvICJTdGF0dXM6ICRSRUdfVEVYVF9MQUJFTF8yIHdhcyBsZWZ0IGVtcHR5LiBTa2lwcGluZy4uLiIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6ICRSRUdfVEVYVF9MQUJFTF8yIHdhcyBzZXQgdG8gb3B0aW9uYWwgYW5kIHdhcyBsZWZ0IGVtcHR5LiBTa2lwcGluZy4uLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgICAgICAgc2xlZXAgNQogICAgICAgIGVsc2UKICAgICAgICAgIGVjaG8gIlN0YXR1czogJFJFR0lTVFJBVElPTl9CRUdJTl9XT1JEICRSRUdfVEVYVF9MQUJFTF8yICRSRUdJU1RSQVRJT05fTUlERExFX1dPUkQgJFJFR19URVhUX0xBQkVMXzJfVkFMVUUiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgICAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXTsgdGhlbgogICAgICAgICAgICAgc2xlZXAgMTAKICAgICAgICAgIGVsc2UKICAgICAgICAgICAgIiRKQU1GX0JJTkFSWSIgcmVjb24gLWFzc2V0VGFnICIkUkVHX1RFWFRfTEFCRUxfMl9WQUxVRSIKICAgICAgICAgIGZpCiAgICAgICAgZmkKICAgICAgfQoKICAjIFBvcHVwIDEKICAjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKICAgICMgTGFiZWwgZm9yIHRoZSBwb3B1cAogICAgICBSRUdfUE9QVVBfTEFCRUxfMT0iQnVpbGRpbmciCgogICAgIyBBcnJheSBvZiBvcHRpb25zIGZvciB0aGUgdXNlciB0byBzZWxlY3QKICAgICAgUkVHX1BPUFVQX0xBQkVMXzFfT1BUSU9OUz0oCiAgICAgICAgIjNDIgogICAgICAgICJBQiIKICAgICAgICAiQUMiCiAgICAgICAgIkFGIgogICAgICAgICJMUiIKICAgICAgKQoKICAgICMgSGVscCBCdWJibGUgZm9yIElucHV0LiBJZiB0aXRsZSBsZWZ0IGJsYW5rLCB0aGlzIHdpbGwgbm90IGFwcGVhcgogICAgICBSRUdfUE9QVVBfTEFCRUxfMV9IRUxQX1RJVExFPSJCdWlsZGluZyBEcm9wZG93biBGaWVsZCIKICAgICAgUkVHX1BPUFVQX0xBQkVMXzFfSEVMUF9URVhUPSJQbGVhc2UgY2hvb3NlIHRoZSBhcHByb3ByaWF0ZSBidWlsZGluZyBmb3Igd2hlcmUgeW91IG5vcm1hbGx5IHdvcmsuIFRoaXMgaXMgaW1wb3J0YW50IGZvciBpbnZlbnRvcnkgcHVycG9zZXMuIgoKICAgICMgTG9naWMgYmVsb3cgd2FzIHB1dCBpbiB0aGlzIHNlY3Rpb24gcmF0aGVyIHRoYW4gaW4gY29yZSBjb2RlIGFzIGZvbGtzIG1heQogICAgIyB3YW50IHRvIGNoYW5nZSB3aGF0IHRoZSBmaWVsZCBkb2VzLiBUaGlzIGlzIGEgZnVuY3Rpb24gdGhhdCBnZXRzIGNhbGxlZAogICAgIyB3aGVuIG5lZWRlZCBsYXRlciBvbi4gQkUgVkVSWSBDQVJFRlVMIElOIENIQU5HSU5HIFRIRSBGVU5DVElPTiEKICAgICAgUkVHX1BPUFVQX0xBQkVMXzFfTE9HSUMgKCl7CiAgICAgICAgUkVHX1BPUFVQX0xBQkVMXzFfVkFMVUU9JChkZWZhdWx0cyByZWFkICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIiAiJFJFR19QT1BVUF9MQUJFTF8xIikKICAgICAgICBlY2hvICJTdGF0dXM6ICRSRUdJU1RSQVRJT05fQkVHSU5fV09SRCAkUkVHX1BPUFVQX0xBQkVMXzEgJFJFR0lTVFJBVElPTl9NSURETEVfV09SRCAkUkVHX1BPUFVQX0xBQkVMXzFfVkFMVUUiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgICAgaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF07IHRoZW4KICAgICAgICAgICBzbGVlcCAxMAogICAgICAgIGVsc2UKICAgICAgICAgICIkSkFNRl9CSU5BUlkiIHJlY29uIC1idWlsZGluZyAiJFJFR19QT1BVUF9MQUJFTF8xX1ZBTFVFIgogICAgICAgIGZpCiAgICAgIH0KCiAgIyBQb3B1cCAyCiAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiAgICAjIExhYmVsIGZvciB0aGUgcG9wdXAKICAgICAgUkVHX1BPUFVQX0xBQkVMXzI9IkRlcGFydG1lbnQiCgogICAgIyBBcnJheSBvZiBvcHRpb25zIGZvciB0aGUgdXNlciB0byBzZWxlY3QKICAgICAgUkVHX1BPUFVQX0xBQkVMXzJfT1BUSU9OUz0oCiAgICAgICAgIkFjYWRlbWljIFNlcnZpY2VzIgogICAgICAgICJBZG1pc3Npb25zIgogICAgICAgICJTZXJ2aWNlIERlc2siCiAgICAgICAgIlNjaWVuY2UiCiAgICAgICkKCiAgICAjIEhlbHAgQnViYmxlIGZvciBJbnB1dC4gSWYgdGl0bGUgbGVmdCBibGFuaywgdGhpcyB3aWxsIG5vdCBhcHBlYXIKICAgICAgUkVHX1BPUFVQX0xBQkVMXzJfSEVMUF9USVRMRT0iRGVwYXJ0bWVudCBEcm9wZG93biBGaWVsZCIKICAgICAgUkVHX1BPUFVQX0xBQkVMXzJfSEVMUF9URVhUPSJQbGVhc2UgY2hvb3NlIHRoZSBhcHByb3ByaWF0ZSBkZXBhcnRtZW50IGZvciB3aGVyZSB5b3Ugbm9ybWFsbHkgd29yay4gVGhpcyBpcyBpbXBvcnRhbnQgZm9yIGludmVudG9yeSBwdXJwb3Nlcy4iCgogICAgIyBMb2dpYyBiZWxvdyB3YXMgcHV0IGluIHRoaXMgc2VjdGlvbiByYXRoZXIgdGhhbiBpbiBjb3JlIGNvZGUgYXMgZm9sa3MgbWF5CiAgICAjIHdhbnQgdG8gY2hhbmdlIHdoYXQgdGhlIGZpZWxkIGRvZXMuIFRoaXMgaXMgYSBmdW5jdGlvbiB0aGF0IGdldHMgY2FsbGVkCiAgICAjIHdoZW4gbmVlZGVkIGxhdGVyIG9uLiBCRSBWRVJZIENBUkVGVUwgSU4gQ0hBTkdJTkcgVEhFIEZVTkNUSU9OIQogICAgICBSRUdfUE9QVVBfTEFCRUxfMl9MT0dJQyAoKXsKICAgICAgICBSRUdfUE9QVVBfTEFCRUxfMl9WQUxVRT0kKGRlZmF1bHRzIHJlYWQgIiRERVBfTk9USUZZX1VTRVJfSU5QVVRfUExJU1QiICIkUkVHX1BPUFVQX0xBQkVMXzIiKQogICAgICAgIGVjaG8gIlN0YXR1czogJFJFR0lTVFJBVElPTl9CRUdJTl9XT1JEICRSRUdfUE9QVVBfTEFCRUxfMiAkUkVHSVNUUkFUSU9OX01JRERMRV9XT1JEICRSRUdfUE9QVVBfTEFCRUxfMl9WQUxVRSIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXTsgdGhlbgogICAgICAgICAgIHNsZWVwIDEwCiAgICAgICAgZWxzZQogICAgICAgICAgIiRKQU1GX0JJTkFSWSIgcmVjb24gLWRlcGFydG1lbnQgIiRSRUdfUE9QVVBfTEFCRUxfMl9WQUxVRSIKICAgICAgICBmaQogICAgICB9CgogICMgUG9wdXAgMyAtIENvZGUgaXMgaGVyZSBidXQgY3VycmVudGx5IHVudXNlZAogICMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwogICAgIyBMYWJlbCBmb3IgdGhlIHBvcHVwCiAgICAgIFJFR19QT1BVUF9MQUJFTF8zPSIiCgogICAgIyBBcnJheSBvZiBvcHRpb25zIGZvciB0aGUgdXNlciB0byBzZWxlY3QKICAgICAgUkVHX1BPUFVQX0xBQkVMXzNfT1BUSU9OUz0oCiAgICAgICAgIk9wdGlvbiAxIgogICAgICAgICJPcHRpb24gMiIKICAgICAgICAiT3B0aW9uIDMiCiAgICAgICkKCiAgICAjIEhlbHAgQnViYmxlIGZvciBJbnB1dC4gSWYgdGl0bGUgbGVmdCBibGFuaywgdGhpcyB3aWxsIG5vdCBhcHBlYXIKICAgICAgUkVHX1BPUFVQX0xBQkVMXzNfSEVMUF9USVRMRT0iRHJvcGRvd24gMyBGaWVsZCIKICAgICAgUkVHX1BPUFVQX0xBQkVMXzNfSEVMUF9URVhUPSJUaGlzIGRyb3Bkb3duIGlzIGN1cnJlbnRseSBub3QgaW4gdXNlLiBBbGwgY29kZSBpcyBoZXJlIHJlYWR5IGZvciB5b3UgdG8gdXNlLiBJdCBjYW4gYWxzbyBiZSBoaWRkZW4gYnkgcmVtb3ZpbmcgdGhlIGNvbnRlbnRzIG9mIHRoZSBSRUdfUE9QVVBfTEFCRUxfMyB2YXJpYWJsZS4iCgogICAgIyBMb2dpYyBiZWxvdyB3YXMgcHV0IGluIHRoaXMgc2VjdGlvbiByYXRoZXIgdGhhbiBpbiBjb3JlIGNvZGUgYXMgZm9sa3MgbWF5CiAgICAjIHdhbnQgdG8gY2hhbmdlIHdoYXQgdGhlIGZpZWxkIGRvZXMuIFRoaXMgaXMgYSBmdW5jdGlvbiB0aGF0IGdldHMgY2FsbGVkCiAgICAjIHdoZW4gbmVlZGVkIGxhdGVyIG9uLiBCRSBWRVJZIENBUkVGVUwgSU4gQ0hBTkdJTkcgVEhFIEZVTkNUSU9OIQogICAgICBSRUdfUE9QVVBfTEFCRUxfM19MT0dJQyAoKXsKICAgICAgICBSRUdfUE9QVVBfTEFCRUxfM19WQUxVRT0kKGRlZmF1bHRzIHJlYWQgIiRERVBfTk9USUZZX1VTRVJfSU5QVVRfUExJU1QiICIkUkVHX1BPUFVQX0xBQkVMXzMiKQogICAgICAgIGVjaG8gIlN0YXR1czogJFJFR0lTVFJBVElPTl9CRUdJTl9XT1JEICRSRUdfUE9QVVBfTEFCRUxfMyAkUkVHSVNUUkFUSU9OX01JRERMRV9XT1JEICRSRUdfUE9QVVBfTEFCRUxfM19WQUxVRSIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXTsgdGhlbgogICAgICAgICAgc2xlZXAgMTAKICAgICAgICBlbHNlCiAgICAgICAgICBzbGVlcCAxMAogICAgICAgIGZpCiAgICAgIH0KCiAgIyBQb3B1cCA0IC0gQ29kZSBpcyBoZXJlIGJ1dCBjdXJyZW50bHkgdW51c2VkCiAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiAgICAjIExhYmVsIGZvciB0aGUgcG9wdXAKICAgICAgUkVHX1BPUFVQX0xBQkVMXzQ9IiIKCiAgICAjIEFycmF5IG9mIG9wdGlvbnMgZm9yIHRoZSB1c2VyIHRvIHNlbGVjdAogICAgICBSRUdfUE9QVVBfTEFCRUxfNF9PUFRJT05TPSgKICAgICAgICAiT3B0aW9uIDEiCiAgICAgICAgIk9wdGlvbiAyIgogICAgICAgICJPcHRpb24gMyIKICAgICAgKQoKICAgICMgSGVscCBCdWJibGUgZm9yIElucHV0LiBJZiB0aXRsZSBsZWZ0IGJsYW5rLCB0aGlzIHdpbGwgbm90IGFwcGVhcgogICAgICBSRUdfUE9QVVBfTEFCRUxfNF9IRUxQX1RJVExFPSJEcm9wZG93biA0IEZpZWxkIgogICAgICBSRUdfUE9QVVBfTEFCRUxfNF9IRUxQX1RFWFQ9IlRoaXMgZHJvcGRvd24gaXMgY3VycmVudGx5IG5vdCBpbiB1c2UuIEFsbCBjb2RlIGlzIGhlcmUgcmVhZHkgZm9yIHlvdSB0byB1c2UuIEl0IGNhbiBhbHNvIGJlIGhpZGRlbiBieSByZW1vdmluZyB0aGUgY29udGVudHMgb2YgdGhlIFJFR19QT1BVUF9MQUJFTF80IHZhcmlhYmxlLiIKCiAgICAjIExvZ2ljIGJlbG93IHdhcyBwdXQgaW4gdGhpcyBzZWN0aW9uIHJhdGhlciB0aGFuIGluIGNvcmUgY29kZSBhcyBmb2xrcyBtYXkKICAgICMgd2FudCB0byBjaGFuZ2Ugd2hhdCB0aGUgZmllbGQgZG9lcy4gVGhpcyBpcyBhIGZ1bmN0aW9uIHRoYXQgZ2V0cyBjYWxsZWQKICAgICMgd2hlbiBuZWVkZWQgbGF0ZXIgb24uIEJFIFZFUlkgQ0FSRUZVTCBJTiBDSEFOR0lORyBUSEUgRlVOQ1RJT04hCiAgICAgIFJFR19QT1BVUF9MQUJFTF80X0xPR0lDICgpewogICAgICAgIFJFR19QT1BVUF9MQUJFTF80X1ZBTFVFPSQoZGVmYXVsdHMgcmVhZCAiJERFUF9OT1RJRllfVVNFUl9JTlBVVF9QTElTVCIgIiRSRUdfUE9QVVBfTEFCRUxfNCIpCiAgICAgICAgZWNobyAiU3RhdHVzOiAkUkVHSVNUUkFUSU9OX0JFR0lOX1dPUkQgJFJFR19QT1BVUF9MQUJFTF80ICRSRUdJU1RSQVRJT05fTUlERExFX1dPUkQgJFJFR19QT1BVUF9MQUJFTF80X1ZBTFVFIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgICAgIGlmIFsgIiRURVNUSU5HX01PREUiID0gdHJ1ZSBdOyB0aGVuCiAgICAgICAgICBzbGVlcCAxMAogICAgICAgIGVsc2UKICAgICAgICAgIHNsZWVwIDEwCiAgICAgICAgZmkKICAgICAgfQoKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyBDb3JlIFNjcmlwdCBMb2dpYyAtIERvbid0IENoYW5nZSBXaXRob3V0IE1ham9yIFRlc3RpbmcKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCiMgVmFyaWFibGVzIGZvciBGaWxlIFBhdGhzCiAgSkFNRl9CSU5BUlk9Ii91c3IvbG9jYWwvYmluL2phbWYiCiAgRkRFX1NFVFVQX0JJTkFSWT0iL3Vzci9iaW4vZmRlc2V0dXAiCiAgREVQX05PVElGWV9BUFA9Ii9BcHBsaWNhdGlvbnMvVXRpbGl0aWVzL0RFUE5vdGlmeS5hcHAiCiAgREVQX05PVElGWV9MT0c9Ii92YXIvdG1wL2RlcG5vdGlmeS5sb2ciCiAgREVQX05PVElGWV9ERUJVRz0iL3Zhci90bXAvZGVwbm90aWZ5RGVidWcubG9nIgogIERFUF9OT1RJRllfRE9ORT0iL3Zhci90bXAvY29tLmRlcG5vdGlmeS5wcm92aXNpb25pbmcuZG9uZSIKCiMgUHVsbGluZyBmcm9tIFBvbGljeSBwYXJhbWV0ZXJzIHRvIGFsbG93IHRydWUvZmFsc2UgZmxhZ3MgdG8gYmUgc2V0LiBNb3JlIGluZm8KIyBjYW4gYmUgZm91bmQgb24gaHR0cHM6Ly93d3cuamFtZi5jb20vamFtZi1uYXRpb24vYXJ0aWNsZXMvMTQ2L3NjcmlwdC1wYXJhbWV0ZXJzCiMgVGhlc2Ugd2lsbCBvdmVycmlkZSB3aGF0IGlzIHNwZWNpZmllZCBpbiB0aGUgc2NyaXB0IGFib3ZlLgogICMgVGVzdGluZyBNb2RlCiAgICBpZiBbICIkNCIgIT0gIiIgXTsgdGhlbiBURVNUSU5HX01PREU9IiQ0IjsgZmkKICAjIEZ1bGxzY3JlZW4gTW9kZQogICAgaWYgWyAiJDUiICE9ICIiIF07IHRoZW4gRlVMTFNDUkVFTj0iJDUiOyBmaQogICMgTm8gU2xlZXAgLyBDYWZmZWluYXRlIE1vZGUKICAgIGlmIFsgIiQ2IiAhPSAiIiBdOyB0aGVuIE5PX1NMRUVQPSIkNiI7IGZpCiAgIyBTZWxmIFNlcnZpY2UgQ3VzdG9tIEJyYW5kaW5nCiAgICBpZiBbICIkNyIgIT0gIiIgXTsgdGhlbiBTRUxGX1NFUlZJQ0VfQ1VTVE9NX0JSQU5ESU5HPSIkNyI7IGZpCiAgIyBDb21wbGV0ZSBtZXRob2QgZHJvcGRvd24gb3IgbWFpbiBzY3JlZW4KICAgIGlmIFsgIiQ4IiAhPSAiIiBdOyB0aGVuIENPTVBMRVRFX01FVEhPRF9EUk9QRE9XTl9BTEVSVD0iJDgiOyBmaQogICMgRVVMQSBNb2RlCiAgICBpZiBbICIkOSIgIT0gIiIgXTsgdGhlbiBFVUxBX0VOQUJMRUQ9IiQ5IjsgZmkKICAjIFJlZ2lzdHJhdGlvbiBNb2RlCiAgICBpZiBbICIkezEwfSIgIT0gIiIgXTsgdGhlbiBSRUdJU1RSQVRJT05fRU5BQkxFRD0iJHsxMH0iOyBmaQoKIyBTdGFuZGFyZCBUZXN0aW5nIE1vZGUgRW5oYW5jZW1lbnRzCiAgaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF07IHRoZW4KICAgICMgUmVtb3Zpbmcgb2xkIGNvbmZpZyBmaWxlIGlmIHByZXNlbnQgKFRlc3RpbmcgTW9kZSBPbmx5KQogICAgICBpZiBbIC1mICIkREVQX05PVElGWV9MT0ciIF07IHRoZW4gcm0gIiRERVBfTk9USUZZX0xPRyI7IGZpCiAgICAgIGlmIFsgLWYgIiRERVBfTk9USUZZX0RPTkUiIF07IHRoZW4gcm0gIiRERVBfTk9USUZZX0RPTkUiOyBmaQogICAgICBpZiBbIC1mICIkREVQX05PVElGWV9ERUJVRyIgXTsgdGhlbiBybSAiJERFUF9OT1RJRllfREVCVUciOyBmaQogICAgIyBTZXR0aW5nIFF1aXQgS2V5IHNldCB0byBjb21tYW5kICsgY29udHJvbCArIHggKFRlc3RpbmcgTW9kZSBPbmx5KQogICAgICBlY2hvICJDb21tYW5kOiBRdWl0S2V5OiB4IiA+PiAiJERFUF9OT1RJRllfTE9HIgogIGZpCgojIFZhbGlkYXRpbmcgdHJ1ZS9mYWxzZSBmbGFncwogIGlmIFsgIiRURVNUSU5HX01PREUiICE9IHRydWUgXSAmJiBbICIkVEVTVElOR19NT0RFIiAhPSBmYWxzZSBdOyB0aGVuCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBUZXN0aW5nIGNvbmZpZ3VyYXRpb24gbm90IHNldCBwcm9wZXJseS4gQ3VycmVudGx5IHNldCB0byAkVEVTVElOR19NT0RFLiBQbGVhc2UgdXBkYXRlIHRvIHRydWUgb3IgZmFsc2UuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBleGl0IDEKICBmaQogIGlmIFsgIiRGVUxMU0NSRUVOIiAhPSB0cnVlIF0gJiYgWyAiJEZVTExTQ1JFRU4iICE9IGZhbHNlIF07IHRoZW4KICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6IEZ1bGxzY3JlZW4gY29uZmlndXJhdGlvbiBub3Qgc2V0IHByb3Blcmx5LiBDdXJyZW50bHkgc2V0IHRvICRGVUxMU0NSRUVOLiBQbGVhc2UgdXBkYXRlIHRvIHRydWUgb3IgZmFsc2UuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBleGl0IDEKICBmaQogIGlmIFsgIiROT19TTEVFUCIgIT0gdHJ1ZSBdICYmIFsgIiROT19TTEVFUCIgIT0gZmFsc2UgXTsgdGhlbgogICAgZWNobyAiJChkYXRlICIrJWEgJWggJWQgJUg6JU06JVMiKTogU2xlZXAgY29uZmlndXJhdGlvbiBub3Qgc2V0IHByb3Blcmx5LiBDdXJyZW50bHkgc2V0IHRvICROT19TTEVFUC4gUGxlYXNlIHVwZGF0ZSB0byB0cnVlIG9yIGZhbHNlLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgZXhpdCAxCiAgZmkKICBpZiBbICIkU0VMRl9TRVJWSUNFX0NVU1RPTV9CUkFORElORyIgIT0gdHJ1ZSBdICYmIFsgIiRTRUxGX1NFUlZJQ0VfQ1VTVE9NX0JSQU5ESU5HIiAhPSBmYWxzZSBdOyB0aGVuCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBTZWxmIFNlcnZpY2UgQ3VzdG9tIEJyYW5kaW5nIGNvbmZpZ3VyYXRpb24gbm90IHNldCBwcm9wZXJseS4gQ3VycmVudGx5IHNldCB0byAkU0VMRl9TRVJWSUNFX0NVU1RPTV9CUkFORElORy4gUGxlYXNlIHVwZGF0ZSB0byB0cnVlIG9yIGZhbHNlLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgZXhpdCAxCiAgZmkKICBpZiBbICIkQ09NUExFVEVfTUVUSE9EX0RST1BET1dOX0FMRVJUIiAhPSB0cnVlIF0gJiYgWyAiJENPTVBMRVRFX01FVEhPRF9EUk9QRE9XTl9BTEVSVCIgIT0gZmFsc2UgXTsgdGhlbgogICAgZWNobyAiJChkYXRlICIrJWEgJWggJWQgJUg6JU06JVMiKTogQ29tcGxldGlvbiBhbGVydCBtZXRob2Qgbm90IHNldCBwcm9wZXJseS4gQ3VycmVudGx5IHNldCB0byAkQ09NUExFVEVfTUVUSE9EX0RST1BET1dOX0FMRVJULiBQbGVhc2UgdXBkYXRlIHRvIHRydWUgb3IgZmFsc2UuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBleGl0IDEKICBmaQogIGlmIFsgIiRFVUxBX0VOQUJMRUQiICE9IHRydWUgXSAmJiBbICIkRVVMQV9FTkFCTEVEIiAhPSBmYWxzZSBdOyB0aGVuCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBFVUxBIGNvbmZpZ3VyYXRpb24gbm90IHNldCBwcm9wZXJseS4gQ3VycmVudGx5IHNldCB0byAkRVVMQV9FTkFCTEVELiBQbGVhc2UgdXBkYXRlIHRvIHRydWUgb3IgZmFsc2UuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBleGl0IDEKICBmaQogIGlmIFsgIiRSRUdJU1RSQVRJT05fRU5BQkxFRCIgIT0gdHJ1ZSBdICYmIFsgIiRSRUdJU1RSQVRJT05fRU5BQkxFRCIgIT0gZmFsc2UgXTsgdGhlbgogICAgZWNobyAiJChkYXRlICIrJWEgJWggJWQgJUg6JU06JVMiKTogUmVnaXN0cmF0aW9uIGNvbmZpZ3VyYXRpb24gbm90IHNldCBwcm9wZXJseS4gQ3VycmVudGx5IHNldCB0byAkUkVHSVNUUkFUSU9OX0VOQUJMRUQuIFBsZWFzZSB1cGRhdGUgdG8gdHJ1ZSBvciBmYWxzZS4iID4+ICIkREVQX05PVElGWV9ERUJVRyIKICAgIGV4aXQgMQogIGZpCgojIFJ1biBERVAgTm90aWZ5IHdpbGwgcnVuIGFmdGVyIEFwcGxlIFNldHVwIEFzc2lzdGFudAogIFNFVFVQX0FTU0lTVEFOVF9QUk9DRVNTPSQocGdyZXAgLWwgIlNldHVwIEFzc2lzdGFudCIpCiAgdW50aWwgWyAiJFNFVFVQX0FTU0lTVEFOVF9QUk9DRVNTIiA9ICIiIF07IGRvCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBTZXR1cCBBc3Npc3RhbnQgU3RpbGwgUnVubmluZy4gUElEICRTRVRVUF9BU1NJU1RBTlRfUFJPQ0VTUy4iID4+ICIkREVQX05PVElGWV9ERUJVRyIKICAgIHNsZWVwIDEKICAgIFNFVFVQX0FTU0lTVEFOVF9QUk9DRVNTPSQocGdyZXAgLWwgIlNldHVwIEFzc2lzdGFudCIpCiAgZG9uZQoKIyBDaGVja2luZyB0byBzZWUgaWYgdGhlIEZpbmRlciBpcyBydW5uaW5nIG5vdyBiZWZvcmUgY29udGludWluZy4gVGhpcyBjYW4gaGVscAojIGluIHNjZW5hcmlvcyB3aGVyZSBhbiBlbmQgdXNlciBpcyBub3QgY29uZmlndXJpbmcgdGhlIGRldmljZS4KICBGSU5ERVJfUFJPQ0VTUz0kKHBncmVwIC1sICJGaW5kZXIiKQogIHVudGlsIFsgIiRGSU5ERVJfUFJPQ0VTUyIgIT0gIiIgXTsgZG8KICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6IEZpbmRlciBwcm9jZXNzIG5vdCBmb3VuZC4gQXNzdW1pbmcgZGV2aWNlIGlzIGF0IGxvZ2luIHNjcmVlbi4iID4+ICIkREVQX05PVElGWV9ERUJVRyIKICAgIHNsZWVwIDEKICAgIEZJTkRFUl9QUk9DRVNTPSQocGdyZXAgLWwgIkZpbmRlciIpCiAgZG9uZQoKIyBBZnRlciB0aGUgQXBwbGUgU2V0dXAgY29tcGxldGVkLiBOb3cgc2FmZSB0byBncmFiIHRoZSBjdXJyZW50IHVzZXIuCiAgQ1VSUkVOVF9VU0VSPSQoL3Vzci9iaW4vcHl0aG9uIC1jICdmcm9tIFN5c3RlbUNvbmZpZ3VyYXRpb24gaW1wb3J0IFNDRHluYW1pY1N0b3JlQ29weUNvbnNvbGVVc2VyOyBpbXBvcnQgc3lzOyB1c2VybmFtZSA9IChTQ0R5bmFtaWNTdG9yZUNvcHlDb25zb2xlVXNlcihOb25lLCBOb25lLCBOb25lKSBvciBbTm9uZV0pWzBdOyB1c2VybmFtZSA9IFt1c2VybmFtZSwiIl1bdXNlcm5hbWUgaW4gW3UibG9naW53aW5kb3ciLCBOb25lLCB1IiJdXTsgc3lzLnN0ZG91dC53cml0ZSh1c2VybmFtZSArICJcbiIpOycpCiAgZWNobyAiJChkYXRlICIrJWEgJWggJWQgJUg6JU06JVMiKTogQ3VycmVudCB1c2VyIHNldCB0byAkQ1VSUkVOVF9VU0VSLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgoKIyBBZGRpbmcgQ2hlY2sgYW5kIFdhcm5pbmcgaWYgVGVzdGluZyBNb2RlIGlzIG9mZiBhbmQgQk9NIGZpbGVzIGV4aXN0CiAgaWYgW1sgKCAtZiAiJERFUF9OT1RJRllfTE9HIiB8fCAtZiAiJERFUF9OT1RJRllfRE9ORSIgKSAmJiAiJFRFU1RJTkdfTU9ERSIgPSBmYWxzZSBdXTsgdGhlbgogICAgZWNobyAiJChkYXRlICIrJWEgJWggJWQgJUg6JU06JVMiKTogVEVTVElOR19NT0RFIHNldCB0byBmYWxzZSBidXQgY29uZmlnIGZpbGVzIHdlcmUgZm91bmQgaW4gL3Zhci90bXAuIExldHRpbmcgdXNlciBrbm93IGFuZCBleGl0aW5nLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgbXYgIiRERVBfTk9USUZZX0xPRyIgIi92YXIvdG1wL2RlcG5vdGlmeV9vbGQubG9nIgogICAgZWNobyAiQ29tbWFuZDogTWFpblRpdGxlOiAkRVJST1JfQkFOTkVSX1RJVExFIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgZWNobyAiQ29tbWFuZDogTWFpblRleHQ6ICRFUlJPUl9NQUlOX1RFWFQiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICBlY2hvICJTdGF0dXM6ICRFUlJPUl9TVEFUVVMiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICBzdWRvIC11ICIkQ1VSUkVOVF9VU0VSIiBvcGVuIC1hICIkREVQX05PVElGWV9BUFAiIC0tYXJncyAtcGF0aCAiJERFUF9OT1RJRllfTE9HIgogICAgc2xlZXAgNQogICAgZXhpdCAxCiAgZmkKCiMgSWYgU0VMRl9TRVJWSUNFX0NVU1RPTV9CUkFORElORyBpcyBzZXQgdG8gdHJ1ZS4gTG9hZGluZyB0aGUgdXBkYXRlZCBpY29uCiAgaWYgWyAiJFNFTEZfU0VSVklDRV9DVVNUT01fQlJBTkRJTkciID0gdHJ1ZSBdOyB0aGVuCiAgICBvcGVuIC1hICIvQXBwbGljYXRpb25zLyRTRUxGX1NFUlZJQ0VfQVBQX05BTUUiIC0taGlkZQoKICAjIExvb3Agd2FpdGluZyBvbiB0aGUgYnJhbmRpbmcgaW1hZ2UgdG8gcHJvcGVybHkgc2hvdyBpbiB0aGUgdXNlcnMgbGlicmFyeQogIENVU1RPTV9CUkFORElOR19QTkc9Ii9Vc2Vycy8kQ1VSUkVOVF9VU0VSL0xpYnJhcnkvQXBwbGljYXRpb24gU3VwcG9ydC9jb20uamFtZnNvZnR3YXJlLnNlbGZzZXJ2aWNlLm1hYy9Eb2N1bWVudHMvSW1hZ2VzL2JyYW5kaW5naW1hZ2UucG5nIgogICAgdW50aWwgWyAtZiAiJENVU1RPTV9CUkFORElOR19QTkciIF07IGRvCiAgICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6IFdhaXRpbmcgZm9yIGJyYW5kaW5nIGltYWdlIGZyb20gSmFtZiBQcm8uIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICAgICBzbGVlcCAxCiAgICBkb25lCgogICMgU2V0dGluZyBCYW5uZXIgSW1hZ2UgZm9yIERFUCBOb3RpZnkgdG8gU2VsZiBTZXJ2aWNlIEN1c3RvbSBCcmFuZGluZwogICAgQkFOTkVSX0lNQUdFX1BBVEg9IiRDVVNUT01fQlJBTkRJTkdfUE5HIgoKICAjIENsb3NpbmcgU2VsZiBTZXJ2aWNlCiAgICBTRUxGX1NFUlZJQ0VfUElEPSQocGdyZXAgLWwgIiQoZWNobyAiJFNFTEZfU0VSVklDRV9BUFBfTkFNRSIgfCBjdXQgLWQgIi4iIC1mMSkiIHwgY3V0IC1kICIgIiAtZjEpCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBTZWxmIFNlcnZpY2UgY3VzdG9tIGJyYW5kaW5nIGljb24gaGFzIGJlZW4gbG9hZGVkLiBLaWxsaW5nIFNlbGYgU2VydmljZSBQSUQgJFNFTEZfU0VSVklDRV9QSUQuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBraWxsICIkU0VMRl9TRVJWSUNFX1BJRCIKICBmaQoKIyBTZXR0aW5nIGN1c3RvbSBpbWFnZSBpZiBzcGVjaWZpZWQKICBpZiBbICIkQkFOTkVSX0lNQUdFX1BBVEgiICE9ICIiIF07IHRoZW4gIGVjaG8gIkNvbW1hbmQ6IEltYWdlOiAkQkFOTkVSX0lNQUdFX1BBVEgiID4+ICIkREVQX05PVElGWV9MT0ciOyBmaQoKIyBTZXR0aW5nIGN1c3RvbSB0aXRsZSBpZiBzcGVjaWZpZWQKICBpZiBbICIkQkFOTkVSX1RJVExFIiAhPSAiIiBdOyB0aGVuIGVjaG8gIkNvbW1hbmQ6IE1haW5UaXRsZTogJEJBTk5FUl9USVRMRSIgPj4gIiRERVBfTk9USUZZX0xPRyI7IGZpCgojIFNldHRpbmcgY3VzdG9tIG1haW4gdGV4dCBpZiBzcGVjaWZpZWQKICBpZiBbICIkTUFJTl9URVhUIiAhPSAiIiBdOyB0aGVuIGVjaG8gIkNvbW1hbmQ6IE1haW5UZXh0OiAkTUFJTl9URVhUIiA+PiAiJERFUF9OT1RJRllfTE9HIjsgZmkKCiMgR2VuZXJhbCBQbGlzdCBDb25maWd1cmF0aW9uCiAgIyBDYWxsaW5nIGZ1bmN0aW9uIHRvIHNldCB0aGUgSU5GT19QTElTVF9QQVRICiAgICBJTkZPX1BMSVNUX1dSQVBQRVIKCiAgIyBUaGUgcGxpc3QgaW5mb3JtYXRpb24gYmVsb3cKICAgIERFUF9OT1RJRllfQ09ORklHX1BMSVNUPSIvVXNlcnMvJENVUlJFTlRfVVNFUi9MaWJyYXJ5L1ByZWZlcmVuY2VzL21lbnUubm9tYWQuREVQTm90aWZ5LnBsaXN0IgoKICAjIElmIHRlc3RpbmcgbW9kZSBpcyBvbiwgdGhpcyB3aWxsIHJlbW92ZSBzb21lIG9sZCBjb25maWd1cmF0aW9uIGZpbGVzCiAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXSAmJiBbIC1mICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIF07IHRoZW4gcm0gIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCI7IGZpCiAgICBpZiBbICIkVEVTVElOR19NT0RFIiA9IHRydWUgXSAmJiBbIC1mICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIiBdOyB0aGVuIHJtICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIjsgZmkKCiAgIyBTZXR0aW5nIGRlZmF1bHQgcGF0aCB0byB0aGUgcGxpc3Qgd2hpY2ggc3RvcmVzIGFsbCB0aGUgdXNlciBjb21wbGV0ZWQgaW5mbwogICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcGF0aFRvUGxpc3RGaWxlICIkREVQX05PVElGWV9VU0VSX0lOUFVUX1BMSVNUIgoKICAjIFNldHRpbmcgc3RhdHVzIHRleHQgYWxpZ25tZW50CiAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBzdGF0dXNUZXh0QWxpZ25tZW50ICIkU1RBVFVTX1RFWFRfQUxJR04iCgogICMgU2V0dGluZyBoZWxwIGJ1dHRvbgogICAgaWYgWyAiJEhFTFBfQlVCQkxFX1RJVExFIiAhPSAiIiBdOyB0aGVuCiAgICAgIGRlZmF1bHRzIHdyaXRlICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIGhlbHBCdWJibGUgLWFycmF5LWFkZCAiJEhFTFBfQlVCQkxFX1RJVExFIgogICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBoZWxwQnViYmxlIC1hcnJheS1hZGQgIiRIRUxQX0JVQkJMRV9CT0RZIgogICAgZmkKCiMgRVVMQSBDb25maWd1cmF0aW9uCiAgaWYgWyAiJEVVTEFfRU5BQkxFRCIgPSAgdHJ1ZSBdOyB0aGVuCiAgICBERVBfTk9USUZZX0VVTEFfRE9ORT0iL3Zhci90bXAvY29tLmRlcG5vdGlmeS5hZ3JlZW1lbnQuZG9uZSIKCiAgICAjIElmIHRlc3RpbmcgbW9kZSBpcyBvbiwgdGhpcyB3aWxsIHJlbW92ZSBFVUxBIHNwZWNpZmljIGNvbmZpZ3VyYXRpb24gZmlsZXMKICAgICAgaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF0gJiYgWyAtZiAiJERFUF9OT1RJRllfRVVMQV9ET05FIiBdOyB0aGVuIHJtICIkREVQX05PVElGWV9FVUxBX0RPTkUiOyBmaQoKICAgICMgV3JpdGluZyB0aXRsZSwgc3VidGl0bGUsIGFuZCBFVUxBIHR4dCBsb2NhdGlvbiB0byBwbGlzdAogICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBFVUxBTWFpblRpdGxlICIkRVVMQV9NQUlOX1RJVExFIgogICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBFVUxBU3ViVGl0bGUgIiRFVUxBX1NVQlRJVExFIgogICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBwYXRoVG9FVUxBICIkRVVMQV9GSUxFX1BBVEgiCgogICAgIyBTZXR0aW5nIG93bmVyc2hpcCBvZiBFVUxBIGZpbGUKICAgICAgY2hvd24gIiRDVVJSRU5UX1VTRVI6c3RhZmYiICIkRVVMQV9GSUxFX1BBVEgiCiAgICAgIGNobW9kIDQ0NCAiJEVVTEFfRklMRV9QQVRIIgogIGZpCgojIFJlZ2lzdHJhdGlvbiBQbGlzdCBDb25maWd1cmF0aW9uCiAgaWYgWyAiJFJFR0lTVFJBVElPTl9FTkFCTEVEIiA9IHRydWUgXTsgdGhlbgogICAgREVQX05PVElGWV9SRUdJU1RFUl9ET05FPSIvdmFyL3RtcC9jb20uZGVwbm90aWZ5LnJlZ2lzdHJhdGlvbi5kb25lIgoKICAgICMgSWYgdGVzdGluZyBtb2RlIGlzIG9uLCB0aGlzIHdpbGwgcmVtb3ZlIHJlZ2lzdHJhdGlvbiBzcGVjaWZpYyBjb25maWd1cmF0aW9uIGZpbGVzCiAgICAgIGlmIFsgIiRURVNUSU5HX01PREUiID0gdHJ1ZSBdICYmIFsgLWYgIiRERVBfTk9USUZZX1JFR0lTVEVSX0RPTkUiIF07IHRoZW4gcm0gIiRERVBfTk9USUZZX1JFR0lTVEVSX0RPTkUiOyBmaQoKICAgICMgTWFpbiBXaW5kb3cgVGV4dCBDb25maWd1cmF0aW9uCiAgICAgIGRlZmF1bHRzIHdyaXRlICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIHJlZ2lzdHJhdGlvbk1haW5UaXRsZSAiJFJFR0lTVFJBVElPTl9USVRMRSIKICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcmVnaXN0cmF0aW9uQnV0dG9uTGFiZWwgIiRSRUdJU1RSQVRJT05fQlVUVE9OIgogICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiByZWdpc3RyYXRpb25QaWN0dXJlUGF0aCAiJEJBTk5FUl9JTUFHRV9QQVRIIgoKICAgICMgRmlyc3QgVGV4dCBCb3ggQ29uZmlndXJhdGlvbgogICAgICBpZiBbICIkUkVHX1RFWFRfTEFCRUxfMSIgIT0gIiIgXTsgdGhlbgogICAgICAgIGRlZmF1bHRzIHdyaXRlICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIHRleHRGaWVsZDFMYWJlbCAiJFJFR19URVhUX0xBQkVMXzEiCiAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgdGV4dEZpZWxkMVBsYWNlaG9sZGVyICIkUkVHX1RFWFRfTEFCRUxfMV9QTEFDRUhPTERFUiIKICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiB0ZXh0RmllbGQxSXNPcHRpb25hbCAiJFJFR19URVhUX0xBQkVMXzFfT1BUSU9OQUwiCiAgICAgICAgIyBDb2RlIGZvciBzaG93aW5nIHRoZSBoZWxwIGJveCBpZiBjb25maWd1cmVkCiAgICAgICAgICBpZiBbICIkUkVHX1RFWFRfTEFCRUxfMV9IRUxQX1RJVExFIiAhPSAiIiBdOyB0aGVuCiAgICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgdGV4dEZpZWxkMUJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1RFWFRfTEFCRUxfMV9IRUxQX1RJVExFIgogICAgICAgICAgICAgIGRlZmF1bHRzIHdyaXRlICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIHRleHRGaWVsZDFCdWJibGUgLWFycmF5LWFkZCAiJFJFR19URVhUX0xBQkVMXzFfSEVMUF9URVhUIgogICAgICAgICAgZmkKICAgICAgZmkKCiAgICAjIFNlY29uZCBUZXh0IEJveCBDb25maWd1cmF0aW9uCiAgICAgIGlmIFsgIiRSRUdfVEVYVF9MQUJFTF8yIiAhPSAiIiBdOyB0aGVuCiAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgdGV4dEZpZWxkMkxhYmVsICIkUkVHX1RFWFRfTEFCRUxfMiIKICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiB0ZXh0RmllbGQyUGxhY2Vob2xkZXIgIiRSRUdfVEVYVF9MQUJFTF8yX1BMQUNFSE9MREVSIgogICAgICAgIGRlZmF1bHRzIHdyaXRlICIkREVQX05PVElGWV9DT05GSUdfUExJU1QiIHRleHRGaWVsZDJJc09wdGlvbmFsICIkUkVHX1RFWFRfTEFCRUxfMl9PUFRJT05BTCIKICAgICAgICAjIENvZGUgZm9yIHNob3dpbmcgdGhlIGhlbHAgYm94IGlmIGNvbmZpZ3VyZWQKICAgICAgICAgIGlmIFsgIiRSRUdfVEVYVF9MQUJFTF8yX0hFTFBfVElUTEUiICE9ICIiIF07IHRoZW4KICAgICAgICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiB0ZXh0RmllbGQyQnViYmxlIC1hcnJheS1hZGQgIiRSRUdfVEVYVF9MQUJFTF8yX0hFTFBfVElUTEUiCiAgICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgdGV4dEZpZWxkMkJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1RFWFRfTEFCRUxfMl9IRUxQX1RFWFQiCiAgICAgICAgICBmaQogICAgICBmaQoKICAgICMgUG9wdXAgMQogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzEiICE9ICIiIF07IHRoZW4KICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBwb3B1cEJ1dHRvbjFMYWJlbCAiJFJFR19QT1BVUF9MQUJFTF8xIgogICAgICAgICMgQ29kZSBmb3Igc2hvd2luZyB0aGUgaGVscCBib3ggaWYgY29uZmlndXJlZAogICAgICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF8xX0hFTFBfVElUTEUiICE9ICIiIF07IHRoZW4KICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51MUJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzFfSEVMUF9USVRMRSIKICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51MUJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzFfSEVMUF9URVhUIgogICAgICAgICAgZmkKICAgICAgICAjIENvZGUgZm9yIGFkZGluZyB0aGUgaXRlbXMgZnJvbSB0aGUgYXJyYXkgYWJvdmUgaW50byB0aGUgcGxpc3QKICAgICAgICAgIGZvciBSRUdfUE9QVVBfTEFCRUxfMV9PUFRJT04gaW4gIiR7UkVHX1BPUFVQX0xBQkVMXzFfT1BUSU9OU1tAXX0iOyBkbwogICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBCdXR0b24xQ29udGVudCAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzFfT1BUSU9OIgogICAgICAgICAgZG9uZQogICAgICBmaQoKICAgICMgUG9wdXAgMgogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzIiICE9ICIiIF07IHRoZW4KICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBwb3B1cEJ1dHRvbjJMYWJlbCAiJFJFR19QT1BVUF9MQUJFTF8yIgogICAgICAgICMgQ29kZSBmb3Igc2hvd2luZyB0aGUgaGVscCBib3ggaWYgY29uZmlndXJlZAogICAgICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF8yX0hFTFBfVElUTEUiICE9ICIiIF07IHRoZW4KICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51MkJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzJfSEVMUF9USVRMRSIKICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51MkJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzJfSEVMUF9URVhUIgogICAgICAgICAgZmkKICAgICAgICAjIENvZGUgZm9yIGFkZGluZyB0aGUgaXRlbXMgZnJvbSB0aGUgYXJyYXkgYWJvdmUgaW50byB0aGUgcGxpc3QKICAgICAgICAgIGZvciBSRUdfUE9QVVBfTEFCRUxfMl9PUFRJT04gaW4gIiR7UkVHX1BPUFVQX0xBQkVMXzJfT1BUSU9OU1tAXX0iOyBkbwogICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBCdXR0b24yQ29udGVudCAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzJfT1BUSU9OIgogICAgICAgICAgZG9uZQogICAgICBmaQoKICAgICMgUG9wdXAgMwogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzMiICE9ICIiIF07IHRoZW4KICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBwb3B1cEJ1dHRvbjNMYWJlbCAiJFJFR19QT1BVUF9MQUJFTF8zIgogICAgICAgICMgQ29kZSBmb3Igc2hvd2luZyB0aGUgaGVscCBib3ggaWYgY29uZmlndXJlZAogICAgICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF8zX0hFTFBfVElUTEUiICE9ICIiIF07IHRoZW4KICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51M0J1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzNfSEVMUF9USVRMRSIKICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51M0J1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzNfSEVMUF9URVhUIgogICAgICAgICAgZmkKICAgICAgICAjIENvZGUgZm9yIGFkZGluZyB0aGUgaXRlbXMgZnJvbSB0aGUgYXJyYXkgYWJvdmUgaW50byB0aGUgcGxpc3QKICAgICAgICAgIGZvciBSRUdfUE9QVVBfTEFCRUxfM19PUFRJT04gaW4gIiR7UkVHX1BPUFVQX0xBQkVMXzNfT1BUSU9OU1tAXX0iOyBkbwogICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBCdXR0b24zQ29udGVudCAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzNfT1BUSU9OIgogICAgICAgICAgZG9uZQogICAgICBmaQoKICAgICMgUG9wdXAgNAogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzQiICE9ICIiIF07IHRoZW4KICAgICAgICBkZWZhdWx0cyB3cml0ZSAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIiBwb3B1cEJ1dHRvbjRMYWJlbCAiJFJFR19QT1BVUF9MQUJFTF80IgogICAgICAgICMgQ29kZSBmb3Igc2hvd2luZyB0aGUgaGVscCBib3ggaWYgY29uZmlndXJlZAogICAgICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF80X0hFTFBfVElUTEUiICE9ICIiIF07IHRoZW4KICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51NEJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzRfSEVMUF9USVRMRSIKICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBNZW51NEJ1YmJsZSAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzRfSEVMUF9URVhUIgogICAgICAgICAgZmkKICAgICAgICAjIENvZGUgZm9yIGFkZGluZyB0aGUgaXRlbXMgZnJvbSB0aGUgYXJyYXkgYWJvdmUgaW50byB0aGUgcGxpc3QKICAgICAgICAgIGZvciBSRUdfUE9QVVBfTEFCRUxfNF9PUFRJT04gaW4gIiR7UkVHX1BPUFVQX0xBQkVMXzRfT1BUSU9OU1tAXX0iOyBkbwogICAgICAgICAgICAgZGVmYXVsdHMgd3JpdGUgIiRERVBfTk9USUZZX0NPTkZJR19QTElTVCIgcG9wdXBCdXR0b240Q29udGVudCAtYXJyYXktYWRkICIkUkVHX1BPUFVQX0xBQkVMXzRfT1BUSU9OIgogICAgICAgICAgZG9uZQogICAgICBmaQogIGZpCgojIENoYW5naW5nIE93bmVyc2hpcCBvZiB0aGUgcGxpc3QgZmlsZQogIGNob3duICIkQ1VSUkVOVF9VU0VSIjpzdGFmZiAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIgogIGNobW9kIDYwMCAiJERFUF9OT1RJRllfQ09ORklHX1BMSVNUIgoKIyBPcGVuaW5nIHRoZSBhcHAgYWZ0ZXIgaW5pdGlhbCBjb25maWd1cmF0aW9uCiAgaWYgWyAiJEZVTExTQ1JFRU4iID0gdHJ1ZSBdOyB0aGVuCiAgICBzdWRvIC11ICIkQ1VSUkVOVF9VU0VSIiBvcGVuIC1hICIkREVQX05PVElGWV9BUFAiIC0tYXJncyAtcGF0aCAiJERFUF9OT1RJRllfTE9HIiAtZnVsbFNjcmVlbgogIGVsaWYgWyAiJEZVTExTQ1JFRU4iID0gZmFsc2UgXTsgdGhlbgogICAgc3VkbyAtdSAiJENVUlJFTlRfVVNFUiIgb3BlbiAtYSAiJERFUF9OT1RJRllfQVBQIiAtLWFyZ3MgLXBhdGggIiRERVBfTk9USUZZX0xPRyIKICBmaQoKIyBHcmFiYmluZyB0aGUgREVQIE5vdGlmeSBQcm9jZXNzIElEIGZvciB1c2UgbGF0ZXIKICBERVBfTk9USUZZX1BST0NFU1M9JChwZ3JlcCAtbCAiREVQTm90aWZ5IiB8IGN1dCAtZCAiICIgLWYxKQogIHVudGlsIFsgIiRERVBfTk9USUZZX1BST0NFU1MiICE9ICIiIF07IGRvCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBXYWl0aW5nIGZvciBERVBOb3RpZnkgdG8gc3RhcnQgdG8gZ2F0aGVyIHRoZSBwcm9jZXNzIElELiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgc2xlZXAgMQogICAgREVQX05PVElGWV9QUk9DRVNTPSQocGdyZXAgLWwgIkRFUE5vdGlmeSIgfCBjdXQgLWQgIiAiIC1mMSkKICBkb25lCgojIFVzaW5nIENhZmZlaW5hdGUgYmluYXJ5IHRvIGtlZXAgdGhlIGNvbXB1dGVyIGF3YWtlIGlmIGVuYWJsZWQKICBpZiBbICIkTk9fU0xFRVAiID0gdHJ1ZSBdOyB0aGVuCiAgICBlY2hvICIkKGRhdGUgIislYSAlaCAlZCAlSDolTTolUyIpOiBDYWZmZWluYXRpbmcgREVQIE5vdGlmeSBwcm9jZXNzLiBQcm9jZXNzIElEOiAkREVQX05PVElGWV9QUk9DRVNTIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICBjYWZmZWluYXRlIC1kaXN1IC13ICIkREVQX05PVElGWV9QUk9DRVNTIiYKICBmaQoKIyBBZGRpbmcgYW4gYWxlcnQgcHJvbXB0IHRvIGxldCBhZG1pbnMga25vdyB0aGF0IHRoZSBzY3JpcHQgaXMgaW4gdGVzdGluZyBtb2RlCiAgaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF07IHRoZW4KICAgIGVjaG8gIkNvbW1hbmQ6IEFsZXJ0OiBERVAgTm90aWZ5IGlzIGluIFRFU1RJTkdfTU9ERS4gU2NyaXB0IHdpbGwgbm90IHJ1biBQb2xpY2llcyBvciBvdGhlciBjb21tYW5kcyB0aGF0IG1ha2UgY2hhbmdlIHRvIHRoaXMgY29tcHV0ZXIuIiAgPj4gIiRERVBfTk9USUZZX0xPRyIKICBmaQoKIyBBZGRpbmcgbmljZSB0ZXh0IGFuZCBhIGJyaWVmIHBhdXNlIGZvciBwcmV0dGluZXNzCiAgZWNobyAiU3RhdHVzOiAkSU5JVEFMX1NUQVJUX1NUQVRVUyIgPj4gIiRERVBfTk9USUZZX0xPRyIKICBzbGVlcCA1CgojIFNldHRpbmcgdGhlIHN0YXR1cyBiYXIKICAjIENvdW50ZXIgaXMgZm9yIG1ha2luZyB0aGUgZGV0ZXJtaW5hdGUgbG9vayBuaWNlLiBTdGFydHMgYXQgb25lIGFuZCBhZGRzCiAgIyBtb3JlIGJhc2VkIG9uIEVVTEEsIHJlZ2lzdGVyLCBvciBvdGhlciBvcHRpb25zLgogICAgQURESVRJT05BTF9PUFRJT05TX0NPVU5URVI9MQogICAgaWYgWyAiJEVVTEFfRU5BQkxFRCIgPSB0cnVlIF07IHRoZW4gKChBRERJVElPTkFMX09QVElPTlNfQ09VTlRFUisrKSk7IGZpCiAgICBpZiBbICIkUkVHSVNUUkFUSU9OX0VOQUJMRUQiID0gdHJ1ZSBdOyB0aGVuICgoQURESVRJT05BTF9PUFRJT05TX0NPVU5URVIrKykpCiAgICAgIGlmIFsgIiRSRUdfVEVYVF9MQUJFTF8xIiAhPSAiIiBdOyB0aGVuICgoQURESVRJT05BTF9PUFRJT05TX0NPVU5URVIrKykpOyBmaQogICAgICBpZiBbICIkUkVHX1RFWFRfTEFCRUxfMiIgIT0gIiIgXTsgdGhlbiAoKEFERElUSU9OQUxfT1BUSU9OU19DT1VOVEVSKyspKTsgZmkKICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF8xIiAhPSAiIiBdOyB0aGVuICgoQURESVRJT05BTF9PUFRJT05TX0NPVU5URVIrKykpOyBmaQogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzIiICE9ICIiIF07IHRoZW4gKChBRERJVElPTkFMX09QVElPTlNfQ09VTlRFUisrKSk7IGZpCiAgICAgIGlmIFsgIiRSRUdfUE9QVVBfTEFCRUxfMyIgIT0gIiIgXTsgdGhlbiAoKEFERElUSU9OQUxfT1BUSU9OU19DT1VOVEVSKyspKTsgZmkKICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF80IiAhPSAiIiBdOyB0aGVuICgoQURESVRJT05BTF9PUFRJT05TX0NPVU5URVIrKykpOyBmaQogICAgZmkKCiAgIyBDaGVja2luZyBwb2xpY3kgYXJyYXkgYW5kIGFkZGluZyB0aGUgY291bnQgZnJvbSB0aGUgYWRkaXRpb25hbCBvcHRpb25zIGFib3ZlLgogICAgQVJSQVlfTEVOR1RIPSIkKCgkeyNQT0xJQ1lfQVJSQVlbQF19K0FERElUSU9OQUxfT1BUSU9OU19DT1VOVEVSKSkiCiAgICBlY2hvICJDb21tYW5kOiBEZXRlcm1pbmF0ZTogJEFSUkFZX0xFTkdUSCIgPj4gIiRERVBfTk9USUZZX0xPRyIKCiMgRVVMQSBXaW5kb3cgRGlzcGxheSBMb2dpYwogIGlmIFsgIiRFVUxBX0VOQUJMRUQiID0gdHJ1ZSBdOyB0aGVuCiAgICBlY2hvICJTdGF0dXM6ICRFVUxBX1NUQVRVUyIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgIGVjaG8gIkNvbW1hbmQ6IENvbnRpbnVlQnV0dG9uRVVMQTogJEVVTEFfQlVUVE9OIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgd2hpbGUgWyAhIC1mICIkREVQX05PVElGWV9FVUxBX0RPTkUiIF07IGRvCiAgICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6IFdhaXRpbmcgZm9yIHVzZXIgdG8gYWNjZXB0IEVVTEEuIiA+PiAiJERFUF9OT1RJRllfREVCVUciCiAgICAgIHNsZWVwIDEKICAgIGRvbmUKICBmaQoKIyBSZWdpc3RyYXRpb24gV2luZG93IERpc3BsYXkgTG9naWMKICBpZiBbICIkUkVHSVNUUkFUSU9OX0VOQUJMRUQiID0gdHJ1ZSBdOyB0aGVuCiAgICBlY2hvICJTdGF0dXM6ICRSRUdJU1RSQVRJT05fU1RBVFVTIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgZWNobyAiQ29tbWFuZDogQ29udGludWVCdXR0b25SZWdpc3RlcjogJFJFR0lTVFJBVElPTl9CVVRUT04iID4+ICIkREVQX05PVElGWV9MT0ciCiAgICB3aGlsZSBbICEgLWYgIiRERVBfTk9USUZZX1JFR0lTVEVSX0RPTkUiIF07IGRvCiAgICAgIGVjaG8gIiQoZGF0ZSAiKyVhICVoICVkICVIOiVNOiVTIik6IFdhaXRpbmcgZm9yIHVzZXIgdG8gY29tcGxldGUgcmVnaXN0cmF0aW9uLiIgPj4gIiRERVBfTk9USUZZX0RFQlVHIgogICAgICBzbGVlcCAxCiAgICBkb25lCiAgICAjIFJ1bm5pbmcgTG9naWMgRm9yIEVhY2ggUmVnaXN0cmF0aW9uIEJveAogICAgICBpZiBbICIkUkVHX1RFWFRfTEFCRUxfMSIgIT0gIiIgXTsgdGhlbiBSRUdfVEVYVF9MQUJFTF8xX0xPR0lDOyBmaQogICAgICBpZiBbICIkUkVHX1RFWFRfTEFCRUxfMiIgIT0gIiIgXTsgdGhlbiBSRUdfVEVYVF9MQUJFTF8yX0xPR0lDOyBmaQogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzEiICE9ICIiIF07IHRoZW4gUkVHX1BPUFVQX0xBQkVMXzFfTE9HSUM7IGZpCiAgICAgIGlmIFsgIiRSRUdfUE9QVVBfTEFCRUxfMiIgIT0gIiIgXTsgdGhlbiBSRUdfUE9QVVBfTEFCRUxfMl9MT0dJQzsgZmkKICAgICAgaWYgWyAiJFJFR19QT1BVUF9MQUJFTF8zIiAhPSAiIiBdOyB0aGVuIFJFR19QT1BVUF9MQUJFTF8zX0xPR0lDOyBmaQogICAgICBpZiBbICIkUkVHX1BPUFVQX0xBQkVMXzQiICE9ICIiIF07IHRoZW4gUkVHX1BPUFVQX0xBQkVMXzRfTE9HSUM7IGZpCiAgZmkKCiMgTG9vcCB0byBydW4gcG9saWNpZXMKICBmb3IgUE9MSUNZIGluICIke1BPTElDWV9BUlJBWVtAXX0iOyBkbwogICAgZWNobyAiU3RhdHVzOiAkKGVjaG8gIiRQT0xJQ1kiIHwgY3V0IC1kICcsJyAtZjEpIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF07IHRoZW4KICAgICAgc2xlZXAgMTAKICAgIGVsaWYgWyAiJFRFU1RJTkdfTU9ERSIgPSBmYWxzZSBdOyB0aGVuCiAgICAgICIkSkFNRl9CSU5BUlkiIHBvbGljeSAiLSRUUklHR0VSIiAiJChlY2hvICIkUE9MSUNZIiB8IGN1dCAtZCAnLCcgLWYyKSIKICAgIGZpCiAgZG9uZQoKIyBOaWNlIGNvbXBsZXRpb24gdGV4dAogIGVjaG8gIlN0YXR1czogJElOU1RBTExfQ09NUExFVEVfVEVYVCIgPj4gIiRERVBfTk9USUZZX0xPRyIKCiMgQ2hlY2sgdG8gc2VlIGlmIEZpbGVWYXVsdCBEZWZlcnJlZCBlbmFibGVtZW50IGlzIGFjdGl2ZQogIEZWX0RFRkVSUkVEX1NUQVRVUz0kKCRGREVfU0VUVVBfQklOQVJZIHN0YXR1cyB8IGdyZXAgIkRlZmVycmVkIiB8IGN1dCAtZCAnICcgLWY2KQoKICAjIExvZ2ljIHRvIGxvZyB1c2VyIG91dCBpZiBGaWxlVmF1bHQgaXMgZGV0ZWN0ZWQuIE90aGVyd2lzZSwgYXBwIHdpbGwgY2xvc2UuCiAgICBpZiBbICIkRlZfREVGRVJSRURfU1RBVFVTIiA9ICJhY3RpdmUiIF0gJiYgWyAiJFRFU1RJTkdfTU9ERSIgPSB0cnVlIF07IHRoZW4KICAgICAgaWYgWyAiJENPTVBMRVRFX01FVEhPRF9EUk9QRE9XTl9BTEVSVCIgPSB0cnVlIF07IHRoZW4KICAgICAgICBlY2hvICJDb21tYW5kOiBRdWl0OiBUaGlzIGlzIHR5cGljYWxseSB3aGVyZSB5b3VyIEZWX0xPR09VVF9URVhUIHdvdWxkIGJlIGRpc3BsYXllZC4gSG93ZXZlciwgVEVTVElOR19NT0RFIGlzIHNldCB0byB0cnVlIGFuZCBGaWxlVmF1bHQgZGVmZXJyZWQgc3RhdHVzIGlzIG9uLiIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgZWxzZQogICAgICAgIGVjaG8gIkNvbW1hbmQ6IE1haW5UZXh0OiBURVNUSU5HX01PREUgaXMgc2V0IHRvIHRydWUgYW5kIEZpbGVWYXVsdCBkZWZlcnJlZCBzdGF0dXMgaXMgb24uIEJ1dHRvbiBlZmZlY3QgaXMgcXVpdCBpbnN0ZWFkIG9mIGxvZ291dC4gXG4gXG4gJEZWX0NPTVBMRVRFX01BSU5fVEVYVCIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgICBlY2hvICJDb21tYW5kOiBDb250aW51ZUJ1dHRvbjogVGVzdCAkRlZfQ09NUExFVEVfQlVUVE9OX1RFWFQiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgIGZpCiAgICBlbGlmIFsgIiRGVl9ERUZFUlJFRF9TVEFUVVMiID0gImFjdGl2ZSIgXSAmJiBbICIkVEVTVElOR19NT0RFIiA9IGZhbHNlIF07IHRoZW4KICAgICAgaWYgWyAiJENPTVBMRVRFX01FVEhPRF9EUk9QRE9XTl9BTEVSVCIgPSB0cnVlIF07IHRoZW4KICAgICAgICBlY2hvICJDb21tYW5kOiBMb2dvdXQ6ICRGVl9BTEVSVF9URVhUIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgICBlbHNlCiAgICAgICAgZWNobyAiQ29tbWFuZDogTWFpblRleHQ6ICRGVl9DT01QTEVURV9NQUlOX1RFWFQiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgICAgZWNobyAiQ29tbWFuZDogQ29udGludWVCdXR0b25Mb2dvdXQ6ICRGVl9DT01QTEVURV9CVVRUT05fVEVYVCIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgZmkKICAgIGVsc2UKICAgICAgaWYgWyAiJENPTVBMRVRFX01FVEhPRF9EUk9QRE9XTl9BTEVSVCIgPSB0cnVlIF07IHRoZW4KICAgICAgICBlY2hvICJDb21tYW5kOiBRdWl0OiAkQ09NUExFVEVfQUxFUlRfVEVYVCIgPj4gIiRERVBfTk9USUZZX0xPRyIKICAgICAgZWxzZQogICAgICAgIGVjaG8gIkNvbW1hbmQ6IE1haW5UZXh0OiAkQ09NUExFVEVfTUFJTl9URVhUIiA+PiAiJERFUF9OT1RJRllfTE9HIgogICAgICAgIGVjaG8gIkNvbW1hbmQ6IENvbnRpbnVlQnV0dG9uOiAkQ09NUExFVEVfQlVUVE9OX1RFWFQiID4+ICIkREVQX05PVElGWV9MT0ciCiAgICAgIGZpCiAgICBmaQoKZXhpdCAw</script_contents_encoded>
+</script>

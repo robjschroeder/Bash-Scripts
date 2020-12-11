@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>12</id>
+    <name>Inventory - iOS - iOS 11</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>2</size>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>0</priority>
+            <and_or>AND</and_or>
+            <search_type>greater than</search_type>
+            <value>11.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>12.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>3</size>
+        <mobile_device>
+            <id>208</id>
+            <name>CD LL - F9FVR4P0GHKJ</name>
+            <mac_address>34:7C:25:1A:F6:C6</mac_address>
+            <udid>9bce87966ce47db4d39b28d6e169399b47786542</udid>
+            <wifi_mac_address>34:7C:25:1A:F6:C6</wifi_mac_address>
+            <serial_number>F9FVR4P0GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>209</id>
+            <name>CD LL - F9FWFT20GHKJ</name>
+            <mac_address>34:7C:25:45:75:E0</mac_address>
+            <udid>5c5933f7924a4501880c560b6155ad66285b42b5</udid>
+            <wifi_mac_address>34:7C:25:45:75:E0</wifi_mac_address>
+            <serial_number>F9FWFT20GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>210</id>
+            <name>CD LL - F9FVR6L3GHKJ</name>
+            <mac_address>34:7C:25:20:5E:4C</mac_address>
+            <udid>1e5f23208b951fd69060faf23077cce99d084a6e</udid>
+            <wifi_mac_address>34:7C:25:20:5E:4C</wifi_mac_address>
+            <serial_number>F9FVR6L3GHKJ</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

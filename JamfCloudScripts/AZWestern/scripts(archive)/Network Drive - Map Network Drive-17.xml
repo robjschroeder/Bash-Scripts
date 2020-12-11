@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>17</id>
+    <name>Network Drive - Map Network Drive</name>
+    <category>Network Share Mappings</category>
+    <filename>Network Drive - Map Network Drive</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters>
+        <parameter4>Protocol {smb:afp}</parameter4>
+        <parameter5>FQDN Server</parameter5>
+        <parameter6>ShareName</parameter6>
+    </parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+UID1=$(id -u $3)
+    echo "UID: $UID1"
+protocol="$4" # This is the protocol to connect with (afp | smb)
+    echo "Protocol: $4"
+serverName="$5"   # This is the address of the server, e.g. my.fileserver.com
+    echo "Server: $5"
+shareName="$6"    # This is the name of the share to mount
+    echo "Sharename: $6"
+      # Mount the drive 
+        mount_script=`/usr/bin/osascript  &gt; /dev/null &lt;&lt; EOT
+        tell application "Finder"
+        mount volume "$protocol://${serverName}/${shareName}"
+        end tell
+EOT`
+exit</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpVSUQxPSQoaWQgLXUgJDMpCiAgICBlY2hvICJVSUQ6ICRVSUQxIgpwcm90b2NvbD0iJDQiICMgVGhpcyBpcyB0aGUgcHJvdG9jb2wgdG8gY29ubmVjdCB3aXRoIChhZnAgfCBzbWIpCiAgICBlY2hvICJQcm90b2NvbDogJDQiCnNlcnZlck5hbWU9IiQ1IiAgICMgVGhpcyBpcyB0aGUgYWRkcmVzcyBvZiB0aGUgc2VydmVyLCBlLmcuIG15LmZpbGVzZXJ2ZXIuY29tCiAgICBlY2hvICJTZXJ2ZXI6ICQ1IgpzaGFyZU5hbWU9IiQ2IiAgICAjIFRoaXMgaXMgdGhlIG5hbWUgb2YgdGhlIHNoYXJlIHRvIG1vdW50CiAgICBlY2hvICJTaGFyZW5hbWU6ICQ2IgogICAgICAjIE1vdW50IHRoZSBkcml2ZSAKICAgICAgICBtb3VudF9zY3JpcHQ9YC91c3IvYmluL29zYXNjcmlwdCAgPiAvZGV2L251bGwgPDwgRU9UCiAgICAgICAgdGVsbCBhcHBsaWNhdGlvbiAiRmluZGVyIgogICAgICAgIG1vdW50IHZvbHVtZSAiJHByb3RvY29sOi8vJHtzZXJ2ZXJOYW1lfS8ke3NoYXJlTmFtZX0iCiAgICAgICAgZW5kIHRlbGwKRU9UYApleGl0</script_contents_encoded>
+</script>

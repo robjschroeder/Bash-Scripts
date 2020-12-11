@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>19</id>
+    <name>Applications - FalconSensor - Register</name>
+    <category>Security</category>
+    <filename>Applications - FalconSensor - Register</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters>
+        <parameter4>CustomerID checksum</parameter4>
+    </parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+## $4 = CID with Checksum
+## Registers Falcon
+
+/Library/CS/falconctl license $4
+</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCiMjICQ0ID0gQ0lEIHdpdGggQ2hlY2tzdW0KIyMgUmVnaXN0ZXJzIEZhbGNvbgoKL0xpYnJhcnkvQ1MvZmFsY29uY3RsIGxpY2Vuc2UgJDQK</script_contents_encoded>
+</script>

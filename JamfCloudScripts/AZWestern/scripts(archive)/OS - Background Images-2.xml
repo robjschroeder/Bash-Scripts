@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>2</id>
+    <name>OS - Background Images</name>
+    <category>macOS - Base OS Configuration - Enrollment</category>
+    <filename>OS - Background Images</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents># BACKGROUND PICTURES
+chmod -R 777 /Library/Desktop\ Pictures/AWC-Pictures
+rm -rf /Library/Desktop\ Pictures/El\ Capitan.jpg
+rm -rf /Library/Desktop\ Pictures/Sierra.jpg
+rm -rf /Library/Desktop\ Pictures/Mojave.heic
+cp -R /Library/Desktop\ Pictures/AWC-Pictures/AWC\ Desktop\ Image\ 1024x768.bmp /Library/Desktop\ Pictures/Sierra.jpg
+cp -R /Library/Desktop\ Pictures/AWC-Pictures/AWC\ Desktop\ Image\ 1024x768.bmp /Library/Desktop\ Pictures/El\ Capitan.jpg
+cp -R /Library/Desktop\ Pictures/AWC-Pictures/Mojave.heic /Library/Desktop\ Pictures/Mojave.heic 
+
+
+# SET BACKGROUND PICTURE FOR USER TEMPLATE
+mkdir /System/Library/User\ Template/English.lproj/Library/Application\ Support/Dock
+cp -R /Users/admin/Library/Application\ Support/Dock/desktoppicture.db /System/Library/User\ Template/English.lproj/Library/Application\ Support/Dock/
+sqlite3 /System/Library/User\ Template/English.lproj/Library/Application\ Support/Dock/desktoppicture.db "update data set value = '/Library/Desktop Pictures/AWC-Pictures/AWC Desktop Image 1024x768.bmp'";
+</script_contents>
+    <script_contents_encoded>IyBCQUNLR1JPVU5EIFBJQ1RVUkVTCmNobW9kIC1SIDc3NyAvTGlicmFyeS9EZXNrdG9wXCBQaWN0dXJlcy9BV0MtUGljdHVyZXMKcm0gLXJmIC9MaWJyYXJ5L0Rlc2t0b3BcIFBpY3R1cmVzL0VsXCBDYXBpdGFuLmpwZwpybSAtcmYgL0xpYnJhcnkvRGVza3RvcFwgUGljdHVyZXMvU2llcnJhLmpwZwpybSAtcmYgL0xpYnJhcnkvRGVza3RvcFwgUGljdHVyZXMvTW9qYXZlLmhlaWMKY3AgLVIgL0xpYnJhcnkvRGVza3RvcFwgUGljdHVyZXMvQVdDLVBpY3R1cmVzL0FXQ1wgRGVza3RvcFwgSW1hZ2VcIDEwMjR4NzY4LmJtcCAvTGlicmFyeS9EZXNrdG9wXCBQaWN0dXJlcy9TaWVycmEuanBnCmNwIC1SIC9MaWJyYXJ5L0Rlc2t0b3BcIFBpY3R1cmVzL0FXQy1QaWN0dXJlcy9BV0NcIERlc2t0b3BcIEltYWdlXCAxMDI0eDc2OC5ibXAgL0xpYnJhcnkvRGVza3RvcFwgUGljdHVyZXMvRWxcIENhcGl0YW4uanBnCmNwIC1SIC9MaWJyYXJ5L0Rlc2t0b3BcIFBpY3R1cmVzL0FXQy1QaWN0dXJlcy9Nb2phdmUuaGVpYyAvTGlicmFyeS9EZXNrdG9wXCBQaWN0dXJlcy9Nb2phdmUuaGVpYyAKCgojIFNFVCBCQUNLR1JPVU5EIFBJQ1RVUkUgRk9SIFVTRVIgVEVNUExBVEUKbWtkaXIgL1N5c3RlbS9MaWJyYXJ5L1VzZXJcIFRlbXBsYXRlL0VuZ2xpc2gubHByb2ovTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9Eb2NrCmNwIC1SIC9Vc2Vycy9hZG1pbi9MaWJyYXJ5L0FwcGxpY2F0aW9uXCBTdXBwb3J0L0RvY2svZGVza3RvcHBpY3R1cmUuZGIgL1N5c3RlbS9MaWJyYXJ5L1VzZXJcIFRlbXBsYXRlL0VuZ2xpc2gubHByb2ovTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9Eb2NrLwpzcWxpdGUzIC9TeXN0ZW0vTGlicmFyeS9Vc2VyXCBUZW1wbGF0ZS9FbmdsaXNoLmxwcm9qL0xpYnJhcnkvQXBwbGljYXRpb25cIFN1cHBvcnQvRG9jay9kZXNrdG9wcGljdHVyZS5kYiAidXBkYXRlIGRhdGEgc2V0IHZhbHVlID0gJy9MaWJyYXJ5L0Rlc2t0b3AgUGljdHVyZXMvQVdDLVBpY3R1cmVzL0FXQyBEZXNrdG9wIEltYWdlIDEwMjR4NzY4LmJtcCciOwo=</script_contents_encoded>
+</script>

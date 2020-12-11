@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>23</id>
+    <name>Applications - Auto Update - macOS Catalina</name>
+    <category>Automatic Policies - Not In Self Service</category>
+    <filename>Applications - Auto Update - macOS Catalina</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+##Heading to be used for jamfHelper
+
+heading="Please wait.  Preparing the macOS Catalina upgrade..."
+
+##Title to be used for jamfHelper
+
+description="
+
+This process may take several minutes.
+
+Once completed your computer will reboot and begin the upgrade."
+
+##Icon to be used for jamfHelper
+
+icon=/Applications/Install\ macOS\ Catalina.app/Contents/Resources/InstallAssistant.icns
+
+##Launch jamfHelper
+
+/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType fs -title "" -icon "$icon" -heading "$heading" -description "$description" &amp;
+
+##Start macOS Catalina Upgrade
+
+/Applications/Install\ macOS\ Catalina.app/Contents/Resources/startosinstall --agreetolicense --forcequitapps
+
+exit 0</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCiMjSGVhZGluZyB0byBiZSB1c2VkIGZvciBqYW1mSGVscGVyCgpoZWFkaW5nPSJQbGVhc2Ugd2FpdC4gIFByZXBhcmluZyB0aGUgbWFjT1MgQ2F0YWxpbmEgdXBncmFkZS4uLiIKCiMjVGl0bGUgdG8gYmUgdXNlZCBmb3IgamFtZkhlbHBlcgoKZGVzY3JpcHRpb249IgoKVGhpcyBwcm9jZXNzIG1heSB0YWtlIHNldmVyYWwgbWludXRlcy4KCk9uY2UgY29tcGxldGVkIHlvdXIgY29tcHV0ZXIgd2lsbCByZWJvb3QgYW5kIGJlZ2luIHRoZSB1cGdyYWRlLiIKCiMjSWNvbiB0byBiZSB1c2VkIGZvciBqYW1mSGVscGVyCgppY29uPS9BcHBsaWNhdGlvbnMvSW5zdGFsbFwgbWFjT1NcIENhdGFsaW5hLmFwcC9Db250ZW50cy9SZXNvdXJjZXMvSW5zdGFsbEFzc2lzdGFudC5pY25zCgojI0xhdW5jaCBqYW1mSGVscGVyCgovTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9KQU1GL2Jpbi9qYW1mSGVscGVyLmFwcC9Db250ZW50cy9NYWNPUy9qYW1mSGVscGVyIC13aW5kb3dUeXBlIGZzIC10aXRsZSAiIiAtaWNvbiAiJGljb24iIC1oZWFkaW5nICIkaGVhZGluZyIgLWRlc2NyaXB0aW9uICIkZGVzY3JpcHRpb24iICYKCiMjU3RhcnQgbWFjT1MgQ2F0YWxpbmEgVXBncmFkZQoKL0FwcGxpY2F0aW9ucy9JbnN0YWxsXCBtYWNPU1wgQ2F0YWxpbmEuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9zdGFydG9zaW5zdGFsbCAtLWFncmVldG9saWNlbnNlIC0tZm9yY2VxdWl0YXBwcwoKZXhpdCAw</script_contents_encoded>
+</script>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>8</id>
+    <name>MacOS - Disable Bluetooth</name>
+    <category>macOS</category>
+    <filename>MacOS - Disable Bluetooth</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+####################################################################################################
+#
+# Copyright (c) 2010, JAMF Software, LLC.  All rights reserved.
+#
+#       Redistribution and use in source and binary forms, with or without
+#       modification, are permitted provided that the following conditions are met:
+#               * Redistributions of source code must retain the above copyright
+#                 notice, this list of conditions and the following disclaimer.
+#               * Redistributions in binary form must reproduce the above copyright
+#                 notice, this list of conditions and the following disclaimer in the
+#                 documentation and/or other materials provided with the distribution.
+#               * Neither the name of the JAMF Software, LLC nor the
+#                 names of its contributors may be used to endorse or promote products
+#                 derived from this software without specific prior written permission.
+#
+#       THIS SOFTWARE IS PROVIDED BY JAMF SOFTWARE, LLC "AS IS" AND ANY
+#       EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+#       WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#       DISCLAIMED. IN NO EVENT SHALL JAMF SOFTWARE, LLC BE LIABLE FOR ANY
+#       DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#       (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+#       LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+#       ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+#       (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+#       SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+####################################################################################################
+#
+# SUPPORT FOR THIS PROGRAM
+#
+#       This program is distributed "as is" by JAMF Software, LLC's Resource Kit team. For more
+#       information or support for the Resource Kit, please utilize the following resources:
+#
+#               http://list.jamfsoftware.com/mailman/listinfo/resourcekit
+#
+#               http://www.jamfsoftware.com/support/resource-kit
+#
+#       Please reference our SLA for information regarding support of this application:
+#
+#               http://www.jamfsoftware.com/support/resource-kit-sla
+#
+####################################################################################################
+#
+# ABOUT THIS PROGRAM
+#
+# NAME
+#	disableBluetooth.sh -- Disable the Bluetooth drivers.
+#
+# SYNOPSIS
+#	sudo disableBluetooth.sh
+#	sudo disableBluetooth.sh &lt;mountPoint&gt; &lt;computerName&gt; &lt;currentUsername&gt; &lt;targetVolume&gt;
+#	sudo disableBluetooth.sh &lt;mountPoint&gt; &lt;computerName&gt; &lt;currentUsername&gt; &lt;kextid&gt;
+#
+# DESCRIPTION
+#
+#	If executed on OS X version 10.10 or prior this script disables the Bluetooth drivers
+#	thereby disabling all functionality of the Bluetooth receiver. After running the script
+# 	the Bluetooth drivers will be moved to:
+#
+#		/Library/Application\ Support/JAMF/DisabledExtensions/
+#
+#	so that Bluetooth can be re-enabled in the future. After running this script the computer
+#   will need to be rebooted for the settings to take effect.
+#
+#	If executed on OS X 10.11 or later this script attempts to locate the Broadcom Bluetooth
+#   kernel extension &amp; safely unloads it using the kextunload binary thereby disabling the
+#	functionality of the Bluetooth receiver.
+#
+#	(See: "man -k kext" for more information on kernel extension binaries.)
+#
+#	On OS X 10.11 or later this script does not make a persistent change to Bluetooth function.
+#	Rebooting the computer will load all kernel extensions that are part of the default OS X
+#	install per Apple's System Integrity Protection. Kernel extensions may only be moved if
+#	System Integrity Protection is disabled.
+#
+#	It is possible that this particular Bluetooth kernel extension may not be present. If so, 
+#	the script will fail with an error message accordingly. To obtain the bundle identifier of
+#	the Bluetooth kernel extension in use should it be necessary use the following command:
+#	
+#	"sudo kextfind -B -i -s bluetooth"
+#
+#	The kernel extension bundle identifier in use can then be hard coded into the "value" variable
+#	below, passed as the 4th argument on the command line when executing the script (see usage above)
+#	or as parameter 4 when deploying the script as a payload from the JSS.
+#
+####################################################################################################
+#
+# HISTORY
+#
+#	Version: 2.0
+#
+#	- Created by Nick Amundsen August 6 2008
+#	- Updated by Nick Amundsen June 11 2009
+#	- Updated by Nick Amundsen January 21 2010
+#	- Updated by Brock Walters November 14 2015
+#
+####################################################################################################
+#
+# DEFINE VARIABLES &amp; READ IN PARAMETERS
+#
+####################################################################################################
+
+# HARDCODED VALUE FOR IS SET HERE (OS X 10.10 &amp; PRIOR: targetVolume", OS X 10.11 &amp; LATER: kextid)
+# PASTE TEXT IN BETWEEN DOUBLE QUOTES (eg. value="Volumes/Macintosh HD")
+
+value=""
+
+# CHECK TO SEE IF A VALUE WAS PASSED IN PARAMETER 4
+if [ "$4" != "" ] &amp;&amp; [ "$value" == "" ]
+then
+    value=$4
+fi
+
+####################################################################################################
+# 
+# SCRIPT CONTENTS - DO NOT MODIFY BELOW THIS LINE
+#
+####################################################################################################
+
+if [ $EUID -ne 0 ]
+then
+    &gt;&amp;2 /bin/echo $'\nThis script must be run as the root user!\n'
+    exit
+fi
+
+ref=$(/usr/bin/sw_vers -productVersion | awk '{print substr($1,4,2)}')
+
+if [ "$ref" -le 10 ] &amp;&amp; [ "$value" != "" ]
+then
+	targetVolume="$value"
+	echo "Disabling the Bluetooth drivers on target volume $targetVolume..."
+	if [ -d "$targetVolume/Library/Application Support/JAMF/DisabledExtensions/" ]
+	then
+		/bin/mv "$targetVolume/System/Library/Extensions/IOBluetooth"* "$targetVolume/Library/Application Support/JAMF/DisabledExtensions/"
+	else
+		/bin/mkdir -p "$targetVolume/Library/Application Support/JAMF/DisabledExtensions/"
+		/bin/mv "$targetVolume/System/Library/Extensions/IOBluetooth"* "$targetVolume/Library/Application Support/JAMF/DisabledExtensions/"
+	fi
+elif [ "$ref" -ge 11 ]
+then
+	kextid="$value"
+	if [ "$kextid" = "" ]
+	then
+		broadcomkextid=$(/usr/sbin/kextstat -l | /usr/bin/awk '/Broadcom/{print $6}')
+		/sbin/kextunload -b "$broadcomkextid"
+	else
+		&gt;&amp;2 /bin/echo $'\nerror: Broadcom Bluetooth kernel extension was not found.\n'
+	fi
+	if [ "$kextid" != "" ]
+	then
+		/sbin/kextunload -b "$kextid"
+	fi
+fi</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojCiMgQ29weXJpZ2h0IChjKSAyMDEwLCBKQU1GIFNvZnR3YXJlLCBMTEMuICBBbGwgcmlnaHRzIHJlc2VydmVkLgojCiMgICAgICAgUmVkaXN0cmlidXRpb24gYW5kIHVzZSBpbiBzb3VyY2UgYW5kIGJpbmFyeSBmb3Jtcywgd2l0aCBvciB3aXRob3V0CiMgICAgICAgbW9kaWZpY2F0aW9uLCBhcmUgcGVybWl0dGVkIHByb3ZpZGVkIHRoYXQgdGhlIGZvbGxvd2luZyBjb25kaXRpb25zIGFyZSBtZXQ6CiMgICAgICAgICAgICAgICAqIFJlZGlzdHJpYnV0aW9ucyBvZiBzb3VyY2UgY29kZSBtdXN0IHJldGFpbiB0aGUgYWJvdmUgY29weXJpZ2h0CiMgICAgICAgICAgICAgICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dpbmcgZGlzY2xhaW1lci4KIyAgICAgICAgICAgICAgICogUmVkaXN0cmlidXRpb25zIGluIGJpbmFyeSBmb3JtIG11c3QgcmVwcm9kdWNlIHRoZSBhYm92ZSBjb3B5cmlnaHQKIyAgICAgICAgICAgICAgICAgbm90aWNlLCB0aGlzIGxpc3Qgb2YgY29uZGl0aW9ucyBhbmQgdGhlIGZvbGxvd2luZyBkaXNjbGFpbWVyIGluIHRoZQojICAgICAgICAgICAgICAgICBkb2N1bWVudGF0aW9uIGFuZC9vciBvdGhlciBtYXRlcmlhbHMgcHJvdmlkZWQgd2l0aCB0aGUgZGlzdHJpYnV0aW9uLgojICAgICAgICAgICAgICAgKiBOZWl0aGVyIHRoZSBuYW1lIG9mIHRoZSBKQU1GIFNvZnR3YXJlLCBMTEMgbm9yIHRoZQojICAgICAgICAgICAgICAgICBuYW1lcyBvZiBpdHMgY29udHJpYnV0b3JzIG1heSBiZSB1c2VkIHRvIGVuZG9yc2Ugb3IgcHJvbW90ZSBwcm9kdWN0cwojICAgICAgICAgICAgICAgICBkZXJpdmVkIGZyb20gdGhpcyBzb2Z0d2FyZSB3aXRob3V0IHNwZWNpZmljIHByaW9yIHdyaXR0ZW4gcGVybWlzc2lvbi4KIwojICAgICAgIFRISVMgU09GVFdBUkUgSVMgUFJPVklERUQgQlkgSkFNRiBTT0ZUV0FSRSwgTExDICJBUyBJUyIgQU5EIEFOWQojICAgICAgIEVYUFJFU1MgT1IgSU1QTElFRCBXQVJSQU5USUVTLCBJTkNMVURJTkcsIEJVVCBOT1QgTElNSVRFRCBUTywgVEhFIElNUExJRUQKIyAgICAgICBXQVJSQU5USUVTIE9GIE1FUkNIQU5UQUJJTElUWSBBTkQgRklUTkVTUyBGT1IgQSBQQVJUSUNVTEFSIFBVUlBPU0UgQVJFCiMgICAgICAgRElTQ0xBSU1FRC4gSU4gTk8gRVZFTlQgU0hBTEwgSkFNRiBTT0ZUV0FSRSwgTExDIEJFIExJQUJMRSBGT1IgQU5ZCiMgICAgICAgRElSRUNULCBJTkRJUkVDVCwgSU5DSURFTlRBTCwgU1BFQ0lBTCwgRVhFTVBMQVJZLCBPUiBDT05TRVFVRU5USUFMIERBTUFHRVMKIyAgICAgICAoSU5DTFVESU5HLCBCVVQgTk9UIExJTUlURUQgVE8sIFBST0NVUkVNRU5UIE9GIFNVQlNUSVRVVEUgR09PRFMgT1IgU0VSVklDRVM7CiMgICAgICAgTE9TUyBPRiBVU0UsIERBVEEsIE9SIFBST0ZJVFM7IE9SIEJVU0lORVNTIElOVEVSUlVQVElPTikgSE9XRVZFUiBDQVVTRUQgQU5ECiMgICAgICAgT04gQU5ZIFRIRU9SWSBPRiBMSUFCSUxJVFksIFdIRVRIRVIgSU4gQ09OVFJBQ1QsIFNUUklDVCBMSUFCSUxJVFksIE9SIFRPUlQKIyAgICAgICAoSU5DTFVESU5HIE5FR0xJR0VOQ0UgT1IgT1RIRVJXSVNFKSBBUklTSU5HIElOIEFOWSBXQVkgT1VUIE9GIFRIRSBVU0UgT0YgVEhJUwojICAgICAgIFNPRlRXQVJFLCBFVkVOIElGIEFEVklTRUQgT0YgVEhFIFBPU1NJQklMSVRZIE9GIFNVQ0ggREFNQUdFLgojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIwojIFNVUFBPUlQgRk9SIFRISVMgUFJPR1JBTQojCiMgICAgICAgVGhpcyBwcm9ncmFtIGlzIGRpc3RyaWJ1dGVkICJhcyBpcyIgYnkgSkFNRiBTb2Z0d2FyZSwgTExDJ3MgUmVzb3VyY2UgS2l0IHRlYW0uIEZvciBtb3JlCiMgICAgICAgaW5mb3JtYXRpb24gb3Igc3VwcG9ydCBmb3IgdGhlIFJlc291cmNlIEtpdCwgcGxlYXNlIHV0aWxpemUgdGhlIGZvbGxvd2luZyByZXNvdXJjZXM6CiMKIyAgICAgICAgICAgICAgIGh0dHA6Ly9saXN0LmphbWZzb2Z0d2FyZS5jb20vbWFpbG1hbi9saXN0aW5mby9yZXNvdXJjZWtpdAojCiMgICAgICAgICAgICAgICBodHRwOi8vd3d3LmphbWZzb2Z0d2FyZS5jb20vc3VwcG9ydC9yZXNvdXJjZS1raXQKIwojICAgICAgIFBsZWFzZSByZWZlcmVuY2Ugb3VyIFNMQSBmb3IgaW5mb3JtYXRpb24gcmVnYXJkaW5nIHN1cHBvcnQgb2YgdGhpcyBhcHBsaWNhdGlvbjoKIwojICAgICAgICAgICAgICAgaHR0cDovL3d3dy5qYW1mc29mdHdhcmUuY29tL3N1cHBvcnQvcmVzb3VyY2Uta2l0LXNsYQojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIwojIEFCT1VUIFRISVMgUFJPR1JBTQojCiMgTkFNRQojCWRpc2FibGVCbHVldG9vdGguc2ggLS0gRGlzYWJsZSB0aGUgQmx1ZXRvb3RoIGRyaXZlcnMuCiMKIyBTWU5PUFNJUwojCXN1ZG8gZGlzYWJsZUJsdWV0b290aC5zaAojCXN1ZG8gZGlzYWJsZUJsdWV0b290aC5zaCA8bW91bnRQb2ludD4gPGNvbXB1dGVyTmFtZT4gPGN1cnJlbnRVc2VybmFtZT4gPHRhcmdldFZvbHVtZT4KIwlzdWRvIGRpc2FibGVCbHVldG9vdGguc2ggPG1vdW50UG9pbnQ+IDxjb21wdXRlck5hbWU+IDxjdXJyZW50VXNlcm5hbWU+IDxrZXh0aWQ+CiMKIyBERVNDUklQVElPTgojCiMJSWYgZXhlY3V0ZWQgb24gT1MgWCB2ZXJzaW9uIDEwLjEwIG9yIHByaW9yIHRoaXMgc2NyaXB0IGRpc2FibGVzIHRoZSBCbHVldG9vdGggZHJpdmVycwojCXRoZXJlYnkgZGlzYWJsaW5nIGFsbCBmdW5jdGlvbmFsaXR5IG9mIHRoZSBCbHVldG9vdGggcmVjZWl2ZXIuIEFmdGVyIHJ1bm5pbmcgdGhlIHNjcmlwdAojIAl0aGUgQmx1ZXRvb3RoIGRyaXZlcnMgd2lsbCBiZSBtb3ZlZCB0bzoKIwojCQkvTGlicmFyeS9BcHBsaWNhdGlvblwgU3VwcG9ydC9KQU1GL0Rpc2FibGVkRXh0ZW5zaW9ucy8KIwojCXNvIHRoYXQgQmx1ZXRvb3RoIGNhbiBiZSByZS1lbmFibGVkIGluIHRoZSBmdXR1cmUuIEFmdGVyIHJ1bm5pbmcgdGhpcyBzY3JpcHQgdGhlIGNvbXB1dGVyCiMgICB3aWxsIG5lZWQgdG8gYmUgcmVib290ZWQgZm9yIHRoZSBzZXR0aW5ncyB0byB0YWtlIGVmZmVjdC4KIwojCUlmIGV4ZWN1dGVkIG9uIE9TIFggMTAuMTEgb3IgbGF0ZXIgdGhpcyBzY3JpcHQgYXR0ZW1wdHMgdG8gbG9jYXRlIHRoZSBCcm9hZGNvbSBCbHVldG9vdGgKIyAgIGtlcm5lbCBleHRlbnNpb24gJiBzYWZlbHkgdW5sb2FkcyBpdCB1c2luZyB0aGUga2V4dHVubG9hZCBiaW5hcnkgdGhlcmVieSBkaXNhYmxpbmcgdGhlCiMJZnVuY3Rpb25hbGl0eSBvZiB0aGUgQmx1ZXRvb3RoIHJlY2VpdmVyLgojCiMJKFNlZTogIm1hbiAtayBrZXh0IiBmb3IgbW9yZSBpbmZvcm1hdGlvbiBvbiBrZXJuZWwgZXh0ZW5zaW9uIGJpbmFyaWVzLikKIwojCU9uIE9TIFggMTAuMTEgb3IgbGF0ZXIgdGhpcyBzY3JpcHQgZG9lcyBub3QgbWFrZSBhIHBlcnNpc3RlbnQgY2hhbmdlIHRvIEJsdWV0b290aCBmdW5jdGlvbi4KIwlSZWJvb3RpbmcgdGhlIGNvbXB1dGVyIHdpbGwgbG9hZCBhbGwga2VybmVsIGV4dGVuc2lvbnMgdGhhdCBhcmUgcGFydCBvZiB0aGUgZGVmYXVsdCBPUyBYCiMJaW5zdGFsbCBwZXIgQXBwbGUncyBTeXN0ZW0gSW50ZWdyaXR5IFByb3RlY3Rpb24uIEtlcm5lbCBleHRlbnNpb25zIG1heSBvbmx5IGJlIG1vdmVkIGlmCiMJU3lzdGVtIEludGVncml0eSBQcm90ZWN0aW9uIGlzIGRpc2FibGVkLgojCiMJSXQgaXMgcG9zc2libGUgdGhhdCB0aGlzIHBhcnRpY3VsYXIgQmx1ZXRvb3RoIGtlcm5lbCBleHRlbnNpb24gbWF5IG5vdCBiZSBwcmVzZW50LiBJZiBzbywgCiMJdGhlIHNjcmlwdCB3aWxsIGZhaWwgd2l0aCBhbiBlcnJvciBtZXNzYWdlIGFjY29yZGluZ2x5LiBUbyBvYnRhaW4gdGhlIGJ1bmRsZSBpZGVudGlmaWVyIG9mCiMJdGhlIEJsdWV0b290aCBrZXJuZWwgZXh0ZW5zaW9uIGluIHVzZSBzaG91bGQgaXQgYmUgbmVjZXNzYXJ5IHVzZSB0aGUgZm9sbG93aW5nIGNvbW1hbmQ6CiMJCiMJInN1ZG8ga2V4dGZpbmQgLUIgLWkgLXMgYmx1ZXRvb3RoIgojCiMJVGhlIGtlcm5lbCBleHRlbnNpb24gYnVuZGxlIGlkZW50aWZpZXIgaW4gdXNlIGNhbiB0aGVuIGJlIGhhcmQgY29kZWQgaW50byB0aGUgInZhbHVlIiB2YXJpYWJsZQojCWJlbG93LCBwYXNzZWQgYXMgdGhlIDR0aCBhcmd1bWVudCBvbiB0aGUgY29tbWFuZCBsaW5lIHdoZW4gZXhlY3V0aW5nIHRoZSBzY3JpcHQgKHNlZSB1c2FnZSBhYm92ZSkKIwlvciBhcyBwYXJhbWV0ZXIgNCB3aGVuIGRlcGxveWluZyB0aGUgc2NyaXB0IGFzIGEgcGF5bG9hZCBmcm9tIHRoZSBKU1MuCiMKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojCiMgSElTVE9SWQojCiMJVmVyc2lvbjogMi4wCiMKIwktIENyZWF0ZWQgYnkgTmljayBBbXVuZHNlbiBBdWd1c3QgNiAyMDA4CiMJLSBVcGRhdGVkIGJ5IE5pY2sgQW11bmRzZW4gSnVuZSAxMSAyMDA5CiMJLSBVcGRhdGVkIGJ5IE5pY2sgQW11bmRzZW4gSmFudWFyeSAyMSAyMDEwCiMJLSBVcGRhdGVkIGJ5IEJyb2NrIFdhbHRlcnMgTm92ZW1iZXIgMTQgMjAxNQojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIwojIERFRklORSBWQVJJQUJMRVMgJiBSRUFEIElOIFBBUkFNRVRFUlMKIwojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCgojIEhBUkRDT0RFRCBWQUxVRSBGT1IgSVMgU0VUIEhFUkUgKE9TIFggMTAuMTAgJiBQUklPUjogdGFyZ2V0Vm9sdW1lIiwgT1MgWCAxMC4xMSAmIExBVEVSOiBrZXh0aWQpCiMgUEFTVEUgVEVYVCBJTiBCRVRXRUVOIERPVUJMRSBRVU9URVMgKGVnLiB2YWx1ZT0iVm9sdW1lcy9NYWNpbnRvc2ggSEQiKQoKdmFsdWU9IiIKCiMgQ0hFQ0sgVE8gU0VFIElGIEEgVkFMVUUgV0FTIFBBU1NFRCBJTiBQQVJBTUVURVIgNAppZiBbICIkNCIgIT0gIiIgXSAmJiBbICIkdmFsdWUiID09ICIiIF0KdGhlbgogICAgdmFsdWU9JDQKZmkKCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIyAKIyBTQ1JJUFQgQ09OVEVOVFMgLSBETyBOT1QgTU9ESUZZIEJFTE9XIFRISVMgTElORQojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCmlmIFsgJEVVSUQgLW5lIDAgXQp0aGVuCiAgICA+JjIgL2Jpbi9lY2hvICQnXG5UaGlzIHNjcmlwdCBtdXN0IGJlIHJ1biBhcyB0aGUgcm9vdCB1c2VyIVxuJwogICAgZXhpdApmaQoKcmVmPSQoL3Vzci9iaW4vc3dfdmVycyAtcHJvZHVjdFZlcnNpb24gfCBhd2sgJ3twcmludCBzdWJzdHIoJDEsNCwyKX0nKQoKaWYgWyAiJHJlZiIgLWxlIDEwIF0gJiYgWyAiJHZhbHVlIiAhPSAiIiBdCnRoZW4KCXRhcmdldFZvbHVtZT0iJHZhbHVlIgoJZWNobyAiRGlzYWJsaW5nIHRoZSBCbHVldG9vdGggZHJpdmVycyBvbiB0YXJnZXQgdm9sdW1lICR0YXJnZXRWb2x1bWUuLi4iCglpZiBbIC1kICIkdGFyZ2V0Vm9sdW1lL0xpYnJhcnkvQXBwbGljYXRpb24gU3VwcG9ydC9KQU1GL0Rpc2FibGVkRXh0ZW5zaW9ucy8iIF0KCXRoZW4KCQkvYmluL212ICIkdGFyZ2V0Vm9sdW1lL1N5c3RlbS9MaWJyYXJ5L0V4dGVuc2lvbnMvSU9CbHVldG9vdGgiKiAiJHRhcmdldFZvbHVtZS9MaWJyYXJ5L0FwcGxpY2F0aW9uIFN1cHBvcnQvSkFNRi9EaXNhYmxlZEV4dGVuc2lvbnMvIgoJZWxzZQoJCS9iaW4vbWtkaXIgLXAgIiR0YXJnZXRWb2x1bWUvTGlicmFyeS9BcHBsaWNhdGlvbiBTdXBwb3J0L0pBTUYvRGlzYWJsZWRFeHRlbnNpb25zLyIKCQkvYmluL212ICIkdGFyZ2V0Vm9sdW1lL1N5c3RlbS9MaWJyYXJ5L0V4dGVuc2lvbnMvSU9CbHVldG9vdGgiKiAiJHRhcmdldFZvbHVtZS9MaWJyYXJ5L0FwcGxpY2F0aW9uIFN1cHBvcnQvSkFNRi9EaXNhYmxlZEV4dGVuc2lvbnMvIgoJZmkKZWxpZiBbICIkcmVmIiAtZ2UgMTEgXQp0aGVuCglrZXh0aWQ9IiR2YWx1ZSIKCWlmIFsgIiRrZXh0aWQiID0gIiIgXQoJdGhlbgoJCWJyb2FkY29ta2V4dGlkPSQoL3Vzci9zYmluL2tleHRzdGF0IC1sIHwgL3Vzci9iaW4vYXdrICcvQnJvYWRjb20ve3ByaW50ICQ2fScpCgkJL3NiaW4va2V4dHVubG9hZCAtYiAiJGJyb2FkY29ta2V4dGlkIgoJZWxzZQoJCT4mMiAvYmluL2VjaG8gJCdcbmVycm9yOiBCcm9hZGNvbSBCbHVldG9vdGgga2VybmVsIGV4dGVuc2lvbiB3YXMgbm90IGZvdW5kLlxuJwoJZmkKCWlmIFsgIiRrZXh0aWQiICE9ICIiIF0KCXRoZW4KCQkvc2Jpbi9rZXh0dW5sb2FkIC1iICIka2V4dGlkIgoJZmkKZmk=</script_contents_encoded>
+</script>

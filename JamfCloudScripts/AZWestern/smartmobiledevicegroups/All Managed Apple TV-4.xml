@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>4</id>
+    <name>All Managed Apple TV</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Model Identifier</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>like</search_type>
+            <value>AppleTV</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>1</size>
+        <mobile_device>
+            <id>212</id>
+            <name>ATV - C07Q2ZY9G9RM</name>
+            <mac_address>D0:03:4B:27:99:42</mac_address>
+            <udid>bd69eecce04760322790657d44a55ceb8e4b9d9d</udid>
+            <wifi_mac_address>D0:03:4B:27:99:42</wifi_mac_address>
+            <serial_number>C07Q2ZY9G9RM</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

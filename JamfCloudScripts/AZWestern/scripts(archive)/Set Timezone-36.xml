@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>36</id>
+    <name>Set Timezone</name>
+    <category>Utilities</category>
+    <filename>Set Timezone</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters>
+        <parameter4>timezone</parameter4>
+    </parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+####################################################################################################
+#
+# Copyright (c) 2010, JAMF Software, LLC.  All rights reserved.
+#
+#       Redistribution and use in source and binary forms, with or without
+#       modification, are permitted provided that the following conditions are met:
+#               * Redistributions of source code must retain the above copyright
+#                 notice, this list of conditions and the following disclaimer.
+#               * Redistributions in binary form must reproduce the above copyright
+#                 notice, this list of conditions and the following disclaimer in the
+#                 documentation and/or other materials provided with the distribution.
+#               * Neither the name of the JAMF Software, LLC nor the
+#                 names of its contributors may be used to endorse or promote products
+#                 derived from this software without specific prior written permission.
+#
+#       THIS SOFTWARE IS PROVIDED BY JAMF SOFTWARE, LLC "AS IS" AND ANY
+#       EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+#       WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+#       DISCLAIMED. IN NO EVENT SHALL JAMF SOFTWARE, LLC BE LIABLE FOR ANY
+#       DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+#       (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+#       LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+#       ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+#       (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+#       SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+####################################################################################################
+#
+# SUPPORT FOR THIS PROGRAM
+#
+#       This program is distributed "as is" by JAMF Software, LLC's Resource Kit team. For more
+#       information or support for the Resource Kit, please utilize the following resources:
+#
+#               http://list.jamfsoftware.com/mailman/listinfo/resourcekit
+#
+#               http://www.jamfsoftware.com/support/resource-kit
+#
+#       Please reference our SLA for information regarding support of this application:
+#
+#               http://www.jamfsoftware.com/support/resource-kit-sla
+#
+####################################################################################################
+#
+# ABOUT THIS PROGRAM
+#
+# NAME
+#	setTimeZone.sh -- Set the time zone
+#
+# SYNOPSIS
+#	sudo setTimeZone.sh
+#	sudo setTimeZone.sh &lt;mountPoint&gt; &lt;computerName&gt; &lt;currentUsername&gt; &lt;timeZone&gt;
+#
+# 	If the $timeZone parameter is specified (parameter 4), this is the time sone that will be set.
+#
+# 	If no parameter is specified for parameter 4, the hardcoded value in the script will be used.
+#
+# DESCRIPTION
+#	This script sets the system time zone as reflected in the Date &amp; Time preference pane with the
+#	System Preferences application.  It has been designed to work on Mac OS X 10.3 and higher.
+#
+#	A list of supported time zone entries can be found by running the command:
+#
+#		For Mac OS X 10.5 or later:
+#
+#			/usr/sbin/systemsetup -listtimezones
+#
+#		For Mac OS X 10.4 or earlier:
+#
+#			/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Support/systemsetup -listtimezones
+#
+#	The system time zone will be set according to the value specified in the paramter $timeZone.
+#	It can be used with a hardcoded value in the script, or read in as a parameter.  Since the
+#	Casper Suite defines the first three parameters as (1) Mount Point, (2) Computer Name and
+#	(3) username, we are using the forth parameter ($4) as the passable parameter.  If no parameter
+#	is passed, then the hardcoded value will be used.
+#
+####################################################################################################
+#
+# HISTORY
+#
+#	Version: 1.0
+#
+#	- Created by Nick Amundsen on August 5th, 2008
+#
+#	Version: 2.0
+#
+#	- Updated by Brock Walters October 28 2014
+#
+####################################################################################################
+#
+# DEFINE VARIABLES &amp; READ IN PARAMETERS
+#
+####################################################################################################
+#
+# A HARDCODED VALUE FOR "timeZone" CAN BE SET BELOW.
+#
+# A list of accepted time zone values can be generated using the following command in Terminal:
+#
+#		sudo systemsetup -listtimezones
+#
+# Delete the double quotes and replace with the desired time zone name, e.g. timeZone=Pacific/Honolulu
+# If this script is to be deployed via policy using the JSS leave the next line as is.
+#
+####################################################################################################
+
+timeZone=""
+
+####################################################################################################
+#
+# SCRIPT CONTENTS - DO NOT MODIFY BELOW THIS LINE
+#
+####################################################################################################
+
+# CHECK TO SEE IF A VALUE WAS PASSED IN PARAMETER 4 AND, IF SO, ASSIGN TO "timeZone"
+
+if [ "$4" != "" ] &amp;&amp; [ "$timeZone" == "" ]
+then
+    timeZone=$4
+fi
+
+osx=$(/usr/bin/defaults read /System/Library/CoreServices/SystemVersion ProductVersion)
+maj=$(/usr/bin/defaults read /System/Library/CoreServices/SystemVersion ProductVersion | awk '{print substr($1,1,2)}')
+ref=$(/usr/bin/defaults read /System/Library/CoreServices/SystemVersion ProductVersion | awk '{print substr($1,4,2)}')
+
+if [ $maj -gt 10 ]
+then
+	echo
+	echo "Check OS string format &amp; OS X systemsetup utility for script compatibility with OS X version $osx"
+	echo
+	exit
+fi
+
+if [ "$timeZone" != "" ]
+then
+	if [ $ref -lt 5 ]
+	then
+		echo
+		echo "Setting time zone for OS X $osx..."
+		/System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Support/systemsetup -settimezone "$timeZone"
+		/usr/bin/killall SystemUIServer
+		echo "Refreshing the clock in the Menu Bar..."
+		echo
+	else
+		echo
+		echo "Setting time zone for OS X $osx..."
+		/usr/sbin/systemsetup -settimezone "$timeZone"
+		/usr/bin/killall SystemUIServer
+		echo "Refreshing the clock in the Menu Bar..."
+		echo
+	fi
+else
+	echo
+	echo "Error: The timeZone variable is not populated. Press the return key "
+	echo "to generate a list of valid time zones. Select &amp; copy the desired "
+	echo "time zone from the list &amp; paste into the script on the line reading "
+	echo
+	echo "	timeZone=\"\" "
+	echo
+	read -p ""
+   /usr/sbin/systemsetup listtimezones
+   exit
+fi</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIwojIENvcHlyaWdodCAoYykgMjAxMCwgSkFNRiBTb2Z0d2FyZSwgTExDLiAgQWxsIHJpZ2h0cyByZXNlcnZlZC4KIwojICAgICAgIFJlZGlzdHJpYnV0aW9uIGFuZCB1c2UgaW4gc291cmNlIGFuZCBiaW5hcnkgZm9ybXMsIHdpdGggb3Igd2l0aG91dAojICAgICAgIG1vZGlmaWNhdGlvbiwgYXJlIHBlcm1pdHRlZCBwcm92aWRlZCB0aGF0IHRoZSBmb2xsb3dpbmcgY29uZGl0aW9ucyBhcmUgbWV0OgojICAgICAgICAgICAgICAgKiBSZWRpc3RyaWJ1dGlvbnMgb2Ygc291cmNlIGNvZGUgbXVzdCByZXRhaW4gdGhlIGFib3ZlIGNvcHlyaWdodAojICAgICAgICAgICAgICAgICBub3RpY2UsIHRoaXMgbGlzdCBvZiBjb25kaXRpb25zIGFuZCB0aGUgZm9sbG93aW5nIGRpc2NsYWltZXIuCiMgICAgICAgICAgICAgICAqIFJlZGlzdHJpYnV0aW9ucyBpbiBiaW5hcnkgZm9ybSBtdXN0IHJlcHJvZHVjZSB0aGUgYWJvdmUgY29weXJpZ2h0CiMgICAgICAgICAgICAgICAgIG5vdGljZSwgdGhpcyBsaXN0IG9mIGNvbmRpdGlvbnMgYW5kIHRoZSBmb2xsb3dpbmcgZGlzY2xhaW1lciBpbiB0aGUKIyAgICAgICAgICAgICAgICAgZG9jdW1lbnRhdGlvbiBhbmQvb3Igb3RoZXIgbWF0ZXJpYWxzIHByb3ZpZGVkIHdpdGggdGhlIGRpc3RyaWJ1dGlvbi4KIyAgICAgICAgICAgICAgICogTmVpdGhlciB0aGUgbmFtZSBvZiB0aGUgSkFNRiBTb2Z0d2FyZSwgTExDIG5vciB0aGUKIyAgICAgICAgICAgICAgICAgbmFtZXMgb2YgaXRzIGNvbnRyaWJ1dG9ycyBtYXkgYmUgdXNlZCB0byBlbmRvcnNlIG9yIHByb21vdGUgcHJvZHVjdHMKIyAgICAgICAgICAgICAgICAgZGVyaXZlZCBmcm9tIHRoaXMgc29mdHdhcmUgd2l0aG91dCBzcGVjaWZpYyBwcmlvciB3cml0dGVuIHBlcm1pc3Npb24uCiMKIyAgICAgICBUSElTIFNPRlRXQVJFIElTIFBST1ZJREVEIEJZIEpBTUYgU09GVFdBUkUsIExMQyAiQVMgSVMiIEFORCBBTlkKIyAgICAgICBFWFBSRVNTIE9SIElNUExJRUQgV0FSUkFOVElFUywgSU5DTFVESU5HLCBCVVQgTk9UIExJTUlURUQgVE8sIFRIRSBJTVBMSUVECiMgICAgICAgV0FSUkFOVElFUyBPRiBNRVJDSEFOVEFCSUxJVFkgQU5EIEZJVE5FU1MgRk9SIEEgUEFSVElDVUxBUiBQVVJQT1NFIEFSRQojICAgICAgIERJU0NMQUlNRUQuIElOIE5PIEVWRU5UIFNIQUxMIEpBTUYgU09GVFdBUkUsIExMQyBCRSBMSUFCTEUgRk9SIEFOWQojICAgICAgIERJUkVDVCwgSU5ESVJFQ1QsIElOQ0lERU5UQUwsIFNQRUNJQUwsIEVYRU1QTEFSWSwgT1IgQ09OU0VRVUVOVElBTCBEQU1BR0VTCiMgICAgICAgKElOQ0xVRElORywgQlVUIE5PVCBMSU1JVEVEIFRPLCBQUk9DVVJFTUVOVCBPRiBTVUJTVElUVVRFIEdPT0RTIE9SIFNFUlZJQ0VTOwojICAgICAgIExPU1MgT0YgVVNFLCBEQVRBLCBPUiBQUk9GSVRTOyBPUiBCVVNJTkVTUyBJTlRFUlJVUFRJT04pIEhPV0VWRVIgQ0FVU0VEIEFORAojICAgICAgIE9OIEFOWSBUSEVPUlkgT0YgTElBQklMSVRZLCBXSEVUSEVSIElOIENPTlRSQUNULCBTVFJJQ1QgTElBQklMSVRZLCBPUiBUT1JUCiMgICAgICAgKElOQ0xVRElORyBORUdMSUdFTkNFIE9SIE9USEVSV0lTRSkgQVJJU0lORyBJTiBBTlkgV0FZIE9VVCBPRiBUSEUgVVNFIE9GIFRISVMKIyAgICAgICBTT0ZUV0FSRSwgRVZFTiBJRiBBRFZJU0VEIE9GIFRIRSBQT1NTSUJJTElUWSBPRiBTVUNIIERBTUFHRS4KIwojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIyBTVVBQT1JUIEZPUiBUSElTIFBST0dSQU0KIwojICAgICAgIFRoaXMgcHJvZ3JhbSBpcyBkaXN0cmlidXRlZCAiYXMgaXMiIGJ5IEpBTUYgU29mdHdhcmUsIExMQydzIFJlc291cmNlIEtpdCB0ZWFtLiBGb3IgbW9yZQojICAgICAgIGluZm9ybWF0aW9uIG9yIHN1cHBvcnQgZm9yIHRoZSBSZXNvdXJjZSBLaXQsIHBsZWFzZSB1dGlsaXplIHRoZSBmb2xsb3dpbmcgcmVzb3VyY2VzOgojCiMgICAgICAgICAgICAgICBodHRwOi8vbGlzdC5qYW1mc29mdHdhcmUuY29tL21haWxtYW4vbGlzdGluZm8vcmVzb3VyY2VraXQKIwojICAgICAgICAgICAgICAgaHR0cDovL3d3dy5qYW1mc29mdHdhcmUuY29tL3N1cHBvcnQvcmVzb3VyY2Uta2l0CiMKIyAgICAgICBQbGVhc2UgcmVmZXJlbmNlIG91ciBTTEEgZm9yIGluZm9ybWF0aW9uIHJlZ2FyZGluZyBzdXBwb3J0IG9mIHRoaXMgYXBwbGljYXRpb246CiMKIyAgICAgICAgICAgICAgIGh0dHA6Ly93d3cuamFtZnNvZnR3YXJlLmNvbS9zdXBwb3J0L3Jlc291cmNlLWtpdC1zbGEKIwojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIyBBQk9VVCBUSElTIFBST0dSQU0KIwojIE5BTUUKIwlzZXRUaW1lWm9uZS5zaCAtLSBTZXQgdGhlIHRpbWUgem9uZQojCiMgU1lOT1BTSVMKIwlzdWRvIHNldFRpbWVab25lLnNoCiMJc3VkbyBzZXRUaW1lWm9uZS5zaCA8bW91bnRQb2ludD4gPGNvbXB1dGVyTmFtZT4gPGN1cnJlbnRVc2VybmFtZT4gPHRpbWVab25lPgojCiMgCUlmIHRoZSAkdGltZVpvbmUgcGFyYW1ldGVyIGlzIHNwZWNpZmllZCAocGFyYW1ldGVyIDQpLCB0aGlzIGlzIHRoZSB0aW1lIHNvbmUgdGhhdCB3aWxsIGJlIHNldC4KIwojIAlJZiBubyBwYXJhbWV0ZXIgaXMgc3BlY2lmaWVkIGZvciBwYXJhbWV0ZXIgNCwgdGhlIGhhcmRjb2RlZCB2YWx1ZSBpbiB0aGUgc2NyaXB0IHdpbGwgYmUgdXNlZC4KIwojIERFU0NSSVBUSU9OCiMJVGhpcyBzY3JpcHQgc2V0cyB0aGUgc3lzdGVtIHRpbWUgem9uZSBhcyByZWZsZWN0ZWQgaW4gdGhlIERhdGUgJiBUaW1lIHByZWZlcmVuY2UgcGFuZSB3aXRoIHRoZQojCVN5c3RlbSBQcmVmZXJlbmNlcyBhcHBsaWNhdGlvbi4gIEl0IGhhcyBiZWVuIGRlc2lnbmVkIHRvIHdvcmsgb24gTWFjIE9TIFggMTAuMyBhbmQgaGlnaGVyLgojCiMJQSBsaXN0IG9mIHN1cHBvcnRlZCB0aW1lIHpvbmUgZW50cmllcyBjYW4gYmUgZm91bmQgYnkgcnVubmluZyB0aGUgY29tbWFuZDoKIwojCQlGb3IgTWFjIE9TIFggMTAuNSBvciBsYXRlcjoKIwojCQkJL3Vzci9zYmluL3N5c3RlbXNldHVwIC1saXN0dGltZXpvbmVzCiMKIwkJRm9yIE1hYyBPUyBYIDEwLjQgb3IgZWFybGllcjoKIwojCQkJL1N5c3RlbS9MaWJyYXJ5L0NvcmVTZXJ2aWNlcy9SZW1vdGVNYW5hZ2VtZW50L0FSREFnZW50LmFwcC9Db250ZW50cy9TdXBwb3J0L3N5c3RlbXNldHVwIC1saXN0dGltZXpvbmVzCiMKIwlUaGUgc3lzdGVtIHRpbWUgem9uZSB3aWxsIGJlIHNldCBhY2NvcmRpbmcgdG8gdGhlIHZhbHVlIHNwZWNpZmllZCBpbiB0aGUgcGFyYW10ZXIgJHRpbWVab25lLgojCUl0IGNhbiBiZSB1c2VkIHdpdGggYSBoYXJkY29kZWQgdmFsdWUgaW4gdGhlIHNjcmlwdCwgb3IgcmVhZCBpbiBhcyBhIHBhcmFtZXRlci4gIFNpbmNlIHRoZQojCUNhc3BlciBTdWl0ZSBkZWZpbmVzIHRoZSBmaXJzdCB0aHJlZSBwYXJhbWV0ZXJzIGFzICgxKSBNb3VudCBQb2ludCwgKDIpIENvbXB1dGVyIE5hbWUgYW5kCiMJKDMpIHVzZXJuYW1lLCB3ZSBhcmUgdXNpbmcgdGhlIGZvcnRoIHBhcmFtZXRlciAoJDQpIGFzIHRoZSBwYXNzYWJsZSBwYXJhbWV0ZXIuICBJZiBubyBwYXJhbWV0ZXIKIwlpcyBwYXNzZWQsIHRoZW4gdGhlIGhhcmRjb2RlZCB2YWx1ZSB3aWxsIGJlIHVzZWQuCiMKIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIwojCiMgSElTVE9SWQojCiMJVmVyc2lvbjogMS4wCiMKIwktIENyZWF0ZWQgYnkgTmljayBBbXVuZHNlbiBvbiBBdWd1c3QgNXRoLCAyMDA4CiMKIwlWZXJzaW9uOiAyLjAKIwojCS0gVXBkYXRlZCBieSBCcm9jayBXYWx0ZXJzIE9jdG9iZXIgMjggMjAxNAojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKIwojIERFRklORSBWQVJJQUJMRVMgJiBSRUFEIElOIFBBUkFNRVRFUlMKIwojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIyBBIEhBUkRDT0RFRCBWQUxVRSBGT1IgInRpbWVab25lIiBDQU4gQkUgU0VUIEJFTE9XLgojCiMgQSBsaXN0IG9mIGFjY2VwdGVkIHRpbWUgem9uZSB2YWx1ZXMgY2FuIGJlIGdlbmVyYXRlZCB1c2luZyB0aGUgZm9sbG93aW5nIGNvbW1hbmQgaW4gVGVybWluYWw6CiMKIwkJc3VkbyBzeXN0ZW1zZXR1cCAtbGlzdHRpbWV6b25lcwojCiMgRGVsZXRlIHRoZSBkb3VibGUgcXVvdGVzIGFuZCByZXBsYWNlIHdpdGggdGhlIGRlc2lyZWQgdGltZSB6b25lIG5hbWUsIGUuZy4gdGltZVpvbmU9UGFjaWZpYy9Ib25vbHVsdQojIElmIHRoaXMgc2NyaXB0IGlzIHRvIGJlIGRlcGxveWVkIHZpYSBwb2xpY3kgdXNpbmcgdGhlIEpTUyBsZWF2ZSB0aGUgbmV4dCBsaW5lIGFzIGlzLgojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCnRpbWVab25lPSIiCgojIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCiMKIyBTQ1JJUFQgQ09OVEVOVFMgLSBETyBOT1QgTU9ESUZZIEJFTE9XIFRISVMgTElORQojCiMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKCiMgQ0hFQ0sgVE8gU0VFIElGIEEgVkFMVUUgV0FTIFBBU1NFRCBJTiBQQVJBTUVURVIgNCBBTkQsIElGIFNPLCBBU1NJR04gVE8gInRpbWVab25lIgoKaWYgWyAiJDQiICE9ICIiIF0gJiYgWyAiJHRpbWVab25lIiA9PSAiIiBdCnRoZW4KICAgIHRpbWVab25lPSQ0CmZpCgpvc3g9JCgvdXNyL2Jpbi9kZWZhdWx0cyByZWFkIC9TeXN0ZW0vTGlicmFyeS9Db3JlU2VydmljZXMvU3lzdGVtVmVyc2lvbiBQcm9kdWN0VmVyc2lvbikKbWFqPSQoL3Vzci9iaW4vZGVmYXVsdHMgcmVhZCAvU3lzdGVtL0xpYnJhcnkvQ29yZVNlcnZpY2VzL1N5c3RlbVZlcnNpb24gUHJvZHVjdFZlcnNpb24gfCBhd2sgJ3twcmludCBzdWJzdHIoJDEsMSwyKX0nKQpyZWY9JCgvdXNyL2Jpbi9kZWZhdWx0cyByZWFkIC9TeXN0ZW0vTGlicmFyeS9Db3JlU2VydmljZXMvU3lzdGVtVmVyc2lvbiBQcm9kdWN0VmVyc2lvbiB8IGF3ayAne3ByaW50IHN1YnN0cigkMSw0LDIpfScpCgppZiBbICRtYWogLWd0IDEwIF0KdGhlbgoJZWNobwoJZWNobyAiQ2hlY2sgT1Mgc3RyaW5nIGZvcm1hdCAmIE9TIFggc3lzdGVtc2V0dXAgdXRpbGl0eSBmb3Igc2NyaXB0IGNvbXBhdGliaWxpdHkgd2l0aCBPUyBYIHZlcnNpb24gJG9zeCIKCWVjaG8KCWV4aXQKZmkKCmlmIFsgIiR0aW1lWm9uZSIgIT0gIiIgXQp0aGVuCglpZiBbICRyZWYgLWx0IDUgXQoJdGhlbgoJCWVjaG8KCQllY2hvICJTZXR0aW5nIHRpbWUgem9uZSBmb3IgT1MgWCAkb3N4Li4uIgoJCS9TeXN0ZW0vTGlicmFyeS9Db3JlU2VydmljZXMvUmVtb3RlTWFuYWdlbWVudC9BUkRBZ2VudC5hcHAvQ29udGVudHMvU3VwcG9ydC9zeXN0ZW1zZXR1cCAtc2V0dGltZXpvbmUgIiR0aW1lWm9uZSIKCQkvdXNyL2Jpbi9raWxsYWxsIFN5c3RlbVVJU2VydmVyCgkJZWNobyAiUmVmcmVzaGluZyB0aGUgY2xvY2sgaW4gdGhlIE1lbnUgQmFyLi4uIgoJCWVjaG8KCWVsc2UKCQllY2hvCgkJZWNobyAiU2V0dGluZyB0aW1lIHpvbmUgZm9yIE9TIFggJG9zeC4uLiIKCQkvdXNyL3NiaW4vc3lzdGVtc2V0dXAgLXNldHRpbWV6b25lICIkdGltZVpvbmUiCgkJL3Vzci9iaW4va2lsbGFsbCBTeXN0ZW1VSVNlcnZlcgoJCWVjaG8gIlJlZnJlc2hpbmcgdGhlIGNsb2NrIGluIHRoZSBNZW51IEJhci4uLiIKCQllY2hvCglmaQplbHNlCgllY2hvCgllY2hvICJFcnJvcjogVGhlIHRpbWVab25lIHZhcmlhYmxlIGlzIG5vdCBwb3B1bGF0ZWQuIFByZXNzIHRoZSByZXR1cm4ga2V5ICIKCWVjaG8gInRvIGdlbmVyYXRlIGEgbGlzdCBvZiB2YWxpZCB0aW1lIHpvbmVzLiBTZWxlY3QgJiBjb3B5IHRoZSBkZXNpcmVkICIKCWVjaG8gInRpbWUgem9uZSBmcm9tIHRoZSBsaXN0ICYgcGFzdGUgaW50byB0aGUgc2NyaXB0IG9uIHRoZSBsaW5lIHJlYWRpbmcgIgoJZWNobwoJZWNobyAiCXRpbWVab25lPVwiXCIgIgoJZWNobwoJcmVhZCAtcCAiIgogICAvdXNyL3NiaW4vc3lzdGVtc2V0dXAgbGlzdHRpbWV6b25lcwogICBleGl0CmZp</script_contents_encoded>
+</script>

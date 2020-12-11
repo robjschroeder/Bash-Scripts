@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>43</id>
+    <name>OS - Move Old Files</name>
+    <category>No category assigned</category>
+    <filename>OS - Move Old Files</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+user=$4
+
+loggedInUser=$( ls -l /dev/console | awk '{print $3}' )
+
+userName=$(ls -la /dev/console | cut -d " " -f 4)
+
+user_entry=""
+
+validateResponce() {
+    case "$user_entry" in
+        "noinput" ) echo "empty input" &amp; askInput ;;
+        "cancelled" ) echo "time out/cancelled" &amp; exit 1 ;;
+        * ) echo "$user_entry"  ;;
+    esac
+}
+
+askInput() {
+user_entry=$(sudo -u "$userName" osascript &lt;&lt;EOF
+use AppleScript version "2.4" -- Yosemite (10.10) or later
+use scripting additions
+set theTextReturned to "nil"
+tell application "System Events"
+activate
+try
+set theResponse to display dialog "Please enter your old username" with title "Moving Old Files..." default answer ""
+set theTextReturned to the text returned of theResponse
+end try
+if theTextReturned is "nil" then
+return "cancelled"
+else if theTextReturned is "" then
+return "noinput"
+else
+return theTextReturned
+end if
+end tell
+EOF
+)
+validateResponce "$user_entry"
+}
+
+askInput "$userName"
+
+mv /Users/$user_entry/Desktop/* /Users/$loggedInUser/Desktop/
+mv /Users/$user_entry/Documents/* /Users/$loggedInUser/Documents/
+mv /Users/$user_entry/Downloads/* /Users/$loggedInUser/Downloads/
+mv /Users/$user_entry/Movies/* /Users/$loggedInUser/Movies/
+mv /Users/$user_entry/Music/* /Users/$loggedInUser/Music/
+mv /Users/$user_entry/Pictures/* /Users/$loggedInUser/Pictures/
+mv /Users/$user_entry/Public/* /Users/$loggedInUser/Public/
+
+exit 0
+
+done</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCnVzZXI9JDQKCmxvZ2dlZEluVXNlcj0kKCBscyAtbCAvZGV2L2NvbnNvbGUgfCBhd2sgJ3twcmludCAkM30nICkKCnVzZXJOYW1lPSQobHMgLWxhIC9kZXYvY29uc29sZSB8IGN1dCAtZCAiICIgLWYgNCkKCnVzZXJfZW50cnk9IiIKCnZhbGlkYXRlUmVzcG9uY2UoKSB7CiAgICBjYXNlICIkdXNlcl9lbnRyeSIgaW4KICAgICAgICAibm9pbnB1dCIgKSBlY2hvICJlbXB0eSBpbnB1dCIgJiBhc2tJbnB1dCA7OwogICAgICAgICJjYW5jZWxsZWQiICkgZWNobyAidGltZSBvdXQvY2FuY2VsbGVkIiAmIGV4aXQgMSA7OwogICAgICAgICogKSBlY2hvICIkdXNlcl9lbnRyeSIgIDs7CiAgICBlc2FjCn0KCmFza0lucHV0KCkgewp1c2VyX2VudHJ5PSQoc3VkbyAtdSAiJHVzZXJOYW1lIiBvc2FzY3JpcHQgPDxFT0YKdXNlIEFwcGxlU2NyaXB0IHZlcnNpb24gIjIuNCIgLS0gWW9zZW1pdGUgKDEwLjEwKSBvciBsYXRlcgp1c2Ugc2NyaXB0aW5nIGFkZGl0aW9ucwpzZXQgdGhlVGV4dFJldHVybmVkIHRvICJuaWwiCnRlbGwgYXBwbGljYXRpb24gIlN5c3RlbSBFdmVudHMiCmFjdGl2YXRlCnRyeQpzZXQgdGhlUmVzcG9uc2UgdG8gZGlzcGxheSBkaWFsb2cgIlBsZWFzZSBlbnRlciB5b3VyIG9sZCB1c2VybmFtZSIgd2l0aCB0aXRsZSAiTW92aW5nIE9sZCBGaWxlcy4uLiIgZGVmYXVsdCBhbnN3ZXIgIiIKc2V0IHRoZVRleHRSZXR1cm5lZCB0byB0aGUgdGV4dCByZXR1cm5lZCBvZiB0aGVSZXNwb25zZQplbmQgdHJ5CmlmIHRoZVRleHRSZXR1cm5lZCBpcyAibmlsIiB0aGVuCnJldHVybiAiY2FuY2VsbGVkIgplbHNlIGlmIHRoZVRleHRSZXR1cm5lZCBpcyAiIiB0aGVuCnJldHVybiAibm9pbnB1dCIKZWxzZQpyZXR1cm4gdGhlVGV4dFJldHVybmVkCmVuZCBpZgplbmQgdGVsbApFT0YKKQp2YWxpZGF0ZVJlc3BvbmNlICIkdXNlcl9lbnRyeSIKfQoKYXNrSW5wdXQgIiR1c2VyTmFtZSIKCm12IC9Vc2Vycy8kdXNlcl9lbnRyeS9EZXNrdG9wLyogL1VzZXJzLyRsb2dnZWRJblVzZXIvRGVza3RvcC8KbXYgL1VzZXJzLyR1c2VyX2VudHJ5L0RvY3VtZW50cy8qIC9Vc2Vycy8kbG9nZ2VkSW5Vc2VyL0RvY3VtZW50cy8KbXYgL1VzZXJzLyR1c2VyX2VudHJ5L0Rvd25sb2Fkcy8qIC9Vc2Vycy8kbG9nZ2VkSW5Vc2VyL0Rvd25sb2Fkcy8KbXYgL1VzZXJzLyR1c2VyX2VudHJ5L01vdmllcy8qIC9Vc2Vycy8kbG9nZ2VkSW5Vc2VyL01vdmllcy8KbXYgL1VzZXJzLyR1c2VyX2VudHJ5L011c2ljLyogL1VzZXJzLyRsb2dnZWRJblVzZXIvTXVzaWMvCm12IC9Vc2Vycy8kdXNlcl9lbnRyeS9QaWN0dXJlcy8qIC9Vc2Vycy8kbG9nZ2VkSW5Vc2VyL1BpY3R1cmVzLwptdiAvVXNlcnMvJHVzZXJfZW50cnkvUHVibGljLyogL1VzZXJzLyRsb2dnZWRJblVzZXIvUHVibGljLwoKZXhpdCAwCgpkb25l</script_contents_encoded>
+</script>

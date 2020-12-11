@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>11</id>
+    <name>Inventory - iOS - iOS 10</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>2</size>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>greater than</search_type>
+            <value>10.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>11.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>41</size>
+        <mobile_device>
+            <id>32</id>
+            <name>ES 105 - DMPL96C8F183</name>
+            <mac_address>90:B2:1F:38:AB:EE</mac_address>
+            <udid>af5121c2291e4079b09b6bccd9d98c7c08dc6346</udid>
+            <wifi_mac_address>90:B2:1F:38:AB:EE</wifi_mac_address>
+            <serial_number>DMPL96C8F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>33</id>
+            <name>ES 105 - DMPLC2JCF183</name>
+            <mac_address>90:B2:1F:3C:39:F8</mac_address>
+            <udid>ba730c6f462f7bd50dc145fbf39b30e0f5e10305</udid>
+            <wifi_mac_address>90:B2:1F:3C:39:F8</wifi_mac_address>
+            <serial_number>DMPLC2JCF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>34</id>
+            <name>ES 105 - DMPLC23WF183</name>
+            <mac_address>90:B2:1F:44:CB:1D</mac_address>
+            <udid>26872fa9a538cf198d6c2dc405f26fc967e8888f</udid>
+            <wifi_mac_address>90:B2:1F:44:CB:1D</wifi_mac_address>
+            <serial_number>DMPLC23WF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>35</id>
+            <name>ES 105 - DMPLC2JYF183</name>
+            <mac_address>90:B2:1F:48:6D:BB</mac_address>
+            <udid>270d33b9202e57801389867fdda0bde1bcfa6b84</udid>
+            <wifi_mac_address>90:B2:1F:48:6D:BB</wifi_mac_address>
+            <serial_number>DMPLC2JYF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>36</id>
+            <name>ES 105 - DMPL9CPFF183</name>
+            <mac_address>90:B2:1F:3A:BF:E7</mac_address>
+            <udid>af4fc0e49c6e06cd85184241b62de480cb183874</udid>
+            <wifi_mac_address>90:B2:1F:3A:BF:E7</wifi_mac_address>
+            <serial_number>DMPL9CPFF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>37</id>
+            <name>ES 105 - DMPLC230F183</name>
+            <mac_address>90:B2:1F:48:34:CE</mac_address>
+            <udid>9530e708f780761b6193483f060ebe35a6d4e708</udid>
+            <wifi_mac_address>90:B2:1F:48:34:CE</wifi_mac_address>
+            <serial_number>DMPLC230F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>38</id>
+            <name>ES 105 - DMPLC1F3F183</name>
+            <mac_address>90:B2:1F:45:FF:39</mac_address>
+            <udid>7697ea61935c6532539b3b487c30d1e4d94a6047</udid>
+            <wifi_mac_address>90:B2:1F:45:FF:39</wifi_mac_address>
+            <serial_number>DMPLC1F3F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>39</id>
+            <name>ES 105 - DMPLC1V3F183</name>
+            <mac_address>90:B2:1F:48:59:8A</mac_address>
+            <udid>9618309eed76ffb383855eafbfbaab12ca7b2190</udid>
+            <wifi_mac_address>90:B2:1F:48:59:8A</wifi_mac_address>
+            <serial_number>DMPLC1V3F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>40</id>
+            <name>ES 105 - DMPLC0YXF183</name>
+            <mac_address>90:B2:1F:48:1E:E9</mac_address>
+            <udid>30161289eb42e5838dd78cec1a2e17cd5857ae6c</udid>
+            <wifi_mac_address>90:B2:1F:48:1E:E9</wifi_mac_address>
+            <serial_number>DMPLC0YXF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>41</id>
+            <name>ES 105 - DMPLC1BBF183</name>
+            <mac_address>90:B2:1F:48:7D:D1</mac_address>
+            <udid>724403cd3ada6e9089855789ac6dcad1a84fb8eb</udid>
+            <wifi_mac_address>90:B2:1F:48:7D:D1</wifi_mac_address>
+            <serial_number>DMPLC1BBF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>42</id>
+            <name>ES 105 - DMPL98G3F183</name>
+            <mac_address>90:B2:1F:41:F8:26</mac_address>
+            <udid>ab71a70409030a27bfdbb080b86e80cf598fadc4</udid>
+            <wifi_mac_address>90:B2:1F:41:F8:26</wifi_mac_address>
+            <serial_number>DMPL98G3F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>43</id>
+            <name>ES 105 - DMPL8ECMF183</name>
+            <mac_address>90:B2:1F:3E:7C:B1</mac_address>
+            <udid>b848fa89bef158bd190ed95b20fed91a3c4a4692</udid>
+            <wifi_mac_address>90:B2:1F:3E:7C:B1</wifi_mac_address>
+            <serial_number>DMPL8ECMF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>44</id>
+            <name>ES 105 - DMPLC1SFF183</name>
+            <mac_address>90:B2:1F:48:66:F1</mac_address>
+            <udid>3f9df1c2d2fceabcd84e5ff094c60277b9fc9af2</udid>
+            <wifi_mac_address>90:B2:1F:48:66:F1</wifi_mac_address>
+            <serial_number>DMPLC1SFF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>45</id>
+            <name>ES 105 - DMPLC1VNF183</name>
+            <mac_address>90:B2:1F:48:9D:A2</mac_address>
+            <udid>26012a1cee99db21cd188c5f5bc7344b2ee6bea7</udid>
+            <wifi_mac_address>90:B2:1F:48:9D:A2</wifi_mac_address>
+            <serial_number>DMPLC1VNF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>46</id>
+            <name>ES 105 - DMPLC1YJF183</name>
+            <mac_address>90:B2:1F:45:F8:E6</mac_address>
+            <udid>991ae486cb60d3de5b2eb8bb809500ef4b173b6d</udid>
+            <wifi_mac_address>90:B2:1F:45:F8:E6</wifi_mac_address>
+            <serial_number>DMPLC1YJF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>47</id>
+            <name>ES 105 - DMPLC1UFF183</name>
+            <mac_address>90:B2:1F:46:76:0A</mac_address>
+            <udid>d26cf5cba01bbabf7ceea81f18e16bee5bf00d3b</udid>
+            <wifi_mac_address>90:B2:1F:46:76:0A</wifi_mac_address>
+            <serial_number>DMPLC1UFF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>48</id>
+            <name>ES 105 - DMPLC22WF183</name>
+            <mac_address>90:B2:1F:47:14:59</mac_address>
+            <udid>9a8eca3c4faca46d9426c0efd52db429778bd8b2</udid>
+            <wifi_mac_address>90:B2:1F:47:14:59</wifi_mac_address>
+            <serial_number>DMPLC22WF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>49</id>
+            <name>ES 105 - DMPLC23HF183</name>
+            <mac_address>90:B2:1F:35:83:82</mac_address>
+            <udid>80eb54e771cba7bf107101bda8fcf32ef4afeaf1</udid>
+            <wifi_mac_address>90:B2:1F:35:83:82</wifi_mac_address>
+            <serial_number>DMPLC23HF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>50</id>
+            <name>ES 105 - DMPLC245F183</name>
+            <mac_address>90:B2:1F:44:C9:E5</mac_address>
+            <udid>99446f871a9d2468ca26e28c7944ec8ea9bde36c</udid>
+            <wifi_mac_address>90:B2:1F:44:C9:E5</wifi_mac_address>
+            <serial_number>DMPLC245F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>51</id>
+            <name>ES 105 - DMPLC24RF183</name>
+            <mac_address>90:B2:1F:3F:C0:F9</mac_address>
+            <udid>829f262f430dcf38f6af8871b362671cb743b8d6</udid>
+            <wifi_mac_address>90:B2:1F:3F:C0:F9</wifi_mac_address>
+            <serial_number>DMPLC24RF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>52</id>
+            <name>ES 105 - DMPL91LEF183</name>
+            <mac_address>90:B2:1F:41:DF:9D</mac_address>
+            <udid>8c19ff86adb7efc84f2c16ec59259a745ccc6013</udid>
+            <wifi_mac_address>90:B2:1F:41:DF:9D</wifi_mac_address>
+            <serial_number>DMPL91LEF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>53</id>
+            <name>ES 105 - DMPL9DAJF183</name>
+            <mac_address>90:B2:1F:46:77:55</mac_address>
+            <udid>72b50cbfe3c8afbe05f6ff7cf93cbfe8466ab4ca</udid>
+            <wifi_mac_address>90:B2:1F:46:77:55</wifi_mac_address>
+            <serial_number>DMPL9DAJF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>54</id>
+            <name>ES 105 - DMPLC27GF183</name>
+            <mac_address>90:B2:1F:48:44:9A</mac_address>
+            <udid>94ba61c095bf5508a9b331749ed601b3ab81dcbf</udid>
+            <wifi_mac_address>90:B2:1F:48:44:9A</wifi_mac_address>
+            <serial_number>DMPLC27GF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>55</id>
+            <name>ES 105 - DMPLC22FF183</name>
+            <mac_address>90:B2:1F:45:1B:A2</mac_address>
+            <udid>0b854d70d598aff55cb34b0a48169a4d6fb82fa5</udid>
+            <wifi_mac_address>90:B2:1F:45:1B:A2</wifi_mac_address>
+            <serial_number>DMPLC22FF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>56</id>
+            <name>ES 105 - DMPLC2BNF183</name>
+            <mac_address>90:B2:1F:45:B3:C1</mac_address>
+            <udid>2d748524332fc7e9bbfcd9a259710ee792da161a</udid>
+            <wifi_mac_address>90:B2:1F:45:B3:C1</wifi_mac_address>
+            <serial_number>DMPLC2BNF183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>159</id>
+            <name>FS - DMPMM0K3F182</name>
+            <mac_address>E4:98:D6:91:CA:ED</mac_address>
+            <udid>01a665421208c0404b9faefbdfe6fda0781d0776</udid>
+            <wifi_mac_address>E4:98:D6:91:CA:ED</wifi_mac_address>
+            <serial_number>DMPMM0K3F182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>161</id>
+            <name>FS - DMPKC325F18W</name>
+            <mac_address>CC:78:5F:C3:CD:20</mac_address>
+            <udid>c5fedba6564c1f49c96cf5b5b1f42d30a2acc679</udid>
+            <wifi_mac_address>CC:78:5F:C3:CD:20</wifi_mac_address>
+            <serial_number>DMPKC325F18W</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>162</id>
+            <name>FS - DMQJL94AF190</name>
+            <mac_address>E4:8B:7F:D0:E1:CE</mac_address>
+            <udid>bae1dc1b17da4d274f31e53566feb1272bf9d664</udid>
+            <wifi_mac_address>E4:8B:7F:D0:E1:CE</wifi_mac_address>
+            <serial_number>DMQJL94AF190</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>178</id>
+            <name>RADTECH Clinical - DMPN3G5SF185</name>
+            <mac_address>F8:27:93:DE:72:9E</mac_address>
+            <udid>24ae9f5fb94d3a23296dedc5a55df752d18c3f14</udid>
+            <wifi_mac_address>F8:27:93:DE:72:9E</wifi_mac_address>
+            <serial_number>DMPN3G5SF185</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>189</id>
+            <name>FS - DMPKRH28F183</name>
+            <mac_address>04:E5:36:2D:76:5F</mac_address>
+            <udid>78fbe85b4821f78d0ac2a0f91761e8ee8e16ed98</udid>
+            <wifi_mac_address>04:E5:36:2D:76:5F</wifi_mac_address>
+            <serial_number>DMPKRH28F183</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>237</id>
+            <name>LMT - DMPMMZZZF182</name>
+            <mac_address>E4:98:D6:92:CA:1D</mac_address>
+            <udid>36f41e73f301b2e914dc0a83092b5c5724002c28</udid>
+            <wifi_mac_address>E4:98:D6:92:CA:1D</wifi_mac_address>
+            <serial_number>DMPMMZZZF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>238</id>
+            <name>LMT - DMPMLK6VF182</name>
+            <mac_address>E4:98:D6:97:AE:EB</mac_address>
+            <udid>2078747be44c463f1a1441b37c52691aff07dc7e</udid>
+            <wifi_mac_address>E4:98:D6:97:AE:EB</wifi_mac_address>
+            <serial_number>DMPMLK6VF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>239</id>
+            <name>LMT - DMQMM02RF182</name>
+            <mac_address>E4:98:D6:89:11:C3</mac_address>
+            <udid>3a9226d0e126bed2a13a671fb52d941094515e3b</udid>
+            <wifi_mac_address>E4:98:D6:89:11:C3</wifi_mac_address>
+            <serial_number>DMQMM02RF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>240</id>
+            <name>LMT - DMPMLKDAF182</name>
+            <mac_address>E4:98:D6:9A:FE:A2</mac_address>
+            <udid>1c4fe4fc14fa24ca4dc401916e01edd004083743</udid>
+            <wifi_mac_address>E4:98:D6:9A:FE:A2</wifi_mac_address>
+            <serial_number>DMPMLKDAF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>241</id>
+            <name>LMT - DMPMLKTEF182</name>
+            <mac_address>E4:98:D6:96:30:AA</mac_address>
+            <udid>9bdc7b1fd32ac8bd95586dc931a3930a76280cf7</udid>
+            <wifi_mac_address>E4:98:D6:96:30:AA</wifi_mac_address>
+            <serial_number>DMPMLKTEF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>242</id>
+            <name>LMT - DMQML1FEF182</name>
+            <mac_address>E4:98:D6:98:8E:A5</mac_address>
+            <udid>e8bbe706b023081183f14f701f934fb4f1c665b4</udid>
+            <wifi_mac_address>E4:98:D6:98:8E:A5</wifi_mac_address>
+            <serial_number>DMQML1FEF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>243</id>
+            <name>LMT - DMQMM098F182</name>
+            <mac_address>E4:98:D6:89:EA:8F</mac_address>
+            <udid>4932015345309a56b6cadad038d2c1fbb84d1343</udid>
+            <wifi_mac_address>E4:98:D6:89:EA:8F</wifi_mac_address>
+            <serial_number>DMQMM098F182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>244</id>
+            <name>LMT - DMPMLK51F182</name>
+            <mac_address>E4:98:D6:96:94:AF</mac_address>
+            <udid>56a79518467bb4c7c5831168bb886a769b109225</udid>
+            <wifi_mac_address>E4:98:D6:96:94:AF</wifi_mac_address>
+            <serial_number>DMPMLK51F182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>245</id>
+            <name>LMT - DMPMMWYKF182</name>
+            <mac_address>E4:98:D6:92:5A:49</mac_address>
+            <udid>8e87a58a558d4f97653b37cc8565b9cd51178b6e</udid>
+            <wifi_mac_address>E4:98:D6:92:5A:49</wifi_mac_address>
+            <serial_number>DMPMMWYKF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>246</id>
+            <name>LMT - DMQMM08ZF182</name>
+            <mac_address>E4:98:D6:90:50:50</mac_address>
+            <udid>02fa2e5599cca105b283f00615aad5df7a795fec</udid>
+            <wifi_mac_address>E4:98:D6:90:50:50</wifi_mac_address>
+            <serial_number>DMQMM08ZF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>247</id>
+            <name>LMT - DMPMHU6MF182</name>
+            <mac_address>E4:98:D6:9A:FE:1E</mac_address>
+            <udid>a4090bfb9e839fb9a21aab52c2fe179f66d98a20</udid>
+            <wifi_mac_address>E4:98:D6:9A:FE:1E</wifi_mac_address>
+            <serial_number>DMPMHU6MF182</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

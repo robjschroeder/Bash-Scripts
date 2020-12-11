@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>23</id>
+    <name>Faculty Staff - RadTech</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Enrollment Method: PreStage enrollment</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>iOS Enrollment - RadTech Clinical</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>3</size>
+        <mobile_device>
+            <id>158</id>
+            <name>RADTECH Clinical - F9FW2AR5GHKJ</name>
+            <mac_address>34:7C:25:26:86:BA</mac_address>
+            <udid>c872eb858381c62d56a18d781884d9af321b0396</udid>
+            <wifi_mac_address>34:7C:25:26:86:BA</wifi_mac_address>
+            <serial_number>F9FW2AR5GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>178</id>
+            <name>RADTECH Clinical - DMPN3G5SF185</name>
+            <mac_address>F8:27:93:DE:72:9E</mac_address>
+            <udid>24ae9f5fb94d3a23296dedc5a55df752d18c3f14</udid>
+            <wifi_mac_address>F8:27:93:DE:72:9E</wifi_mac_address>
+            <serial_number>DMPN3G5SF185</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>179</id>
+            <name>RADTECH Clinical - F9FW2C5PGHKJ</name>
+            <mac_address>34:7C:25:26:B3:2E</mac_address>
+            <udid>62af4d9202870c06dc8834fbfc233bca205bcf1b</udid>
+            <wifi_mac_address>34:7C:25:26:B3:2E</wifi_mac_address>
+            <serial_number>F9FW2C5PGHKJ</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

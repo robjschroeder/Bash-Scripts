@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>35</id>
+    <name>Inventory - User and Location - Backup User Folder</name>
+    <category>OS</category>
+    <filename>Inventory - User and Location - Backup User Folder</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters>
+        <parameter4>NetID</parameter4>
+        <parameter5>//ns-tsssrv01.adroot.azwestern.edu/dist/pub/NetID...</parameter5>
+    </parameters>
+    <os_requirements></os_requirements>
+    <script_contents>USER="$4"
+PATH="$5"
+
+rsync -uhzrlv "/Users/$USER" $PATH</script_contents>
+    <script_contents_encoded>VVNFUj0iJDQiClBBVEg9IiQ1IgoKcnN5bmMgLXVoenJsdiAiL1VzZXJzLyRVU0VSIiAkUEFUSA==</script_contents_encoded>
+</script>

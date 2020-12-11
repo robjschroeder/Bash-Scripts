@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>27</id>
+    <name>macOS - Download and Reinstall - Catalina</name>
+    <category>macOS</category>
+    <filename>macOS - Download and Reinstall - Catalina</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+softwareUpdate --reset-ignored
+softwareUpdate --fetch-full-installer
+/Applications/Install\ macOS\ Catalina.app/Contents/Resources/startosinstall --eraseinstall --agreetolicense --forcequitapps --newvolumename "MacHD"</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpzb2Z0d2FyZVVwZGF0ZSAtLXJlc2V0LWlnbm9yZWQKc29mdHdhcmVVcGRhdGUgLS1mZXRjaC1mdWxsLWluc3RhbGxlcgovQXBwbGljYXRpb25zL0luc3RhbGxcIG1hY09TXCBDYXRhbGluYS5hcHAvQ29udGVudHMvUmVzb3VyY2VzL3N0YXJ0b3NpbnN0YWxsIC0tZXJhc2VpbnN0YWxsIC0tYWdyZWV0b2xpY2Vuc2UgLS1mb3JjZXF1aXRhcHBzIC0tbmV3dm9sdW1lbmFtZSAiTWFjSEQi</script_contents_encoded>
+</script>

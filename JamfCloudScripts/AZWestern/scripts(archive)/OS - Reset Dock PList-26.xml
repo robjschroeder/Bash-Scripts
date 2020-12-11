@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>26</id>
+    <name>OS - Reset Dock PList</name>
+    <category>macOS</category>
+    <filename>OS - Reset Dock PList</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+currentuser=`stat -f "%Su" /dev/console`
+
+su "$currentuser" -c "defaults delete com.apple.dock"
+sleep 1
+killall Dock
+sleep 4
+</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpjdXJyZW50dXNlcj1gc3RhdCAtZiAiJVN1IiAvZGV2L2NvbnNvbGVgCgpzdSAiJGN1cnJlbnR1c2VyIiAtYyAiZGVmYXVsdHMgZGVsZXRlIGNvbS5hcHBsZS5kb2NrIgpzbGVlcCAxCmtpbGxhbGwgRG9jawpzbGVlcCA0Cg==</script_contents_encoded>
+</script>

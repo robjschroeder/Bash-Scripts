@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>37</id>
+    <name>Classroom - LMT</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>1</size>
+        <criterion>
+            <name>Enrollment Method: PreStage enrollment</name>
+            <priority>0</priority>
+            <and_or>and</and_or>
+            <search_type>is</search_type>
+            <value>iOS Enrollment - Massage Therapy</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>11</size>
+        <mobile_device>
+            <id>237</id>
+            <name>LMT - DMPMMZZZF182</name>
+            <mac_address>E4:98:D6:92:CA:1D</mac_address>
+            <udid>36f41e73f301b2e914dc0a83092b5c5724002c28</udid>
+            <wifi_mac_address>E4:98:D6:92:CA:1D</wifi_mac_address>
+            <serial_number>DMPMMZZZF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>238</id>
+            <name>LMT - DMPMLK6VF182</name>
+            <mac_address>E4:98:D6:97:AE:EB</mac_address>
+            <udid>2078747be44c463f1a1441b37c52691aff07dc7e</udid>
+            <wifi_mac_address>E4:98:D6:97:AE:EB</wifi_mac_address>
+            <serial_number>DMPMLK6VF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>239</id>
+            <name>LMT - DMQMM02RF182</name>
+            <mac_address>E4:98:D6:89:11:C3</mac_address>
+            <udid>3a9226d0e126bed2a13a671fb52d941094515e3b</udid>
+            <wifi_mac_address>E4:98:D6:89:11:C3</wifi_mac_address>
+            <serial_number>DMQMM02RF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>240</id>
+            <name>LMT - DMPMLKDAF182</name>
+            <mac_address>E4:98:D6:9A:FE:A2</mac_address>
+            <udid>1c4fe4fc14fa24ca4dc401916e01edd004083743</udid>
+            <wifi_mac_address>E4:98:D6:9A:FE:A2</wifi_mac_address>
+            <serial_number>DMPMLKDAF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>241</id>
+            <name>LMT - DMPMLKTEF182</name>
+            <mac_address>E4:98:D6:96:30:AA</mac_address>
+            <udid>9bdc7b1fd32ac8bd95586dc931a3930a76280cf7</udid>
+            <wifi_mac_address>E4:98:D6:96:30:AA</wifi_mac_address>
+            <serial_number>DMPMLKTEF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>242</id>
+            <name>LMT - DMQML1FEF182</name>
+            <mac_address>E4:98:D6:98:8E:A5</mac_address>
+            <udid>e8bbe706b023081183f14f701f934fb4f1c665b4</udid>
+            <wifi_mac_address>E4:98:D6:98:8E:A5</wifi_mac_address>
+            <serial_number>DMQML1FEF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>243</id>
+            <name>LMT - DMQMM098F182</name>
+            <mac_address>E4:98:D6:89:EA:8F</mac_address>
+            <udid>4932015345309a56b6cadad038d2c1fbb84d1343</udid>
+            <wifi_mac_address>E4:98:D6:89:EA:8F</wifi_mac_address>
+            <serial_number>DMQMM098F182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>244</id>
+            <name>LMT - DMPMLK51F182</name>
+            <mac_address>E4:98:D6:96:94:AF</mac_address>
+            <udid>56a79518467bb4c7c5831168bb886a769b109225</udid>
+            <wifi_mac_address>E4:98:D6:96:94:AF</wifi_mac_address>
+            <serial_number>DMPMLK51F182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>245</id>
+            <name>LMT - DMPMMWYKF182</name>
+            <mac_address>E4:98:D6:92:5A:49</mac_address>
+            <udid>8e87a58a558d4f97653b37cc8565b9cd51178b6e</udid>
+            <wifi_mac_address>E4:98:D6:92:5A:49</wifi_mac_address>
+            <serial_number>DMPMMWYKF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>246</id>
+            <name>LMT - DMQMM08ZF182</name>
+            <mac_address>E4:98:D6:90:50:50</mac_address>
+            <udid>02fa2e5599cca105b283f00615aad5df7a795fec</udid>
+            <wifi_mac_address>E4:98:D6:90:50:50</wifi_mac_address>
+            <serial_number>DMQMM08ZF182</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>247</id>
+            <name>LMT - DMPMHU6MF182</name>
+            <mac_address>E4:98:D6:9A:FE:1E</mac_address>
+            <udid>a4090bfb9e839fb9a21aab52c2fe179f66d98a20</udid>
+            <wifi_mac_address>E4:98:D6:9A:FE:1E</wifi_mac_address>
+            <serial_number>DMPMHU6MF182</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

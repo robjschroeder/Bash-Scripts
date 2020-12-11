@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>13</id>
+    <name>Applications - Western Voice - Install</name>
+    <category>Applications</category>
+    <filename>Applications - Western Voice - Install</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+# Installs Western Voice App
+# rjs41 3.10.2017
+
+mkdir /Users/Shared/Apple-Deploy
+mount -t smbfs //appledeploy00:deployapple1234@ns-tsssrv01.adroot.azwestern.edu/deploy /Users/Shared/Apple-Deploy/
+cp -R /Users/Shared/Apple-Deploy/Kaseya-Apple/Apps/WesternVoice/Western\ Voice.app /Applications/
+chmod -R 775 /Applications/Western\ Voice.app
+umount /Users/Shared/Apple-Deploy
+rmdir /Users/Shared/Apple-Deploy
+
+# Done</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgojIEluc3RhbGxzIFdlc3Rlcm4gVm9pY2UgQXBwCiMgcmpzNDEgMy4xMC4yMDE3Cgpta2RpciAvVXNlcnMvU2hhcmVkL0FwcGxlLURlcGxveQptb3VudCAtdCBzbWJmcyAvL2FwcGxlZGVwbG95MDA6ZGVwbG95YXBwbGUxMjM0QG5zLXRzc3NydjAxLmFkcm9vdC5hendlc3Rlcm4uZWR1L2RlcGxveSAvVXNlcnMvU2hhcmVkL0FwcGxlLURlcGxveS8KY3AgLVIgL1VzZXJzL1NoYXJlZC9BcHBsZS1EZXBsb3kvS2FzZXlhLUFwcGxlL0FwcHMvV2VzdGVyblZvaWNlL1dlc3Rlcm5cIFZvaWNlLmFwcCAvQXBwbGljYXRpb25zLwpjaG1vZCAtUiA3NzUgL0FwcGxpY2F0aW9ucy9XZXN0ZXJuXCBWb2ljZS5hcHAKdW1vdW50IC9Vc2Vycy9TaGFyZWQvQXBwbGUtRGVwbG95CnJtZGlyIC9Vc2Vycy9TaGFyZWQvQXBwbGUtRGVwbG95CgojIERvbmU=</script_contents_encoded>
+</script>

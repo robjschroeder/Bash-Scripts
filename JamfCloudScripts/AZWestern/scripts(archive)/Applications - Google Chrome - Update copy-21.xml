@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>21</id>
+    <name>Applications - Google Chrome - Update copy</name>
+    <category>Browsers</category>
+    <filename>Applications - Google Chrome - Update copy</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+dmgfile="googlechrome.dmg"
+volname="Google Chrome"
+logfile="/Library/Logs/GoogleChromeInstallScript.log"
+
+url='https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg'
+
+
+/bin/echo "--" &gt;&gt; ${logfile}
+/bin/echo "`date`: Downloading latest version." &gt;&gt; ${logfile}
+/usr/bin/curl -s -o /tmp/${dmgfile} ${url}
+/bin/echo "`date`: Mounting installer disk image." &gt;&gt; ${logfile}
+/usr/bin/hdiutil attach /tmp/${dmgfile} -nobrowse -quiet
+/bin/echo "`date`: Installing..." &gt;&gt; ${logfile}
+ditto -rsrc "/Volumes/${volname}/Google Chrome.app" "/Applications/Google Chrome.app"
+/bin/sleep 10
+/bin/echo "`date`: Unmounting installer disk image." &gt;&gt; ${logfile}
+/usr/bin/hdiutil detach $(/bin/df | /usr/bin/grep "${volname}" | awk '{print $1}') -quiet
+/bin/sleep 10
+/bin/echo "`date`: Deleting disk image." &gt;&gt; ${logfile}
+/bin/rm /tmp/"${dmgfile}"
+
+exit 0</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpkbWdmaWxlPSJnb29nbGVjaHJvbWUuZG1nIgp2b2xuYW1lPSJHb29nbGUgQ2hyb21lIgpsb2dmaWxlPSIvTGlicmFyeS9Mb2dzL0dvb2dsZUNocm9tZUluc3RhbGxTY3JpcHQubG9nIgoKdXJsPSdodHRwczovL2RsLmdvb2dsZS5jb20vY2hyb21lL21hYy9zdGFibGUvR0dSTy9nb29nbGVjaHJvbWUuZG1nJwoKCi9iaW4vZWNobyAiLS0iID4+ICR7bG9nZmlsZX0KL2Jpbi9lY2hvICJgZGF0ZWA6IERvd25sb2FkaW5nIGxhdGVzdCB2ZXJzaW9uLiIgPj4gJHtsb2dmaWxlfQovdXNyL2Jpbi9jdXJsIC1zIC1vIC90bXAvJHtkbWdmaWxlfSAke3VybH0KL2Jpbi9lY2hvICJgZGF0ZWA6IE1vdW50aW5nIGluc3RhbGxlciBkaXNrIGltYWdlLiIgPj4gJHtsb2dmaWxlfQovdXNyL2Jpbi9oZGl1dGlsIGF0dGFjaCAvdG1wLyR7ZG1nZmlsZX0gLW5vYnJvd3NlIC1xdWlldAovYmluL2VjaG8gImBkYXRlYDogSW5zdGFsbGluZy4uLiIgPj4gJHtsb2dmaWxlfQpkaXR0byAtcnNyYyAiL1ZvbHVtZXMvJHt2b2xuYW1lfS9Hb29nbGUgQ2hyb21lLmFwcCIgIi9BcHBsaWNhdGlvbnMvR29vZ2xlIENocm9tZS5hcHAiCi9iaW4vc2xlZXAgMTAKL2Jpbi9lY2hvICJgZGF0ZWA6IFVubW91bnRpbmcgaW5zdGFsbGVyIGRpc2sgaW1hZ2UuIiA+PiAke2xvZ2ZpbGV9Ci91c3IvYmluL2hkaXV0aWwgZGV0YWNoICQoL2Jpbi9kZiB8IC91c3IvYmluL2dyZXAgIiR7dm9sbmFtZX0iIHwgYXdrICd7cHJpbnQgJDF9JykgLXF1aWV0Ci9iaW4vc2xlZXAgMTAKL2Jpbi9lY2hvICJgZGF0ZWA6IERlbGV0aW5nIGRpc2sgaW1hZ2UuIiA+PiAke2xvZ2ZpbGV9Ci9iaW4vcm0gL3RtcC8iJHtkbWdmaWxlfSIKCmV4aXQgMA==</script_contents_encoded>
+</script>

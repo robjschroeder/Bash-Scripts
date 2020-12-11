@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>39</id>
+    <name>macOS - Jamf Protect - Notification</name>
+    <category>Security</category>
+    <filename>macOS - Jamf Protect - Notification</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>jamfHelper="/Library/Application Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper"
+
+#Header for Pop Up
+heading="IT Security Notification" 
+
+#Description for Pop Up
+description="Malicious activity was recently captured from your Mac. Contact the AWC Service Desk immediately. ServiceDesk@azwestern.edu or 928.317.5892"
+
+#Button Text 
+button1="Ok"
+
+#Policy ID for policy in Self Service to Zip, Move, and Delete Malware caught by Threat Prevention
+#policyID="64"
+
+#Pixel Size for Pop Up
+size=50
+
+#Path for Icon Displayed
+icon="/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertStopIcon.icns"
+
+userChoice=$("$jamfHelper" -windowType utility -iconSize "$size" -heading "$heading" -description "$description" -button1 "$button1" -icon "$icon")
+	if [[ $userChoice == 0 ]]; then 
+    	echo "user clicked $button1"
+	fi</script_contents>
+    <script_contents_encoded>amFtZkhlbHBlcj0iL0xpYnJhcnkvQXBwbGljYXRpb24gU3VwcG9ydC9KQU1GL2Jpbi9qYW1mSGVscGVyLmFwcC9Db250ZW50cy9NYWNPUy9qYW1mSGVscGVyIgoKI0hlYWRlciBmb3IgUG9wIFVwCmhlYWRpbmc9IklUIFNlY3VyaXR5IE5vdGlmaWNhdGlvbiIgCgojRGVzY3JpcHRpb24gZm9yIFBvcCBVcApkZXNjcmlwdGlvbj0iTWFsaWNpb3VzIGFjdGl2aXR5IHdhcyByZWNlbnRseSBjYXB0dXJlZCBmcm9tIHlvdXIgTWFjLiBDb250YWN0IHRoZSBBV0MgU2VydmljZSBEZXNrIGltbWVkaWF0ZWx5LiBTZXJ2aWNlRGVza0Bhendlc3Rlcm4uZWR1IG9yIDkyOC4zMTcuNTg5MiIKCiNCdXR0b24gVGV4dCAKYnV0dG9uMT0iT2siCgojUG9saWN5IElEIGZvciBwb2xpY3kgaW4gU2VsZiBTZXJ2aWNlIHRvIFppcCwgTW92ZSwgYW5kIERlbGV0ZSBNYWx3YXJlIGNhdWdodCBieSBUaHJlYXQgUHJldmVudGlvbgojcG9saWN5SUQ9IjY0IgoKI1BpeGVsIFNpemUgZm9yIFBvcCBVcApzaXplPTUwCgojUGF0aCBmb3IgSWNvbiBEaXNwbGF5ZWQKaWNvbj0iL1N5c3RlbS9MaWJyYXJ5L0NvcmVTZXJ2aWNlcy9Db3JlVHlwZXMuYnVuZGxlL0NvbnRlbnRzL1Jlc291cmNlcy9BbGVydFN0b3BJY29uLmljbnMiCgp1c2VyQ2hvaWNlPSQoIiRqYW1mSGVscGVyIiAtd2luZG93VHlwZSB1dGlsaXR5IC1pY29uU2l6ZSAiJHNpemUiIC1oZWFkaW5nICIkaGVhZGluZyIgLWRlc2NyaXB0aW9uICIkZGVzY3JpcHRpb24iIC1idXR0b24xICIkYnV0dG9uMSIgLWljb24gIiRpY29uIikKCWlmIFtbICR1c2VyQ2hvaWNlID09IDAgXV07IHRoZW4gCiAgICAJZWNobyAidXNlciBjbGlja2VkICRidXR0b24xIgoJZmk=</script_contents_encoded>
+</script>

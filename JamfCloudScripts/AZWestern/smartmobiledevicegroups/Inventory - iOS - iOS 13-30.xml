@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>30</id>
+    <name>Inventory - iOS - iOS 13</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>2</size>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>0</priority>
+            <and_or>AND</and_or>
+            <search_type>greater than</search_type>
+            <value>13.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>iOS Version</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>less than</search_type>
+            <value>14.0</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>31</size>
+        <mobile_device>
+            <id>109</id>
+            <name>PSI - GCTV6W5EHLF9</name>
+            <mac_address>B8:63:4D:9A:C7:40</mac_address>
+            <udid>d336176252c4f8b79a5af3418d507fa3b1bfba29</udid>
+            <wifi_mac_address>B8:63:4D:9A:C7:40</wifi_mac_address>
+            <serial_number>GCTV6W5EHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>110</id>
+            <name>PSI - GCTV6VFMHLF9</name>
+            <mac_address>B8:63:4D:9D:1E:B0</mac_address>
+            <udid>ed8bd8d55e66d6e74af751f54e788c61e37c1571</udid>
+            <wifi_mac_address>B8:63:4D:9D:1E:B0</wifi_mac_address>
+            <serial_number>GCTV6VFMHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>124</id>
+            <name>RADTECH - GCGW292THLF9</name>
+            <mac_address>D0:D2:B0:AF:A6:FB</mac_address>
+            <udid>2633d7cafe39d2e5f7c57cd1172afdf8fbc6f268</udid>
+            <wifi_mac_address>D0:D2:B0:AF:A6:FB</wifi_mac_address>
+            <serial_number>GCGW292THLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>125</id>
+            <name>RADTECH - GCGVWQLZHLF9</name>
+            <mac_address>D0:D2:B0:AF:85:51</mac_address>
+            <udid>73be9d5b2f6ef61e55a31f3fa01ad0aa4d8c9fbd</udid>
+            <wifi_mac_address>D0:D2:B0:AF:85:51</wifi_mac_address>
+            <serial_number>GCGVWQLZHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>127</id>
+            <name>RADTECH - GCGW28YBHLF9</name>
+            <mac_address>D0:D2:B0:AF:B9:78</mac_address>
+            <udid>4d4d39929ec7af4633fdc02c36a25a08c4a43f32</udid>
+            <wifi_mac_address>D0:D2:B0:AF:B9:78</wifi_mac_address>
+            <serial_number>GCGW28YBHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>133</id>
+            <name>RADTECH - GCGW2924HLF9</name>
+            <mac_address>D0:D2:B0:AF:85:F0</mac_address>
+            <udid>1a6ca3625265393301a159b65b20cef6878304d2</udid>
+            <wifi_mac_address>D0:D2:B0:AF:85:F0</wifi_mac_address>
+            <serial_number>GCGW2924HLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>136</id>
+            <name>RADTECH - GCGW29Z8HLF9</name>
+            <mac_address>D0:D2:B0:AF:8F:E7</mac_address>
+            <udid>9c005adaa6cd0f76c3f20803557fa0068ef3a7c3</udid>
+            <wifi_mac_address>D0:D2:B0:AF:8F:E7</wifi_mac_address>
+            <serial_number>GCGW29Z8HLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>137</id>
+            <name>RADTECH - GCGW290MHLF9</name>
+            <mac_address>D0:D2:B0:AF:8F:EA</mac_address>
+            <udid>369efbfbc6a7fefa1dcecd056f63e2bdc12f958e</udid>
+            <wifi_mac_address>D0:D2:B0:AF:8F:EA</wifi_mac_address>
+            <serial_number>GCGW290MHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>141</id>
+            <name>RADTECH - GCGVWSM5HLF9</name>
+            <mac_address>D0:D2:B0:AF:B8:E3</mac_address>
+            <udid>1c0e95af40171e92e54bb4cfb0140f578b70837d</udid>
+            <wifi_mac_address>D0:D2:B0:AF:B8:E3</wifi_mac_address>
+            <serial_number>GCGVWSM5HLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>145</id>
+            <name>RADTECH - GCGW2BJ1HLF9</name>
+            <mac_address>D0:D2:B0:AF:8F:F0</mac_address>
+            <udid>658f0e458e6e1b31e5c660e1be46b8e45acc74a2</udid>
+            <wifi_mac_address>D0:D2:B0:AF:8F:F0</wifi_mac_address>
+            <serial_number>GCGW2BJ1HLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>153</id>
+            <name>Service Desk iPhone - DX4SV6SMH2XG</name>
+            <mac_address>A0:D7:95:6C:EE:E7</mac_address>
+            <udid>f6e3a1cea479b2d825028c94e566ac8a866f1fdf</udid>
+            <wifi_mac_address>A0:D7:95:6C:EE:E7</wifi_mac_address>
+            <serial_number>DX4SV6SMH2XG</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>158</id>
+            <name>RADTECH Clinical - F9FW2AR5GHKJ</name>
+            <mac_address>34:7C:25:26:86:BA</mac_address>
+            <udid>c872eb858381c62d56a18d781884d9af321b0396</udid>
+            <wifi_mac_address>34:7C:25:26:86:BA</wifi_mac_address>
+            <serial_number>F9FW2AR5GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>174</id>
+            <name>RADTECH - GCGVWSZNHLF9</name>
+            <mac_address>D0:D2:B0:AF:B9:17</mac_address>
+            <udid>ede006e5ba245c89272d3cc0949de289e0e48ba9</udid>
+            <wifi_mac_address>D0:D2:B0:AF:B9:17</wifi_mac_address>
+            <serial_number>GCGVWSZNHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>175</id>
+            <name>Service Desk Kiosk - DMPZ2030JF8J</name>
+            <mac_address>14:95:CE:79:27:5F</mac_address>
+            <udid>77d10c1918bf0cb15e4131e7292486f637a0a30a</udid>
+            <wifi_mac_address>14:95:CE:79:27:5F</wifi_mac_address>
+            <serial_number>DMPZ2030JF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>182</id>
+            <name>FS - DMPWJ342HP50</name>
+            <mac_address>88:AE:07:03:10:50</mac_address>
+            <udid>9fcf607b3a5bbb1c025e3ad76f3ccc5cc7426fe9</udid>
+            <wifi_mac_address>88:AE:07:03:10:50</wifi_mac_address>
+            <serial_number>DMPWJ342HP50</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>191</id>
+            <name>RADTECH - GCGW2DJ4HLF9</name>
+            <mac_address>D0:D2:B0:AF:85:90</mac_address>
+            <udid>3fd5ad1ab38685013dc547a74fe13d0b8b0f0c91</udid>
+            <wifi_mac_address>D0:D2:B0:AF:85:90</wifi_mac_address>
+            <serial_number>GCGW2DJ4HLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>200</id>
+            <name>Service Desk Kiosk - DMPZ8M5XJF8J</name>
+            <mac_address>14:95:CE:E2:91:22</mac_address>
+            <udid>f59a773e8dc678b1ea6e5b2364acc0f43e268460</udid>
+            <wifi_mac_address>14:95:CE:E2:91:22</wifi_mac_address>
+            <serial_number>DMPZ8M5XJF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>204</id>
+            <name>FS - DMPXR004HP51</name>
+            <mac_address>60:8C:4A:50:2C:94</mac_address>
+            <udid>9a73c618ded054867920105dba2075c5810dfdfe</udid>
+            <wifi_mac_address>60:8C:4A:50:2C:94</wifi_mac_address>
+            <serial_number>DMPXR004HP51</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>207</id>
+            <name>Nmjnjhjuihgogogij</name>
+            <mac_address>34:7C:25:1A:30:A9</mac_address>
+            <udid>f2aa9ec95dd1bcd07fcab3852551175c055a2605</udid>
+            <wifi_mac_address>34:7C:25:1A:30:A9</wifi_mac_address>
+            <serial_number>F9FVR46HGHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>211</id>
+            <name>CD LL - F9FVR297GHKJ</name>
+            <mac_address>34:7C:25:20:28:70</mac_address>
+            <udid>d80a458b4cf53767cbd875bcbe2d48e7d169c501</udid>
+            <wifi_mac_address>34:7C:25:20:28:70</wifi_mac_address>
+            <serial_number>F9FVR297GHKJ</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>213</id>
+            <name>Libref - DMQZ8681JF8J</name>
+            <mac_address>14:95:CE:DB:8B:68</mac_address>
+            <udid>8e990cbe2d2b373a877e88aba6d28b6fc2065208</udid>
+            <wifi_mac_address>14:95:CE:DB:8B:68</wifi_mac_address>
+            <serial_number>DMQZ8681JF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>214</id>
+            <name>RADTECH - GCGW2B2HHLF9</name>
+            <mac_address>D0:D2:B0:AF:8F:8A</mac_address>
+            <udid>37cbee1db1064462af137afb1f7babbceb1e7932</udid>
+            <wifi_mac_address>D0:D2:B0:AF:8F:8A</wifi_mac_address>
+            <serial_number>GCGW2B2HHLF9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>217</id>
+            <name>FS - DMPZ8LW5JF8J</name>
+            <mac_address>14:95:CE:DE:27:4B</mac_address>
+            <udid>198e20ef7f9749ebef6302350103db93c357ace1</udid>
+            <wifi_mac_address>14:95:CE:DE:27:4B</wifi_mac_address>
+            <serial_number>DMPZ8LW5JF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>218</id>
+            <name>Conf Events - F9FZKL5DMF3M</name>
+            <mac_address>28:77:F1:65:83:AC</mac_address>
+            <udid>b8b7039bf0bc33c4bb73ea3b0fed71aa658fcdb2</udid>
+            <wifi_mac_address>28:77:F1:65:83:AC</wifi_mac_address>
+            <serial_number>F9FZKL5DMF3M</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>219</id>
+            <name>FS - DMPZP5HYKD6J</name>
+            <mac_address>50:DE:06:1B:22:18</mac_address>
+            <udid>00008027-001144291487002E</udid>
+            <wifi_mac_address>50:DE:06:1B:22:18</wifi_mac_address>
+            <serial_number>DMPZP5HYKD6J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>221</id>
+            <name>Drone - DMPZD03CLM9C</name>
+            <mac_address>CC:D2:81:D5:6F:F2</mac_address>
+            <udid>00008020-001974443AB9002E</udid>
+            <wifi_mac_address>CC:D2:81:D5:6F:F2</wifi_mac_address>
+            <serial_number>DMPZD03CLM9C</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>223</id>
+            <name>FS - DMPC41NAKD6L</name>
+            <mac_address>50:DE:06:38:36:BC</mac_address>
+            <udid>00008027-0004058E2606802E</udid>
+            <wifi_mac_address>50:DE:06:38:36:BC</wifi_mac_address>
+            <serial_number>DMPC41NAKD6L</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>226</id>
+            <name>FS - DLXXV00HK7M9</name>
+            <mac_address>9C:E6:5E:CF:D9:7E</mac_address>
+            <udid>00008027-001561C621F2002E</udid>
+            <wifi_mac_address>9C:E6:5E:CF:D9:7E</wifi_mac_address>
+            <serial_number>DLXXV00HK7M9</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>230</id>
+            <name>FS - F6QCP034KD8C</name>
+            <mac_address>50:DE:06:4F:FD:8F</mac_address>
+            <udid>00008027-0002459A0287002E</udid>
+            <wifi_mac_address>50:DE:06:4F:FD:8F</wifi_mac_address>
+            <serial_number>F6QCP034KD8C</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>231</id>
+            <name>Ambassador - F9FCT4L3MF3Q</name>
+            <mac_address>7C:AB:60:C7:C2:4F</mac_address>
+            <udid>3eafc8e47fed575a6d1272676fb574660d8cb0f0</udid>
+            <wifi_mac_address>7C:AB:60:C7:C2:4F</wifi_mac_address>
+            <serial_number>F9FCT4L3MF3Q</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>234</id>
+            <name>Ambassador - F9FCT771MF3Q</name>
+            <mac_address>7C:AB:60:CA:DA:64</mac_address>
+            <udid>e20866a49251980996a06e51ddb44cd84e5b9837</udid>
+            <wifi_mac_address>7C:AB:60:CA:DA:64</wifi_mac_address>
+            <serial_number>F9FCT771MF3Q</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>

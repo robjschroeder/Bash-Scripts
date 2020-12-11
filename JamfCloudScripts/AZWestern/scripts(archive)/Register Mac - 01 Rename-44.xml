@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>44</id>
+    <name>Register Mac - 01 Rename</name>
+    <category>No category assigned</category>
+    <filename>Register Mac - 01 Rename</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/bash
+
+user_entry=""
+
+validateResponce() {
+    case "$user_entry" in
+        "noinput" ) echo "empty input" &amp; askInput ;;
+        "cancelled" ) echo "time out/cancelled" &amp; exit 1 ;;
+        * ) echo "$user_entry"  ;;
+    esac
+}
+
+askInput() {
+user_entry=$(osascript &lt;&lt;EOF
+use AppleScript version "2.4" -- Yosemite (10.10) or later
+use scripting additions
+set theTextReturned to "nil"
+tell application "System Events"
+activate
+try
+set theResponse to display dialog "Enter the new name of your computer" with title "Rename Computer" default answer ""
+set theTextReturned to the text returned of theResponse
+end try
+if theTextReturned is "nil" then
+return "cancelled"
+else if theTextReturned is "" then
+return "noinput"
+else
+return theTextReturned
+end if
+end tell
+EOF
+)
+validateResponce "$user_entry"
+}
+
+askInput "$userName"
+
+/usr/sbin/scutil --set LocalHostName $user_entry
+/usr/sbin/scutil --set HostName $user_entry
+/usr/sbin/scutil --set ComputerName $user_entry
+/usr/sbin/diskutil rename / $user_entry
+/usr/local/bin/jamf setComputerName -name $user_entry
+
+exit 0
+
+
+done</script_contents>
+    <script_contents_encoded>IyEvYmluL2Jhc2gKCnVzZXJfZW50cnk9IiIKCnZhbGlkYXRlUmVzcG9uY2UoKSB7CiAgICBjYXNlICIkdXNlcl9lbnRyeSIgaW4KICAgICAgICAibm9pbnB1dCIgKSBlY2hvICJlbXB0eSBpbnB1dCIgJiBhc2tJbnB1dCA7OwogICAgICAgICJjYW5jZWxsZWQiICkgZWNobyAidGltZSBvdXQvY2FuY2VsbGVkIiAmIGV4aXQgMSA7OwogICAgICAgICogKSBlY2hvICIkdXNlcl9lbnRyeSIgIDs7CiAgICBlc2FjCn0KCmFza0lucHV0KCkgewp1c2VyX2VudHJ5PSQob3Nhc2NyaXB0IDw8RU9GCnVzZSBBcHBsZVNjcmlwdCB2ZXJzaW9uICIyLjQiIC0tIFlvc2VtaXRlICgxMC4xMCkgb3IgbGF0ZXIKdXNlIHNjcmlwdGluZyBhZGRpdGlvbnMKc2V0IHRoZVRleHRSZXR1cm5lZCB0byAibmlsIgp0ZWxsIGFwcGxpY2F0aW9uICJTeXN0ZW0gRXZlbnRzIgphY3RpdmF0ZQp0cnkKc2V0IHRoZVJlc3BvbnNlIHRvIGRpc3BsYXkgZGlhbG9nICJFbnRlciB0aGUgbmV3IG5hbWUgb2YgeW91ciBjb21wdXRlciIgd2l0aCB0aXRsZSAiUmVuYW1lIENvbXB1dGVyIiBkZWZhdWx0IGFuc3dlciAiIgpzZXQgdGhlVGV4dFJldHVybmVkIHRvIHRoZSB0ZXh0IHJldHVybmVkIG9mIHRoZVJlc3BvbnNlCmVuZCB0cnkKaWYgdGhlVGV4dFJldHVybmVkIGlzICJuaWwiIHRoZW4KcmV0dXJuICJjYW5jZWxsZWQiCmVsc2UgaWYgdGhlVGV4dFJldHVybmVkIGlzICIiIHRoZW4KcmV0dXJuICJub2lucHV0IgplbHNlCnJldHVybiB0aGVUZXh0UmV0dXJuZWQKZW5kIGlmCmVuZCB0ZWxsCkVPRgopCnZhbGlkYXRlUmVzcG9uY2UgIiR1c2VyX2VudHJ5Igp9Cgphc2tJbnB1dCAiJHVzZXJOYW1lIgoKL3Vzci9zYmluL3NjdXRpbCAtLXNldCBMb2NhbEhvc3ROYW1lICR1c2VyX2VudHJ5Ci91c3Ivc2Jpbi9zY3V0aWwgLS1zZXQgSG9zdE5hbWUgJHVzZXJfZW50cnkKL3Vzci9zYmluL3NjdXRpbCAtLXNldCBDb21wdXRlck5hbWUgJHVzZXJfZW50cnkKL3Vzci9zYmluL2Rpc2t1dGlsIHJlbmFtZSAvICR1c2VyX2VudHJ5Ci91c3IvbG9jYWwvYmluL2phbWYgc2V0Q29tcHV0ZXJOYW1lIC1uYW1lICR1c2VyX2VudHJ5CgpleGl0IDAKCgpkb25l</script_contents_encoded>
+</script>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<script>
+    <id>31</id>
+    <name>macOS - Upgrade From Applications - Catalina</name>
+    <category>macOS</category>
+    <filename>macOS - Upgrade From Applications - Catalina</filename>
+    <info></info>
+    <notes></notes>
+    <priority>After</priority>
+    <parameters></parameters>
+    <os_requirements></os_requirements>
+    <script_contents>#!/bin/sh
+
+softwareUpdate --reset-ignored
+/Applications/Install\ macOS\ Catalina.app/Contents/Resources/startosinstall --agreetolicense --forcequitapps</script_contents>
+    <script_contents_encoded>IyEvYmluL3NoCgpzb2Z0d2FyZVVwZGF0ZSAtLXJlc2V0LWlnbm9yZWQKL0FwcGxpY2F0aW9ucy9JbnN0YWxsXCBtYWNPU1wgQ2F0YWxpbmEuYXBwL0NvbnRlbnRzL1Jlc291cmNlcy9zdGFydG9zaW5zdGFsbCAtLWFncmVldG9saWNlbnNlIC0tZm9yY2VxdWl0YXBwcw==</script_contents_encoded>
+</script>

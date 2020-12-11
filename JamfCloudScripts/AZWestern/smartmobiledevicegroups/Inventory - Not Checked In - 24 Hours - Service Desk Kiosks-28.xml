@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mobile_device_group>
+    <id>28</id>
+    <name>Inventory - Not Checked In - 24 Hours - Service Desk Kiosks</name>
+    <is_smart>true</is_smart>
+    <criteria>
+        <size>2</size>
+        <criterion>
+            <name>Mobile Device Group</name>
+            <priority>0</priority>
+            <and_or>AND</and_or>
+            <search_type>member of</search_type>
+            <value>Faculty Staff - Service Desk - Kiosks</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+        <criterion>
+            <name>Last Inventory Update</name>
+            <priority>1</priority>
+            <and_or>and</and_or>
+            <search_type>more than x days ago</search_type>
+            <value>1</value>
+            <opening_paren>false</opening_paren>
+            <closing_paren>false</closing_paren>
+        </criterion>
+    </criteria>
+    <site>
+        <id>-1</id>
+        <name>None</name>
+    </site>
+    <mobile_devices>
+        <size>6</size>
+        <mobile_device>
+            <id>172</id>
+            <name>Service Desk Kiosk - DMPNN41JFK10</name>
+            <mac_address>C8:85:50:23:62:62</mac_address>
+            <udid>10be71ed6a5bc57b465a55429384888adcb2322f</udid>
+            <wifi_mac_address>C8:85:50:23:62:62</wifi_mac_address>
+            <serial_number>DMPNN41JFK10</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>186</id>
+            <name>Service Desk Kiosk - DMPNN3PLFK10</name>
+            <mac_address>C8:85:50:1D:F8:A0</mac_address>
+            <udid>98a6f4b702f260ae4e68bb304345537f98e60dd8</udid>
+            <wifi_mac_address>C8:85:50:1D:F8:A0</wifi_mac_address>
+            <serial_number>DMPNN3PLFK10</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>199</id>
+            <name>Service Desk Kiosk - DMPZ8M6NJF8J</name>
+            <mac_address>14:95:CE:E2:30:6B</mac_address>
+            <udid>a43faec2e9c75f3b07279c3a9c8b0a3988b910f5</udid>
+            <wifi_mac_address>14:95:CE:E2:30:6B</wifi_mac_address>
+            <serial_number>DMPZ8M6NJF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>200</id>
+            <name>Service Desk Kiosk - DMPZ8M5XJF8J</name>
+            <mac_address>14:95:CE:E2:91:22</mac_address>
+            <udid>f59a773e8dc678b1ea6e5b2364acc0f43e268460</udid>
+            <wifi_mac_address>14:95:CE:E2:91:22</wifi_mac_address>
+            <serial_number>DMPZ8M5XJF8J</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>220</id>
+            <name>Service Desk Kiosk - DMPNN5JCFK10</name>
+            <mac_address>C8:85:50:24:1D:CB</mac_address>
+            <udid>db67b499d061bfe0e8a16bc5057d803bc8bc72c3</udid>
+            <wifi_mac_address>C8:85:50:24:1D:CB</wifi_mac_address>
+            <serial_number>DMPNN5JCFK10</serial_number>
+        </mobile_device>
+        <mobile_device>
+            <id>236</id>
+            <name>Service Desk Kiosk - F9FW2AYYGHKJ</name>
+            <mac_address>34:7C:25:26:89:9C</mac_address>
+            <udid>35f2e90f0e9585ac9de2e63733a9989183b894c0</udid>
+            <wifi_mac_address>34:7C:25:26:89:9C</wifi_mac_address>
+            <serial_number>F9FW2AYYGHKJ</serial_number>
+        </mobile_device>
+    </mobile_devices>
+</mobile_device_group>
