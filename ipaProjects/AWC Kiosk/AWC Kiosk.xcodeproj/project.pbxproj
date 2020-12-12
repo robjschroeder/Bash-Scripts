@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C67124342302220000D0EF27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67124332302220000D0EF27 /* AppDelegate.swift */; };
+		C67124362302220000D0EF27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67124352302220000D0EF27 /* ViewController.swift */; };
+		C67124392302220000D0EF27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C67124372302220000D0EF27 /* Main.storyboard */; };
+		C671243B2302220100D0EF27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C671243A2302220100D0EF27 /* Assets.xcassets */; };
+		C671243E2302220100D0EF27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C671243C2302220100D0EF27 /* LaunchScreen.storyboard */; };
+		C67124492302220100D0EF27 /* AWC_KioskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67124482302220100D0EF27 /* AWC_KioskTests.swift */; };
+		C67124542302220100D0EF27 /* AWC_KioskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67124532302220100D0EF27 /* AWC_KioskUITests.swift */; };
+		C67124622302221C00D0EF27 /* 3U9P6074.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C67124612302221C00D0EF27 /* 3U9P6074.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C67124452302220100D0EF27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C67124282302220000D0EF27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C671242F2302220000D0EF27;
+			remoteInfo = "AWC Kiosk";
+		};
+		C67124502302220100D0EF27 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C67124282302220000D0EF27 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C671242F2302220000D0EF27;
+			remoteInfo = "AWC Kiosk";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C67124302302220000D0EF27 /* AWC Kiosk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AWC Kiosk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67124332302220000D0EF27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C67124352302220000D0EF27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C67124382302220000D0EF27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C671243A2302220100D0EF27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C671243D2302220100D0EF27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C671243F2302220100D0EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67124442302220100D0EF27 /* AWC KioskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AWC KioskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67124482302220100D0EF27 /* AWC_KioskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWC_KioskTests.swift; sourceTree = "<group>"; };
+		C671244A2302220100D0EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C671244F2302220100D0EF27 /* AWC KioskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AWC KioskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C67124532302220100D0EF27 /* AWC_KioskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWC_KioskUITests.swift; sourceTree = "<group>"; };
+		C67124552302220100D0EF27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C67124612302221C00D0EF27 /* 3U9P6074.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3U9P6074.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C671242D2302220000D0EF27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C67124412302220100D0EF27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C671244C2302220100D0EF27 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C67124272302220000D0EF27 = {
+			isa = PBXGroup;
+			children = (
+				C67124322302220000D0EF27 /* AWC Kiosk */,
+				C67124472302220100D0EF27 /* AWC KioskTests */,
+				C67124522302220100D0EF27 /* AWC KioskUITests */,
+				C67124312302220000D0EF27 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C67124312302220000D0EF27 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C67124302302220000D0EF27 /* AWC Kiosk.app */,
+				C67124442302220100D0EF27 /* AWC KioskTests.xctest */,
+				C671244F2302220100D0EF27 /* AWC KioskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C67124322302220000D0EF27 /* AWC Kiosk */ = {
+			isa = PBXGroup;
+			children = (
+				C67124332302220000D0EF27 /* AppDelegate.swift */,
+				C67124352302220000D0EF27 /* ViewController.swift */,
+				C67124372302220000D0EF27 /* Main.storyboard */,
+				C671243A2302220100D0EF27 /* Assets.xcassets */,
+				C671243C2302220100D0EF27 /* LaunchScreen.storyboard */,
+				C67124612302221C00D0EF27 /* 3U9P6074.jpg */,
+				C671243F2302220100D0EF27 /* Info.plist */,
+			);
+			path = "AWC Kiosk";
+			sourceTree = "<group>";
+		};
+		C67124472302220100D0EF27 /* AWC KioskTests */ = {
+			isa = PBXGroup;
+			children = (
+				C67124482302220100D0EF27 /* AWC_KioskTests.swift */,
+				C671244A2302220100D0EF27 /* Info.plist */,
+			);
+			path = "AWC KioskTests";
+			sourceTree = "<group>";
+		};
+		C67124522302220100D0EF27 /* AWC KioskUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C67124532302220100D0EF27 /* AWC_KioskUITests.swift */,
+				C67124552302220100D0EF27 /* Info.plist */,
+			);
+			path = "AWC KioskUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C671242F2302220000D0EF27 /* AWC Kiosk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C67124582302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC Kiosk" */;
+			buildPhases = (
+				C671242C2302220000D0EF27 /* Sources */,
+				C671242D2302220000D0EF27 /* Frameworks */,
+				C671242E2302220000D0EF27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AWC Kiosk";
+			productName = "AWC Kiosk";
+			productReference = C67124302302220000D0EF27 /* AWC Kiosk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C67124432302220100D0EF27 /* AWC KioskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C671245B2302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC KioskTests" */;
+			buildPhases = (
+				C67124402302220100D0EF27 /* Sources */,
+				C67124412302220100D0EF27 /* Frameworks */,
+				C67124422302220100D0EF27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C67124462302220100D0EF27 /* PBXTargetDependency */,
+			);
+			name = "AWC KioskTests";
+			productName = "AWC KioskTests";
+			productReference = C67124442302220100D0EF27 /* AWC KioskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C671244E2302220100D0EF27 /* AWC KioskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C671245E2302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC KioskUITests" */;
+			buildPhases = (
+				C671244B2302220100D0EF27 /* Sources */,
+				C671244C2302220100D0EF27 /* Frameworks */,
+				C671244D2302220100D0EF27 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C67124512302220100D0EF27 /* PBXTargetDependency */,
+			);
+			name = "AWC KioskUITests";
+			productName = "AWC KioskUITests";
+			productReference = C671244F2302220100D0EF27 /* AWC KioskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C67124282302220000D0EF27 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Robert J Schroeder";
+				TargetAttributes = {
+					C671242F2302220000D0EF27 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					C67124432302220100D0EF27 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = C671242F2302220000D0EF27;
+					};
+					C671244E2302220100D0EF27 = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = C671242F2302220000D0EF27;
+					};
+				};
+			};
+			buildConfigurationList = C671242B2302220000D0EF27 /* Build configuration list for PBXProject "AWC Kiosk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C67124272302220000D0EF27;
+			productRefGroup = C67124312302220000D0EF27 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C671242F2302220000D0EF27 /* AWC Kiosk */,
+				C67124432302220100D0EF27 /* AWC KioskTests */,
+				C671244E2302220100D0EF27 /* AWC KioskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C671242E2302220000D0EF27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C671243E2302220100D0EF27 /* LaunchScreen.storyboard in Resources */,
+				C67124622302221C00D0EF27 /* 3U9P6074.jpg in Resources */,
+				C671243B2302220100D0EF27 /* Assets.xcassets in Resources */,
+				C67124392302220000D0EF27 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C67124422302220100D0EF27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C671244D2302220100D0EF27 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C671242C2302220000D0EF27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C67124362302220000D0EF27 /* ViewController.swift in Sources */,
+				C67124342302220000D0EF27 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C67124402302220100D0EF27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C67124492302220100D0EF27 /* AWC_KioskTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C671244B2302220100D0EF27 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C67124542302220100D0EF27 /* AWC_KioskUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C67124462302220100D0EF27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C671242F2302220000D0EF27 /* AWC Kiosk */;
+			targetProxy = C67124452302220100D0EF27 /* PBXContainerItemProxy */;
+		};
+		C67124512302220100D0EF27 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C671242F2302220000D0EF27 /* AWC Kiosk */;
+			targetProxy = C67124502302220100D0EF27 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C67124372302220000D0EF27 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C67124382302220000D0EF27 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C671243C2302220100D0EF27 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C671243D2302220100D0EF27 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C67124562302220100D0EF27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C67124572302220100D0EF27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C67124592302220100D0EF27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC Kiosk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-Kiosk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C671245A2302220100D0EF27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC Kiosk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-Kiosk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C671245C2302220100D0EF27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC KioskTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-KioskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWC Kiosk.app/AWC Kiosk";
+			};
+			name = Debug;
+		};
+		C671245D2302220100D0EF27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC KioskTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-KioskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWC Kiosk.app/AWC Kiosk";
+			};
+			name = Release;
+		};
+		C671245F2302220100D0EF27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC KioskUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-KioskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AWC Kiosk";
+			};
+			name = Debug;
+		};
+		C67124602302220100D0EF27 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AWC KioskUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "edu.azwestern.AWC-KioskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "AWC Kiosk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C671242B2302220000D0EF27 /* Build configuration list for PBXProject "AWC Kiosk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C67124562302220100D0EF27 /* Debug */,
+				C67124572302220100D0EF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C67124582302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC Kiosk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C67124592302220100D0EF27 /* Debug */,
+				C671245A2302220100D0EF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C671245B2302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC KioskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C671245C2302220100D0EF27 /* Debug */,
+				C671245D2302220100D0EF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C671245E2302220100D0EF27 /* Build configuration list for PBXNativeTarget "AWC KioskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C671245F2302220100D0EF27 /* Debug */,
+				C67124602302220100D0EF27 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C67124282302220000D0EF27 /* Project object */;
+}
