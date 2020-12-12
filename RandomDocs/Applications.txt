@@ -1,0 +1,58 @@
+Adobe Acrobat DC
+Adobe Creative Cloud
+Adobe Photoshop 2020
+Adobe Photoshop 2021
+Amazon Music.app
+AppCleaner.app
+Apple Configurator 2.app
+AutoPkgr.app
+Brave Browser.app
+Cisco
+Discord.app
+Firefox.app
+Google Chrome.app
+Grammarly for Safari.app
+Icons.app
+Jamf Connect Configuration.app
+Jamf Pro
+KaseyaLiveConnect.app
+LastPass.app
+MDS.app
+MUT.app
+Microsoft Edge.app
+Microsoft Excel.app
+Microsoft OneNote.app
+Microsoft Outlook.app
+Microsoft PowerPoint.app
+Microsoft Remote Desktop.app
+Microsoft Silverlight
+Microsoft Teams.app
+Microsoft To Do.app
+Microsoft Word.app
+Minecraft.app
+OneDrive.app
+OneDrive.localized
+PPPC Utility.app
+PlistEdit Pro.app
+Privileges.app
+ProfileCreator.app
+ReEnroller.app
+Remote Desktop.app
+Safari.app
+Self Service.app
+Slack.app
+TANS Mount.app
+Utilities
+Übersicht.app
+VLC.app
+VMware Fusion Tech Preview.app
+VNC Viewer.app
+Visual Studio Code.app
+Xcode.app
+Zenmap.app
+ZoomOutlookPlugin
+eul.app
+iTerm.app
+jamfStatus.app
+macintosh.js.app
+zoom.us.app
