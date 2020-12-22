@@ -1,9 +1,11 @@
 @ECHO OFF
+#Path to installer UPDATE!!!
+Set path=server.domain.com/folder
 
 #Copy Installers
-XCOPY "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\TC\APPS\ASE\ASE\ProSatelliteLauncher.exe" "C:\Temp\ASE\" /E /R /Y
+XCOPY "%path%\ProSatelliteLauncher.exe" "C:\Temp\ASE\" /E /R /Y
 ping localhost -n 6 >nul
-XCOPY "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\TC\APPS\ASE\ASE\SecureClientInstaller.msi" "C:\Temp\ASE\" /E /R /Y
+XCOPY "%path%\SecureClientInstaller.msi" "C:\Temp\ASE\" /E /R /Y
 ping localhost -n 6 >nul
 
 #Install 

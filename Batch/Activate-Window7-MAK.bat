@@ -1,6 +1,9 @@
 @echo off
 
-slmgr -ipk J2MP2-7RMVR-DKB9M-T6HH4-RTQ8Q
+# Update MAK Key
+Set mak=MAK-Key-Here
+
+slmgr -ipk %mak%
 slmgr /ato
 
 exit /b
