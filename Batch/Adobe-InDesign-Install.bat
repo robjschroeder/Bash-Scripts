@@ -13,7 +13,7 @@
 :Variable-1
 :: Define the required variables
 SET loc=%1
-:: \\ns-tsssrv01.adroot.azwestern.edu\Deploy\Kaseya-PC\Software\Adobe\CreativeCloud\2018
+:: \\server.domain.com\path
 SET app=%2
 :: Adobe-InDesign
 IF "%loc%"=="" GOTO Loc
@@ -24,7 +24,7 @@ GOTO Variable-2
 :: Prompt for input if none is provided in command line 
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\ns-tsssrv01.adroot.azwestern.edu\Deploy\Kaseya-PC\Software\Adobe\CreativeCloud\2018)
+ECHO (i.e. \\server.domain.com\path)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================
