@@ -1,1 +1,0 @@
-This sample scripts a Recovery Services vault, a backup policy, then creates a VM and applies the backup policy before starting the initial backup job.
