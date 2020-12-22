@@ -1,14 +1,14 @@
 ﻿clear-host
 Write-Host Run this script as an account that has administrative access on the remote computer`(s`) -ForegroundColor Red
 #$filePath = Read-Host Please enter the local path where you stored 'computers.txt'
-$filePath = 'C:\users\mec6'
+$filePath = 'C:\users\username'
 $fileName = 'computers.txt'
 $fullPath = "$filePath\$fileName"
 $computers = Get-Content -Path $fullPath
 clear-host
-$fileName2 = 'VUE on AWCY20029.lnk'
+$fileName2 = 'File.lnk'
 #$filePath2 =  Read-Host Please enter the local path where `'$fileName2`' is stored 
-$filePath2 =  "C:\users\mec6\desktop" 
+$filePath2 =  "C:\users\username\desktop" 
 $fullPath2 = "$filePath2\$fileName2"
 #$destinationPath = Read-Host Please enter the path to where you want to copy the file
 $destinationPath = "users\pvueproctor\desktop"

@@ -1,7 +1,7 @@
 ﻿$x86String = "x86"
 $x64String = "x64"
 $tempPath = 'C:\temp'
-$updatesPath = "\\adroot\tss\deploy\kaseya-apps\lync2013\updates"
+$updatesPath = "\\server.domain.com\lync2013\updates"
 $updatesx86 = "$updatesPath\$x86String"
 $updatesx64 = "$updatesPath\$x64String"
 $arguments = "/quiet /norestart"

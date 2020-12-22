@@ -8,9 +8,9 @@ Import-Module GroupPolicy
 # in to the source and target fields for both OUs you want to use
 
 # Source for GPO links 
-$Source = "OU=LPLC107,OU=LC,OU=LaPaz,OU=Classrooms,OU=Computers,OU=AWC,DC=adroot,DC=azwestern,DC=edu" 
+$Source = "OU=OU,DC=server,DC=domain,DC=com" 
 # Target where we want to set the new links 
-$Target = "OU=Destination,OU=Staging,OU=Matt,OU=Test,OU=TANS,OU=AWC,DC=adroot,DC=azwestern,DC=edu" 
+$Target = "OU=DestinationOU,DC=server,DC=domain,DC=com" 
 
 ### Finished setting global variables 
 

@@ -1,10 +1,10 @@
-﻿$PrinterIP = “10.215.224.24”
+﻿$PrinterIP = “1.1.1.1”
 $PrinterPort = “9100”
 $PrinterPortName = “IP_” + $PrinterIP
 $DriverName = “HP Laserjet M401n”
-$DriverPath = “\\ns-tsssrv01\deploy\Kaseya-PC\Printers\Printer_Deployment\HP_LaserJet_400_M401”
+$DriverPath = “\\server.domain.com\Printer_Deployment\HP_LaserJet_400_M401”
 $DriverInf = “$DriverPath\hpcm401u.INF”
-$PrinterCaption = “SC212-P1”
+$PrinterCaption = “BldgRoom-P1”
 $RegData = "$PrinterCaption,$DriverName,$PrinterPortName"
 
 

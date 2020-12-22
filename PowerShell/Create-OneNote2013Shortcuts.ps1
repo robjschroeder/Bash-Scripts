@@ -8,7 +8,7 @@ $publicDesktopPath = "users\public\desktop"
 
 foreach ($computer in $computers)
     {
-        $adminSharePath = "$computer.adroot.azwestern.edu\c$"
+        $adminSharePath = "$computer.server.domain.com\c$"
         if (test-path -Path "\\$adminSharePath" -Verbose)
             {
                 

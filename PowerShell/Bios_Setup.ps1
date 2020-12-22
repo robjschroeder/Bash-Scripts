@@ -1,7 +1,7 @@
 # Sets BIOS configuration using Dell BIOS Provider
-
+$pwd = "biosPassword"
 Import-Module DellBIOSProvider
-Set-Item -Path DellSmbios:\Security\AdminPassword "" -Password sp00gies
+Set-Item -Path DellSmbios:\Security\AdminPassword "" -Password $pwd
 Set-Item -Path DellSmbios:\BootSequence\BootList "Uefi"
 Set-Item -Path DellSmbios:\AdvancedBootOptions\LegacyOrom "Disabled"
 Set-Item -Path DellSmbios:\AdvancedBootOptions\AttemptLegacyBoot "Disabled"
@@ -21,4 +21,4 @@ Set-Item -Path DellSmbios:\PowerManagement\UsbWake "Enabled"
 Set-Item -Path DellSmbios:\PowerManagement\WakeOnLan "LanWlan"
 Set-Item -Path DellSmbios:\PowerManagement\BlockSleep "Enabled"
 Set-Item -Path DellSmbios:\POSTBehavior\Fastboot "Auto"
-Set-Item -Path DellSmbios:\Security\AdminPassword sp00gies
+Set-Item -Path DellSmbios:\Security\AdminPassword $pwd

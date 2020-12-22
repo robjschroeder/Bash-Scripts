@@ -6,7 +6,7 @@ Start-Transcript -Append -Path $StdErrLog
 
 Import-Module ActiveDirectory
 
-$newSuffix = "toro.azwestern.edu"
+$newSuffix = "domain.server.com"
 
 Get-Content "C:\scripts\deltastudents.txt" | Get-ADUser | ForEach-Object {
 

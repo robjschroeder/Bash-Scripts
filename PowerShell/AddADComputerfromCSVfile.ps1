@@ -1,4 +1,4 @@
-﻿$path = 'OU=PSIWL2,OU=PSI,OU=Yuma Campus,OU=Classrooms,OU=Computers,OU=AWC,DC=adroot,DC=azwestern,DC=edu'
+﻿$path = 'OU=OU,OU=server,OU=domain,OU=com'
 
 $Computers = Get-Content 'C:\Scripts\Windows PowerShell\Work\ADComputers.txt'
 

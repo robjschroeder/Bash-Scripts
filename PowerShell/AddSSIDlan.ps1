@@ -1,6 +1,6 @@
-﻿$computername = Read-host "Please enter the name of the computer to add the lan SSID"
-$domain = "adroot.azwestern.edu"
-$PathToXML = "\\ns-images02.adroot.azwestern.edu\d\Kaseya-PC\Wireless\lan.xml"
+﻿$computername = Read-host "Please enter the name of the computer to add the SSID"
+$domain = "server.domain.com"
+$PathToXML = "\\server.domain.com\path\SSID.xml"
 $IsAdmin = ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")
 
 if(-not($IsAdmin)){

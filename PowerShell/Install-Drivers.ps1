@@ -1,6 +1,6 @@
 ﻿$model = (Get-WmiObject -Class win32_computersystem).Model
 $operatingSystem = (Get-WmiObject -Class win32_operatingsystem).version
-$driversPath = '\\ns-images02\d\drivers'
+$driversPath = '\\server.domain.com\d\drivers'
 $driversPathx86 = "$driversPath\x86"
 $driversPathx64 = "$driversPath\x64"
 $filesToUnblock = Get-ChildItem -Path $driversPathx86 -Recurse

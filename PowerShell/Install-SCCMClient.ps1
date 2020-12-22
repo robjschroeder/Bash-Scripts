@@ -1,11 +1,15 @@
 ﻿$dataStamp = get-date -Format yyyyMMddTHHmmss
 $logFile = "C:\Temp\SCCMClient.log"
+$server = "SCCMserver.domain.com"
+$site = "siteCode"
+$fsp = "server.domain.com"
+$mp = "server.domain.com"
 $Args = @(
     "/i"
-    "\\ns-sccm2016\SCCM_Client_Install\ccmsetup.msi"
-    "/SMSSITECODE=AZW"
-    "/FSP=ns-sccm2016.adroot.azwestern.edu"
-    "/MP=ns-sccm2016.adroot.azwestern.edu"
+    "\\$server\SCCM_Client_Install\ccmsetup.msi"
+    "/SMSSITECODE=$site"
+    "/FSP=$fsp"
+    "/MP=$mp"
     "/qn"
     "/norestart"
     $logFile

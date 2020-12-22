@@ -1,6 +1,6 @@
 ﻿$computer = gc env:computername
-
-$key = "YDRBP-3D83W-TY26F-D46B2-XCKRJ"
+#Update Product Key
+$key = "KEY"
 
 $service = get-wmiObject -query "select * from SoftwareLicensingService" -computername $computer
 

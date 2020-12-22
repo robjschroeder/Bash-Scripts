@@ -5,19 +5,19 @@ $filterString = Read-Host "Please enter the string you would like to filter by"
 $filterAttribute = "OperatingSystem"
 
 # Domain name used for credentials
-$domainName = "adroot.azwestern.edu"
+$domainName = "server.domain.com"
 
 # Gets the user's netID via read-host and sets it in this variable
-$credentialPrompt = Read-Host "Please enter your netID (-admin and adroot are not needed)"
+$credentialPrompt = Read-Host "Please enter your admin networkID"
 
 # Concatenates all of the values together to form our domain\username value
-$credentials = "$domainName"+"\$credentialPrompt"+"-admin"
+$credentials = "$domainName"+"\$credentialPrompt"
 
 # User the get-credential cmdlet to get the user's password as a secure string
 $credentialsPrompt2 = Get-Credential -Credential $credentials
 
 #set the searchBase in Active Directory to the value specified 
-$searchBase = 'OU=AWC,DC=adroot,DC=azwestern,DC=edu'
+$searchBase = 'OU=OU,DC=server,DC=domain,DC=com'
 
 # Output filename.csv
 $csvFileName = "Output.csv"

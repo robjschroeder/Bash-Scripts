@@ -1,6 +1,6 @@
-﻿$username = "AWC-Admin"
-$password = ConvertTo-SecureString "test1234!!" -AsPlainText -Force
+﻿$username = "AdminUsername"
+$password = ConvertTo-SecureString "testPassword" -AsPlainText -Force
 $group = "Administrators"
 
-New-LocalUser -Name "$username" -Password $password -FullName "AWC Admin" -Description "Local admin account NOT built-in"
+New-LocalUser -Name "$username" -Password $password -FullName "Full Name" -Description "Local admin account NOT built-in"
 Add-LocalGroupMember -Group "$group" -Member "$username"

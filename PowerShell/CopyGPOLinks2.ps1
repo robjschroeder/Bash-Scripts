@@ -1,7 +1,7 @@
 ﻿# Source for GPO links 
-$Source = "OU=LPLC107,OU=LC,OU=LaPaz,OU=Classrooms,OU=Computers,OU=AWC,DC=adroot,DC=azwestern,DC=edu" 
+$Source = "OU=OU,DC=domain,DC=server,DC=com" 
 # Target where we want to set the new links 
-$Target = "OU=PLC130,OU=PLC,OU=Classroom,OU=Matt,OU=Test,OU=TANS,OU=AWC,DC=adroot,DC=azwestern,DC=edu" 
+$Target = "OU=TargetOU,DC=domain,DC=server,DC=com" 
 
 ### Finished setting global variables 
 

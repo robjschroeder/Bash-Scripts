@@ -3,8 +3,8 @@ param (
     [Parameter(Mandatory = $true)]
     [string]$ver
 )
-
-$server = "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\JAVA"
+#UPDATE Server Address
+$server = "\\server.domain.com\JAVA"
 
 #Get Java version(s) installed 
 $java = Get-WmiObject -Class win32_product -Filter "Name like '%Java%Update %'" | ForEach-Object {$_.Name} 

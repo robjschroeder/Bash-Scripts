@@ -1,9 +1,4 @@
 ﻿Import-Module ActiveDirectory
-#$group = 
-
-#Get-ADGroupMember -Identity "gryphon_AT_RO" |
-#Select samAccountname,@{Name="DisplayName";Expression={(Get-ADUser $_.distinguishedName -Properties Displayname).Displayname}},
-#@{Name="Title";Expression={(Get-ADUser $_.distinguishedName -Properties Title).title}}
 
 (Get-ADForest).domains | %{
 Get-ADGroup -filter {groupCategory -eq 'Security'} | Select Name | Sort-Object Name | Export-CSV -Path "C:\Temp\Sec\SecGroups.csv"

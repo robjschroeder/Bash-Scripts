@@ -2,10 +2,10 @@
 
 $assetTag = (Get-WmiObject -Class win32_systemenclosure -Property *).smbiosassettag
 $serialNumber = (Get-WmiObject -Class win32_systemenclosure -Property *).serialnumber
-$regKeyPath = "HKLM:\Software\!AWC"
+$regKeyPath = "HKLM:\Software\!PathToKey"
 $regKeyName = "AssetTag"
-$AWCRegistryKey = Get-ItemProperty -Path $regKeyPath
-$AWCAssetTagRegistryKey = $AWCRegistryKey.AssetTag 
+$RegistryKey = Get-ItemProperty -Path $regKeyPath
+$AssetTagRegistryKey = $RegistryKey.AssetTag 
 
 if (!$assetTag)
     {
@@ -13,15 +13,15 @@ if (!$assetTag)
     }
 else
     {
-        Write-Output "AWC Asset Tag is: $assetTag" | Write-Host -ForegroundColor Yellow
+        Write-Output " Asset Tag is: $assetTag" | Write-Host -ForegroundColor Yellow
     }
-if (!$AWCAssetTagRegistryKey)
+if (!$AssetTagRegistryKey)
     {
         Write-Output "Asset Tag is not set in the Registry" | Write-Host -ForegroundColor Red
     }
 else
     {
-        Write-Output "AWC Asset Tag in the Registry is: $assetTag" | Write-Host -ForegroundColor Yellow
+        Write-Output " Asset Tag in the Registry is: $assetTag" | Write-Host -ForegroundColor Yellow
     }
 
 if (!$serialNumber)

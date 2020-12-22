@@ -1,5 +1,5 @@
 ﻿$adobeConnectAddInFileName = "adobeconnectaddin.exe"
-$adobeConnectAddInFullPath = '\\adroot\tss\deploy\kaseya-pc\software\adobe\connect\plugin\Adobe Connect Add In Checker'
+$adobeConnectAddInFullPath = '\\server.domain.com\path\plugin\Adobe Connect Add In Checker'
 $adobeConnectAddInDeployVersion = ((Get-Item -Path "$adobeConnectAddInFullPath\$adobeConnectAddInFileName").VersionInfo).fileversion
 $adobeConnectAddInDeployVersion = $adobeConnectAddInDeployVersion -replace (",", ".")
 $adobeConnectAddInDeployFiles = get-childitem -Path "$adobeConnectAddInFullPath"

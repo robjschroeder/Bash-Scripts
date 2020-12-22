@@ -1,3 +1,3 @@
-﻿$objects = Get-ChildItem 'C:\Users\mec6\Desktop\AWC25098(OLD)\New folder (2)'
+﻿$objects = Get-ChildItem 'C:\path\to\files'
 
 write-host $objects.count files found.

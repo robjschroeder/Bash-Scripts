@@ -1,7 +1,7 @@
-﻿$OUs = "adroot.azwestern.edu/AWC/Computers/Classrooms/LaPaz/LC/LPLC107"      
+﻿$OUs = "server.domain.com/Computers/"      
 clear-host
-$user = Read-Host "Please enter your netID (adroot and -admin are not needed)"
-$credentials = Get-Credential adroot\$user-admin
+$user = Read-Host "Please enter your domain\adminNetID (domain is needed)"
+$credentials = Get-Credential $user
 $computers = foreach ($OU in $OUs) { (Get-ADComputer -SearchBase $OU -filter * -Credential $credentials) | sort }
 clear-host
 #$filePath = Read-Host Please enter the local path where you want to store 'computers.txt'

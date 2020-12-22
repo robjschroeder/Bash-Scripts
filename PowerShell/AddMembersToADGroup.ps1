@@ -1,8 +1,8 @@
-﻿Get-ADComputer -Credential $cred -LDAPFilter "(name=*PLC120*)" | Select-Object Name | Export-Csv .\renamecomputers-plc120.csv -NoTypeInformation
+﻿Get-ADComputer -Credential $cred -LDAPFilter "(name=*compname*)" | Select-Object Name | Export-Csv .\renamecomputers.csv -NoTypeInformation
 
-$Members = import-csv .\RenameComputers-plc120.csv
+$Members = import-csv .\RenameComputers.csv
 
 foreach ($Member in $Members){
 
-Add-ADGroupMember "PLC120DefPrn1" -Members $Member.Name -Credential $cred
+Add-ADGroupMember "ADGroupName" -Members $Member.Name -Credential $cred
 }

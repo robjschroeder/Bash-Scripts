@@ -1,4 +1,4 @@
-﻿$computersTXTFile = "C:\users\mec6\computers.txt"
+﻿$computersTXTFile = "C:\users\username\computers.txt"
 $computers = get-content -path $computersTXTFile
 $sourcePath = 'C:\temp\winexit.scr'
 $destinationPath = "windows\system32"
@@ -6,7 +6,7 @@ $destinationPath = "windows\system32"
 
 foreach ($computer in $computers)
     {
-        $adminSharePath = "$computer.adroot.azwestern.edu\c$"
+        $adminSharePath = "$computer.server.domain.com\c$"
         if (test-path -Path "\\$adminSharePath" -Verbose)
             {
                 

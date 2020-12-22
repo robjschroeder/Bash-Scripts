@@ -1,4 +1,4 @@
-﻿$recoveryKeyPath = "\\adroot\tss\dist\pub\BitLocker\keys\$env:computername"
+﻿$recoveryKeyPath = "\\server.domain.com\BitLocker\keys\$env:computername"
 $recoveryTXTFileName = "RecoveryPassword-$env:computername.txt"
 $recoveryTXTFileFullPath = "$recoveryKeyPath\$recoveryTXTFileName"
 $TPMRecoveryFile = "$env:computername"
@@ -6,9 +6,9 @@ $mountPoint = Read-Host "Please enter the mount point for the bitlocker drive (i
 # $Tpm = Get-wmiobject -Namespace ROOT\CIMV2\Security\MicrosoftTpm -Class Win32_Tpm
 # $tpm | gm
 
-If (!(Test-Path "\\adroot\tss\dist"))
+If (!(Test-Path "\\sever.domain.com\BitLocker"))
     {
-        Write-Output "Please map to '\\adroot\tss\dist' and run this script again" | Write-Host -ForegroundColor Red
+        Write-Output "Please map to '\\server.domain.com\BitLocker and run this script again" | Write-Host -ForegroundColor Red
         Exit
     }
 ElseIf (Test-Path -Path "$recoveryKeyPath")

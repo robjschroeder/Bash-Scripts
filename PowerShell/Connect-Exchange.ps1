@@ -2,7 +2,7 @@
 
     param(
         [Parameter( Mandatory=$false)]
-        [string]$URL="ns-mailhub02.adroot.azwestern.edu"
+        [string]$URL="mailhub.server.domain.com"
     )
 
     $Credential = Get-Credential -Message "Enter your Exchange admin Credentials"

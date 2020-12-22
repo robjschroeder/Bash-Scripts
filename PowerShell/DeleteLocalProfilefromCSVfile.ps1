@@ -1,8 +1,8 @@
 ﻿# Comma-Separated values file containing computer names
-$ADQuery = read-host "Please enter the name of the string to search for in AD for the Building/Room Number (i.e. PLC107)"
+$ADQuery = read-host "Please enter the name of the string to search for in AD for the Building/Room Number (i.e. COMP107)"
 $Computers = Get-ADComputer -LDAPFilter "(name=$ADQuery*)" | %{$_.Name}
-$NETID = read-host "Please enter your -admin username" 
-$cred = get-credential adroot\$netid
+$NETID = read-host "Please enter your domain\admin username" 
+$cred = get-credential $netid
 
 # Path to user profile we want to delete
 $profilename = read-host "Please enter the name of the profile you want to delete from the computers"

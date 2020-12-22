@@ -1,5 +1,5 @@
 ﻿Import-Module ActiveDirectory
-#$credential = Get-Credential -Message "Enter your AD -admin credentials"
+#$credential = Get-Credential -Message "Enter your AD admin credentials"
 $today = (Get-Date)
 $yearago = $today.AddMonths(-12)
 
