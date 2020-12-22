@@ -21,7 +21,7 @@ environmentSettings(){
     # USER EDITABLE VARIABLES
     virtualMachineName="Jamf_Compatible_Virtual_Machine"      # Name of Virtual Machine as known to Vmware Fusion
     virtualMachineHardwareType="iMac13,1"                   # Apple Macintosh hardware type
-    virtualMachineSerialNumber="C02KPBSRDNCR"                           # "random" creates a random serial number, otherwise type in your own (needed for DEP testing)
+    virtualMachineSerialNumber="SERIALNUMBER"                           # "random" creates a random serial number, otherwise type in your own (needed for DEP testing)
     bootableDMG=osx-10.15.7-19H2.apfs.dmg       # Bootable macOS DMG as created by AutoDMG
     vfusePKG=vfuse-2.0.6.pkg                                    # vfuse PKG installer
 
