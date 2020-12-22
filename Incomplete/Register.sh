@@ -5,9 +5,9 @@
 touch /var/log/provisioning.log
 
 # ENTER RELEVANT SERVER INFO HERE
-apiUser="admin"
-apiPass="sKyW4lk3r!"
-jssUrl="https://azwestern.jamfcloud.com"
+apiUser="apiUsername"
+apiPass="apiPassword"
+jssUrl="https://tenant.jamfcloud.com"
 serial=`system_profiler SPHardwareDataType | awk '/Serial/ {print $4}'`
 
 echo $jssUrl >> /var/log/provisioning.log
