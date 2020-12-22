@@ -2,7 +2,7 @@
 
 :: Variables
 
-SET loc="\\adroot\tss\deploy\Kaseya-PC\TC\APPS\ASE"
+SET loc="PathToFolder\ASE"
 SET switches=/qn /norestart
 
 :: Install Surpass Secure Client
@@ -10,5 +10,3 @@ SET switches=/qn /norestart
 
 :: Install Suprass Launcher
 %loc%\"Surpass Satelite Launcher\ProSatelliteLauncher.EXE"
-
-
