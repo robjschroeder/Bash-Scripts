@@ -1,8 +1,10 @@
 @echo off
 
 :: PyCharm Installation
+::Update Server Path
+Set path=server.domain.com/folder
 
-"\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\JetBrains\PyCharm\pycharm-community-2017.3.3.exe" /S
+"\\%path%\pycharm-community-2017.3.3.exe" /S
 
 :: Shortcut Copy
 

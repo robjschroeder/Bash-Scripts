@@ -4,6 +4,10 @@
 ::=========================================================================================
 :Variable-1
 SET switches= /Y /D /E /Q
+
+::Update Server Path
+Set path=server.domain.com/folder
+
 ::=========================================================================================
 :OS-Ver
 :: Determine Operating System and define variable
@@ -29,7 +33,7 @@ GOTO XP-All
 :XP-All
 :: Copies Updated Files To XP Computer
 
-XCOPY "\\adroot\tss\deploy\Kaseya-PC\Software\Flamebrain\WatchMe\v2.3.2\Watchme.exe" %switches% "C:\Documents and Settings\All Users\Desktop\"
+XCOPY "\\%path%\Watchme.exe" %switches% "C:\Documents and Settings\All Users\Desktop\"
 
 GOTO End
 ::=========================================================================================
@@ -41,7 +45,7 @@ GOTO End
 :W7
 :: Insert Windows 7 Check Here If Needed
 
-XCOPY "\\adroot\tss\deploy\Kaseya-PC\Software\Flamebrain\Watchme\v2.3.2\WatchMe.exe" %switches% "C:\Users\Public\Desktop\"
+XCOPY "\\%path%\WatchMe.exe" %switches% "C:\Users\Public\Desktop\"
 
 GOTO End
 ::=========================================================================================

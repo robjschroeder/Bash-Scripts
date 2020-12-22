@@ -1,4 +1,5 @@
 @echo off
-
-msiexec /x "\\adroot\tss\deploy\Kaseya-PC\Software\Knowbe4\OutlookPlugin\PhishAlert.msi"
+::Update Server Path
+Set path=server.domain.com\folder
+msiexec /x "\\%path%\PhishAlert.msi"
 EXIT /B

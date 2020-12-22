@@ -1,6 +1,8 @@
 @ECHO OFF
+set account=account
+set pwd=password
 
-net user "tc-certiport-acc" "T3sting!!!!" /add
-net localgroup administrators tc-certiport-acc /add
+net user "%account%" "%pwd%" /add
+net localgroup administrators %account% /add
 
 EXIT /B

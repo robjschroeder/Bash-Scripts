@@ -1,3 +1,6 @@
 @echo off
-
-\\pvap09.adroot.azwestern.edu\eXpress\Agents\AClient\dagent.msi /qn TcpAddr=10.208.1.43 TcpPort=402
+::Update Server Path
+Set path=server.domain.com\folder
+:: Update Ghost Server IP Address
+Set IP=1.1.1.1
+\\%path%\dagent.msi /qn TcpAddr=%IP% TcpPort=402

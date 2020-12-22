@@ -22,7 +22,7 @@ GOTO Variable-2
 :: Prompts for input if none is provided in the command line
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\v24.0.0.194\install_flash_player_24)
+ECHO (i.e. \\server.domain.com\path)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================
@@ -90,7 +90,7 @@ GOTO Err-NO-OS
 :: Installs Flash Player
 Echo Installing Adobe Flash Player Active X control
 "C:\Temp\Flashx.msi" %switches%
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 IF %ERRORLEVEL% EQU 0 GOTO XP-All2
 IF %ERRORLEVEL% EQU 3010 GOTO XP-All2
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
@@ -98,7 +98,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 :XP-All2
 Echo Installing Adobe Flash Player plugin
 "C:\Temp\Flashp.msi" %switches%
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 IF %ERRORLEVEL% EQU 0 GOTO XP-All3
 IF %ERRORLEVEL% EQU 3010 GOTO XP-All3
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
@@ -116,7 +116,7 @@ GOTO Copy
 :: Installs Flash Player
 Echo Installing Adobe Flash Player Active X control
 "C:\Temp\Flashx.msi" %switches%
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 IF %ERRORLEVEL% EQU 0 GOTO 7-All2
 IF %ERRORLEVEL% EQU 3010 GOTO 7-All2
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
@@ -124,7 +124,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 :7-All2
 Echo Installing Adobe Flash Player plugin
 "C:\Temp\Flashp.msi" %switches%
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 IF %ERRORLEVEL% EQU 0 GOTO x32-x64
 IF %ERRORLEVEL% EQU 3010 GOTO x32-x64
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
@@ -139,7 +139,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 ::IF %PROCESSOR_ARCHITECTURE% EQU X86 COPY /Y "%loc%"_active_x-x86.msu "C:\Temp\Flashx.msu"
 ::IF %PROCESSOR_ARCHITECTURE% EQU AMD64 COPY /Y "%loc%"_active_x-x64.msu "C:\Temp\Flashx.msu"
 ::"C:\Temp\Flashx.msu" /quiet /norestart
-::"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 ::IF %ERRORLEVEL% EQU 0 GOTO 8-All2
 ::IF %ERRORLEVEL% EQU 3010 GOTO 8-All2
 ::IF %ERRORLEVEL% EQU 2359302 GOTO 8-All2
@@ -149,7 +149,7 @@ IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 Echo Installing Adobe Flash Player plugin
 IF EXIST "C:\Temp\flashx.msu" DEL /Q "C:\Temp\Flashx.msu"
 "C:\Temp\Flashp.msi" %switches%
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
+
 IF %ERRORLEVEL% EQU 0 GOTO x32-x64
 IF %ERRORLEVEL% EQU 3010 GOTO x32-x64
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
@@ -174,7 +174,7 @@ VERIFY >nul
 C:
 :: Copy mms.cfg to WINDOWS for user profile access for limiting preferences changes by user.
 IF NOT EXIST "C:\WINDOWS\System32\Macromed\Flash" MD "C:\WINDOWS\System32\Macromed\Flash"
-COPY /Y "\\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\Autoupdate-Settings-disable\mms.cfg" "C:\WINDOWS\System32\Macromed\Flash\mms.cfg" >nul
+COPY /Y "\\%path%\mms.cfg" "C:\WINDOWS\System32\Macromed\Flash\mms.cfg" >nul
 GOTO Reg
 
 IF Exist C:\Users GOTO 7-Copy
@@ -185,12 +185,12 @@ IF Exist "C:\Documents and Settings" GOTO XP-Copy
 :: This sets user setting to stop autoupdate. mms.cfg sets it so user cannot change settings.
 C:
 FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Users"') do @MD "C:\Users\%%a\AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys"
-FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Users"') do @COPY /y "\\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\Autoupdate-Settings-Enable\settings.sol" "%systemdrive%\Users\%%a\AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys"
+FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Users"') do @COPY /y "\\%path%\settings.sol" "%systemdrive%\Users\%%a\AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys"
 
 IF NOT EXIST "C:\Users\Public\Macromed" MD "C:\Users\Public\Macromed"
 IF EXIST "C:\Users\Public\AppData" RMDIR /S /Q "C:\Users\Public\AppData"
-COPY /Y "\\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\Autoupdate-Settings-Enable\settings.sol" "C:\Users\Public\Macromed\settings.sol"
-COPY /Y "\\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\FlashCfgFileMove_11.4.402.265_W7.bat" "%programdata%\microsoft\windows\start menu\programs\startup"
+COPY /Y "\\%path%\Autoupdate-Settings-Enable\settings.sol" "C:\Users\Public\Macromed\settings.sol"
+COPY /Y "\\%path%\FlashCfgFileMove_11.4.402.265_W7.bat" "%programdata%\microsoft\windows\start menu\programs\startup"
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 GOTO Reg
 
@@ -199,8 +199,8 @@ XP-Copy
 :: This sets user setting to stop autoupdate. mms.cfg sets it so user cannot change settings.
 C:
 FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Documents and Settings"') do @MD "C:\Documents and Settings\%%a\Application Data\Macromedia\Flash Player\"
-FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Documents and Settings"') do @COPY /y "\\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Flash-Player\Autoupdate-Settings-Enable\settings.sol" "%systemdrive%\Documents and Settings\%%a\Application Data\Macromedia\Flash Player"
-"\\adroot\tss\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 30
+FOR /f "tokens=*" %%a in ('dir /b /a:dh "%systemdrive%\Documents and Settings"') do @COPY /y "\\%path%\settings.sol" "%systemdrive%\Documents and Settings\%%a\Application Data\Macromedia\Flash Player"
+
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 ::=========================================================================================
 :Reg

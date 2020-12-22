@@ -1,6 +1,8 @@
 @ECHO OFF
 ::
 ::
+::Update Server Path
+Set path=server.domain.com/folder
 ::
 ::==============================================================
 :ChkExist
@@ -22,7 +24,7 @@ IF EXIST "C:\!!Successful Installs\PhotoshopCC14.txt" GOTO Err-Exist
 :Copy
 :: Copying files used for installation
 Echo Copying files used for installation.
-XCOPY "\\adroot\tss\dist\Pub\Applications\Adobe\Adobe Photoshop CC\Adobe Photoshop x64" "C:\Temp\Photoshop\" /E /R /Y
+XCOPY "\\%path%\Adobe Photoshop x64" "C:\Temp\Photoshop\" /E /R /Y
 If %ERRORLEVEL% NEQ 0 GOTO Err-Copy
 ::===========================================================================================
 ::Adobe Photoshop Build Installation
@@ -78,7 +80,7 @@ If %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 ::================================================================
 :: Shortcuts Management...
 ::del /f /Q "C:\Users\Public\Desktop\Adobe Creative Cloud.lnk"
-COPY "\\adroot\tss\dist\Pub\Applications\Adobe\Adobe Photoshop CC\Adobe Photoshop x64\Photoshop CC.lnk" "C:\Users\Public\Desktop\"
+COPY "\\%path%\Photoshop CC.lnk" "C:\Users\Public\Desktop\"
 ::=========================================================================================
 ::Restart Computer
 Echo Restart Computer

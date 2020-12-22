@@ -1,5 +1,7 @@
 @echo off
 ::
+::Update Server Path
+Set path=server.domain.com/folder
 ::
 ::---------------------------::
 :::::::::::::::::::::::::::::::
@@ -12,7 +14,7 @@
 ::=========================================================================================
 :Variable-1
 :: Define the required variables
-SET loc=\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\Adobe\Photoshop
+SET loc=\\%path%\Photoshop
 SET ver=19.0.1
 IF "%loc%"=="" GOTO Loc
 IF "%ver%"=="" GOTO Ver
@@ -22,7 +24,7 @@ GOTO Variable-2
 :: Prompt for input if none is provided in command line 
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Photoshop)
+ECHO (i.e. \\%path%\Photoshop)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================

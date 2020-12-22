@@ -1,3 +1,4 @@
 @echo off
-
-xcopy \\ns-tsssrv01.adroot.azwestern.edu\dist\Pub\Robert\Test.docx %appdata% /y
+::Update Server Path
+Set path=server.domain.com\folder
+xcopy \\%path%\Test.docx %appdata% /y

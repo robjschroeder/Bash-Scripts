@@ -23,7 +23,7 @@ If "%netid%"=="" GOTO NetID
 :: Promts for input if none is provided in the command line
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\adroot\tss\Deploy\Kaseya-PC\Software\DATATEL\Colleague\Datatel_Desktop_Update)
+ECHO (i.e. \\server.domain.com)
 SET /P loc=Enter the Destination you are copying from:
 IF "%loc%"=="" GOTO loc
 ::=========================================================================================

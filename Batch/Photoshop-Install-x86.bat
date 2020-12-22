@@ -9,10 +9,13 @@
 :::::::::::::::::::::::::::::::
 ::---------------------------::
 ::
+
+::Update Server Path
+Set path=server.domain.com\folder
 ::=========================================================================================
 :Variable-1
 :: Define the required variables
-SET loc=\\ns-tsssrv01.adroot.azwestern.edu\Deploy\Kaseya-PC\Software\Adobe\CreativeCloud\2018\x86
+SET loc=\\server.domain.com\folder
 SET app=Adobe-Photoshop-x86
 IF "%loc%"=="" GOTO Loc
 IF "%app%"=="" GOTO App
@@ -22,7 +25,7 @@ GOTO Variable-2
 :: Prompt for input if none is provided in command line 
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\ns-tsssrv01.adroot.azwestern.edu\Deploy\Kaseya-PC\Software\Adobe\CreativeCloud\2018\x86)
+ECHO (i.e. \\server.domain.com\path)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================

@@ -1,7 +1,11 @@
 @echo off
 
-msiexec /i "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\SoftDocs\AutoFile\AutoFile_Client.msi" /qn /norestart
+:: Update Server Path
+Set path=server.domain.com/folder
 
-msiexec /i "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\SoftDocs\KofaxDriver\Kofax.WebCapture.Installer.msi" /qn /norestart
+
+msiexec /i "\\%path%\AutoFile_Client.msi" /qn /norestart
+
+msiexec /i "\\%path%\Kofax.WebCapture.Installer.msi" /qn /norestart
 
 exit

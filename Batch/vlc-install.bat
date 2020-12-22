@@ -14,7 +14,7 @@ GOTO Variable-2
 :: Prompts for input if none is provided in the command line
 CLS
 Echo The full path is needed
-echo (i.e. \\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\VideoLAN\VLC\v3.0.3)
+echo (i.e. \\server.domain.com\path)
 Set /P Loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 
@@ -42,7 +42,6 @@ GOTO Install
 
 :Install
 "C:\Temp\VLC.exe" %switches%
-"\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Tools\Wait\Wait.exe" 60
 IF %ERRORLEVEL% NEQ 0 GOTO Err-Failed
 
 :SFlags

@@ -22,7 +22,7 @@ GOTO Variable-2
 :: Prompt for input if none is provided in command line 
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\adroot\tss\deploy\Kaseya-PC\Software\Adobe\Premiere-Pro)
+ECHO (i.e. \\server.domain.com\path)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================

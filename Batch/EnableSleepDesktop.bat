@@ -1,5 +1,7 @@
 @echo off
-\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Registry\EnableSleepDesktop.reg
+::Update Server Path
+Set path=server.domain.com\folder
+\\%path%\EnableSleepDesktop.reg
 
 sleep 10
 

@@ -1,2 +1,4 @@
+::Update Server Path
+Set path=server.domain.com\folder
 MKDIR C:\Administrator\Desktop\TC-Applications
-XCOPY "ns-tsssrv01\deploy\Kaseya-PC\TC\Apps\Applications\*.*" "C:\Administrator\Desktop\TC-Applications" /e /v /i /q /r /y
+XCOPY "%path%\Applications\*.*" "C:\Administrator\Desktop\TC-Applications" /e /v /i /q /r /y

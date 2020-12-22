@@ -1,5 +1,6 @@
 @ECHO OFF
-
-msiexec /i \\adroot\tss\deploy\Kaseya-PC\TC\APPS\Castle\CastleContentLock.msi /quiet /qn /norestart
+::Update Server Path
+Set path=server.domain.com\folder
+msiexec /i \\%path%\CastleContentLock.msi /quiet /qn /norestart
 
 exit

@@ -1,5 +1,7 @@
 @echo off
+::Update Server Path
+Set path=server.domain.com\folder
 
-"\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\Microsoft\Office\O365\setup.exe" /configure "\\ns-tsssrv01.adroot.azwestern.edu\deploy\Kaseya-PC\Software\Microsoft\Office\O365\FS-installconfig-64.xml"
+"\\%path%\setup.exe" /configure "\\%path%\FS-installconfig-64.xml"
 
 Exit /B

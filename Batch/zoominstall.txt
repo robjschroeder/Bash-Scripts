@@ -16,7 +16,7 @@ GOTO Variable-2
 :: Prompts for input if none is provided in the command line
 CLS
 ECHO The full path is needed
-ECHO (i.e. \\adroot\tss\deploy\Kaseya-PC\Software\Zoom\V4.3.46260.0122)
+ECHO (i.e. \\server.domain.com\path)
 SET /P loc=Enter the source you are copying from:
 IF "%loc%"=="" GOTO Loc
 ::=========================================================================================
