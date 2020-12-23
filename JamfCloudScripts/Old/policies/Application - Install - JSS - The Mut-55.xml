@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<policy>
+    <general>
+        <id>55</id>
+        <name>Application - Install - JSS - The Mut</name>
+        <enabled>true</enabled>
+        <trigger>USER_INITIATED</trigger>
+        <trigger_checkin>false</trigger_checkin>
+        <trigger_enrollment_complete>false</trigger_enrollment_complete>
+        <trigger_login>false</trigger_login>
+        <trigger_logout>false</trigger_logout>
+        <trigger_network_state_changed>false</trigger_network_state_changed>
+        <trigger_startup>false</trigger_startup>
+        <trigger_other></trigger_other>
+        <frequency>Once per computer</frequency>
+        <retry_event>none</retry_event>
+        <retry_attempts>-1</retry_attempts>
+        <notify_on_each_failed_retry>false</notify_on_each_failed_retry>
+        <location_user_only>false</location_user_only>
+        <target_drive>/</target_drive>
+        <offline>false</offline>
+        <category>
+            <id>2</id>
+            <name>Productivity</name>
+        </category>
+        <date_time_limitations>
+            <activation_date></activation_date>
+            <activation_date_epoch>0</activation_date_epoch>
+            <activation_date_utc></activation_date_utc>
+            <expiration_date></expiration_date>
+            <expiration_date_epoch>0</expiration_date_epoch>
+            <expiration_date_utc></expiration_date_utc>
+            <no_execute_on></no_execute_on>
+            <no_execute_start></no_execute_start>
+            <no_execute_end></no_execute_end>
+        </date_time_limitations>
+        <network_limitations>
+            <minimum_network_connection>No Minimum</minimum_network_connection>
+            <any_ip_address>true</any_ip_address>
+            <network_segments></network_segments>
+        </network_limitations>
+        <override_default_settings>
+            <target_drive>default</target_drive>
+            <distribution_point></distribution_point>
+            <force_afp_smb>false</force_afp_smb>
+            <sus>default</sus>
+            <netboot_server>current</netboot_server>
+        </override_default_settings>
+        <network_requirements>Any</network_requirements>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <computers></computers>
+        <computer_groups>
+            <computer_group>
+                <id>32</id>
+                <name>Inventory - User and Location - Faculty Staff - ITSS</name>
+            </computer_group>
+        </computer_groups>
+        <buildings></buildings>
+        <departments></departments>
+        <limit_to_users>
+            <user_groups></user_groups>
+        </limit_to_users>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <computer_groups></computer_groups>
+            <buildings></buildings>
+            <departments></departments>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </exclusions>
+    </scope>
+    <self_service>
+        <use_for_self_service>true</use_for_self_service>
+        <self_service_display_name>The MUT</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <reinstall_button_text>Reinstall</reinstall_button_text>
+        <self_service_description>Introduction:
+Please note that The MUT is designed, built, and maintained outside of Jamf. It is not affiliated with Jamf, it is not officially maintained by Jamf.
+
+This app is a learning project for me to learn how to use Xcode and program in Swift, and while I will do my best to maintain it, I cannot guarantee its functionality.
+
+If you are having trouble with your CSV not parsing properly, and you are exporting your CSV from Excel, try using "Windows Comma Separated (.csv)". Windows Comma Separated uses a slightly different linebreak character, which can sometimes play nicer with the CSV parsing functions in The MUT.
+
+What it is:
+The MUT is a native macOS application written in Swift 3 which allows Jamf admins to make mass updates to attributes (such as username, asset tag, or extension attribute) of their devices and users in Jamf.
+
+Admins can enter the URL for their Jamf server (whether cloud hosted or on-premise), a username and password for The MUT to use, select the device type, attribute type, and unique identifier type from dropdowns, and browse to their CSV file. A pre-flight check will give a preview of the actions to be taken, and then the admin can submit their updates.
+
+Steps for use:
+Format your CSV
+Fill out Column A with the unique identifiers to be used (serial numbers or Jamf ID numbers)
+Fill out Column B with the values for the attributes to be updated
+Headers are optional. If you include them, The MUT will throw a 404 on line 1, but it will ignore this error and continue updating the rest of the rows
+If you are looking to strip values off of devices (such as removing the username from all of your iPads) you can include a header row so that The MUT knows the column exists, and then leave the rest of Column B blank. This will strip set the value for that attribute to null
+Examples of GOOD CSV
+Good CSV With Headers
+Serial	Username
+C111111	mike.levenick
+C222222	john.smith
+C333333	jane.smith
+Good CSV Without Headers
+C111111	mike.levenick
+C222222	john.smith
+C333333	jane.smith
+Good CSV for Removing Usernames
+Serial	Username
+C111111	
+C222222	
+C333333	
+Examples of BAD CSV
+No Header &amp;&amp; No Column B (MUT will not "see" Column B at all)
+C111111	
+C222222	
+C333333	
+Commas in Attribute Values (MUT will believe Column B ends prematurely)
+Serial	Building
+C111111	Eau Claire, WI
+C222222	Minneapolis, MN
+C333333	New York, NY
+It is now possible to change the delimiter MUT uses to a semi-colon under the Settings menu at the top of the page. Use this feature if you must include commas in attribute values.
+
+Verify your credentials
+Select the radio button for Jamf Cloud hosted or on-premise Jamf server
+Fill out your instance name if Jamf Cloud hosted, or your full URL if on-premise
+Enter a username and password to use for the updates you wish to run
+The MUT does a read of your Activation Code via the API to verify the credentials. If you wish to give The MUT's user minimal permissions, it must include at least Update privileges for the attribute you wish to update, as well as Read privileges on the Activation Code.
+
+Select whether or not you'd like to save the username for your next run (it is saved by default). The MUT will never store your password.
+Hit the "Verify Credentials" button (or simply press Enter) to verify the credentials you've entered
+A message will be displayed to let you know whether or not your credentials are correct
+Prepare for your updates
+Select the Device Type, Unique Identifier, and Attribute from the dropdowns
+If you're updating an Extension Attribute, enter the Extension Attribute ID number in the box (you can find the EA ID in the URL while viewing the EA in Jamf)
+Browse for your CSV File
+Hit the "Pre-Flight Check" button
+Review the information in the display paying particularly close attention to whether or not The MUT sees the correct number of lines in your CSV, and that your device type/attribute are correct. Once you make a run and the attributes get updated, there is no "undo" button
+Send your updates
+Hit the "Submit" button to send the updates to Jamf
+Messages will be displayed in either green or red, depending on the success of the run
+In case of a failure, the HTTP code of the failure will display. The MUT may also try to provide some advice on why you received that error
+Top Tips
+There is an option in the top Menu Bar under "Settings" to change the character which separates items on your CSV file to either a comma (,) or a semi-colon (;). This is especially useful for international folks who delimit their CSV files by semi-colon by default, or for folks who wish to include commas in their attribute values.
+There is an option in the top Menu Bar under "Settings" to enable advanced debugging. This will display the full HTML code of the API response, and is especially useful in situations where you are getting a 409 - Conflict error and want to see what the issue may be.
+There is an option in the top Menu Bar under "Settings" to clear any stored values that you may have by default, including Delimiter, Username, and your server URL.
+There is an option in the top Menu Bar under "File" to save the contents of the logging box. This is especially useful in combination with advanced debugging when trying to figure out why some devices are not updating properly.
+Advanced Workflows
+Create multiple users en masse
+Your Jamf server will create users on demand. This means that if you attempt to assign a device to a user that does not exist, the username will be created. It is important to note that the usernames will be created and populated with whatever user/location information currently exists for that device, such as Full Name, Phone Number, etc.
+
+If you already know which devices will go to which users, simply fill out your CSV as normal, and the usernames will be created as they are assigned
+If you simply wish to create all the usernames without having them assigned to the same user, fill out Column A of your CSV with the same device serial over and over. This can be any device, but it is recommended that you use some sort of "test device" or Jamf Admin's device to limit unintended behavior for end-users
+Fill out Column B with all of the usernames that you wish to create. Your CSV Should look something like:
+Serial	username
+C1111111	mike.levenick
+C1111111	bill.smith
+C1111111	jane.smith
+C1111111	ronnie.smith
+C1111111	
+The update run will create the usernames mike.levenick, bill.smith, jane.smith, and ronnie.smith, and then at the end of the run the device will be unassigned from any user. Alternatively, the last line can be the correct username to associate that device (such as the admin's username if you're using an admin's device).
+
+Remove users from devices en masse
+If you leave Column B blank, The MUT can wipe out the values for whatever attribute you're updating. This is especially useful when unassigning users from devices. However, The MUT needs to "see" Column B before it will let you do a run. Headers are sufficient to help MUT see the column, so a CSV formatted similar to the following will remove the usernames from devices C111111, C222222, and C333333.
+
+Serial	Username
+C111111	
+C222222	
+C333333	</self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <self_service_icon>
+            <id>2988</id>
+            <filename>mutv4-glow.png</filename>
+            <uri>https://azwestern.jamfcloud.com//iconservlet/?id=2988</uri>
+        </self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>2</id>
+                <name>Productivity</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject>Application - Install - Adobe - Acrobat Reader DC</notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+    <package_configuration>
+        <packages>
+            <size>1</size>
+            <package>
+                <id>43</id>
+                <name>TheMut v4.3.0.pkg</name>
+                <action>Install</action>
+                <fut>false</fut>
+                <feu>false</feu>
+                <update_autorun>false</update_autorun>
+            </package>
+        </packages>
+    </package_configuration>
+    <scripts>
+        <size>0</size>
+    </scripts>
+    <printers>
+        <size>0</size>
+        <leave_existing_default></leave_existing_default>
+    </printers>
+    <dock_items>
+        <size>0</size>
+    </dock_items>
+    <account_maintenance>
+        <accounts>
+            <size>0</size>
+        </accounts>
+        <directory_bindings>
+            <size>0</size>
+        </directory_bindings>
+        <management_account>
+            <action>doNotChange</action>
+        </management_account>
+        <open_firmware_efi_password>
+            <of_mode>none</of_mode>
+            <of_password_sha256 since="9.23">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</of_password_sha256>
+        </open_firmware_efi_password>
+    </account_maintenance>
+    <reboot>
+        <message>This computer will restart in 5 minutes. Please save anything you are working on and log out by choosing Log Out from the bottom of the Apple menu.</message>
+        <startup_disk>Current Startup Disk</startup_disk>
+        <specify_startup></specify_startup>
+        <no_user_logged_in>Restart if a package or update requires it</no_user_logged_in>
+        <user_logged_in>Restart if a package or update requires it</user_logged_in>
+        <minutes_until_reboot>5</minutes_until_reboot>
+        <start_reboot_timer_immediately>false</start_reboot_timer_immediately>
+        <file_vault_2_reboot>true</file_vault_2_reboot>
+    </reboot>
+    <maintenance>
+        <recon>true</recon>
+        <reset_name>false</reset_name>
+        <install_all_cached_packages>false</install_all_cached_packages>
+        <heal>false</heal>
+        <prebindings>false</prebindings>
+        <permissions>false</permissions>
+        <byhost>false</byhost>
+        <system_cache>false</system_cache>
+        <user_cache>false</user_cache>
+        <verify>false</verify>
+    </maintenance>
+    <files_processes>
+        <search_by_path></search_by_path>
+        <delete_file>false</delete_file>
+        <locate_file></locate_file>
+        <update_locate_database>false</update_locate_database>
+        <spotlight_search></spotlight_search>
+        <search_for_process></search_for_process>
+        <kill_process>false</kill_process>
+        <run_command></run_command>
+    </files_processes>
+    <user_interaction>
+        <message_start></message_start>
+        <allow_users_to_defer>false</allow_users_to_defer>
+        <allow_deferral_until_utc></allow_deferral_until_utc>
+        <allow_deferral_minutes>0</allow_deferral_minutes>
+        <message_finish></message_finish>
+    </user_interaction>
+    <disk_encryption>
+        <action>none</action>
+    </disk_encryption>
+</policy>

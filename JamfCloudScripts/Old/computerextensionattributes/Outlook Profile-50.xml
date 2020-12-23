@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>50</id>
+    <name>Outlook Profile</name>
+    <enabled>true</enabled>
+    <description></description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/sh
+
+#EA to record office profile deployment ready
+result="no"
+
+if [ -f /Library/Management/receipts/deploy-office-profile ]; then
+result=yes
+fi
+
+echo "&lt;result&gt;$result&lt;/result&gt;"</script>
+    </input_type>
+    <inventory_display>User and Location</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>

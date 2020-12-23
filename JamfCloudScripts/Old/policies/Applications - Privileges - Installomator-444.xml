@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<policy>
+    <general>
+        <id>444</id>
+        <name>Applications - Privileges - Installomator</name>
+        <enabled>true</enabled>
+        <trigger>USER_INITIATED</trigger>
+        <trigger_checkin>false</trigger_checkin>
+        <trigger_enrollment_complete>false</trigger_enrollment_complete>
+        <trigger_login>false</trigger_login>
+        <trigger_logout>false</trigger_logout>
+        <trigger_network_state_changed>false</trigger_network_state_changed>
+        <trigger_startup>false</trigger_startup>
+        <trigger_other></trigger_other>
+        <frequency>Ongoing</frequency>
+        <retry_event>none</retry_event>
+        <retry_attempts>-1</retry_attempts>
+        <notify_on_each_failed_retry>false</notify_on_each_failed_retry>
+        <location_user_only>false</location_user_only>
+        <target_drive>/</target_drive>
+        <offline>false</offline>
+        <category>
+            <id>5</id>
+            <name>Utilities</name>
+        </category>
+        <date_time_limitations>
+            <activation_date></activation_date>
+            <activation_date_epoch>0</activation_date_epoch>
+            <activation_date_utc></activation_date_utc>
+            <expiration_date></expiration_date>
+            <expiration_date_epoch>0</expiration_date_epoch>
+            <expiration_date_utc></expiration_date_utc>
+            <no_execute_on></no_execute_on>
+            <no_execute_start></no_execute_start>
+            <no_execute_end></no_execute_end>
+        </date_time_limitations>
+        <network_limitations>
+            <minimum_network_connection>No Minimum</minimum_network_connection>
+            <any_ip_address>true</any_ip_address>
+            <network_segments></network_segments>
+        </network_limitations>
+        <override_default_settings>
+            <target_drive>default</target_drive>
+            <distribution_point></distribution_point>
+            <force_afp_smb>false</force_afp_smb>
+            <sus>default</sus>
+            <netboot_server>current</netboot_server>
+        </override_default_settings>
+        <network_requirements>Any</network_requirements>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <computers></computers>
+        <computer_groups>
+            <computer_group>
+                <id>32</id>
+                <name>Inventory - User and Location - Faculty Staff - ITSS</name>
+            </computer_group>
+        </computer_groups>
+        <buildings></buildings>
+        <departments></departments>
+        <limit_to_users>
+            <user_groups></user_groups>
+        </limit_to_users>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <computer_groups></computer_groups>
+            <buildings></buildings>
+            <departments></departments>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </exclusions>
+    </scope>
+    <self_service>
+        <use_for_self_service>true</use_for_self_service>
+        <self_service_display_name>Privileges</self_service_display_name>
+        <install_button_text>Install</install_button_text>
+        <reinstall_button_text>Reinstall</reinstall_button_text>
+        <self_service_description>Privileges.app
+
+Description
+
+Privileges.app for macOS is designed to allow users to work as a standard user for day-to-day use, by providing a quick and easy way to get administrator rights when needed. When you do need admin rights, you can get them by clicking on the Privileges icon in your Dock.
+
+We believe all users, including all developers, can benefit from using Privileges.app. Working as a standard user instead of an administrator adds another layer of security to your Mac and is considered a security best practice. Privileges.app helps enable users to act as administrators of the system only when required.
+
+Requirements
+
+Privileges supports the following macOS versions:
+
+macOS 10.12.x
+macOS 10.13.x
+macOS 10.14.x
+macOS 10.15.x
+macOS 11.0.x
+Installation
+
+Log into your Mac using an account with admin privileges
+
+Download Privileges.app.
+
+Copy Privileges.app to to the Applications folder on your Mac.
+
+
+
+
+
+
+Launch Privileges.app and click the Remove Privileges button.
+
+Install the helper tool when prompted.
+
+
+The logged-in account should now be a standard user account.
+Note: To use all of Privileges.app's functions, we recommend adding Privileges.app to the dock.
+
+
+
+Using Privileges.app
+
+If you are a standard user and want admin rights, verify that Privileges.app is installed then use the following procedure:
+
+Launch Privileges.app
+Click the Request Privileges button.
+The Privileges dock icon should change to look like a yellow unlocked padlock.
+A Privileges have been changed successfully message should appear.
+
+
+5. The logged-in account should now have admin rights.
+
+
+If you are a admin user and want to remove admin rights, verify that Privileges.app is installed then use the following procedure:
+
+Launch Privileges.app.
+Click the Remove Privileges button.
+The Privileges dock icon should change to look like a green locked padlock.
+A Privileges have been changed successfully message should appear.
+
+
+5. The logged-in account should now be a standard user account.
+
+
+Helper Tools
+
+The following helper tools are installed to allow Privileges.app the necessary access rights to grant or remove admin rights:
+
+/Library/PrivilegedHelperTools/corp.sap.privileges.helper
+
+
+
+
+
+/Library/LaunchDaemons/corp.sap.privileges.helper.plist
+
+
+
+
+
+For more information on privilege elevation using a privileged helper app and LaunchDaemon, please see the link below:
+
+https://developer.apple.com/library/archive/documentation/Security/Conceptual/SecureCodingGuide/Articles/AccessControl.html
+
+Frequently Asked Questions
+
+Why does the icon for Privileges.app change colors in the Dock?
+
+This is by design. The icon is green and displays a locked padlock icon when you are a standard user.
+
+
+Dock icon for macOS Catalina and earlier:
+
+
+
+
+Dock icon for macOS Big Sur:
+
+
+
+
+The icon is yellow and displays an unlocked padlock icon when you are an administrator.
+
+
+Dock icon for macOS Catalina and earlier:
+
+
+
+
+Dock icon for macOS Big Sur:
+
+
+
+
+By default, is there a time limit on the admin rights granted by Privileges.app?
+
+No. Admin rights are granted until some process (like running Privileges.app again) takes them away.
+
+Can I set Privileges.app to give me administrator rights for a defined amount of time?
+
+Yes. You can use the Toggle Privileges option on the dock icon to get admin rights for a set amount of time (the default amount is 20 minutes.)
+
+
+
+
+
+
+
+
+
+To set the amount of time used by the Toggle Privileges option, use the following procedure:
+
+Launch Privileges.app
+Click on the Privileges menu and select Preferences
+Select the desired amount of time from the available options.
+
+
+What actions do the Lock Screen and Login Window toggle options perform?
+
+The Lock Screen toggle option locks your screen.
+
+
+
+
+
+The Login Window toggle option returns you to the Login Window without logging you out.
+
+
+
+
+
+How do I use Privileges.app in a script or from the command line?
+
+Privileges.app supports command line use. To use the PrivilegesCLI command line tool, run /Applications/Privileges.app/Contents/Resources/PrivilegesCLI followed by the option you want to use.
+
+The PrivilegesCLI command line tool currently supports the following options:
+
+/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --add : Adds the logged-in user to the admin group.
+
+
+/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --remove : Removes the logged-in user from the admin group.
+
+
+/Applications/Privileges.app/Contents/Resources/PrivilegesCLI --status : Displays the current user's privileges.
+
+
+
+
+For assistance, please run the following command to display all available options:
+
+/Applications/Privileges.app/Contents/Resources/PrivilegesCLI
+
+
+
+How do I access logs for Privileges.app?
+
+Privileges.app uses the system log for logging. To see all logs for Privileges.app in the Console app, you can filter for the corp.sap.privileges.helper process.
+
+
+
+To see only the logging associated with changing admin rights in the Console app, you can filter for log messages containing SAPCorp.
+
+
+
+To access the same logs from the command line, the log command can be used. To see all logs for Privileges.app using the log command, the following command can be used:
+
+log show --style syslog --predicate 'process == "corp.sap.privileges.helper"'
+
+
+To see only the logging associated with changing admin rights, the following command can be used:
+
+log show --style syslog --predicate 'process == "corp.sap.privileges.helper" &amp;&amp; eventMessage CONTAINS "SAPCorp"'
+
+
+How do I uninstall Privileges.app?
+
+Ensure that your user account has admin rights. If needed, launch Privileges.app one final time to make sure you have them.
+Remove the following files:
+/Applications/Privileges.app
+
+
+/Library/PrivilegedHelperTools/corp.sap.privileges.helper
+
+
+/Library/LaunchDaemons/corp.sap.privileges.helper.plist
+
+
+Application Management
+
+As of Privileges 1.5.0, it is possible to manage settings for Privileges.app or the PrivilegesCLI command line tool using a macOS configuration profile. For more details, please click here.
+
+Support
+
+This project is 'as-is' with no support, no changes being made. You are welcome to make changes to improve it but we are not available for questions or support of any kind.
+
+Security
+
+Found a security-related issue or vulnerability and want to notify us? Please contact us at privileges-security@sap.com
+
+License
+
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved. This file is licensed under the Apache Software License, Version 2.0 except as noted in the LICENSE file.
+
+SUBCOMPONENTS
+
+This project includes the following Apple EvenBetterAuthorizationSample sample code, which is subject to separate license terms. Your use of the code included in this project is subject to the separate license terms applicable to the Apple sample license code.
+
+Component: Common.h
+Component: Common.m
+Component: HelperTool.h
+Component: HelperTool.m
+For more details, please see the the LICENSE file.</self_service_description>
+        <force_users_to_view_description>false</force_users_to_view_description>
+        <self_service_icon>
+            <id>35202</id>
+            <filename>prvileges.jpg</filename>
+            <uri>https://azwestern.jamfcloud.com//iconservlet/?id=35202</uri>
+        </self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>5</id>
+                <name>Utilities</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject>Applications - AutoDMG - Installomator</notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+    <package_configuration>
+        <packages>
+            <size>0</size>
+        </packages>
+    </package_configuration>
+    <scripts>
+        <size>1</size>
+        <script>
+            <id>48</id>
+            <name>Applications - Installomator</name>
+            <priority>After</priority>
+            <parameter4>privileges</parameter4>
+            <parameter5></parameter5>
+            <parameter6></parameter6>
+            <parameter7></parameter7>
+            <parameter8></parameter8>
+            <parameter9></parameter9>
+            <parameter10></parameter10>
+            <parameter11></parameter11>
+        </script>
+    </scripts>
+    <printers>
+        <size>0</size>
+        <leave_existing_default></leave_existing_default>
+    </printers>
+    <dock_items>
+        <size>0</size>
+    </dock_items>
+    <account_maintenance>
+        <accounts>
+            <size>0</size>
+        </accounts>
+        <directory_bindings>
+            <size>0</size>
+        </directory_bindings>
+        <management_account>
+            <action>doNotChange</action>
+        </management_account>
+        <open_firmware_efi_password>
+            <of_mode>none</of_mode>
+            <of_password_sha256 since="9.23">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</of_password_sha256>
+        </open_firmware_efi_password>
+    </account_maintenance>
+    <reboot>
+        <message>This computer will restart in 5 minutes. Please save anything you are working on and log out by choosing Log Out from the bottom of the Apple menu.</message>
+        <startup_disk>Current Startup Disk</startup_disk>
+        <specify_startup></specify_startup>
+        <no_user_logged_in>Do not restart</no_user_logged_in>
+        <user_logged_in>Do not restart</user_logged_in>
+        <minutes_until_reboot>5</minutes_until_reboot>
+        <start_reboot_timer_immediately>false</start_reboot_timer_immediately>
+        <file_vault_2_reboot>false</file_vault_2_reboot>
+    </reboot>
+    <maintenance>
+        <recon>true</recon>
+        <reset_name>false</reset_name>
+        <install_all_cached_packages>false</install_all_cached_packages>
+        <heal>false</heal>
+        <prebindings>false</prebindings>
+        <permissions>false</permissions>
+        <byhost>false</byhost>
+        <system_cache>false</system_cache>
+        <user_cache>false</user_cache>
+        <verify>false</verify>
+    </maintenance>
+    <files_processes>
+        <search_by_path></search_by_path>
+        <delete_file>false</delete_file>
+        <locate_file></locate_file>
+        <update_locate_database>false</update_locate_database>
+        <spotlight_search></spotlight_search>
+        <search_for_process></search_for_process>
+        <kill_process>false</kill_process>
+        <run_command></run_command>
+    </files_processes>
+    <user_interaction>
+        <message_start></message_start>
+        <allow_users_to_defer>false</allow_users_to_defer>
+        <allow_deferral_until_utc></allow_deferral_until_utc>
+        <allow_deferral_minutes>0</allow_deferral_minutes>
+        <message_finish></message_finish>
+    </user_interaction>
+    <disk_encryption>
+        <action>none</action>
+    </disk_encryption>
+</policy>

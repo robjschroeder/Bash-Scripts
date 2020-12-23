@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<policy>
+    <general>
+        <id>142</id>
+        <name>Application - macOS Catalina - Upgrade</name>
+        <enabled>false</enabled>
+        <trigger>CHECKIN</trigger>
+        <trigger_checkin>true</trigger_checkin>
+        <trigger_enrollment_complete>false</trigger_enrollment_complete>
+        <trigger_login>false</trigger_login>
+        <trigger_logout>false</trigger_logout>
+        <trigger_network_state_changed>false</trigger_network_state_changed>
+        <trigger_startup>false</trigger_startup>
+        <trigger_other></trigger_other>
+        <frequency>Ongoing</frequency>
+        <retry_event>none</retry_event>
+        <retry_attempts>-1</retry_attempts>
+        <notify_on_each_failed_retry>false</notify_on_each_failed_retry>
+        <location_user_only>false</location_user_only>
+        <target_drive>/</target_drive>
+        <offline>true</offline>
+        <category>
+            <id>8</id>
+            <name>macOS</name>
+        </category>
+        <date_time_limitations>
+            <activation_date></activation_date>
+            <activation_date_epoch>0</activation_date_epoch>
+            <activation_date_utc></activation_date_utc>
+            <expiration_date></expiration_date>
+            <expiration_date_epoch>0</expiration_date_epoch>
+            <expiration_date_utc></expiration_date_utc>
+            <no_execute_on></no_execute_on>
+            <no_execute_start></no_execute_start>
+            <no_execute_end></no_execute_end>
+        </date_time_limitations>
+        <network_limitations>
+            <minimum_network_connection>No Minimum</minimum_network_connection>
+            <any_ip_address>true</any_ip_address>
+            <network_segments></network_segments>
+        </network_limitations>
+        <override_default_settings>
+            <target_drive>default</target_drive>
+            <distribution_point></distribution_point>
+            <force_afp_smb>false</force_afp_smb>
+            <sus>default</sus>
+            <netboot_server>current</netboot_server>
+        </override_default_settings>
+        <network_requirements>Any</network_requirements>
+        <site>
+            <id>-1</id>
+            <name>None</name>
+        </site>
+    </general>
+    <scope>
+        <all_computers>false</all_computers>
+        <computers></computers>
+        <computer_groups>
+            <computer_group>
+                <id>60</id>
+                <name>Inventory - Applications - macOS Catalina - Cached</name>
+            </computer_group>
+        </computer_groups>
+        <buildings></buildings>
+        <departments></departments>
+        <limit_to_users>
+            <user_groups></user_groups>
+        </limit_to_users>
+        <limitations>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </limitations>
+        <exclusions>
+            <computers></computers>
+            <computer_groups>
+                <computer_group>
+                    <id>54</id>
+                    <name>Inventory - User and Location - Faculty Staff - Communications and Marketing - Web Developers</name>
+                </computer_group>
+            </computer_groups>
+            <buildings></buildings>
+            <departments></departments>
+            <users></users>
+            <user_groups></user_groups>
+            <network_segments></network_segments>
+            <ibeacons></ibeacons>
+        </exclusions>
+    </scope>
+    <self_service>
+        <use_for_self_service>true</use_for_self_service>
+        <self_service_display_name>macOS Catalina</self_service_display_name>
+        <install_button_text>Upgrade</install_button_text>
+        <reinstall_button_text>Reinstall</reinstall_button_text>
+        <self_service_description>macOS Catalina gives you more of everything you love about Mac. Experience three all-new media apps: Apple Music, Apple TV, and Apple Podcasts. Locate a missing Mac with the new Find My app. And now coming to Mac, your favorite iPad apps. You can even extend your desktop using iPad as a second display. Now you can take everything you do above and beyond.
+
+
+Apple Music
+
+• Stream and download over 50 million songs with an Apple Music subscription.
+
+• Access the iTunes Store to purchase songs or albums.
+
+• Find all the music you’ve purchased, downloaded, or imported from CDs organized in the improved library.
+
+
+Apple TV
+
+• Buy or rent the latest movie releases.
+
+• Subscribe to Apple TV channels to watch popular shows on demand and ad-free, online or off.
+
+• Start watching on one device and pick up where you left off on any of your other devices, including Apple TV, iPhone, iPad, and compatible smart TVs.
+
+ 
+
+Apple Podcasts
+
+• Find podcasts by title, topic, guest, host, and content.
+
+• Subscribe to your favorite podcasts to receive the latest episodes automatically.
+
+• Begin listening to an episode on your Mac, then seamlessly resume on your iPhone, iPad, or Apple Watch when you’re on the go.
+
+
+Syncing and backup
+
+• Sync content and back up, update, and restore software from the Finder when you connect your iPhone or iPad to your Mac.
+
+
+App Store with Apple Arcade
+
+• Play 100+ groundbreaking new games with one subscription — no ads or additional purchases.
+
+• Browse the latest games, personalized recommendations, and exclusive editorial content in the all-new Arcade tab on the App Store.
+
+• Enjoy games across iPhone, iPod touch, iPad, Mac, and Apple TV.
+
+
+Mac Catalyst
+
+• Enjoy a new class of Mac apps built from your favorite iPad titles.
+
+
+Sidecar
+
+• Expand your Mac workspace by using your iPad as a second display.
+
+• Place one app on each screen, or put your main canvas on your Mac and your tools and palettes on your iPad.
+
+• Use Apple Pencil for tablet input when using your favorite creative pro Mac apps.
+
+
+Continuity Sketch and Markup
+
+• Create a sketch on your iPad or iPhone and insert it into any document on your Mac.
+
+• Use your iPad or iPhone to sign a PDF or mark up a screenshot on your Mac. 
+
+
+Accessibility
+
+• Control your Mac entirely with your voice using Voice Control.
+
+• Enable Hover Text to display large, high-resolution text in a dedicated window.
+
+• Zoom in closely on one screen when using two displays for improved legibility with Zoom Display.
+
+
+Security
+
+• Feel secure knowing that the apps you use have been checked by Apple for known malware.
+
+• Authorize access to data when apps request it using new data protections.
+
+
+Find My
+
+• Keep track of your devices and find friends and family with an easy-to-use new app.
+
+• Help locate devices even if they’re not connected to Wi-Fi or cellular.
+
+• Use Activation Lock to protect Mac models with the Apple T2 Security Chip.
+
+
+Photos
+
+• Enjoy a new immersive, dynamic experience that showcases your best photos and memories.
+
+• View Memory Movies and edit their duration, mood, and title.
+
+
+Safari
+
+• Browse using an updated start page that surfaces sites from your history, bookmarks, reading list, iCloud Tabs, and even links sent to you in Messages.
+
+• Help secure your accounts using strong passwords suggested by Safari.
+
+
+Notes
+
+• View notes as visual thumbnails in gallery view.
+
+• Enjoy a more powerful search that recognizes text in items you’ve scanned and objects within images.
+
+• Share an entire folder of notes using shared folders.
+
+
+Reminders
+
+• Use new edit buttons to add dates, locations, flags, attachments, and more to reminders.
+
+
+Mail
+
+• Take control of your inbox by muting a thread, blocking a sender, or unsubscribing from a mailing list.
+
+
+Screen Time
+
+• Gain insight into time spent using apps and websites and set usage limits.
+
+• Set up Family Sharing to use Screen Time with your family’s devices.</self_service_description>
+        <force_users_to_view_description>true</force_users_to_view_description>
+        <self_service_icon>
+            <id>8733</id>
+            <filename>23872.png</filename>
+            <uri>https://azwestern.jamfcloud.com//iconservlet/?id=8733</uri>
+        </self_service_icon>
+        <feature_on_main_page>false</feature_on_main_page>
+        <self_service_categories>
+            <category>
+                <id>8</id>
+                <name>macOS</name>
+                <display_in>true</display_in>
+                <feature_in>false</feature_in>
+            </category>
+        </self_service_categories>
+        <notification>false</notification>
+        <notification>Self Service</notification>
+        <notification_subject>Application - macOS Catalina - Upgrade</notification_subject>
+        <notification_message></notification_message>
+    </self_service>
+    <package_configuration>
+        <packages>
+            <size>0</size>
+        </packages>
+    </package_configuration>
+    <scripts>
+        <size>1</size>
+        <script>
+            <id>31</id>
+            <name>macOS - Upgrade From Applications - Catalina</name>
+            <priority>After</priority>
+            <parameter4></parameter4>
+            <parameter5></parameter5>
+            <parameter6></parameter6>
+            <parameter7></parameter7>
+            <parameter8></parameter8>
+            <parameter9></parameter9>
+            <parameter10></parameter10>
+            <parameter11></parameter11>
+        </script>
+    </scripts>
+    <printers>
+        <size>0</size>
+        <leave_existing_default></leave_existing_default>
+    </printers>
+    <dock_items>
+        <size>0</size>
+    </dock_items>
+    <account_maintenance>
+        <accounts>
+            <size>0</size>
+        </accounts>
+        <directory_bindings>
+            <size>0</size>
+        </directory_bindings>
+        <management_account>
+            <action>doNotChange</action>
+        </management_account>
+        <open_firmware_efi_password>
+            <of_mode>none</of_mode>
+            <of_password_sha256 since="9.23">e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</of_password_sha256>
+        </open_firmware_efi_password>
+    </account_maintenance>
+    <reboot>
+        <message>This computer will restart in 5 minutes. Please save anything you are working on and log out by choosing Log Out from the bottom of the Apple menu.</message>
+        <startup_disk>Current Startup Disk</startup_disk>
+        <specify_startup></specify_startup>
+        <no_user_logged_in>Restart if a package or update requires it</no_user_logged_in>
+        <user_logged_in>Restart if a package or update requires it</user_logged_in>
+        <minutes_until_reboot>5</minutes_until_reboot>
+        <start_reboot_timer_immediately>false</start_reboot_timer_immediately>
+        <file_vault_2_reboot>true</file_vault_2_reboot>
+    </reboot>
+    <maintenance>
+        <recon>false</recon>
+        <reset_name>false</reset_name>
+        <install_all_cached_packages>false</install_all_cached_packages>
+        <heal>false</heal>
+        <prebindings>false</prebindings>
+        <permissions>false</permissions>
+        <byhost>false</byhost>
+        <system_cache>false</system_cache>
+        <user_cache>false</user_cache>
+        <verify>false</verify>
+    </maintenance>
+    <files_processes>
+        <search_by_path></search_by_path>
+        <delete_file>false</delete_file>
+        <locate_file></locate_file>
+        <update_locate_database>false</update_locate_database>
+        <spotlight_search></spotlight_search>
+        <search_for_process></search_for_process>
+        <kill_process>false</kill_process>
+        <run_command></run_command>
+    </files_processes>
+    <user_interaction>
+        <message_start>Starting upgrade to macOS Catalina...</message_start>
+        <allow_users_to_defer>false</allow_users_to_defer>
+        <allow_deferral_until_utc></allow_deferral_until_utc>
+        <allow_deferral_minutes>0</allow_deferral_minutes>
+        <message_finish></message_finish>
+    </user_interaction>
+    <disk_encryption>
+        <action>none</action>
+    </disk_encryption>
+</policy>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<computer_extension_attribute>
+    <id>8</id>
+    <name>Firewall</name>
+    <enabled>true</enabled>
+    <description>This attribute displays whether or not the system firewall is enabled.    This attribute applies to both Mac and Windows.</description>
+    <data_type>String</data_type>
+    <input_type>
+        <type>script</type>
+        <platform>Mac</platform>
+        <script>#!/bin/sh
+OS=`/usr/bin/sw_vers -productVersion | /usr/bin/colrm 5`
+if [[ "$OS" &lt; "10.5" ]]; then		
+result=`/usr/bin/defaults read /Library/Preferences/com.apple.sharing.firewall state`
+if [ "$result" == "YES" ]; then
+	echo "&lt;result&gt;On&lt;/result&gt;"
+elif [ "$result" == "NO" ]; then
+	echo "&lt;result&gt;Off&lt;/result&gt;"
+fi
+else
+result=`/usr/bin/defaults read /Library/Preferences/com.apple.alf globalstate`
+if [ "$result" == "0" ]; then
+	echo "&lt;result&gt;Off&lt;/result&gt;"
+else
+	echo "&lt;result&gt;On&lt;/result&gt;"
+fi
+fi
+	</script>
+    </input_type>
+    <input_type>
+        <type>script</type>
+        <platform>Windows</platform>
+        <scripting_language>VBScript</scripting_language>
+        <script>On Error Resume Next
+   Set objFirewall = CreateObject("HNetCfg.FwMgr")
+Set objPolicy = objFirewall.LocalPolicy.CurrentProfile
+If objPolicy.FirewallEnabled = True Then
+strStatus = "On"
+Else
+strStatus = "Off"
+End If
+WScript.Echo "&lt;result&gt;" &amp; strStatus &amp; "&lt;/result&gt;"
+</script>
+    </input_type>
+    <inventory_display>Extension Attributes</inventory_display>
+    <recon_display>Extension Attributes</recon_display>
+</computer_extension_attribute>
