@@ -7,7 +7,7 @@ function ConfigureZoom () {
     #Preferences - UPDATE WITH YOUR OWN
     #defaults write /Library/Preferences/us.zoom.config.plist ZAutoJoinVoip -string YES
     defaults write /Library/Preferences/us.zoom.config.plist ZAutoSSOLogin -string YES
-    defaults write /Library/Preferences/us.zoom.config.plist ZSSOHost -string azwestern.zoom.us
+    defaults write /Library/Preferences/us.zoom.config.plist ZSSOHost -string domain.zoom.us
     defaults write /Library/Preferences/us.zoom.config.plist nogoogle  -string 1
     defaults write /Library/Preferences/us.zoom.config.plist nofacebook -string 1
     echo "`date` All preferences are now added"

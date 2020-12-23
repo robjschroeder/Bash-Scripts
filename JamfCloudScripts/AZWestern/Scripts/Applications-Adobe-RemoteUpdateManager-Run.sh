@@ -22,7 +22,7 @@ installUpdates ()
     caffeinatepid=$!
 
     # Displaying jamfHelper
-    "$jamfHelper" -windowType hud -title "Arizona Western College Adobe Updater" -description "Downloading and Installing Updates, this may take some time..." \
+    "$jamfHelper" -windowType hud -title " Adobe Updater" -description "Downloading and Installing Updates, this may take some time..." \
     -icon "$icons/Sync.icns" -lockHUD > /dev/null 2>&1 &
 
     # do all of your work here
@@ -93,7 +93,7 @@ secho=`sed -n '/Following*/,/\*/p' $rumlog \
     | sed 's/ESHR/Dimension/g' `
 
 if [ "$(grep "Following Updates are applicable" $rumlog)" ] ; then
-  userChoice=$("$jamfHelper" -windowType hud -lockHUD -title "Arizona Western College Adobe Updater" \
+  userChoice=$("$jamfHelper" -windowType hud -lockHUD -title " Adobe Updater" \
   -icon "$icons/ToolbarInfo.icns" -description "Do you want to install these updates?
 $secho" -button1 "Yes" -button2 "No")
     if [ "$userChoice" == "0" ]; then
@@ -104,7 +104,7 @@ $secho" -button1 "Yes" -button2 "No")
         exit 0
     fi
 else
-    "$jamfHelper" -windowType hud -title "Arizona Western College Adobe Updater" -description "There are no Adobe Updates available." \
+    "$jamfHelper" -windowType hud -title " Adobe Updater" -description "There are no Adobe Updates available." \
     -icon "$icons/ToolbarInfo.icns" -button1 Ok -defaultButton 1
     exit 0
 fi

@@ -409,7 +409,7 @@ rm -rf /etc/motd
 /usr/bin/touch /etc/motd
 /bin/chmod 644 /etc/motd
 /bin/echo "" >> /etc/motd
-/bin/echo "This Apple Workstation, including all related equipment belongs to Arizona Western College. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected." >> /etc/motd
+/bin/echo "This Apple Workstation, including all related equipment belongs to Organization. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected." >> /etc/motd
 /bin/echo "" >> /etc/motd
 
 # enable location services

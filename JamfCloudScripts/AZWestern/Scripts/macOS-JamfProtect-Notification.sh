@@ -4,7 +4,7 @@
 heading="IT Security Notification" 
 
 #Description for Pop Up
-description="Malicious activity was recently captured from your Mac. Contact the AWC Service Desk immediately. ServiceDesk@azwestern.edu or 928.317.5892"
+description="Malicious activity was recently captured from your Mac. Contact the Service Desk immediately. ServiceDesk@domain.com or PHONE"
 
 #Button Text 
 button1="Ok"

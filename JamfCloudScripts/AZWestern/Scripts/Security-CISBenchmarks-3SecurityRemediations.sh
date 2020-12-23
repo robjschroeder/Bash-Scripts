@@ -803,7 +803,7 @@ fi
 Audit5_13="$(defaults read "$plistlocation" OrgScore5_13)"
 # If organizational score is 1 or true, check status of client
 if [ "$Audit5_13" = "1" ]; then
-	PolicyBannerText="This Apple Workstation, including all related equipment belongs to Arizona Western College. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected."
+	PolicyBannerText="This Apple Workstation, including all related equipment belongs to Organization. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected."
 	defaults write /Library/Preferences/com.apple.loginwindow.plist LoginwindowText -string "$PolicyBannerText"
 	echo "$(date -u)" "5.13 remediated" | tee -a "$logFile"
 fi
@@ -814,7 +814,7 @@ fi
 Audit5_14="$(defaults read "$plistlocation" OrgScore5_14)"
 # If organizational score is 1 or true, check status of client
 if [ "$Audit5_14" = "1" ]; then
-	PolicyBannerText="This Apple Workstation, including all related equipment belongs to Arizona Western College. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected."
+	PolicyBannerText="This Apple Workstation, including all related equipment belongs to Organization. Unauthorized access to this workstation is forbidden and will be prosecuted by law. By accessing this system, you agree that your actions may be monitored if unauthorized usage is suspected."
 	/bin/echo "$PolicyBannerText" > "/Library/Security/PolicyBanner.txt"
 	/bin/chmod 755 "/Library/Security/PolicyBanner."* 
 	echo "$(date -u)" "5.14 remediated" | tee -a "$logFile"

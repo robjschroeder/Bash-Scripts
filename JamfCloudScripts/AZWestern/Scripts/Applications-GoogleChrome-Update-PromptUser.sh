@@ -28,7 +28,7 @@ curl -s --url https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_
 
 jamfHelper="/Library/Application Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper"
 icon="/var/tmp/chrome.png"
-title="Message from AWC Service Desk"
+title="Message from  Service Desk"
 heading="An important Google Chrome upgrade is availabe for your Mac - $Timer deferrals remaining"
 description="The Google Chrome upgrade includes new features, security updates and performance enhancements.
 
@@ -47,7 +47,7 @@ jamfHelperUpdateInProgress ()
 {
 #Show a message via Jamf Helper that the update has started - & at end so the script can carry on after jamf helper is launched.
 su - $LoggedInUser <<'jamfmsg2'
-/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType utility -icon /Library/Application\ Support/JAMF/bin/Management\ Action.app/Contents/Resources/Self\ Service.icns -title "Message from AWC Service Desk" -heading "Downloading Upgrade Package" -alignHeading center -description "Google Chrome upgrade including new features, security updates and performance enhancements has started.
+/Library/Application\ Support/JAMF/bin/jamfHelper.app/Contents/MacOS/jamfHelper -windowType utility -icon /Library/Application\ Support/JAMF/bin/Management\ Action.app/Contents/Resources/Self\ Service.icns -title "Message from  Service Desk" -heading "Downloading Upgrade Package" -alignHeading center -description "Google Chrome upgrade including new features, security updates and performance enhancements has started.
 Thank you &
 jamfmsg2
 }

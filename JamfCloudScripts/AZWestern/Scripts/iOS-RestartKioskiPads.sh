@@ -4,8 +4,8 @@
 
 jssURL=$(defaults read /Library/Preferences/com.jamfsoftware.jamf.plist jss_url | sed s'/.$//')
 
-apiUser="admin"
-apiPass='0b1W4nK3n0b1!'
+apiUser="user"
+apiPass='password'
 deviceID="167"
 
 data="<mobile_device_command><general><command>RestartDevice</command></general><mobile_devices><mobile_device><id>${deviceID}</id></mobile_device></mobile_devices></mobile_device_command>"
