@@ -1,41 +1,43 @@
 ﻿$configFiles=get-childitem "C:\Deployments\*" -Include *.vbs,*.bat,*.txt, *.sh
+$oldServer="server.domain.com\folder"
+$newServer="server.domain.com\folder"
 foreach ($file in $configFiles)
 {
 (Get-Content $file.PSPath) | 
-Foreach-Object {$_.replace("tss-mbrsrv1\deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("tss-mbrsrv1\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\DEPLOY","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\deploy","adroot\tss\deploy")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
 Set-Content $file.PSPath
 Write-Output $file.fullname >> C:\Temp\Archived.txt
 }
 
 
-$configFiles=get-childitem "C:\Users\mec6\Downloads" *.xml
+$configFiles=get-childitem "C:\Users\username\Downloads" *.xml
 foreach ($file in $configFiles)
 {
 (Get-Content $file.PSPath) | 
-Foreach-Object {$_.replace("tss-mbrsrv1\deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("tss-mbrsrv1\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\DEPLOY","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("tss-mbrsrv1.adroot.azwestern.edu\deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("tss-mbrsrv1.adroot.azwestern.edu\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\Deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\DEPLOY","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\deploy","adroot\tss\deploy")} |
-Foreach-Object {$_.replace("tss-mbrsrv1\dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("tss-mbrsrv1\Dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\Dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\DIST","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1\dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("tss-mbrsrv1.adroot.azwestern.edu\dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("tss-mbrsrv1.adroot.azwestern.edu\Dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\Dist","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\DIST","adroot\tss\dist")} |
-Foreach-Object {$_.replace("TSS-MBRSRV1.adroot.azwestern.edu\dist","adroot\tss\dist")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
+Foreach-Object {$_.replace("$oldServer","$newServer")} |
 Set-Content $file.PSPath
 Write-Output $file.fullname >> C:\Temp\Updated.txt
 }
@@ -64,6 +66,6 @@ $configFiles=get-childitem "C:\Deployments\*" -Include *.vbs,*.bat,*.txt, *.sh |
 
 
 
-$T = Get-ChildItem \\adroot\tss\deploy -Recurse | 
-$V = Get-ChildItem \\tss-mbrsrv1\deploy -Recurse
+$T = Get-ChildItem \\$newServer -Recurse | 
+$V = Get-ChildItem \\$oldServer -Recurse
 Compare-Object $T $V

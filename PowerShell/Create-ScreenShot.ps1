@@ -1,7 +1,7 @@
 ﻿#############################################################################
 # Capturing a screenshot
 #############################################################################
-$Path = "$env:USERPROFILE"+"\appdata\roaming\microsoft\windows\AWC"
+$Path = "$env:USERPROFILE"+"\appdata\roaming\microsoft\windows\Screenshot"
 $FileName = "$env:COMPUTERNAME-$env:USERNAME-$(get-date -f yyyy-MM-dd_HHmmss).bmp"
 $File = "$Path\$FileName"
 If (!(test-path $Path))
