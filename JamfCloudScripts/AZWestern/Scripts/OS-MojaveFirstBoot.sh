@@ -17,7 +17,7 @@
 # 
 #
 LOGPATH='/private/var/log'
-JSSURL='https://hyde.adroot.azwestern.edu:8443'
+JSSURL='https://tenant.jamfcloud.com'
 JSSCONTACTTIMEOUT=120
 FIRSTRUN='/Library/Application\ Support/JAMF/FirstRun/Enroll/enroll.sh'
 ENROLLLAUNCHDAEMON='/Library/LaunchDaemons/com.jamfsoftware.firstrun.enroll.plist'

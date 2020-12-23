@@ -1,6 +1,6 @@
 ﻿# Variables
 Import-Module ActiveDirectory
-$domain = "adroot.azwestern.edu"
+$domain = "server.domain.com"
 $time = (Get-Date).AddDays(-($daysInactive))
 $date = Get-Date -Format M.d.yyyy
 #$datestr = '{0:yyyyMMdd}' -f $date

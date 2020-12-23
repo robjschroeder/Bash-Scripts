@@ -16,12 +16,12 @@ IF (test-path "C:\users\$env:username\appdata\local\google")
                     }                     
             }
     }
-ElseIF (test-path "C:\users\$env:username.Adroot\appdata\local\google\chrome")
+ElseIF (test-path "C:\users\$env:username\appdata\local\google\chrome")
     {
-        $chromeVersion = (Get-ChildItem -Path "C:\Users\$env:USERNAME.adroot\$chromeUserLevelEXEPath").VersionInfo.FileVersion
-        IF (test-path "C:\Users\$env:username.adroot\AppData\Local\Google\Chrome\Application\$chromeVersion\installer\setup.exe")
+        $chromeVersion = (Get-ChildItem -Path "C:\Users\$env:USERNAME\$chromeUserLevelEXEPath").VersionInfo.FileVersion
+        IF (test-path "C:\Users\$env:username\AppData\Local\Google\Chrome\Application\$chromeVersion\installer\setup.exe")
             {
-                Start-Process -FilePath "C:\Users\$env:USERNAME.adroot\AppData\Local\Google\Chrome\Application\$chromeVersion\installer\setup.exe" -ArgumentList "$switches" -Wait
+                Start-Process -FilePath "C:\Users\$env:USERNAME\AppData\Local\Google\Chrome\Application\$chromeVersion\installer\setup.exe" -ArgumentList "$switches" -Wait
                 IF ($? -eq "true")
                     {
                         Remove-Item "C:\Users\$env:USERNAME\AppData\Local\Google\Chrome" -Force -Recurse
